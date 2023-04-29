@@ -1,0 +1,1732 @@
+  [1m[35m (191.7ms)[0m  [1m[35mCREATE DATABASE "mcu_core_development" ENCODING = 'unicode'[0m
+  [1m[35m (181.2ms)[0m  [1m[35mCREATE DATABASE "mcu_core_test" ENCODING = 'unicode'[0m
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (10.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(138040700824539030)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseTokenAuthCreateUsers (20220116200913)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "provider" character varying DEFAULT 'email' NOT NULL, "uid" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "allow_password_change" boolean DEFAULT FALSE, "remember_created_at" timestamp, "confirmation_token" character varying, "confirmed_at" timestamp, "confirmation_sent_at" timestamp, "unconfirmed_email" character varying, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "name" character varying, "email" character varying DEFAULT '' NOT NULL, "role" character varying, "tokens" json, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_uid_and_provider" ON "users" ("uid", "provider")[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220116200913"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeUserNotNullPropeties (20220123135842)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ALTER COLUMN "role" TYPE character varying, ALTER COLUMN "role" SET NOT NULL[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ALTER COLUMN "name" TYPE character varying, ALTER COLUMN "name" SET NOT NULL[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220123135842"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateItems (20220228220917)
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "items" ("id" bigserial primary key, "status" character varying NOT NULL, "register_number" character varying NOT NULL, "id_photo" character varying, "name" character varying NOT NULL, "description" character varying, "material" character varying, "reference_measures" character varying, "release_date" timestamp, "publication_date" timestamp, "conservation_state" character varying, "conservation_description" character varying, "recommendations" character varying, "general_observations" character varying, "cataloged_by" character varying, "last_change_by" character varying, "origin" character varying, "country" character varying, "donor_by" character varying, "donation_date" timestamp, "localization" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220228220917"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddFirstLoginColumn (20220929215545)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "first_login" boolean DEFAULT TRUE[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220929215545"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-10-26 18:09:19.524280"], ["updated_at", "2022-10-26 18:09:19.524280"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(138040700824539030)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 172.18.0.1 at 2022-10-26 18:09:50 +0000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/bundle/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/bundle/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 5.8ms | Allocations: 395)
+Completed 200 OK in 15ms (Views: 9.5ms | ActiveRecord: 0.0ms | Allocations: 3392)
+
+
+Started GET "/favicon.ico" for 172.18.0.1 at 2022-10-26 18:09:51 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE DATABASE "mcu_core_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE DATABASE "mcu_core_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(138040700824539030)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(138040700824539030)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/auth/sign_in" for 172.18.0.1 at 2022-10-26 18:14:47 +0000
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DeviseTokenAuth::SessionsController#create as JSON
+  Parameters: {"email"=>"master@mcu.com", "password"=>"[FILTERED]", "session"=>{"email"=>"master@mcu.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameters: :format, :session[0m
+[31mUnpermitted parameters: :format, :session[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."provider" = $2 LIMIT $3[0m  [["email", "master@mcu.com"], ["provider", "email"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 401 Unauthorized in 1392ms (Views: 1.2ms | ActiveRecord: 2.1ms | Allocations: 1037419)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "master@mcu.com"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "confirmation_token", "confirmation_sent_at", "name", "email", "role", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["uid", "master@mcu.com"], ["encrypted_password", "$2a$12$6oHu8hda0eeBDpwWIphPyug6O1z9NH/sTVp.0AR0zvvZ1RQuAK1Me"], ["confirmation_token", "5C5H1_sAHNy4D21gaNxM"], ["confirmation_sent_at", "2022-10-26 18:15:07.114358"], ["name", "MCU Master"], ["email", "master@mcu.com"], ["role", "master"], ["created_at", "2022-10-26 18:15:07.114260"], ["updated_at", "2022-10-26 18:15:07.114260"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendering layout layouts/mailer.html.inky
+  Rendering devise/mailer/confirmation_instructions.html.inky within layouts/mailer
+  Rendered devise/mailer/confirmation_instructions.html.inky within layouts/mailer (Duration: 7.9ms | Allocations: 2979)
+  Rendered layout layouts/mailer.html.inky (Duration: 71.0ms | Allocations: 25745)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 310.9ms
+Delivered mail 6359792b8ede3_7114456615@f1c0fcabe27c.mail (15.1ms)
+Date: Wed, 26 Oct 2022 18:15:07 +0000
+From: from@example.com
+Reply-To: mcu@example.com
+To: master@mcu.com
+Message-ID: <6359792b8ede3_7114456615@f1c0fcabe27c.mail>
+Subject: =?UTF-8?Q?Instru=C3=A7=C3=B5es_de_confirma=C3=A7=C3=A3o?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_6359792b8e593_71144565fb";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+client-config: default
+redirect-url: http://localhost:19006/admin
+
+
+----==_mimepart_6359792b8e593_71144565fb
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Logo do Museu da Computa=C3=A7=C3=A3o da UFRJ=0D
+=0D
+Ol=C3=A1,  master@mcu.com!=0D
+=0D
+Seja bem vindo ao time do Museu da Computa=C3=A7=C3=A3o da UFRJ.=0D
+=0D
+Por favor confirme sua conta clicando no link a baixo=0D
+=0D
+Confirmar minha conta =0D
+( http://localhost:3000/api/auth/confirmation?confirmation_token=3D5C5H1_=
+sAHNy4D21gaNxM )=0D
+=0D
+=0D
+=E2=9D=A4=EF=B8=8F =F0=9F=A4=96 =E2=9D=A4=EF=B8=8F=
+
+----==_mimepart_6359792b8e593_71144565fb
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.o=
+rg/TR/xhtml1/DTD/xhtml1-strict.dtd">=0D
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns=3D"http://www.w3.org/1=
+999/xhtml" style=3D"min-height: 100%; background-color: #FFF;">=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width" />=0D
+=0D
+    =0D
+    =0D
+  <style>body {=0D
+width: 100% !important; min-width: 100%; -webkit-text-size-adjust: 100%; =
+-ms-text-size-adjust: 100%; margin: 0; padding: 0; -moz-box-sizing: borde=
+r-box; -webkit-box-sizing: border-box; box-sizing: border-box;=0D
+}=0D
+.ExternalClass {=0D
+width: 100%;=0D
+}=0D
+.ExternalClass {=0D
+line-height: 100%;=0D
+}=0D
+#backgroundTable {=0D
+margin: 0; padding: 0; width: 100% !important; line-height: 100% !importa=
+nt;=0D
+}=0D
+img {=0D
+outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; wi=
+dth: auto; max-width: 100%; clear: both; display: block;=0D
+}=0D
+body {=0D
+color: #464855; font-family: "Roboto", "Helvetica", "Arial", "sans-serif"=
+; font-weight: normal; padding: 0; margin: 0; text-align: left; line-heig=
+ht: 24px;=0D
+}=0D
+body {=0D
+font-size: 16px; line-height: 24px;=0D
+}=0D
+a:hover {=0D
+color: #0071aa;=0D
+}=0D
+a:active {=0D
+color: #0071aa;=0D
+}=0D
+a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h1 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h2 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h3 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h4 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h5 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h6 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+table.button:hover table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button:active table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button table tr td a:visited {=0D
+color: #fefefe;=0D
+}=0D
+table.button.tiny:hover table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.tiny:active table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.tiny table tr td a:visited {=0D
+color: #fefefe;=0D
+}=0D
+table.button.small:hover table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.small:active table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.small table tr td a:visited {=0D
+color: #fefefe;=0D
+}=0D
+table.button.large:hover table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.large:active table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.large table tr td a:visited {=0D
+color: #fefefe;=0D
+}=0D
+table.button:hover table td {=0D
+background: #0071aa; color: #fefefe;=0D
+}=0D
+table.button:visited table td {=0D
+background: #0071aa; color: #fefefe;=0D
+}=0D
+table.button:active table td {=0D
+background: #0071aa; color: #fefefe;=0D
+}=0D
+table.button:hover table a {=0D
+border: 0 solid #0071aa;=0D
+}=0D
+table.button:visited table a {=0D
+border: 0 solid #0071aa;=0D
+}=0D
+table.button:active table a {=0D
+border: 0 solid #0071aa;=0D
+}=0D
+table.button.secondary:hover table td {=0D
+background: #919191; color: #fefefe;=0D
+}=0D
+table.button.secondary:hover table a {=0D
+border: 0 solid #919191;=0D
+}=0D
+table.button.secondary:hover table td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.secondary:active table td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.secondary table td a:visited {=0D
+color: #fefefe;=0D
+}=0D
+table.button.success:hover table td {=0D
+background: #23bf5d;=0D
+}=0D
+table.button.success:hover table a {=0D
+border: 0 solid #23bf5d;=0D
+}=0D
+table.button.alert:hover table td {=0D
+background: #e23317;=0D
+}=0D
+table.button.alert:hover table a {=0D
+border: 0 solid #e23317;=0D
+}=0D
+table.button.warning:hover table td {=0D
+background: #cc8b00;=0D
+}=0D
+table.button.warning:hover table a {=0D
+border: 0px solid #cc8b00;=0D
+}=0D
+.thumbnail:hover {=0D
+box-shadow: 0 0 6px 1px rgba(0, 147, 221, 0.5);=0D
+}=0D
+.thumbnail:focus {=0D
+box-shadow: 0 0 6px 1px rgba(0, 147, 221, 0.5);=0D
+}=0D
+body.outlook p {=0D
+display: inline !important;=0D
+}=0D
+@media only screen and (max-width: 596px) {=0D
+  .small-float-center {=0D
+    margin: 0 auto !important; float: none !important; text-align: center=
+ !important;=0D
+  }=0D
+  .small-text-center {=0D
+    text-align: center !important;=0D
+  }=0D
+  .small-text-left {=0D
+    text-align: left !important;=0D
+  }=0D
+  .small-text-right {=0D
+    text-align: right !important;=0D
+  }=0D
+  .hide-for-large {=0D
+    display: block !important; width: auto !important; overflow: visible =
+!important; max-height: none !important; font-size: inherit !important; l=
+ine-height: inherit !important;=0D
+  }=0D
+  table.body table.container .hide-for-large {=0D
+    display: table !important; width: 100% !important;=0D
+  }=0D
+  table.body table.container .row.hide-for-large {=0D
+    display: table !important; width: 100% !important;=0D
+  }=0D
+  table.body table.container .callout-inner.hide-for-large {=0D
+    display: table-cell !important; width: 100% !important;=0D
+  }=0D
+  table.body table.container .show-for-large {=0D
+    display: none !important; width: 0; mso-hide: all; overflow: hidden;=0D=
+
+  }=0D
+  table.body img {=0D
+    width: auto; height: auto;=0D
+  }=0D
+  table.body center {=0D
+    min-width: 0 !important;=0D
+  }=0D
+  table.body .container {=0D
+    width: 95% !important;=0D
+  }=0D
+  table.body .columns {=0D
+    height: auto !important; -moz-box-sizing: border-box; -webkit-box-siz=
+ing: border-box; box-sizing: border-box; padding-left: 16px !important; p=
+adding-right: 16px !important;=0D
+  }=0D
+  table.body .column {=0D
+    height: auto !important; -moz-box-sizing: border-box; -webkit-box-siz=
+ing: border-box; box-sizing: border-box; padding-left: 16px !important; p=
+adding-right: 16px !important;=0D
+  }=0D
+  table.body .columns .column {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.body .columns .columns {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.body .column .column {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.body .column .columns {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.body .collapse .columns {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.body .collapse .column {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  td.small-1 {=0D
+    display: inline-block !important; width: 8.333333% !important;=0D
+  }=0D
+  th.small-1 {=0D
+    display: inline-block !important; width: 8.333333% !important;=0D
+  }=0D
+  td.small-2 {=0D
+    display: inline-block !important; width: 16.666666% !important;=0D
+  }=0D
+  th.small-2 {=0D
+    display: inline-block !important; width: 16.666666% !important;=0D
+  }=0D
+  td.small-3 {=0D
+    display: inline-block !important; width: 25% !important;=0D
+  }=0D
+  th.small-3 {=0D
+    display: inline-block !important; width: 25% !important;=0D
+  }=0D
+  td.small-4 {=0D
+    display: inline-block !important; width: 33.333333% !important;=0D
+  }=0D
+  th.small-4 {=0D
+    display: inline-block !important; width: 33.333333% !important;=0D
+  }=0D
+  td.small-5 {=0D
+    display: inline-block !important; width: 41.666666% !important;=0D
+  }=0D
+  th.small-5 {=0D
+    display: inline-block !important; width: 41.666666% !important;=0D
+  }=0D
+  td.small-6 {=0D
+    display: inline-block !important; width: 50% !important;=0D
+  }=0D
+  th.small-6 {=0D
+    display: inline-block !important; width: 50% !important;=0D
+  }=0D
+  td.small-7 {=0D
+    display: inline-block !important; width: 58.333333% !important;=0D
+  }=0D
+  th.small-7 {=0D
+    display: inline-block !important; width: 58.333333% !important;=0D
+  }=0D
+  td.small-8 {=0D
+    display: inline-block !important; width: 66.666666% !important;=0D
+  }=0D
+  th.small-8 {=0D
+    display: inline-block !important; width: 66.666666% !important;=0D
+  }=0D
+  td.small-9 {=0D
+    display: inline-block !important; width: 75% !important;=0D
+  }=0D
+  th.small-9 {=0D
+    display: inline-block !important; width: 75% !important;=0D
+  }=0D
+  td.small-10 {=0D
+    display: inline-block !important; width: 83.333333% !important;=0D
+  }=0D
+  th.small-10 {=0D
+    display: inline-block !important; width: 83.333333% !important;=0D
+  }=0D
+  td.small-11 {=0D
+    display: inline-block !important; width: 91.666666% !important;=0D
+  }=0D
+  th.small-11 {=0D
+    display: inline-block !important; width: 91.666666% !important;=0D
+  }=0D
+  td.small-12 {=0D
+    display: inline-block !important; width: 100% !important;=0D
+  }=0D
+  th.small-12 {=0D
+    display: inline-block !important; width: 100% !important;=0D
+  }=0D
+  .columns td.small-12 {=0D
+    display: block !important; width: 100% !important;=0D
+  }=0D
+  .column td.small-12 {=0D
+    display: block !important; width: 100% !important;=0D
+  }=0D
+  .columns th.small-12 {=0D
+    display: block !important; width: 100% !important;=0D
+  }=0D
+  .column th.small-12 {=0D
+    display: block !important; width: 100% !important;=0D
+  }=0D
+  table.body td.small-offset-1 {=0D
+    margin-left: 8.333333% !important;=0D
+  }=0D
+  table.body th.small-offset-1 {=0D
+    margin-left: 8.333333% !important;=0D
+  }=0D
+  table.body td.small-offset-2 {=0D
+    margin-left: 16.666666% !important;=0D
+  }=0D
+  table.body th.small-offset-2 {=0D
+    margin-left: 16.666666% !important;=0D
+  }=0D
+  table.body td.small-offset-3 {=0D
+    margin-left: 25% !important;=0D
+  }=0D
+  table.body th.small-offset-3 {=0D
+    margin-left: 25% !important;=0D
+  }=0D
+  table.body td.small-offset-4 {=0D
+    margin-left: 33.333333% !important;=0D
+  }=0D
+  table.body th.small-offset-4 {=0D
+    margin-left: 33.333333% !important;=0D
+  }=0D
+  table.body td.small-offset-5 {=0D
+    margin-left: 41.666666% !important;=0D
+  }=0D
+  table.body th.small-offset-5 {=0D
+    margin-left: 41.666666% !important;=0D
+  }=0D
+  table.body td.small-offset-6 {=0D
+    margin-left: 50% !important;=0D
+  }=0D
+  table.body th.small-offset-6 {=0D
+    margin-left: 50% !important;=0D
+  }=0D
+  table.body td.small-offset-7 {=0D
+    margin-left: 58.333333% !important;=0D
+  }=0D
+  table.body th.small-offset-7 {=0D
+    margin-left: 58.333333% !important;=0D
+  }=0D
+  table.body td.small-offset-8 {=0D
+    margin-left: 66.666666% !important;=0D
+  }=0D
+  table.body th.small-offset-8 {=0D
+    margin-left: 66.666666% !important;=0D
+  }=0D
+  table.body td.small-offset-9 {=0D
+    margin-left: 75% !important;=0D
+  }=0D
+  table.body th.small-offset-9 {=0D
+    margin-left: 75% !important;=0D
+  }=0D
+  table.body td.small-offset-10 {=0D
+    margin-left: 83.333333% !important;=0D
+  }=0D
+  table.body th.small-offset-10 {=0D
+    margin-left: 83.333333% !important;=0D
+  }=0D
+  table.body td.small-offset-11 {=0D
+    margin-left: 91.666666% !important;=0D
+  }=0D
+  table.body th.small-offset-11 {=0D
+    margin-left: 91.666666% !important;=0D
+  }=0D
+  table.body table.columns td.expander {=0D
+    display: none !important;=0D
+  }=0D
+  table.body table.columns th.expander {=0D
+    display: none !important;=0D
+  }=0D
+  table.body .right-text-pad {=0D
+    padding-left: 10px !important;=0D
+  }=0D
+  table.body .text-pad-right {=0D
+    padding-left: 10px !important;=0D
+  }=0D
+  table.body .left-text-pad {=0D
+    padding-right: 10px !important;=0D
+  }=0D
+  table.body .text-pad-left {=0D
+    padding-right: 10px !important;=0D
+  }=0D
+  table.menu {=0D
+    width: 100% !important;=0D
+  }=0D
+  table.menu td {=0D
+    width: auto !important; display: inline-block !important;=0D
+  }=0D
+  table.menu th {=0D
+    width: auto !important; display: inline-block !important;=0D
+  }=0D
+  table.menu.vertical td {=0D
+    display: block !important;=0D
+  }=0D
+  table.menu.vertical th {=0D
+    display: block !important;=0D
+  }=0D
+  table.menu.small-vertical td {=0D
+    display: block !important;=0D
+  }=0D
+  table.menu.small-vertical th {=0D
+    display: block !important;=0D
+  }=0D
+  table.menu[align=3D"center"] {=0D
+    width: auto !important;=0D
+  }=0D
+  table.button.small-expand {=0D
+    width: 100% !important;=0D
+  }=0D
+  table.button.small-expanded {=0D
+    width: 100% !important;=0D
+  }=0D
+  table.button.small-expand table {=0D
+    width: 100%;=0D
+  }=0D
+  table.button.small-expanded table {=0D
+    width: 100%;=0D
+  }=0D
+  table.button.small-expand table a {=0D
+    text-align: center !important; width: 100% !important; padding-left: =
+0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.button.small-expanded table a {=0D
+    text-align: center !important; width: 100% !important; padding-left: =
+0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.button.small-expand center {=0D
+    min-width: 0;=0D
+  }=0D
+  table.button.small-expanded center {=0D
+    min-width: 0;=0D
+  }=0D
+}=0D
+</style></head>=0D
+=0D
+  <body style=3D"width: 100% !important; min-width: 100%; -webkit-text-si=
+ze-adjust: 100%; -ms-text-size-adjust: 100%; -moz-box-sizing: border-box;=
+ -webkit-box-sizing: border-box; box-sizing: border-box; color: #464855; =
+font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;=
+, &quot;sans-serif&quot;; font-weight: normal; text-align: left; line-hei=
+ght: 24px; font-size: 16px; margin: 0; padding: 0;">=0D
+    <table class=3D"body" data-made-with-foundation=3D"" style=3D"border-=
+spacing: 0; border-collapse: collapse; vertical-align: top; text-align: l=
+eft; height: 100%; width: 100%; color: #464855; font-family: &quot;Roboto=
+&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;;=
+ font-weight: normal; line-height: 24px; font-size: 16px; margin: 0; padd=
+ing: 0;" bgcolor=3D"#FFF">=0D
+      <tr style=3D"vertical-align: top; padding: 0;" align=3D"left">=0D
+        <td class=3D"center" align=3D"center" valign=3D"top" style=3D"wor=
+d-wrap: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: a=
+uto; border-collapse: collapse !important; color: #464855; font-family: &=
+quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-s=
+erif&quot;; font-weight: normal; line-height: 24px; font-size: 16px; marg=
+in: 0; padding: 0;">=0D
+          <center style=3D"width: 100%; min-width: 580px;">=0D
+            <table class=3D"spacer float-center" align=3D"center" style=3D=
+"border-spacing: 0; border-collapse: collapse; vertical-align: top; text-=
+align: center; width: 100%; float: none; margin: 0 auto; padding: 0;"><tb=
+ody><tr style=3D"vertical-align: top; padding: 0;" align=3D"left"><td hei=
+ght=3D"5%" style=3D"font-size: 5%px; line-height: 5%px; word-wrap: break-=
+word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-co=
+llapse: collapse !important; mso-line-height-rule: exactly; color: #46485=
+5; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&qu=
+ot;, &quot;sans-serif&quot;; font-weight: normal; margin: 0; padding: 0;"=
+ align=3D"left" valign=3D"top">=C2=A0</td></tr></tbody></table>=0D
+            <table class=3D"container float-center" align=3D"center" styl=
+e=3D"border-spacing: 0; border-collapse: collapse; vertical-align: top; t=
+ext-align: center; width: 580px; float: none; border-radius: 5px; margin:=
+ 0 auto; padding: 0;" bgcolor=3D"#fdfdfd"><tbody><tr style=3D"vertical-al=
+ign: top; padding: 0;" align=3D"left"><td style=3D"word-wrap: break-word;=
+ -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collaps=
+e: collapse !important; color: #464855; font-family: &quot;Roboto&quot;, =
+&quot;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-we=
+ight: normal; line-height: 24px; font-size: 16px; margin: 0; padding: 0;"=
+ align=3D"left" valign=3D"top">=0D
+              <div class=3D"custom-body" style=3D"background-color: #f5f5=
+f5; color: #1c1c1c; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot=
+;, &quot;Arial&quot;, &quot;sans-serif&quot;; border-radius: 5px;">=0D
+                <table class=3D"row" style=3D"border-spacing: 0; border-c=
+ollapse: collapse; vertical-align: top; text-align: left; width: 100%; po=
+sition: relative; display: table; padding: 0;"><tbody><tr style=3D"vertic=
+al-align: top; padding: 0;" align=3D"left">=0D
+                  <th class=3D"header small-12 large-12 columns first las=
+t" style=3D"width: 564px; color: #464855; font-family: &quot;Roboto&quot;=
+, &quot;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-=
+weight: normal; line-height: 24px; font-size: 16px; border-radius: 5px 5p=
+x 0 0; margin: 0 auto; padding: 2% 16px 16px;" align=3D"left" bgcolor=3D"=
+#18121E"><table style=3D"border-spacing: 0; border-collapse: collapse; ve=
+rtical-align: top; text-align: left; width: 100%; padding: 0;"><tbody><tr=
+ style=3D"vertical-align: top; padding: 0;" align=3D"left">=0D
+<th style=3D"color: #464855; font-family: &quot;Roboto&quot;, &quot;Helve=
+tica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-weight: norma=
+l; line-height: 24px; font-size: 16px; margin: 0; padding: 0;" align=3D"l=
+eft">=0D
+                    <center style=3D"width: 100%; min-width: 532px;">=0D
+                      <img class=3D"logo float-center" src=3D"https://mus=
+eucomputacao.github.io/assets/images/logo-museu.png" alt=3D"Logo do Museu=
+ da Computa=C3=A7=C3=A3o da UFRJ" align=3D"center" style=3D"outline: none=
+; text-decoration: none; -ms-interpolation-mode: bicubic; width: auto; ma=
+x-width: 150px; clear: both; display: block; text-align: center; margin: =
+0 auto;" /> =0D
+                    <center align=3D"center" class=3D"float-center" style=
+=3D"width: 100%; min-width: 532px;">=0D
+                  </center>=0D
+</center>=0D
+</th>=0D
+<th class=3D"expander" style=3D"visibility: hidden; width: 0; color: #464=
+855; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&=
+quot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; fo=
+nt-size: 16px; margin: 0; padding: 0;" align=3D"left"></th>=0D
+</tr></tbody></table></th>=0D
+                </tr></tbody></table>=0D
+                <table class=3D"spacer " style=3D"border-spacing: 0; bord=
+er-collapse: collapse; vertical-align: top; text-align: left; width: 100%=
+; padding: 0;"><tbody><tr style=3D"vertical-align: top; padding: 0;" alig=
+n=3D"left"><td height=3D"50" style=3D"font-size: 50px; line-height: 50px;=
+ word-wrap: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphen=
+s: auto; border-collapse: collapse !important; mso-line-height-rule: exac=
+tly; color: #464855; font-family: &quot;Roboto&quot;, &quot;Helvetica&quo=
+t;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-weight: normal; margi=
+n: 0; padding: 0;" align=3D"left" valign=3D"top">=C2=A0</td></tr></tbody>=
+</table>=0D
+<table class=3D"row" style=3D"border-spacing: 0; border-collapse: collaps=
+e; vertical-align: top; text-align: left; width: 100%; position: relative=
+; display: table; padding: 0;"><tbody><tr style=3D"vertical-align: top; p=
+adding: 0;" align=3D"left">=0D
+  <th class=3D"small-12 large-12 columns first last" style=3D"width: 564p=
+x; color: #464855; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;=
+, &quot;Arial&quot;, &quot;sans-serif&quot;; font-weight: normal; line-he=
+ight: 24px; font-size: 16px; margin: 0 auto; padding: 0 16px 16px;" align=
+=3D"left"><table style=3D"border-spacing: 0; border-collapse: collapse; v=
+ertical-align: top; text-align: left; width: 100%; padding: 0;"><tbody><t=
+r style=3D"vertical-align: top; padding: 0;" align=3D"left">=0D
+<th style=3D"color: #464855; font-family: &quot;Roboto&quot;, &quot;Helve=
+tica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-weight: norma=
+l; line-height: 24px; font-size: 16px; margin: 0; padding: 0;" align=3D"l=
+eft">=0D
+    <center style=3D"width: 100%; min-width: 532px;">=0D
+        <p align=3D"center" class=3D"float-center" style=3D"color: #46485=
+5; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&qu=
+ot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; font=
+-size: 16px; margin: 0 0 10px; padding: 0;"> <strong>Ol=C3=A1, </strong> =
+master@mcu.com!</p>=0D
+        <p align=3D"center" class=3D"float-center" style=3D"color: #46485=
+5; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&qu=
+ot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; font=
+-size: 16px; margin: 0 0 10px; padding: 0;"> Seja bem vindo ao time do Mu=
+seu da Computa=C3=A7=C3=A3o da UFRJ. </p>=0D
+        <p align=3D"center" class=3D"float-center" style=3D"color: #46485=
+5; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&qu=
+ot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; font=
+-size: 16px; margin: 0 0 10px; padding: 0;">Por favor confirme sua conta =
+clicando no link a baixo</p>=0D
+        <table class=3D"spacer float-center" align=3D"center" style=3D"bo=
+rder-spacing: 0; border-collapse: collapse; vertical-align: top; text-ali=
+gn: center; width: 100%; float: none; margin: 0 auto; padding: 0;"><tbody=
+><tr style=3D"vertical-align: top; padding: 0;" align=3D"left"><td height=
+=3D"5" style=3D"font-size: 5px; line-height: 5px; word-wrap: break-word; =
+-webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse=
+: collapse !important; mso-line-height-rule: exactly; color: #464855; fon=
+t-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &=
+quot;sans-serif&quot;; font-weight: normal; margin: 0; padding: 0;" align=
+=3D"left" valign=3D"top">=C2=A0</td></tr></tbody></table>=0D
+        <p align=3D"center" class=3D"float-center" style=3D"color: #46485=
+5; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&qu=
+ot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; font=
+-size: 16px; margin: 0 0 10px; padding: 0;"><a class=3D"button" href=3D"h=
+ttp://localhost:3000/api/auth/confirmation?confirmation_token=3D5C5H1_sAH=
+Ny4D21gaNxM" style=3D"color: white; font-family: &quot;Roboto&quot;, &quo=
+t;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-weight=
+: 700; text-align: left; line-height: 24px; text-decoration: none; cursor=
+: pointer; font-size: 14px; width: 300px; border-radius: 25px; background=
+-color: #AD4A4A; margin: 0; padding: 10px 20px;">Confirmar minha conta</a=
+></p>=0D
+<p align=3D"center" class=3D"float-center" style=3D"color: #464855; font-=
+family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &qu=
+ot;sans-serif&quot;; font-weight: normal; line-height: 24px; font-size: 1=
+6px; margin: 0 0 10px; padding: 0;">=0D
+        </p>=0D
+<table class=3D"spacer float-center" align=3D"center" style=3D"border-spa=
+cing: 0; border-collapse: collapse; vertical-align: top; text-align: cent=
+er; width: 100%; float: none; margin: 0 auto; padding: 0;"><tbody><tr sty=
+le=3D"vertical-align: top; padding: 0;" align=3D"left"><td height=3D"20" =
+style=3D"font-size: 20px; line-height: 20px; word-wrap: break-word; -webk=
+it-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: col=
+lapse !important; mso-line-height-rule: exactly; color: #464855; font-fam=
+ily: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &quot;=
+sans-serif&quot;; font-weight: normal; margin: 0; padding: 0;" align=3D"l=
+eft" valign=3D"top">=C2=A0</td></tr></tbody></table>=0D
+        =0D
+<p align=3D"center" class=3D"float-center" style=3D"color: #464855; font-=
+family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &qu=
+ot;sans-serif&quot;; font-weight: normal; line-height: 24px; font-size: 1=
+6px; margin: 0 0 10px; padding: 0;"> =E2=9D=A4=EF=B8=8F =F0=9F=A4=96 =E2=9D=
+=A4=EF=B8=8F </p>=0D
+    </center>=0D
+  </th>=0D
+<th class=3D"expander" style=3D"visibility: hidden; width: 0; color: #464=
+855; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&=
+quot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; fo=
+nt-size: 16px; margin: 0; padding: 0;" align=3D"left"></th>=0D
+</tr></tbody></table></th>=0D
+</tr></tbody></table>=0D
+<table class=3D"spacer " style=3D"border-spacing: 0; border-collapse: col=
+lapse; vertical-align: top; text-align: left; width: 100%; padding: 0;"><=
+tbody><tr style=3D"vertical-align: top; padding: 0;" align=3D"left"><td h=
+eight=3D"20" style=3D"font-size: 20px; line-height: 20px; word-wrap: brea=
+k-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-=
+collapse: collapse !important; mso-line-height-rule: exactly; color: #464=
+855; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&=
+quot;, &quot;sans-serif&quot;; font-weight: normal; margin: 0; padding: 0=
+;" align=3D"left" valign=3D"top">=C2=A0</td></tr></tbody></table>=0D
+=0D
+              </div>=0D
+            </td></tr></tbody></table>=0D
+          </center>=0D
+        </td>=0D
+      </tr>=0D
+    </table>=0D
+  </body>=0D
+</html>=0D
+
+----==_mimepart_6359792b8e593_71144565fb--
+
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["confirmed_at", "2022-10-26 18:15:07.598493"], ["updated_at", "2022-10-26 18:15:07.598897"], ["id", 1]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/api/auth/sign_in" for 172.18.0.1 at 2022-10-26 18:15:12 +0000
+Processing by DeviseTokenAuth::SessionsController#create as JSON
+  Parameters: {"email"=>"master@mcu.com", "password"=>"[FILTERED]", "session"=>{"email"=>"master@mcu.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameters: :format, :session[0m
+[31mUnpermitted parameters: :format, :session[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."provider" = $2 LIMIT $3[0m  [["email", "master@mcu.com"], ["provider", "email"], ["LIMIT", 1]]
+[31mUnpermitted parameters: :format, :session[0m
+[31mUnpermitted parameters: :format, :session[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "\"{\\\"vAT_lHfG-e-CDilYHRB-5Q\\\":{\\\"token\\\":\\\"$2a$10$dGQacw/B8pqxdQ5mqklAneJjZ6rt7Q/wEt/ibe.ksMsTGiyyOZPm2\\\",\\\"expiry\\\":1668017712}}\""], ["updated_at", "2022-10-26 18:15:12.696464"], ["id", 1]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "current_sign_in_ip" = $4, "last_sign_in_ip" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["sign_in_count", 1], ["current_sign_in_at", "2022-10-26 18:15:12.702677"], ["last_sign_in_at", "2022-10-26 18:15:12.702677"], ["current_sign_in_ip", "172.18.0.1/32"], ["last_sign_in_ip", "172.18.0.1/32"], ["updated_at", "2022-10-26 18:15:12.703007"], ["id", 1]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 313ms (Views: 0.6ms | ActiveRecord: 6.9ms | Allocations: 19772)
+
+
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE DATABASE "mcu_core_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE "mcu_core_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(138040700824539030)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(138040700824539030)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/auth/sign_in" for 172.18.0.1 at 2022-11-17 22:29:29 +0000
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DeviseTokenAuth::SessionsController#create as JSON
+  Parameters: {"email"=>"master@mcu.com", "password"=>"[FILTERED]", "session"=>{"email"=>"master@mcu.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameters: :format, :session[0m
+[31mUnpermitted parameters: :format, :session[0m
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."provider" = $2 LIMIT $3[0m  [["email", "master@mcu.com"], ["provider", "email"], ["LIMIT", 1]]
+[31mUnpermitted parameters: :format, :session[0m
+[31mUnpermitted parameters: :format, :session[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "\"{\\\"G5LDvYtT0mRnK5GDyykQsQ\\\":{\\\"token\\\":\\\"$2a$10$nDLbCZD1caINCCNO1j3wp.pWUrvZ4Mb9LQwPY1.YZJpFu0Vo/ZGhG\\\",\\\"expiry\\\":1669933770}}\""], ["updated_at", "2022-11-17 22:29:30.228931"], ["id", 1]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["sign_in_count", 2], ["current_sign_in_at", "2022-11-17 22:29:30.236423"], ["updated_at", "2022-11-17 22:29:30.236873"], ["id", 1]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 385ms (Views: 9.9ms | ActiveRecord: 11.5ms | Allocations: 25629)
+
+
+Started GET "/api/items" for 172.18.0.1 at 2022-11-17 22:30:16 +0000
+Processing by Api::V1::ItemsController#index as JSON
+  Parameters: {"page"=>1, "per_page"=>10, "sort"=>"created_at", "dir"=>"desc", "item"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "master@mcu.com"], ["LIMIT", 1]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "items"[0m
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" ORDER BY created_at desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/items_controller.rb:54:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (1.83ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 80ms (Views: 8.2ms | ActiveRecord: 4.9ms | Allocations: 5127)
+
+
+Started POST "/api/item" for 172.18.0.1 at 2022-11-17 22:30:21 +0000
+Processing by Api::V1::ItemsController#create as JSON
+  Parameters: {"name"=>"Thiago", "id_photo"=>"Foto do meu item", "description"=>"Decrição do meu item", "material"=>"Material do meu item", "reference_measures"=>"Medidas do meu item", "release_date"=>"2022-11-17T22:30:21.383Z", "publication_date"=>nil, "conservation_state"=>"Boa", "conservation_description"=>"Decrição da Conservação", "recommendations"=>"Recomendações", "general_observations"=>"Observações gerais", "origin"=>"origem ", "country"=>"pais de origem", "donor_by"=>"Doador", "donation_date"=>"2022-11-17T22:30:21.383Z", "localization"=>"Localização do Item", "item"=>{"id_photo"=>"Foto do meu item", "name"=>"Thiago", "description"=>"Decrição do meu item", "material"=>"Material do meu item", "reference_measures"=>"Medidas do meu item", "release_date"=>"2022-11-17T22:30:21.383Z", "publication_date"=>nil, "conservation_state"=>"Boa", "conservation_description"=>"Decrição da Conservação", "recommendations"=>"Recomendações", "general_observations"=>"Observações gerais", "origin"=>"origem ", "country"=>"pais de origem", "donor_by"=>"Doador", "donation_date"=>"2022-11-17T22:30:21.383Z", "localization"=>"Localização do Item"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "master@mcu.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:20:in `create'
+  [1m[36mItem Create (3.3ms)[0m  [1m[32mINSERT INTO "items" ("status", "register_number", "id_photo", "name", "description", "material", "reference_measures", "release_date", "conservation_state", "conservation_description", "recommendations", "general_observations", "cataloged_by", "last_change_by", "origin", "country", "donor_by", "donation_date", "localization", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21) RETURNING "id"[0m  [["status", "pending"], ["register_number", "2022-11-17 22:30:21 +0000-Thiago"], ["id_photo", "Foto do meu item"], ["name", "Thiago"], ["description", "Decrição do meu item"], ["material", "Material do meu item"], ["reference_measures", "Medidas do meu item"], ["release_date", "2022-11-17 22:30:21.383000"], ["conservation_state", "Boa"], ["conservation_description", "Decrição da Conservação"], ["recommendations", "Recomendações"], ["general_observations", "Observações gerais"], ["cataloged_by", "MCU Master"], ["last_change_by", "MCU Master"], ["origin", "origem "], ["country", "pais de origem"], ["donor_by", "Doador"], ["donation_date", "2022-11-17 22:30:21.383000"], ["localization", "Localização do Item"], ["created_at", "2022-11-17 22:30:21.460553"], ["updated_at", "2022-11-17 22:30:21.460553"]]
+  ↳ app/controllers/api/v1/items_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:20:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 201 Created in 79ms (Views: 1.2ms | ActiveRecord: 10.5ms | Allocations: 13415)
+
+
+Started GET "/api/items" for 172.18.0.1 at 2022-11-17 22:30:24 +0000
+Processing by Api::V1::ItemsController#index as JSON
+  Parameters: {"page"=>1, "per_page"=>10, "sort"=>"created_at", "dir"=>"desc", "item"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "master@mcu.com"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "items"[0m
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" ORDER BY created_at desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/items_controller.rb:54:in `index'
+No serializer found for resource: #<Item id: 1, status: "pending", register_number: "2022-11-17 22:30:21 +0000-Thiago", id_photo: "Foto do meu item", name: "Thiago", description: "Decrição do meu item", material: "Material do meu item", reference_measures: "Medidas do meu item", release_date: "2022-11-17 22:30:21.383000000 +0000", publication_date: nil, conservation_state: "Boa", conservation_description: "Decrição da Conservação", recommendations: "Recomendações", general_observations: "Observações gerais", cataloged_by: "MCU Master", last_change_by: "MCU Master", origin: "origem ", country: "pais de origem", donor_by: "Doador", donation_date: "2022-11-17 22:30:21.383000000 +0000", localization: "Localização do Item", created_at: "2022-11-17 22:30:21.460553000 +0000", updated_at: "2022-11-17 22:30:21.460553000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Item::ActiveRecord_Relation (0.44ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 2.3ms | ActiveRecord: 1.2ms | Allocations: 3736)
+
+
+Started GET "/api/item/1" for 172.18.0.1 at 2022-11-17 22:30:28 +0000
+Processing by Api::V1::ItemsController#show as JSON
+  Parameters: {"id"=>"1", "item"=>{"id"=>"1"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "master@mcu.com"], ["LIMIT", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Item (0.59ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 9ms (Views: 1.1ms | ActiveRecord: 1.0ms | Allocations: 2785)
+
+
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE DATABASE "mcu_core_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE DATABASE "mcu_core_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(138040700824539030)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(138040700824539030)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/auth/sign_in" for 172.18.0.1 at 2022-11-17 22:33:41 +0000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DeviseTokenAuth::SessionsController#create as JSON
+  Parameters: {"email"=>"master@mcu.com", "password"=>"[FILTERED]", "session"=>{"email"=>"master@mcu.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameters: :format, :session[0m
+[31mUnpermitted parameters: :format, :session[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."provider" = $2 LIMIT $3[0m  [["email", "master@mcu.com"], ["provider", "email"], ["LIMIT", 1]]
+[31mUnpermitted parameters: :format, :session[0m
+[31mUnpermitted parameters: :format, :session[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "\"{\\\"G5LDvYtT0mRnK5GDyykQsQ\\\":{\\\"token\\\":\\\"$2a$10$nDLbCZD1caINCCNO1j3wp.pWUrvZ4Mb9LQwPY1.YZJpFu0Vo/ZGhG\\\",\\\"expiry\\\":1669933770},\\\"pOgTpjrRDbcT3gRx43PudQ\\\":{\\\"token\\\":\\\"$2a$10$dpFOLHWiDhhVZOOtOKC2AuZTO2XykFZfgaNtNIrT/hXBD.EfF1U52\\\",\\\"expiry\\\":1669934022}}\""], ["updated_at", "2022-11-17 22:33:42.024041"], ["id", 1]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["sign_in_count", 3], ["current_sign_in_at", "2022-11-17 22:33:42.034745"], ["last_sign_in_at", "2022-11-17 22:29:30.236423"], ["updated_at", "2022-11-17 22:33:42.035143"], ["id", 1]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 380ms (Views: 1.6ms | ActiveRecord: 13.7ms | Allocations: 24151)
+
+
+Started GET "/api/item/1" for 172.18.0.1 at 2022-11-17 22:34:05 +0000
+Processing by Api::V1::ItemsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "master@mcu.com"], ["LIMIT", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Item (0.39ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 87ms (Views: 1.1ms | ActiveRecord: 3.5ms | Allocations: 14133)
+
+
+  [1m[35m (707.0ms)[0m  [1m[35mCREATE DATABASE "pg_core_development" ENCODING = 'unicode'[0m
+  [1m[35m (598.1ms)[0m  [1m[35mCREATE DATABASE "pg_core_test" ENCODING = 'unicode'[0m
+  [1m[35m (51.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7300810248253628820)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseTokenAuthCreateUsers (20220116200913)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (48.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "provider" character varying DEFAULT 'email' NOT NULL, "uid" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "allow_password_change" boolean DEFAULT FALSE, "remember_created_at" timestamp, "confirmation_token" character varying, "confirmed_at" timestamp, "confirmation_sent_at" timestamp, "unconfirmed_email" character varying, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "name" character varying, "email" character varying DEFAULT '' NOT NULL, "role" character varying, "tokens" json, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_uid_and_provider" ON "users" ("uid", "provider")[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220116200913"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeUserNotNullPropeties (20220123135842)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ALTER COLUMN "name" TYPE character varying, ALTER COLUMN "name" SET NOT NULL[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220123135842"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddFirstLoginColumn (20220929215545)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "first_login" boolean DEFAULT TRUE[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220929215545"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-04-29 15:35:45.293663"], ["updated_at", "2023-04-29 15:35:45.293663"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(7300810248253628820)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 172.18.0.1 at 2023-04-29 15:35:52 +0000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/bundle/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/bundle/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.9ms | Allocations: 395)
+Completed 200 OK in 22ms (Views: 13.2ms | ActiveRecord: 0.0ms | Allocations: 3392)
+
+
+Started GET "/favicon.ico" for 172.18.0.1 at 2023-04-29 15:35:53 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/service-worker.js" for 172.18.0.1 at 2023-04-29 15:35:54 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/service-worker.js"):
+  
+Started GET "/service-worker.js" for 172.18.0.1 at 2023-04-29 15:35:54 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/service-worker.js"):
+  
+Started POST "/api/auth" for 172.18.0.1 at 2023-04-29 15:35:56 +0000
+Processing by DeviseTokenAuth::RegistrationsController#create as JSON
+  Parameters: {"email"=>"visitante@perenegoals.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"Visitante", "registration"=>{"email"=>"visitante@perenegoals.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"Visitante"}}
+[31mUnpermitted parameters: :format, :registration[0m
+[31mUnpermitted parameters: :format, :registration[0m
+[31mUnpermitted parameters: :format, :registration[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "visitante@perenegoals.com"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "confirmation_token", "confirmation_sent_at", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["uid", "visitante@perenegoals.com"], ["encrypted_password", "$2a$12$qV7eXLCwQLMq/wOID.V2kOY7I1kAQQ87NvYX1A7q6.lTNK6A8Xux."], ["confirmation_token", "zRecj-sVeAjtp3DK2yW5"], ["confirmation_sent_at", "2023-04-29 15:35:58.641291"], ["name", "Visitante"], ["email", "visitante@perenegoals.com"], ["created_at", "2023-04-29 15:35:58.641189"], ["updated_at", "2023-04-29 15:35:58.641189"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendering layout layouts/mailer.html.inky
+  Rendering devise/mailer/confirmation_instructions.html.inky within layouts/mailer
+  Rendered devise/mailer/confirmation_instructions.html.inky within layouts/mailer (Duration: 8.0ms | Allocations: 2853)
+  Rendered layout layouts/mailer.html.inky (Duration: 53.1ms | Allocations: 18618)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 58.2ms
+Delivered mail 644d395ed3f73_153e8897f1@348af4afe15b.mail (17.2ms)
+Date: Sat, 29 Apr 2023 15:35:58 +0000
+From: from@example.com
+Reply-To: mcu@example.com
+To: visitante@perenegoals.com
+Message-ID: <644d395ed3f73_153e8897f1@348af4afe15b.mail>
+Subject: =?UTF-8?Q?Instru=C3=A7=C3=B5es_de_confirma=C3=A7=C3=A3o?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_644d395ed349b_153e88967f";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+client-config: default
+redirect-url: http://localhost:19006/admin
+
+
+----==_mimepart_644d395ed349b_153e88967f
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Perene Goal=0D
+=0D
+Ol=C3=A1,  visitante@perenegoals.com!=0D
+=0D
+Welcome to Perene Goals.=0D
+=0D
+Please confirm you email clicking on the link below=0D
+=0D
+Confirm Account =0D
+( http://localhost:3000/api/auth/confirmation?confirmation_token=3DzRecj-=
+sVeAjtp3DK2yW5 )=0D
+=0D
+=0D
+=E2=9D=A4=EF=B8=8F =F0=9F=A4=96 =E2=9D=A4=EF=B8=8F=
+
+----==_mimepart_644d395ed349b_153e88967f
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.o=
+rg/TR/xhtml1/DTD/xhtml1-strict.dtd">=0D
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns=3D"http://www.w3.org/1=
+999/xhtml" style=3D"min-height: 100%; background-color: #FFF;">=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width" />=0D
+=0D
+    =0D
+    =0D
+  <style>body {=0D
+width: 100% !important; min-width: 100%; -webkit-text-size-adjust: 100%; =
+-ms-text-size-adjust: 100%; margin: 0; padding: 0; -moz-box-sizing: borde=
+r-box; -webkit-box-sizing: border-box; box-sizing: border-box;=0D
+}=0D
+.ExternalClass {=0D
+width: 100%;=0D
+}=0D
+.ExternalClass {=0D
+line-height: 100%;=0D
+}=0D
+#backgroundTable {=0D
+margin: 0; padding: 0; width: 100% !important; line-height: 100% !importa=
+nt;=0D
+}=0D
+img {=0D
+outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; wi=
+dth: auto; max-width: 100%; clear: both; display: block;=0D
+}=0D
+body {=0D
+color: #464855; font-family: "Roboto", "Helvetica", "Arial", "sans-serif"=
+; font-weight: normal; padding: 0; margin: 0; text-align: left; line-heig=
+ht: 24px;=0D
+}=0D
+body {=0D
+font-size: 16px; line-height: 24px;=0D
+}=0D
+a:hover {=0D
+color: #0071aa;=0D
+}=0D
+a:active {=0D
+color: #0071aa;=0D
+}=0D
+a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h1 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h2 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h3 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h4 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h5 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h6 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+table.button:hover table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button:active table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button table tr td a:visited {=0D
+color: #fefefe;=0D
+}=0D
+table.button.tiny:hover table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.tiny:active table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.tiny table tr td a:visited {=0D
+color: #fefefe;=0D
+}=0D
+table.button.small:hover table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.small:active table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.small table tr td a:visited {=0D
+color: #fefefe;=0D
+}=0D
+table.button.large:hover table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.large:active table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.large table tr td a:visited {=0D
+color: #fefefe;=0D
+}=0D
+table.button:hover table td {=0D
+background: #0071aa; color: #fefefe;=0D
+}=0D
+table.button:visited table td {=0D
+background: #0071aa; color: #fefefe;=0D
+}=0D
+table.button:active table td {=0D
+background: #0071aa; color: #fefefe;=0D
+}=0D
+table.button:hover table a {=0D
+border: 0 solid #0071aa;=0D
+}=0D
+table.button:visited table a {=0D
+border: 0 solid #0071aa;=0D
+}=0D
+table.button:active table a {=0D
+border: 0 solid #0071aa;=0D
+}=0D
+table.button.secondary:hover table td {=0D
+background: #919191; color: #fefefe;=0D
+}=0D
+table.button.secondary:hover table a {=0D
+border: 0 solid #919191;=0D
+}=0D
+table.button.secondary:hover table td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.secondary:active table td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.secondary table td a:visited {=0D
+color: #fefefe;=0D
+}=0D
+table.button.success:hover table td {=0D
+background: #23bf5d;=0D
+}=0D
+table.button.success:hover table a {=0D
+border: 0 solid #23bf5d;=0D
+}=0D
+table.button.alert:hover table td {=0D
+background: #e23317;=0D
+}=0D
+table.button.alert:hover table a {=0D
+border: 0 solid #e23317;=0D
+}=0D
+table.button.warning:hover table td {=0D
+background: #cc8b00;=0D
+}=0D
+table.button.warning:hover table a {=0D
+border: 0px solid #cc8b00;=0D
+}=0D
+.thumbnail:hover {=0D
+box-shadow: 0 0 6px 1px rgba(0, 147, 221, 0.5);=0D
+}=0D
+.thumbnail:focus {=0D
+box-shadow: 0 0 6px 1px rgba(0, 147, 221, 0.5);=0D
+}=0D
+body.outlook p {=0D
+display: inline !important;=0D
+}=0D
+@media only screen and (max-width: 596px) {=0D
+  .small-float-center {=0D
+    margin: 0 auto !important; float: none !important; text-align: center=
+ !important;=0D
+  }=0D
+  .small-text-center {=0D
+    text-align: center !important;=0D
+  }=0D
+  .small-text-left {=0D
+    text-align: left !important;=0D
+  }=0D
+  .small-text-right {=0D
+    text-align: right !important;=0D
+  }=0D
+  .hide-for-large {=0D
+    display: block !important; width: auto !important; overflow: visible =
+!important; max-height: none !important; font-size: inherit !important; l=
+ine-height: inherit !important;=0D
+  }=0D
+  table.body table.container .hide-for-large {=0D
+    display: table !important; width: 100% !important;=0D
+  }=0D
+  table.body table.container .row.hide-for-large {=0D
+    display: table !important; width: 100% !important;=0D
+  }=0D
+  table.body table.container .callout-inner.hide-for-large {=0D
+    display: table-cell !important; width: 100% !important;=0D
+  }=0D
+  table.body table.container .show-for-large {=0D
+    display: none !important; width: 0; mso-hide: all; overflow: hidden;=0D=
+
+  }=0D
+  table.body img {=0D
+    width: auto; height: auto;=0D
+  }=0D
+  table.body center {=0D
+    min-width: 0 !important;=0D
+  }=0D
+  table.body .container {=0D
+    width: 95% !important;=0D
+  }=0D
+  table.body .columns {=0D
+    height: auto !important; -moz-box-sizing: border-box; -webkit-box-siz=
+ing: border-box; box-sizing: border-box; padding-left: 16px !important; p=
+adding-right: 16px !important;=0D
+  }=0D
+  table.body .column {=0D
+    height: auto !important; -moz-box-sizing: border-box; -webkit-box-siz=
+ing: border-box; box-sizing: border-box; padding-left: 16px !important; p=
+adding-right: 16px !important;=0D
+  }=0D
+  table.body .columns .column {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.body .columns .columns {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.body .column .column {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.body .column .columns {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.body .collapse .columns {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.body .collapse .column {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  td.small-1 {=0D
+    display: inline-block !important; width: 8.333333% !important;=0D
+  }=0D
+  th.small-1 {=0D
+    display: inline-block !important; width: 8.333333% !important;=0D
+  }=0D
+  td.small-2 {=0D
+    display: inline-block !important; width: 16.666666% !important;=0D
+  }=0D
+  th.small-2 {=0D
+    display: inline-block !important; width: 16.666666% !important;=0D
+  }=0D
+  td.small-3 {=0D
+    display: inline-block !important; width: 25% !important;=0D
+  }=0D
+  th.small-3 {=0D
+    display: inline-block !important; width: 25% !important;=0D
+  }=0D
+  td.small-4 {=0D
+    display: inline-block !important; width: 33.333333% !important;=0D
+  }=0D
+  th.small-4 {=0D
+    display: inline-block !important; width: 33.333333% !important;=0D
+  }=0D
+  td.small-5 {=0D
+    display: inline-block !important; width: 41.666666% !important;=0D
+  }=0D
+  th.small-5 {=0D
+    display: inline-block !important; width: 41.666666% !important;=0D
+  }=0D
+  td.small-6 {=0D
+    display: inline-block !important; width: 50% !important;=0D
+  }=0D
+  th.small-6 {=0D
+    display: inline-block !important; width: 50% !important;=0D
+  }=0D
+  td.small-7 {=0D
+    display: inline-block !important; width: 58.333333% !important;=0D
+  }=0D
+  th.small-7 {=0D
+    display: inline-block !important; width: 58.333333% !important;=0D
+  }=0D
+  td.small-8 {=0D
+    display: inline-block !important; width: 66.666666% !important;=0D
+  }=0D
+  th.small-8 {=0D
+    display: inline-block !important; width: 66.666666% !important;=0D
+  }=0D
+  td.small-9 {=0D
+    display: inline-block !important; width: 75% !important;=0D
+  }=0D
+  th.small-9 {=0D
+    display: inline-block !important; width: 75% !important;=0D
+  }=0D
+  td.small-10 {=0D
+    display: inline-block !important; width: 83.333333% !important;=0D
+  }=0D
+  th.small-10 {=0D
+    display: inline-block !important; width: 83.333333% !important;=0D
+  }=0D
+  td.small-11 {=0D
+    display: inline-block !important; width: 91.666666% !important;=0D
+  }=0D
+  th.small-11 {=0D
+    display: inline-block !important; width: 91.666666% !important;=0D
+  }=0D
+  td.small-12 {=0D
+    display: inline-block !important; width: 100% !important;=0D
+  }=0D
+  th.small-12 {=0D
+    display: inline-block !important; width: 100% !important;=0D
+  }=0D
+  .columns td.small-12 {=0D
+    display: block !important; width: 100% !important;=0D
+  }=0D
+  .column td.small-12 {=0D
+    display: block !important; width: 100% !important;=0D
+  }=0D
+  .columns th.small-12 {=0D
+    display: block !important; width: 100% !important;=0D
+  }=0D
+  .column th.small-12 {=0D
+    display: block !important; width: 100% !important;=0D
+  }=0D
+  table.body td.small-offset-1 {=0D
+    margin-left: 8.333333% !important;=0D
+  }=0D
+  table.body th.small-offset-1 {=0D
+    margin-left: 8.333333% !important;=0D
+  }=0D
+  table.body td.small-offset-2 {=0D
+    margin-left: 16.666666% !important;=0D
+  }=0D
+  table.body th.small-offset-2 {=0D
+    margin-left: 16.666666% !important;=0D
+  }=0D
+  table.body td.small-offset-3 {=0D
+    margin-left: 25% !important;=0D
+  }=0D
+  table.body th.small-offset-3 {=0D
+    margin-left: 25% !important;=0D
+  }=0D
+  table.body td.small-offset-4 {=0D
+    margin-left: 33.333333% !important;=0D
+  }=0D
+  table.body th.small-offset-4 {=0D
+    margin-left: 33.333333% !important;=0D
+  }=0D
+  table.body td.small-offset-5 {=0D
+    margin-left: 41.666666% !important;=0D
+  }=0D
+  table.body th.small-offset-5 {=0D
+    margin-left: 41.666666% !important;=0D
+  }=0D
+  table.body td.small-offset-6 {=0D
+    margin-left: 50% !important;=0D
+  }=0D
+  table.body th.small-offset-6 {=0D
+    margin-left: 50% !important;=0D
+  }=0D
+  table.body td.small-offset-7 {=0D
+    margin-left: 58.333333% !important;=0D
+  }=0D
+  table.body th.small-offset-7 {=0D
+    margin-left: 58.333333% !important;=0D
+  }=0D
+  table.body td.small-offset-8 {=0D
+    margin-left: 66.666666% !important;=0D
+  }=0D
+  table.body th.small-offset-8 {=0D
+    margin-left: 66.666666% !important;=0D
+  }=0D
+  table.body td.small-offset-9 {=0D
+    margin-left: 75% !important;=0D
+  }=0D
+  table.body th.small-offset-9 {=0D
+    margin-left: 75% !important;=0D
+  }=0D
+  table.body td.small-offset-10 {=0D
+    margin-left: 83.333333% !important;=0D
+  }=0D
+  table.body th.small-offset-10 {=0D
+    margin-left: 83.333333% !important;=0D
+  }=0D
+  table.body td.small-offset-11 {=0D
+    margin-left: 91.666666% !important;=0D
+  }=0D
+  table.body th.small-offset-11 {=0D
+    margin-left: 91.666666% !important;=0D
+  }=0D
+  table.body table.columns td.expander {=0D
+    display: none !important;=0D
+  }=0D
+  table.body table.columns th.expander {=0D
+    display: none !important;=0D
+  }=0D
+  table.body .right-text-pad {=0D
+    padding-left: 10px !important;=0D
+  }=0D
+  table.body .text-pad-right {=0D
+    padding-left: 10px !important;=0D
+  }=0D
+  table.body .left-text-pad {=0D
+    padding-right: 10px !important;=0D
+  }=0D
+  table.body .text-pad-left {=0D
+    padding-right: 10px !important;=0D
+  }=0D
+  table.menu {=0D
+    width: 100% !important;=0D
+  }=0D
+  table.menu td {=0D
+    width: auto !important; display: inline-block !important;=0D
+  }=0D
+  table.menu th {=0D
+    width: auto !important; display: inline-block !important;=0D
+  }=0D
+  table.menu.vertical td {=0D
+    display: block !important;=0D
+  }=0D
+  table.menu.vertical th {=0D
+    display: block !important;=0D
+  }=0D
+  table.menu.small-vertical td {=0D
+    display: block !important;=0D
+  }=0D
+  table.menu.small-vertical th {=0D
+    display: block !important;=0D
+  }=0D
+  table.menu[align=3D"center"] {=0D
+    width: auto !important;=0D
+  }=0D
+  table.button.small-expand {=0D
+    width: 100% !important;=0D
+  }=0D
+  table.button.small-expanded {=0D
+    width: 100% !important;=0D
+  }=0D
+  table.button.small-expand table {=0D
+    width: 100%;=0D
+  }=0D
+  table.button.small-expanded table {=0D
+    width: 100%;=0D
+  }=0D
+  table.button.small-expand table a {=0D
+    text-align: center !important; width: 100% !important; padding-left: =
+0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.button.small-expanded table a {=0D
+    text-align: center !important; width: 100% !important; padding-left: =
+0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.button.small-expand center {=0D
+    min-width: 0;=0D
+  }=0D
+  table.button.small-expanded center {=0D
+    min-width: 0;=0D
+  }=0D
+}=0D
+</style></head>=0D
+=0D
+  <body style=3D"width: 100% !important; min-width: 100%; -webkit-text-si=
+ze-adjust: 100%; -ms-text-size-adjust: 100%; -moz-box-sizing: border-box;=
+ -webkit-box-sizing: border-box; box-sizing: border-box; color: #464855; =
+font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;=
+, &quot;sans-serif&quot;; font-weight: normal; text-align: left; line-hei=
+ght: 24px; font-size: 16px; margin: 0; padding: 0;">=0D
+    <table class=3D"body" data-made-with-foundation=3D"" style=3D"border-=
+spacing: 0; border-collapse: collapse; vertical-align: top; text-align: l=
+eft; height: 100%; width: 100%; color: #464855; font-family: &quot;Roboto=
+&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;;=
+ font-weight: normal; line-height: 24px; font-size: 16px; margin: 0; padd=
+ing: 0;" bgcolor=3D"#FFF">=0D
+      <tr style=3D"vertical-align: top; padding: 0;" align=3D"left">=0D
+        <td class=3D"center" align=3D"center" valign=3D"top" style=3D"wor=
+d-wrap: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: a=
+uto; border-collapse: collapse !important; color: #464855; font-family: &=
+quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-s=
+erif&quot;; font-weight: normal; line-height: 24px; font-size: 16px; marg=
+in: 0; padding: 0;">=0D
+          <center style=3D"width: 100%; min-width: 580px;">=0D
+            <table class=3D"spacer float-center" align=3D"center" style=3D=
+"border-spacing: 0; border-collapse: collapse; vertical-align: top; text-=
+align: center; width: 100%; float: none; margin: 0 auto; padding: 0;"><tb=
+ody><tr style=3D"vertical-align: top; padding: 0;" align=3D"left"><td hei=
+ght=3D"5%" style=3D"font-size: 5%px; line-height: 5%px; word-wrap: break-=
+word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-co=
+llapse: collapse !important; mso-line-height-rule: exactly; color: #46485=
+5; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&qu=
+ot;, &quot;sans-serif&quot;; font-weight: normal; margin: 0; padding: 0;"=
+ align=3D"left" valign=3D"top">=C2=A0</td></tr></tbody></table>=0D
+            <table class=3D"container float-center" align=3D"center" styl=
+e=3D"border-spacing: 0; border-collapse: collapse; vertical-align: top; t=
+ext-align: center; width: 580px; float: none; border-radius: 5px; margin:=
+ 0 auto; padding: 0;" bgcolor=3D"#fdfdfd"><tbody><tr style=3D"vertical-al=
+ign: top; padding: 0;" align=3D"left"><td style=3D"word-wrap: break-word;=
+ -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collaps=
+e: collapse !important; color: #464855; font-family: &quot;Roboto&quot;, =
+&quot;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-we=
+ight: normal; line-height: 24px; font-size: 16px; margin: 0; padding: 0;"=
+ align=3D"left" valign=3D"top">=0D
+              <div class=3D"custom-body" style=3D"background-color: #f5f5=
+f5; color: #1c1c1c; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot=
+;, &quot;Arial&quot;, &quot;sans-serif&quot;; border-radius: 5px;">=0D
+                <table class=3D"row" style=3D"border-spacing: 0; border-c=
+ollapse: collapse; vertical-align: top; text-align: left; width: 100%; po=
+sition: relative; display: table; padding: 0;"><tbody><tr style=3D"vertic=
+al-align: top; padding: 0;" align=3D"left">=0D
+                  <th class=3D"header small-12 large-12 columns first las=
+t" style=3D"width: 564px; color: #464855; font-family: &quot;Roboto&quot;=
+, &quot;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-=
+weight: normal; line-height: 24px; font-size: 16px; border-radius: 5px 5p=
+x 0 0; margin: 0 auto; padding: 2% 16px 16px;" align=3D"left" bgcolor=3D"=
+#18121E"><table style=3D"border-spacing: 0; border-collapse: collapse; ve=
+rtical-align: top; text-align: left; width: 100%; padding: 0;"><tbody><tr=
+ style=3D"vertical-align: top; padding: 0;" align=3D"left">=0D
+<th style=3D"color: #464855; font-family: &quot;Roboto&quot;, &quot;Helve=
+tica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-weight: norma=
+l; line-height: 24px; font-size: 16px; margin: 0; padding: 0;" align=3D"l=
+eft">=0D
+                    <center style=3D"width: 100%; min-width: 532px;">=0D
+                      <img class=3D"logo float-center" src=3D"" alt=3D"Pe=
+rene Goal" align=3D"center" style=3D"outline: none; text-decoration: none=
+; -ms-interpolation-mode: bicubic; width: auto; max-width: 150px; clear: =
+both; display: block; text-align: center; margin: 0 auto;" /> =0D
+                    <center align=3D"center" class=3D"float-center" style=
+=3D"width: 100%; min-width: 532px;">=0D
+                  </center>=0D
+</center>=0D
+</th>=0D
+<th class=3D"expander" style=3D"visibility: hidden; width: 0; color: #464=
+855; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&=
+quot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; fo=
+nt-size: 16px; margin: 0; padding: 0;" align=3D"left"></th>=0D
+</tr></tbody></table></th>=0D
+                </tr></tbody></table>=0D
+                <table class=3D"spacer " style=3D"border-spacing: 0; bord=
+er-collapse: collapse; vertical-align: top; text-align: left; width: 100%=
+; padding: 0;"><tbody><tr style=3D"vertical-align: top; padding: 0;" alig=
+n=3D"left"><td height=3D"50" style=3D"font-size: 50px; line-height: 50px;=
+ word-wrap: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphen=
+s: auto; border-collapse: collapse !important; mso-line-height-rule: exac=
+tly; color: #464855; font-family: &quot;Roboto&quot;, &quot;Helvetica&quo=
+t;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-weight: normal; margi=
+n: 0; padding: 0;" align=3D"left" valign=3D"top">=C2=A0</td></tr></tbody>=
+</table>=0D
+<table class=3D"row" style=3D"border-spacing: 0; border-collapse: collaps=
+e; vertical-align: top; text-align: left; width: 100%; position: relative=
+; display: table; padding: 0;"><tbody><tr style=3D"vertical-align: top; p=
+adding: 0;" align=3D"left">=0D
+  <th class=3D"small-12 large-12 columns first last" style=3D"width: 564p=
+x; color: #464855; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;=
+, &quot;Arial&quot;, &quot;sans-serif&quot;; font-weight: normal; line-he=
+ight: 24px; font-size: 16px; margin: 0 auto; padding: 0 16px 16px;" align=
+=3D"left"><table style=3D"border-spacing: 0; border-collapse: collapse; v=
+ertical-align: top; text-align: left; width: 100%; padding: 0;"><tbody><t=
+r style=3D"vertical-align: top; padding: 0;" align=3D"left">=0D
+<th style=3D"color: #464855; font-family: &quot;Roboto&quot;, &quot;Helve=
+tica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-weight: norma=
+l; line-height: 24px; font-size: 16px; margin: 0; padding: 0;" align=3D"l=
+eft">=0D
+    <center style=3D"width: 100%; min-width: 532px;">=0D
+        <p align=3D"center" class=3D"float-center" style=3D"color: #46485=
+5; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&qu=
+ot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; font=
+-size: 16px; margin: 0 0 10px; padding: 0;"> <strong>Ol=C3=A1, </strong> =
+visitante@perenegoals.com!</p>=0D
+        <p align=3D"center" class=3D"float-center" style=3D"color: #46485=
+5; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&qu=
+ot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; font=
+-size: 16px; margin: 0 0 10px; padding: 0;"> Welcome to Perene Goals. </p=
+>=0D
+        <p align=3D"center" class=3D"float-center" style=3D"color: #46485=
+5; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&qu=
+ot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; font=
+-size: 16px; margin: 0 0 10px; padding: 0;">Please confirm you email clic=
+king on the link below</p>=0D
+        <table class=3D"spacer float-center" align=3D"center" style=3D"bo=
+rder-spacing: 0; border-collapse: collapse; vertical-align: top; text-ali=
+gn: center; width: 100%; float: none; margin: 0 auto; padding: 0;"><tbody=
+><tr style=3D"vertical-align: top; padding: 0;" align=3D"left"><td height=
+=3D"5" style=3D"font-size: 5px; line-height: 5px; word-wrap: break-word; =
+-webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse=
+: collapse !important; mso-line-height-rule: exactly; color: #464855; fon=
+t-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &=
+quot;sans-serif&quot;; font-weight: normal; margin: 0; padding: 0;" align=
+=3D"left" valign=3D"top">=C2=A0</td></tr></tbody></table>=0D
+        <p align=3D"center" class=3D"float-center" style=3D"color: #46485=
+5; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&qu=
+ot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; font=
+-size: 16px; margin: 0 0 10px; padding: 0;"><a class=3D"button" href=3D"h=
+ttp://localhost:3000/api/auth/confirmation?confirmation_token=3DzRecj-sVe=
+Ajtp3DK2yW5" style=3D"color: white; font-family: &quot;Roboto&quot;, &quo=
+t;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-weight=
+: 700; text-align: left; line-height: 24px; text-decoration: none; cursor=
+: pointer; font-size: 14px; width: 300px; border-radius: 25px; background=
+-color: #AD4A4A; margin: 0; padding: 10px 20px;">Confirm Account</a></p>=0D=
+
+<p align=3D"center" class=3D"float-center" style=3D"color: #464855; font-=
+family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &qu=
+ot;sans-serif&quot;; font-weight: normal; line-height: 24px; font-size: 1=
+6px; margin: 0 0 10px; padding: 0;">=0D
+        </p>=0D
+<table class=3D"spacer float-center" align=3D"center" style=3D"border-spa=
+cing: 0; border-collapse: collapse; vertical-align: top; text-align: cent=
+er; width: 100%; float: none; margin: 0 auto; padding: 0;"><tbody><tr sty=
+le=3D"vertical-align: top; padding: 0;" align=3D"left"><td height=3D"20" =
+style=3D"font-size: 20px; line-height: 20px; word-wrap: break-word; -webk=
+it-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: col=
+lapse !important; mso-line-height-rule: exactly; color: #464855; font-fam=
+ily: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &quot;=
+sans-serif&quot;; font-weight: normal; margin: 0; padding: 0;" align=3D"l=
+eft" valign=3D"top">=C2=A0</td></tr></tbody></table>=0D
+        =0D
+<p align=3D"center" class=3D"float-center" style=3D"color: #464855; font-=
+family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &qu=
+ot;sans-serif&quot;; font-weight: normal; line-height: 24px; font-size: 1=
+6px; margin: 0 0 10px; padding: 0;"> =E2=9D=A4=EF=B8=8F =F0=9F=A4=96 =E2=9D=
+=A4=EF=B8=8F </p>=0D
+    </center>=0D
+  </th>=0D
+<th class=3D"expander" style=3D"visibility: hidden; width: 0; color: #464=
+855; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&=
+quot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; fo=
+nt-size: 16px; margin: 0; padding: 0;" align=3D"left"></th>=0D
+</tr></tbody></table></th>=0D
+</tr></tbody></table>=0D
+<table class=3D"spacer " style=3D"border-spacing: 0; border-collapse: col=
+lapse; vertical-align: top; text-align: left; width: 100%; padding: 0;"><=
+tbody><tr style=3D"vertical-align: top; padding: 0;" align=3D"left"><td h=
+eight=3D"20" style=3D"font-size: 20px; line-height: 20px; word-wrap: brea=
+k-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-=
+collapse: collapse !important; mso-line-height-rule: exactly; color: #464=
+855; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&=
+quot;, &quot;sans-serif&quot;; font-weight: normal; margin: 0; padding: 0=
+;" align=3D"left" valign=3D"top">=C2=A0</td></tr></tbody></table>=0D
+=0D
+              </div>=0D
+            </td></tr></tbody></table>=0D
+          </center>=0D
+        </td>=0D
+      </tr>=0D
+    </table>=0D
+  </body>=0D
+</html>=0D
+
+----==_mimepart_644d395ed349b_153e88967f--
+
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+Completed 200 OK in 2631ms (Views: 2.2ms | ActiveRecord: 6.0ms | Allocations: 1241139)
+
+
+Started GET "/service-worker.js" for 172.18.0.1 at 2023-04-29 15:36:30 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/service-worker.js"):
+  
+Started GET "/letter_open" for 172.18.0.1 at 2023-04-29 15:39:11 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/letter_open"):
+  
+Started GET "/assets/images/logo/logo-cut.png" for 172.18.0.1 at 2023-04-29 15:39:11 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/assets/images/logo/logo-cut.png"):
+  
+Started GET "/service-worker.js" for 172.18.0.1 at 2023-04-29 15:39:14 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/service-worker.js"):
+  
+Started GET "/rails/info/routes?path=letter" for 172.18.0.1 at 2023-04-29 15:39:16 +0000
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"letter"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 200 OK in 5ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 2292)
+
+
+Started GET "/letter_opener" for 172.18.0.1 at 2023-04-29 15:39:20 +0000
+Processing by LetterOpenerWeb::LettersController#index as HTML
+  Rendering layout /usr/local/bundle/gems/letter_opener_web-2.0.0/app/views/layouts/letter_opener_web/letters.html.erb
+  Rendering /usr/local/bundle/gems/letter_opener_web-2.0.0/app/views/letter_opener_web/letters/index.html.erb within layouts/letter_opener_web/letters
+  Rendered /usr/local/bundle/gems/letter_opener_web-2.0.0/app/views/letter_opener_web/letters/_item.html.erb (Duration: 3.1ms | Allocations: 4102)
+  Rendered collection of /usr/local/bundle/gems/letter_opener_web-2.0.0/app/views/letter_opener_web/letters/_item.html.erb [1 times] (Duration: 2.5ms | Allocations: 4071)
+  Rendered /usr/local/bundle/gems/letter_opener_web-2.0.0/app/views/letter_opener_web/letters/index.html.erb within layouts/letter_opener_web/letters (Duration: 8.4ms | Allocations: 9253)
+  Rendered /usr/local/bundle/gems/letter_opener_web-2.0.0/app/views/layouts/letter_opener_web/styles/_icon.html.erb (Duration: 0.6ms | Allocations: 74)
+  Rendered /usr/local/bundle/gems/letter_opener_web-2.0.0/app/views/layouts/letter_opener_web/styles/_bootstrap.html.erb (Duration: 4.2ms | Allocations: 348)
+  Rendered /usr/local/bundle/gems/letter_opener_web-2.0.0/app/views/layouts/letter_opener_web/styles/_letters.html.erb (Duration: 0.4ms | Allocations: 142)
+  Rendered /usr/local/bundle/gems/letter_opener_web-2.0.0/app/views/layouts/letter_opener_web/_styles.html.erb (Duration: 7.8ms | Allocations: 1520)
+  Rendered /usr/local/bundle/gems/letter_opener_web-2.0.0/app/views/layouts/letter_opener_web/js/_jquery.html.erb (Duration: 3.1ms | Allocations: 1298)
+  Rendered /usr/local/bundle/gems/letter_opener_web-2.0.0/app/views/layouts/letter_opener_web/js/_favcount.html.erb (Duration: 0.5ms | Allocations: 265)
+  Rendered /usr/local/bundle/gems/letter_opener_web-2.0.0/app/views/layouts/letter_opener_web/_javascripts.html.erb (Duration: 5.3ms | Allocations: 2375)
+  Rendered layout /usr/local/bundle/gems/letter_opener_web-2.0.0/app/views/layouts/letter_opener_web/letters.html.erb (Duration: 23.9ms | Allocations: 14031)
+Completed 200 OK in 29ms (Views: 25.5ms | ActiveRecord: 0.0ms | Allocations: 15591)
+
+
+Started GET "/letter_opener/1682782558_8716068_40dea36/rich" for 172.18.0.1 at 2023-04-29 15:39:20 +0000
+Processing by LetterOpenerWeb::LettersController#show as HTML
+  Parameters: {"id"=>"1682782558_8716068_40dea36", "style"=>"rich"}
+  Rendering html template
+  Rendered html template (Duration: 0.1ms | Allocations: 3)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.0ms | Allocations: 856)
+
+
+Started GET "/service-worker.js" for 172.18.0.1 at 2023-04-29 15:39:22 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/service-worker.js"):
+  
+Started GET "/letter_opener/1666808107_5882103_32924b3/rich" for 172.18.0.1 at 2023-04-29 15:39:24 +0000
+Processing by LetterOpenerWeb::LettersController#show as HTML
+  Parameters: {"id"=>"1666808107_5882103_32924b3", "style"=>"rich"}
+  Rendering html template
+  Rendered html template (Duration: 0.1ms | Allocations: 2)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 715)
+
+
+Started GET "/letter_opener/1666808107_5882103_32924b3/rich" for 172.18.0.1 at 2023-04-29 15:39:24 +0000
+Processing by LetterOpenerWeb::LettersController#show as HTML
+  Parameters: {"id"=>"1666808107_5882103_32924b3", "style"=>"rich"}
+  Rendering html template
+  Rendered html template (Duration: 0.1ms | Allocations: 3)
+Completed 200 OK in 5ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 716)
+
+
+Started GET "/service-worker.js" for 172.18.0.1 at 2023-04-29 15:39:26 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/service-worker.js"):
+  
+Started GET "/letter_opener/1682782558_8716068_40dea36/rich" for 172.18.0.1 at 2023-04-29 15:39:27 +0000
+Processing by LetterOpenerWeb::LettersController#show as HTML
+  Parameters: {"id"=>"1682782558_8716068_40dea36", "style"=>"rich"}
+  Rendering html template
+  Rendered html template (Duration: 0.0ms | Allocations: 2)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 713)
+
+
+Started GET "/service-worker.js" for 172.18.0.1 at 2023-04-29 15:39:28 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/service-worker.js"):
+  

@@ -1,2 +1,160 @@
-# perene-goals
-PUC Minas graduate course work 2023. Web application for personal goals management.
+# PERENE GOALS | Fábio R. Nóbrega 
+
+This project was generated with [Rails](https://guides.rubyonrails.org/v6.1/). Our main go is the create ond REST API to control the museum data.
+
+
+We use:
+ - Rails: 6.1.4.4
+ - Ruby: 2.7.5
+ - Vue.JS 2
+
+Table of contents
+=================
+
+  * [Install](#install)
+  * [Usage](#usage)
+  * [Rails Console](#rails-console)
+  * [Tests](#tests)
+  * [Linter](#linter)
+  * [Troubleshooting](#troubleshooting)
+  * [Git Guideline](#git-guideline)
+
+## Install
+
++ Clone the repo and cd into  `pg-core`it
+
+``` bash
+$ docker-compose up
+```
+
+> You need to add one `.env` use the `.env.example` as reference 
+
+For the front end go to `pg-fe` and: 
+
+```bash 
+$  npm install
+```
+
+## Usage
+
+Back - end 
+```bash
+$ docker-compose up
+```
+
+Front - end
+```bash
+$ npm run dev
+```
+
+The application will become available at the URL:
+
+```
+http://localhost:3001/
+```
+
+1 - To install new gems add on Gemfile and then run `docker-compose build`
+
+2 - To seed your db for get the first user created run `docker-compose run --rm app rails db:seed`
+
+## Rails Console
+
+To access rails console run.
+
+```bash
+docker-compose run --rm app sh
+```
+
+```bash 
+rails c
+``` 
+
+More indo on [Rails Guide Command line](https://guides.rubyonrails.org/command_line.html) and [pry doc](http://pry.github.io)
+
+
+## Tests
+
+#### Whit the backend 
+
+It's never too early to begin running unit tests. Tests are run using [RSpec](https://github.com/rspec/rspec-rails) testing framework and lives in the /spec folder. To run the tests:
+
+```
+docker-compose run --rm app rake
+```
+or into sh 
+
+```
+rake
+```
+
+You too can run just one spec file into sh
+
+```
+rspec spec/{file_path}
+
+```
+
+#### With the front
+
+
+```sh
+npm run test:unit
+```
+
+
+## Linter
+
+#### Whit the backend 
+
+This project uses the [rubocop gem](https://guides.rubyonrails.org/testing.html) for linter, that config you can find on `.rubocop.yml`. Access the docker console and run by:
+
+```bash
+bundle exec rubocop 
+```
+
+> Use `-a` to autofix safe mode  and `-A` hardmode 
+
+### With the front 
+
+
+```sh
+npm run lint
+```
+
+## Troubleshooting 
+
+#### Access Forbidden  for edit files create by rails c
+
+On ubuntu: 
+
+inside de project folder run: 
+
+```bash 
+sudo chown your-user:your-user -R ./
+```
+
+#### rails server error `initialize': getaddrinfo: Name or service not known (SocketError)
+
+On Ubuntu: 
+
+On `/etc/host` add `127.0.0.1  localhost`
+
+## Git Guideline
+Create your branch's and commits using english language and fallowing this guideline.
+
+#### Branches
+- Feature:  `feat/branch-name`
+- Hotfix: `hotfix/branch-name`
+- POC: `poc/branch-name`
+
+#### Commits prefix
+- Chore: `chore(context): message`
+- Feat: `feat(context): message`
+- Fix: `fix(context): message`
+- Refactor: `refactor(context): message`
+- Tests: `tests(context): message`
+- Docs: `docs(context): message`
+
+#### Open MR's
+
+When open your mr on github use the MR template.
