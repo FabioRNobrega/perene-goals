@@ -1,4 +1,5 @@
 <template>
+  <TopNavbar iconNameLeft="user" iconNameRight="learning" />
   <main class="base-container">
     <BaseCard>
       <template v-slot:header>
@@ -12,16 +13,22 @@
       </template>
     </BaseCard>
   </main>
+  <BottomNavbar iconName="plus" />
 </template>
 
 <script>
 import BaseCard from '../components/BaseCard/index.vue'
+import TopNavbar from '../components/TopNavBar/index.vue'
+import BottomNavbar from '../components/BottomNavBar/index.vue'
+
 import { createAccount } from '../api/account'
 
 export default {
   name: "HomeView",
   components: {
-    BaseCard
+    BaseCard,
+    TopNavbar,
+    BottomNavbar
   },
   data () {
     return {
@@ -61,5 +68,5 @@ export default {
   text-align: center
   font-family: var(--font-family-title)
   font-size: 35px
-  color: var(--light-text-color) 
+  color: var(--neutral-color-lighter) 
 </style>

@@ -19,7 +19,7 @@ export default {
 @import "../../assets/_variables"
 
 .card
-  background-color: var(--lighter-background-color)
+  background-color: var(--secondary)
   border-style: hidden
   height: 380px
   text-align: left
@@ -31,9 +31,7 @@ export default {
   white-space: normal
   word-break: normal
   text-overflow: ellipsis
-  border: 1px solid var(--border-color)
-  box-shadow: var(--box-shadow)
-  backdrop-filter: blur(15px)
+  box-shadow: 0px 0px 10px var(--secondary)
   cursor: pointer
   position: relative
   @include display-col
