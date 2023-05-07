@@ -73,6 +73,7 @@ import SVGIcon from '../SVGIcon/index.vue'
   padding: 12px
   transition: all .15s linear
   width: 100%
+  cursor: pointer
 
   &__content 
     @include display-row
