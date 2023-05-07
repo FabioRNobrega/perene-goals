@@ -6,10 +6,10 @@
         <h3 class="title"> Perene Goals</h3>
       </template>
       <template v-slot:row>
-          <input v-model="name" type="text" name="name" id="" placeholder="name">
-          <input v-model="email" type="email" name="email" id="" placeholder="email">
-          <input v-model="password" type="password" name="password" id="" placeholder="password">
-          <button @click="handleCreateAccount">Sign Up</button>
+          <BaseInput v-model="name" type="text" placeholder="name" />
+          <BaseInput v-model="email" type="email" name="email" id="" placeholder="email" />
+          <BaseInput v-model="password" type="password" name="password" id="" placeholder="password" />
+          <BaseButton @click="handleCreateAccount" :light="true" icon="next" content="Sign Up" />
       </template>
     </BaseCard>
   </main>
@@ -20,6 +20,8 @@
 import BaseCard from '../components/BaseCard/index.vue'
 import TopNavbar from '../components/TopNavBar/index.vue'
 import BottomNavbar from '../components/BottomNavBar/index.vue'
+import BaseInput from '../components/BaseInput/index.vue'
+import BaseButton from '../components/BaseButton/index.vue'
 
 import { createAccount } from '../api/account'
 
@@ -28,7 +30,9 @@ export default {
   components: {
     BaseCard,
     TopNavbar,
-    BottomNavbar
+    BottomNavbar,
+    BaseInput,
+    BaseButton
   },
   data () {
     return {
