@@ -9,12 +9,19 @@ Rails.application.routes.draw do
     mount_devise_token_auth_for 'User', at: 'auth'
     scope module: :v1,
           constraints: ApiConstraints.new(version: 1, default: true) do
+
+      
       get 'users', to: 'user#index'
       delete 'users', to: 'user#destroy'
+
+      # Goals List 
       get 'goals-list', to: 'goals_list#index'
       post 'goals-list', to: 'goals_list#create'
       get 'goals-list/:id', to: 'goals_list#show'
       put 'goals-list/:id', to: 'goals_list#update'
+
+      # Goals
+      post 'goals-list/:goals_list_id/goals', to: 'goals#create'
     end
   end
 end

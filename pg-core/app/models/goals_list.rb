@@ -12,5 +12,5 @@ class GoalsList < ActiveRecord::Base
   private_class_method :sort_by
 
   belongs_to :user
-  has_many :goals
+  has_many :goals,  class_name: 'Goals'
 end

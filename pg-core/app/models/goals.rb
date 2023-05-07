@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class GoalsList < ActiveRecord::Base
+class Goals < ActiveRecord::Base
   include Sortable
 
   validates_presence_of :title, :description
