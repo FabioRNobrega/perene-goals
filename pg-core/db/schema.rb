@@ -10,10 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_29_215545) do
+ActiveRecord::Schema.define(version: 2023_05_07_145056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "goals", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "description", null: false
+    t.integer "minimal_time_to_achieve"
+    t.integer "time_to_reach_in_days"
+    t.integer "time_to_reach_in_hours"
+    t.integer "time_to_reach_in_minutes"
+    t.bigint "goals_list_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["goals_list_id"], name: "index_goals_on_goals_list_id"
+  end
+
+  create_table "goals_lists", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "description", null: false
+    t.boolean "is_public", default: false
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_goals_lists_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "provider", default: "email", null: false

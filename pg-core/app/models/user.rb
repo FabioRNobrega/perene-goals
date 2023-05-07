@@ -13,4 +13,6 @@ class User < ActiveRecord::Base
          :validatable,
          :trackable,
          :confirmable
+
+  has_many :goals_list, dependent: :destroy
 end
