@@ -1,33 +1,22 @@
 <template>
   <TopNavbar iconNameLeft="user" iconNameRight="learning" />
   <main class="base-container">
-    <BaseCard>
-      <template v-slot:header>
-        <h3 class="title">HOME</h3>
-      </template>
-      <template v-slot:row>
-        <BaseButton @click="handleCreateAccount" :light="true" icon="next" content="Sign Up" />
-      </template>
-    </BaseCard>
+    <h4> Create Goals List</h4>
   </main>
   <BottomNavbar iconName="plus" />
 </template>
 
 <script>
-import BaseCard from '../components/BaseCard/index.vue'
 import TopNavbar from '../components/TopNavBar/index.vue'
 import BottomNavbar from '../components/BottomNavBar/index.vue'
-import BaseButton from '../components/BaseButton/index.vue'
 
 import { createAccount, signIn} from '../api/account'
 
 export default {
-  name: "HomeView",
+  name: "CreateGoalsListView",
   components: {
-    BaseCard,
     TopNavbar,
     BottomNavbar,
-    BaseButton
   },
   data () {
     return {

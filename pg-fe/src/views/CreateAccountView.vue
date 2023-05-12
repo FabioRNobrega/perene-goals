@@ -3,10 +3,13 @@
   <main class="base-container">
     <BaseCard>
       <template v-slot:header>
-        <h3 class="title">HOME</h3>
+        <h3 class="title"> Create Account </h3>
       </template>
       <template v-slot:row>
-        <BaseButton @click="handleCreateAccount" :light="true" icon="next" content="Sign Up" />
+        <BaseInput :value="email" @update:value="email = $event" type="email" name="email" placeholder="email" />
+        <BaseInput :value="password" @update:value="password = $event" type="password" name="password" placeholder="password" />
+        <BaseButton @click="handleSignIn" :light="true" icon="next" content="Sign In" />
+        <RouterLink to="/create-account">Create Account</RouterLink>
       </template>
     </BaseCard>
   </main>
@@ -17,49 +20,39 @@
 import BaseCard from '../components/BaseCard/index.vue'
 import TopNavbar from '../components/TopNavBar/index.vue'
 import BottomNavbar from '../components/BottomNavBar/index.vue'
+import BaseInput from '../components/BaseInput/index.vue'
 import BaseButton from '../components/BaseButton/index.vue'
 
-import { createAccount, signIn} from '../api/account'
+import { signIn} from '../api/account'
 
 export default {
-  name: "HomeView",
+  name: "CreateAccountView",
   components: {
     BaseCard,
     TopNavbar,
     BottomNavbar,
+    BaseInput,
     BaseButton
   },
   data () {
     return {
-      name: "",
       email: "",
       password: ""
     }
   },
   methods: {
-    async handleCreateAccount() {
+    async handleSignIn() {
       try {
-         await createAccount(
-          {
-            email: this.email,
-            password: this.password, 
-            password_confirmation: this.password,
-            name: this.name
-          }
-        )
-
         const response = await signIn(
           {
             email: this.email,
             password: this.password
           }
         )
+        console.log(response.headers)
+        const { access_token, client, uid } = response.headers
 
-        const { access_token, client, uid } = response.headers;
-
-        localStorage.setItem('user-auth', JSON.stringify({ 'access-token': access_token, 'client': client, 'uid': uid }));
-
-        console.log(response)
+        localStorage.setItem('user-auth', JSON.stringify({ 'access-token': access_token, 'client': client, 'uid': uid }))
       } catch (error) {
         console.error(error)
       }

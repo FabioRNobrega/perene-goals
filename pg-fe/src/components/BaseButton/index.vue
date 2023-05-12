@@ -5,7 +5,6 @@
         'base-button__light': light,
         'base-button__disabled': disabled,
       }]"
-      @click="handleClick"
     >
     <div class="base-button__content">
       {{ content }}
@@ -47,12 +46,6 @@ import SVGIcon from '../SVGIcon/index.vue'
         type: String,
         default: 'plus',
         require: false
-      }
-    },
-    methods: {
-      handleClick (event) {
-        if (this.disabled) { return }
-        this.$emit('click', event)
       }
     }
   }

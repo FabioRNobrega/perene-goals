@@ -8,7 +8,16 @@ export function createAccount (data) {
   })
 }
 
+export function signIn (data) {
+  return request({
+    url: `/auth/sign_in`,
+    method: 'post',
+    data: data
+  })
+}
+
 
 export default {
+    signIn,
     createAccount
   }
