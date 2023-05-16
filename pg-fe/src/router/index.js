@@ -21,6 +21,11 @@ const router = createRouter({
       component: () => import('../views/SignInView.vue')
     },
     {
+      path: '/confirm',
+      name: 'confirm-account',
+      component: () => import('../views/ConfirmAccountView.vue')
+    },
+    {
       path: '/create-goals-list',
       name: 'create-goals-list',
       component: () => import ('../views/CreateGoalsListView.vue'),

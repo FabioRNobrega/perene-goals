@@ -1,4 +1,4 @@
-<template>
+  <template>
     <div :style="styleIcon" class="svg-icon" />
   </template>
   

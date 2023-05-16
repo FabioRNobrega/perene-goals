@@ -6,10 +6,23 @@
         <h3 class="title"> Create Account </h3>
       </template>
       <template v-slot:row>
-        <BaseInput :value="email" @update:value="email = $event" type="email" name="email" placeholder="email" />
-        <BaseInput :value="password" @update:value="password = $event" type="password" name="password" placeholder="password" />
-        <BaseButton @click="handleSignIn" :light="true" icon="next" content="Sign In" />
-        <RouterLink to="/create-account">Create Account</RouterLink>
+        <div v-if="success"> 
+          <p class="footer">
+            Thanks for the subscription, access your email <strong> {{ email }} </strong> and confirm account.
+          </p>
+          <p class="footer">
+            To start achieving your goals today.
+          </p>
+        </div>
+        <div v-else> 
+          <BaseInput :value="name" @update:value="name = $event" type="text" name="name" placeholder="Name" />
+          <BaseInput :value="email" @update:value="email = $event" type="email" name="email" placeholder="Email" />
+          <BaseInput :value="password" @update:value="password = $event" type="password" name="password" placeholder="Password" />
+          <BaseButton @click="handleCreateAccount" :light="true" icon="next" content="Create Account" />
+          <p class="footer">
+            Our just <BaseLink pathName="/login" content="Sign In"/> to start achieving your goals.
+          </p> 
+        </div>
       </template>
     </BaseCard>
   </main>
@@ -22,8 +35,9 @@ import TopNavbar from '../components/TopNavBar/index.vue'
 import BottomNavbar from '../components/BottomNavBar/index.vue'
 import BaseInput from '../components/BaseInput/index.vue'
 import BaseButton from '../components/BaseButton/index.vue'
+import BaseLink from '../components/BaseLink/index.vue'
 
-import { signIn} from '../api/account'
+import { createAccount } from '../api/account'
 
 export default {
   name: "CreateAccountView",
@@ -32,27 +46,31 @@ export default {
     TopNavbar,
     BottomNavbar,
     BaseInput,
-    BaseButton
+    BaseButton,
+    BaseLink
   },
   data () {
     return {
+      success: false,
+      name: "",
       email: "",
       password: ""
     }
   },
   methods: {
-    async handleSignIn() {
+    async handleCreateAccount() {
       try {
-        const response = await signIn(
+        const { data } = await createAccount(
           {
+            name: this.name,
             email: this.email,
-            password: this.password
+            password: this.password,
+            password_confirmation: this.password
           }
         )
-        console.log(response.headers)
-        const { access_token, client, uid } = response.headers
-
-        localStorage.setItem('user-auth', JSON.stringify({ 'access-token': access_token, 'client': client, 'uid': uid }))
+        if (data.status == 'success') {
+          return this.success = true
+        }
       } catch (error) {
         console.error(error)
       }
@@ -72,4 +90,9 @@ export default {
   font-family: var(--font-family-title)
   font-size: 35px
   color: var(--neutral-color-lighter) 
+
+.footer
+  color: var(--neutral-color-light)
+  font-family: var(--font-family-base)
+  text-align: center
 </style>

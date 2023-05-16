@@ -9,7 +9,9 @@
         <BaseInput :value="email" @update:value="email = $event" type="email" name="email" placeholder="email" />
         <BaseInput :value="password" @update:value="password = $event" type="password" name="password" placeholder="password" />
         <BaseButton @click="handleSignIn" :light="true" icon="next" content="Sign In" />
-        <RouterLink to="/create-account">Create Account</RouterLink>
+        <p class="footer">
+          Our <BaseLink pathName="/create-account" content="Create Account"/> to start achieving your goals.
+        </p>
       </template>
     </BaseCard>
   </main>
@@ -22,6 +24,7 @@ import TopNavbar from '../components/TopNavBar/index.vue'
 import BottomNavbar from '../components/BottomNavBar/index.vue'
 import BaseInput from '../components/BaseInput/index.vue'
 import BaseButton from '../components/BaseButton/index.vue'
+import BaseLink from '../components/BaseLink/index.vue'
 
 import { signIn } from '../api/account'
 
@@ -32,7 +35,8 @@ export default {
     TopNavbar,
     BottomNavbar,
     BaseInput,
-    BaseButton
+    BaseButton,
+    BaseLink
   },
   data () {
     return {
@@ -52,7 +56,7 @@ export default {
         const { 'access-token': access_token, client, uid } = response.headers
 
         localStorage.setItem('user-auth', JSON.stringify({ 'access-token': access_token, 'client': client, 'uid': uid }))
-        
+        this.$router.push('/')
       } catch (error) {
         console.error(error)
       }
@@ -72,4 +76,9 @@ export default {
   font-family: var(--font-family-title)
   font-size: 35px
   color: var(--neutral-color-lighter) 
+
+.footer
+  color: var(--neutral-color-light)
+  font-family: var(--font-family-base)
+  text-align: center
 </style>
