@@ -26,6 +26,12 @@ const router = createRouter({
       component: () => import('../views/ConfirmAccountView.vue')
     },
     {
+      path: '/profile',
+      name: 'profile',
+      component: () => import('../views/UserProfileView.vue'),
+      meta: { requiresAuth: true } 
+    },
+    {
       path: '/create-goals-list',
       name: 'create-goals-list',
       component: () => import ('../views/CreateGoalsListView.vue'),

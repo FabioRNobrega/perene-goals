@@ -28,7 +28,7 @@ export default {
         pathNameLeft: {
             type: String,
             require: false,
-            default: "/login"
+            default: "/profile"
         },
         iconNameRight: {
             type: String,
@@ -51,6 +51,9 @@ export default {
 
 .top-navbar  
   @include display-row
+  position: fixed
+  width: 100%
+  top: 0px
   justify-content: space-between
   height: 80px
   margin-bottom: 10px

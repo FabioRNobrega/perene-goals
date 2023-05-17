@@ -18740,3 +18740,2401 @@ Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
 Completed 200 OK in 69ms (Views: 0.7ms | ActiveRecord: 0.9ms | Allocations: 2347)
 
 
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE DATABASE "pg_core_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE "pg_core_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7300810248253628820)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7300810248253628820)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 11:36:24 +0000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 99ms (Views: 1.3ms | ActiveRecord: 7.4ms | Allocations: 17529)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 11:37:56 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 0.6ms | Allocations: 2142)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 11:47:44 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 37ms (Views: 1.0ms | ActiveRecord: 13.7ms | Allocations: 4333)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 11:48:31 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.7ms | ActiveRecord: 1.1ms | Allocations: 2142)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 11:48:33 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 0.5ms | ActiveRecord: 0.9ms | Allocations: 2142)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 11:48:35 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.9ms | ActiveRecord: 0.9ms | Allocations: 2118)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 11:48:37 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.8ms | Allocations: 2118)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 11:48:44 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.8ms | ActiveRecord: 1.0ms | Allocations: 2118)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 11:48:51 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.21ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.7ms | Allocations: 2118)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 11:49:19 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 0.6ms | Allocations: 2118)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 11:49:28 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.8ms | ActiveRecord: 0.7ms | Allocations: 2118)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 11:49:32 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.8ms | ActiveRecord: 0.7ms | Allocations: 2118)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 11:50:00 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 9ms (Views: 0.9ms | ActiveRecord: 0.9ms | Allocations: 2118)
+
+
+Started PUT "/api/auth" for 172.18.0.1 at 2023-05-17 11:56:22 +0000
+Processing by DeviseTokenAuth::RegistrationsController#update as JSON
+  Parameters: {"name"=>"Fábio R. Nóbrega", "email"=>"casa@gmail.com", "role"=>"admin", "registration"=>{"name"=>"Fábio R. Nóbrega", "email"=>"casa@gmail.com", "role"=>"admin"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "visitante@perenegoals.com"], ["LIMIT", 1]]
+[31mUnpermitted parameters: :format, :registration[0m
+[31mUnpermitted parameters: :format, :registration[0m
+[31mUnpermitted parameters: :format, :registration[0m
+[31mUnpermitted parameters: :format, :registration[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "confirmation_token" = $1, "confirmation_sent_at" = $2, "unconfirmed_email" = $3, "name" = $4, "role" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["confirmation_token", "EfmXnEgQs9zbWNx-29sx"], ["confirmation_sent_at", "2023-05-17 11:56:23.057535"], ["unconfirmed_email", "casa@gmail.com"], ["name", "Fábio R. Nóbrega"], ["role", "admin"], ["updated_at", "2023-05-17 11:56:23.057411"], ["id", 1]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendering layout layouts/mailer.html.inky
+  Rendering devise/mailer/confirmation_instructions.html.inky within layouts/mailer
+  Rendered devise/mailer/confirmation_instructions.html.inky within layouts/mailer (Duration: 12.2ms | Allocations: 2855)
+  Rendered layout layouts/mailer.html.inky (Duration: 37.2ms | Allocations: 12205)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 49.2ms
+Delivered mail 6464c0e74371c_154c482779@348af4afe15b.mail (31.6ms)
+Date: Wed, 17 May 2023 11:56:23 +0000
+From: from@example.com
+Reply-To: mcu@example.com
+To: casa@gmail.com
+Message-ID: <6464c0e74371c_154c482779@348af4afe15b.mail>
+Subject: =?UTF-8?Q?Instru=C3=A7=C3=B5es_de_confirma=C3=A7=C3=A3o?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_6464c0e742e3e_154c482654";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+client-config: default
+redirect-url: http://localhost:3001/confirm
+
+
+----==_mimepart_6464c0e742e3e_154c482654
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Perene Goal=0D
+=0D
+Ol=C3=A1,  casa@gmail.com!=0D
+=0D
+Welcome to Perene Goals.=0D
+=0D
+Please confirm you email clicking on the link below=0D
+=0D
+Confirm Account =0D
+( http://localhost:3000/api/auth/confirmation?confirmation_token=3DEfmXnE=
+gQs9zbWNx-29sx )=0D
+=0D
+=0D
+=E2=9D=A4=EF=B8=8F =F0=9F=A4=96 =E2=9D=A4=EF=B8=8F=
+
+----==_mimepart_6464c0e742e3e_154c482654
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.o=
+rg/TR/xhtml1/DTD/xhtml1-strict.dtd">=0D
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns=3D"http://www.w3.org/1=
+999/xhtml" style=3D"min-height: 100%; background-color: #FFF;">=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width" />=0D
+=0D
+    =0D
+    =0D
+  <style>body {=0D
+width: 100% !important; min-width: 100%; -webkit-text-size-adjust: 100%; =
+-ms-text-size-adjust: 100%; margin: 0; padding: 0; -moz-box-sizing: borde=
+r-box; -webkit-box-sizing: border-box; box-sizing: border-box;=0D
+}=0D
+.ExternalClass {=0D
+width: 100%;=0D
+}=0D
+.ExternalClass {=0D
+line-height: 100%;=0D
+}=0D
+#backgroundTable {=0D
+margin: 0; padding: 0; width: 100% !important; line-height: 100% !importa=
+nt;=0D
+}=0D
+img {=0D
+outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; wi=
+dth: auto; max-width: 100%; clear: both; display: block;=0D
+}=0D
+body {=0D
+color: #464855; font-family: "Roboto", "Helvetica", "Arial", "sans-serif"=
+; font-weight: normal; padding: 0; margin: 0; text-align: left; line-heig=
+ht: 24px;=0D
+}=0D
+body {=0D
+font-size: 16px; line-height: 24px;=0D
+}=0D
+a:hover {=0D
+color: #0071aa;=0D
+}=0D
+a:active {=0D
+color: #0071aa;=0D
+}=0D
+a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h1 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h2 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h3 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h4 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h5 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h6 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+table.button:hover table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button:active table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button table tr td a:visited {=0D
+color: #fefefe;=0D
+}=0D
+table.button.tiny:hover table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.tiny:active table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.tiny table tr td a:visited {=0D
+color: #fefefe;=0D
+}=0D
+table.button.small:hover table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.small:active table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.small table tr td a:visited {=0D
+color: #fefefe;=0D
+}=0D
+table.button.large:hover table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.large:active table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.large table tr td a:visited {=0D
+color: #fefefe;=0D
+}=0D
+table.button:hover table td {=0D
+background: #0071aa; color: #fefefe;=0D
+}=0D
+table.button:visited table td {=0D
+background: #0071aa; color: #fefefe;=0D
+}=0D
+table.button:active table td {=0D
+background: #0071aa; color: #fefefe;=0D
+}=0D
+table.button:hover table a {=0D
+border: 0 solid #0071aa;=0D
+}=0D
+table.button:visited table a {=0D
+border: 0 solid #0071aa;=0D
+}=0D
+table.button:active table a {=0D
+border: 0 solid #0071aa;=0D
+}=0D
+table.button.secondary:hover table td {=0D
+background: #919191; color: #fefefe;=0D
+}=0D
+table.button.secondary:hover table a {=0D
+border: 0 solid #919191;=0D
+}=0D
+table.button.secondary:hover table td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.secondary:active table td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.secondary table td a:visited {=0D
+color: #fefefe;=0D
+}=0D
+table.button.success:hover table td {=0D
+background: #23bf5d;=0D
+}=0D
+table.button.success:hover table a {=0D
+border: 0 solid #23bf5d;=0D
+}=0D
+table.button.alert:hover table td {=0D
+background: #e23317;=0D
+}=0D
+table.button.alert:hover table a {=0D
+border: 0 solid #e23317;=0D
+}=0D
+table.button.warning:hover table td {=0D
+background: #cc8b00;=0D
+}=0D
+table.button.warning:hover table a {=0D
+border: 0px solid #cc8b00;=0D
+}=0D
+.thumbnail:hover {=0D
+box-shadow: 0 0 6px 1px rgba(0, 147, 221, 0.5);=0D
+}=0D
+.thumbnail:focus {=0D
+box-shadow: 0 0 6px 1px rgba(0, 147, 221, 0.5);=0D
+}=0D
+body.outlook p {=0D
+display: inline !important;=0D
+}=0D
+@media only screen and (max-width: 596px) {=0D
+  .small-float-center {=0D
+    margin: 0 auto !important; float: none !important; text-align: center=
+ !important;=0D
+  }=0D
+  .small-text-center {=0D
+    text-align: center !important;=0D
+  }=0D
+  .small-text-left {=0D
+    text-align: left !important;=0D
+  }=0D
+  .small-text-right {=0D
+    text-align: right !important;=0D
+  }=0D
+  .hide-for-large {=0D
+    display: block !important; width: auto !important; overflow: visible =
+!important; max-height: none !important; font-size: inherit !important; l=
+ine-height: inherit !important;=0D
+  }=0D
+  table.body table.container .hide-for-large {=0D
+    display: table !important; width: 100% !important;=0D
+  }=0D
+  table.body table.container .row.hide-for-large {=0D
+    display: table !important; width: 100% !important;=0D
+  }=0D
+  table.body table.container .callout-inner.hide-for-large {=0D
+    display: table-cell !important; width: 100% !important;=0D
+  }=0D
+  table.body table.container .show-for-large {=0D
+    display: none !important; width: 0; mso-hide: all; overflow: hidden;=0D=
+
+  }=0D
+  table.body img {=0D
+    width: auto; height: auto;=0D
+  }=0D
+  table.body center {=0D
+    min-width: 0 !important;=0D
+  }=0D
+  table.body .container {=0D
+    width: 95% !important;=0D
+  }=0D
+  table.body .columns {=0D
+    height: auto !important; -moz-box-sizing: border-box; -webkit-box-siz=
+ing: border-box; box-sizing: border-box; padding-left: 16px !important; p=
+adding-right: 16px !important;=0D
+  }=0D
+  table.body .column {=0D
+    height: auto !important; -moz-box-sizing: border-box; -webkit-box-siz=
+ing: border-box; box-sizing: border-box; padding-left: 16px !important; p=
+adding-right: 16px !important;=0D
+  }=0D
+  table.body .columns .column {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.body .columns .columns {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.body .column .column {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.body .column .columns {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.body .collapse .columns {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.body .collapse .column {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  td.small-1 {=0D
+    display: inline-block !important; width: 8.333333% !important;=0D
+  }=0D
+  th.small-1 {=0D
+    display: inline-block !important; width: 8.333333% !important;=0D
+  }=0D
+  td.small-2 {=0D
+    display: inline-block !important; width: 16.666666% !important;=0D
+  }=0D
+  th.small-2 {=0D
+    display: inline-block !important; width: 16.666666% !important;=0D
+  }=0D
+  td.small-3 {=0D
+    display: inline-block !important; width: 25% !important;=0D
+  }=0D
+  th.small-3 {=0D
+    display: inline-block !important; width: 25% !important;=0D
+  }=0D
+  td.small-4 {=0D
+    display: inline-block !important; width: 33.333333% !important;=0D
+  }=0D
+  th.small-4 {=0D
+    display: inline-block !important; width: 33.333333% !important;=0D
+  }=0D
+  td.small-5 {=0D
+    display: inline-block !important; width: 41.666666% !important;=0D
+  }=0D
+  th.small-5 {=0D
+    display: inline-block !important; width: 41.666666% !important;=0D
+  }=0D
+  td.small-6 {=0D
+    display: inline-block !important; width: 50% !important;=0D
+  }=0D
+  th.small-6 {=0D
+    display: inline-block !important; width: 50% !important;=0D
+  }=0D
+  td.small-7 {=0D
+    display: inline-block !important; width: 58.333333% !important;=0D
+  }=0D
+  th.small-7 {=0D
+    display: inline-block !important; width: 58.333333% !important;=0D
+  }=0D
+  td.small-8 {=0D
+    display: inline-block !important; width: 66.666666% !important;=0D
+  }=0D
+  th.small-8 {=0D
+    display: inline-block !important; width: 66.666666% !important;=0D
+  }=0D
+  td.small-9 {=0D
+    display: inline-block !important; width: 75% !important;=0D
+  }=0D
+  th.small-9 {=0D
+    display: inline-block !important; width: 75% !important;=0D
+  }=0D
+  td.small-10 {=0D
+    display: inline-block !important; width: 83.333333% !important;=0D
+  }=0D
+  th.small-10 {=0D
+    display: inline-block !important; width: 83.333333% !important;=0D
+  }=0D
+  td.small-11 {=0D
+    display: inline-block !important; width: 91.666666% !important;=0D
+  }=0D
+  th.small-11 {=0D
+    display: inline-block !important; width: 91.666666% !important;=0D
+  }=0D
+  td.small-12 {=0D
+    display: inline-block !important; width: 100% !important;=0D
+  }=0D
+  th.small-12 {=0D
+    display: inline-block !important; width: 100% !important;=0D
+  }=0D
+  .columns td.small-12 {=0D
+    display: block !important; width: 100% !important;=0D
+  }=0D
+  .column td.small-12 {=0D
+    display: block !important; width: 100% !important;=0D
+  }=0D
+  .columns th.small-12 {=0D
+    display: block !important; width: 100% !important;=0D
+  }=0D
+  .column th.small-12 {=0D
+    display: block !important; width: 100% !important;=0D
+  }=0D
+  table.body td.small-offset-1 {=0D
+    margin-left: 8.333333% !important;=0D
+  }=0D
+  table.body th.small-offset-1 {=0D
+    margin-left: 8.333333% !important;=0D
+  }=0D
+  table.body td.small-offset-2 {=0D
+    margin-left: 16.666666% !important;=0D
+  }=0D
+  table.body th.small-offset-2 {=0D
+    margin-left: 16.666666% !important;=0D
+  }=0D
+  table.body td.small-offset-3 {=0D
+    margin-left: 25% !important;=0D
+  }=0D
+  table.body th.small-offset-3 {=0D
+    margin-left: 25% !important;=0D
+  }=0D
+  table.body td.small-offset-4 {=0D
+    margin-left: 33.333333% !important;=0D
+  }=0D
+  table.body th.small-offset-4 {=0D
+    margin-left: 33.333333% !important;=0D
+  }=0D
+  table.body td.small-offset-5 {=0D
+    margin-left: 41.666666% !important;=0D
+  }=0D
+  table.body th.small-offset-5 {=0D
+    margin-left: 41.666666% !important;=0D
+  }=0D
+  table.body td.small-offset-6 {=0D
+    margin-left: 50% !important;=0D
+  }=0D
+  table.body th.small-offset-6 {=0D
+    margin-left: 50% !important;=0D
+  }=0D
+  table.body td.small-offset-7 {=0D
+    margin-left: 58.333333% !important;=0D
+  }=0D
+  table.body th.small-offset-7 {=0D
+    margin-left: 58.333333% !important;=0D
+  }=0D
+  table.body td.small-offset-8 {=0D
+    margin-left: 66.666666% !important;=0D
+  }=0D
+  table.body th.small-offset-8 {=0D
+    margin-left: 66.666666% !important;=0D
+  }=0D
+  table.body td.small-offset-9 {=0D
+    margin-left: 75% !important;=0D
+  }=0D
+  table.body th.small-offset-9 {=0D
+    margin-left: 75% !important;=0D
+  }=0D
+  table.body td.small-offset-10 {=0D
+    margin-left: 83.333333% !important;=0D
+  }=0D
+  table.body th.small-offset-10 {=0D
+    margin-left: 83.333333% !important;=0D
+  }=0D
+  table.body td.small-offset-11 {=0D
+    margin-left: 91.666666% !important;=0D
+  }=0D
+  table.body th.small-offset-11 {=0D
+    margin-left: 91.666666% !important;=0D
+  }=0D
+  table.body table.columns td.expander {=0D
+    display: none !important;=0D
+  }=0D
+  table.body table.columns th.expander {=0D
+    display: none !important;=0D
+  }=0D
+  table.body .right-text-pad {=0D
+    padding-left: 10px !important;=0D
+  }=0D
+  table.body .text-pad-right {=0D
+    padding-left: 10px !important;=0D
+  }=0D
+  table.body .left-text-pad {=0D
+    padding-right: 10px !important;=0D
+  }=0D
+  table.body .text-pad-left {=0D
+    padding-right: 10px !important;=0D
+  }=0D
+  table.menu {=0D
+    width: 100% !important;=0D
+  }=0D
+  table.menu td {=0D
+    width: auto !important; display: inline-block !important;=0D
+  }=0D
+  table.menu th {=0D
+    width: auto !important; display: inline-block !important;=0D
+  }=0D
+  table.menu.vertical td {=0D
+    display: block !important;=0D
+  }=0D
+  table.menu.vertical th {=0D
+    display: block !important;=0D
+  }=0D
+  table.menu.small-vertical td {=0D
+    display: block !important;=0D
+  }=0D
+  table.menu.small-vertical th {=0D
+    display: block !important;=0D
+  }=0D
+  table.menu[align=3D"center"] {=0D
+    width: auto !important;=0D
+  }=0D
+  table.button.small-expand {=0D
+    width: 100% !important;=0D
+  }=0D
+  table.button.small-expanded {=0D
+    width: 100% !important;=0D
+  }=0D
+  table.button.small-expand table {=0D
+    width: 100%;=0D
+  }=0D
+  table.button.small-expanded table {=0D
+    width: 100%;=0D
+  }=0D
+  table.button.small-expand table a {=0D
+    text-align: center !important; width: 100% !important; padding-left: =
+0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.button.small-expanded table a {=0D
+    text-align: center !important; width: 100% !important; padding-left: =
+0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.button.small-expand center {=0D
+    min-width: 0;=0D
+  }=0D
+  table.button.small-expanded center {=0D
+    min-width: 0;=0D
+  }=0D
+}=0D
+</style></head>=0D
+=0D
+  <body style=3D"width: 100% !important; min-width: 100%; -webkit-text-si=
+ze-adjust: 100%; -ms-text-size-adjust: 100%; -moz-box-sizing: border-box;=
+ -webkit-box-sizing: border-box; box-sizing: border-box; color: #464855; =
+font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;=
+, &quot;sans-serif&quot;; font-weight: normal; text-align: left; line-hei=
+ght: 24px; font-size: 16px; margin: 0; padding: 0;">=0D
+    <table class=3D"body" data-made-with-foundation=3D"" style=3D"border-=
+spacing: 0; border-collapse: collapse; vertical-align: top; text-align: l=
+eft; height: 100%; width: 100%; color: #464855; font-family: &quot;Roboto=
+&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;;=
+ font-weight: normal; line-height: 24px; font-size: 16px; margin: 0; padd=
+ing: 0;" bgcolor=3D"#FFF">=0D
+      <tr style=3D"vertical-align: top; padding: 0;" align=3D"left">=0D
+        <td class=3D"center" align=3D"center" valign=3D"top" style=3D"wor=
+d-wrap: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: a=
+uto; border-collapse: collapse !important; color: #464855; font-family: &=
+quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-s=
+erif&quot;; font-weight: normal; line-height: 24px; font-size: 16px; marg=
+in: 0; padding: 0;">=0D
+          <center style=3D"width: 100%; min-width: 580px;">=0D
+            <table class=3D"spacer float-center" align=3D"center" style=3D=
+"border-spacing: 0; border-collapse: collapse; vertical-align: top; text-=
+align: center; width: 100%; float: none; margin: 0 auto; padding: 0;"><tb=
+ody><tr style=3D"vertical-align: top; padding: 0;" align=3D"left"><td hei=
+ght=3D"5%" style=3D"font-size: 5%px; line-height: 5%px; word-wrap: break-=
+word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-co=
+llapse: collapse !important; mso-line-height-rule: exactly; color: #46485=
+5; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&qu=
+ot;, &quot;sans-serif&quot;; font-weight: normal; margin: 0; padding: 0;"=
+ align=3D"left" valign=3D"top">=C2=A0</td></tr></tbody></table>=0D
+            <table class=3D"container float-center" align=3D"center" styl=
+e=3D"border-spacing: 0; border-collapse: collapse; vertical-align: top; t=
+ext-align: center; width: 580px; float: none; border-radius: 5px; margin:=
+ 0 auto; padding: 0;" bgcolor=3D"#fdfdfd"><tbody><tr style=3D"vertical-al=
+ign: top; padding: 0;" align=3D"left"><td style=3D"word-wrap: break-word;=
+ -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collaps=
+e: collapse !important; color: #464855; font-family: &quot;Roboto&quot;, =
+&quot;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-we=
+ight: normal; line-height: 24px; font-size: 16px; margin: 0; padding: 0;"=
+ align=3D"left" valign=3D"top">=0D
+              <div class=3D"custom-body" style=3D"background-color: #f5f5=
+f5; color: #1c1c1c; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot=
+;, &quot;Arial&quot;, &quot;sans-serif&quot;; border-radius: 5px;">=0D
+                <table class=3D"row" style=3D"border-spacing: 0; border-c=
+ollapse: collapse; vertical-align: top; text-align: left; width: 100%; po=
+sition: relative; display: table; padding: 0;"><tbody><tr style=3D"vertic=
+al-align: top; padding: 0;" align=3D"left">=0D
+                  <th class=3D"header small-12 large-12 columns first las=
+t" style=3D"width: 564px; color: #464855; font-family: &quot;Roboto&quot;=
+, &quot;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-=
+weight: normal; line-height: 24px; font-size: 16px; border-radius: 5px 5p=
+x 0 0; margin: 0 auto; padding: 2% 16px 16px;" align=3D"left" bgcolor=3D"=
+#18121E"><table style=3D"border-spacing: 0; border-collapse: collapse; ve=
+rtical-align: top; text-align: left; width: 100%; padding: 0;"><tbody><tr=
+ style=3D"vertical-align: top; padding: 0;" align=3D"left">=0D
+<th style=3D"color: #464855; font-family: &quot;Roboto&quot;, &quot;Helve=
+tica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-weight: norma=
+l; line-height: 24px; font-size: 16px; margin: 0; padding: 0;" align=3D"l=
+eft">=0D
+                    <center style=3D"width: 100%; min-width: 532px;">=0D
+                      <img class=3D"logo float-center" src=3D"" alt=3D"Pe=
+rene Goal" align=3D"center" style=3D"outline: none; text-decoration: none=
+; -ms-interpolation-mode: bicubic; width: auto; max-width: 150px; clear: =
+both; display: block; text-align: center; margin: 0 auto;" /> =0D
+                    <center align=3D"center" class=3D"float-center" style=
+=3D"width: 100%; min-width: 532px;">=0D
+                  </center>=0D
+</center>=0D
+</th>=0D
+<th class=3D"expander" style=3D"visibility: hidden; width: 0; color: #464=
+855; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&=
+quot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; fo=
+nt-size: 16px; margin: 0; padding: 0;" align=3D"left"></th>=0D
+</tr></tbody></table></th>=0D
+                </tr></tbody></table>=0D
+                <table class=3D"spacer " style=3D"border-spacing: 0; bord=
+er-collapse: collapse; vertical-align: top; text-align: left; width: 100%=
+; padding: 0;"><tbody><tr style=3D"vertical-align: top; padding: 0;" alig=
+n=3D"left"><td height=3D"50" style=3D"font-size: 50px; line-height: 50px;=
+ word-wrap: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphen=
+s: auto; border-collapse: collapse !important; mso-line-height-rule: exac=
+tly; color: #464855; font-family: &quot;Roboto&quot;, &quot;Helvetica&quo=
+t;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-weight: normal; margi=
+n: 0; padding: 0;" align=3D"left" valign=3D"top">=C2=A0</td></tr></tbody>=
+</table>=0D
+<table class=3D"row" style=3D"border-spacing: 0; border-collapse: collaps=
+e; vertical-align: top; text-align: left; width: 100%; position: relative=
+; display: table; padding: 0;"><tbody><tr style=3D"vertical-align: top; p=
+adding: 0;" align=3D"left">=0D
+  <th class=3D"small-12 large-12 columns first last" style=3D"width: 564p=
+x; color: #464855; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;=
+, &quot;Arial&quot;, &quot;sans-serif&quot;; font-weight: normal; line-he=
+ight: 24px; font-size: 16px; margin: 0 auto; padding: 0 16px 16px;" align=
+=3D"left"><table style=3D"border-spacing: 0; border-collapse: collapse; v=
+ertical-align: top; text-align: left; width: 100%; padding: 0;"><tbody><t=
+r style=3D"vertical-align: top; padding: 0;" align=3D"left">=0D
+<th style=3D"color: #464855; font-family: &quot;Roboto&quot;, &quot;Helve=
+tica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-weight: norma=
+l; line-height: 24px; font-size: 16px; margin: 0; padding: 0;" align=3D"l=
+eft">=0D
+    <center style=3D"width: 100%; min-width: 532px;">=0D
+        <p align=3D"center" class=3D"float-center" style=3D"color: #46485=
+5; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&qu=
+ot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; font=
+-size: 16px; margin: 0 0 10px; padding: 0;"> <strong>Ol=C3=A1, </strong> =
+casa@gmail.com!</p>=0D
+        <p align=3D"center" class=3D"float-center" style=3D"color: #46485=
+5; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&qu=
+ot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; font=
+-size: 16px; margin: 0 0 10px; padding: 0;"> Welcome to Perene Goals. </p=
+>=0D
+        <p align=3D"center" class=3D"float-center" style=3D"color: #46485=
+5; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&qu=
+ot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; font=
+-size: 16px; margin: 0 0 10px; padding: 0;">Please confirm you email clic=
+king on the link below</p>=0D
+        <table class=3D"spacer float-center" align=3D"center" style=3D"bo=
+rder-spacing: 0; border-collapse: collapse; vertical-align: top; text-ali=
+gn: center; width: 100%; float: none; margin: 0 auto; padding: 0;"><tbody=
+><tr style=3D"vertical-align: top; padding: 0;" align=3D"left"><td height=
+=3D"5" style=3D"font-size: 5px; line-height: 5px; word-wrap: break-word; =
+-webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse=
+: collapse !important; mso-line-height-rule: exactly; color: #464855; fon=
+t-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &=
+quot;sans-serif&quot;; font-weight: normal; margin: 0; padding: 0;" align=
+=3D"left" valign=3D"top">=C2=A0</td></tr></tbody></table>=0D
+        <p align=3D"center" class=3D"float-center" style=3D"color: #46485=
+5; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&qu=
+ot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; font=
+-size: 16px; margin: 0 0 10px; padding: 0;"><a class=3D"button" href=3D"h=
+ttp://localhost:3000/api/auth/confirmation?confirmation_token=3DEfmXnEgQs=
+9zbWNx-29sx" style=3D"color: white; font-family: &quot;Roboto&quot;, &quo=
+t;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-weight=
+: 700; text-align: left; line-height: 24px; text-decoration: none; cursor=
+: pointer; font-size: 14px; width: 300px; border-radius: 25px; background=
+-color: #AD4A4A; margin: 0; padding: 10px 20px;">Confirm Account</a></p>=0D=
+
+<p align=3D"center" class=3D"float-center" style=3D"color: #464855; font-=
+family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &qu=
+ot;sans-serif&quot;; font-weight: normal; line-height: 24px; font-size: 1=
+6px; margin: 0 0 10px; padding: 0;">=0D
+        </p>=0D
+<table class=3D"spacer float-center" align=3D"center" style=3D"border-spa=
+cing: 0; border-collapse: collapse; vertical-align: top; text-align: cent=
+er; width: 100%; float: none; margin: 0 auto; padding: 0;"><tbody><tr sty=
+le=3D"vertical-align: top; padding: 0;" align=3D"left"><td height=3D"20" =
+style=3D"font-size: 20px; line-height: 20px; word-wrap: break-word; -webk=
+it-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: col=
+lapse !important; mso-line-height-rule: exactly; color: #464855; font-fam=
+ily: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &quot;=
+sans-serif&quot;; font-weight: normal; margin: 0; padding: 0;" align=3D"l=
+eft" valign=3D"top">=C2=A0</td></tr></tbody></table>=0D
+        =0D
+<p align=3D"center" class=3D"float-center" style=3D"color: #464855; font-=
+family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &qu=
+ot;sans-serif&quot;; font-weight: normal; line-height: 24px; font-size: 1=
+6px; margin: 0 0 10px; padding: 0;"> =E2=9D=A4=EF=B8=8F =F0=9F=A4=96 =E2=9D=
+=A4=EF=B8=8F </p>=0D
+    </center>=0D
+  </th>=0D
+<th class=3D"expander" style=3D"visibility: hidden; width: 0; color: #464=
+855; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&=
+quot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; fo=
+nt-size: 16px; margin: 0; padding: 0;" align=3D"left"></th>=0D
+</tr></tbody></table></th>=0D
+</tr></tbody></table>=0D
+<table class=3D"spacer " style=3D"border-spacing: 0; border-collapse: col=
+lapse; vertical-align: top; text-align: left; width: 100%; padding: 0;"><=
+tbody><tr style=3D"vertical-align: top; padding: 0;" align=3D"left"><td h=
+eight=3D"20" style=3D"font-size: 20px; line-height: 20px; word-wrap: brea=
+k-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-=
+collapse: collapse !important; mso-line-height-rule: exactly; color: #464=
+855; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&=
+quot;, &quot;sans-serif&quot;; font-weight: normal; margin: 0; padding: 0=
+;" align=3D"left" valign=3D"top">=C2=A0</td></tr></tbody></table>=0D
+=0D
+              </div>=0D
+            </td></tr></tbody></table>=0D
+          </center>=0D
+        </td>=0D
+      </tr>=0D
+    </table>=0D
+  </body>=0D
+</html>=0D
+
+----==_mimepart_6464c0e742e3e_154c482654--
+
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 551ms (Views: 0.7ms | ActiveRecord: 6.8ms | Allocations: 554835)
+
+
+Started PUT "/api/auth" for 172.18.0.1 at 2023-05-17 11:56:40 +0000
+Processing by DeviseTokenAuth::RegistrationsController#update as JSON
+  Parameters: {"name"=>"João R. Nóbrega", "email"=>"casa@gmail.com", "role"=>"admin", "registration"=>{"name"=>"João R. Nóbrega", "email"=>"casa@gmail.com", "role"=>"admin"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "visitante@perenegoals.com"], ["LIMIT", 1]]
+[31mUnpermitted parameters: :format, :registration[0m
+[31mUnpermitted parameters: :format, :registration[0m
+[31mUnpermitted parameters: :format, :registration[0m
+[31mUnpermitted parameters: :format, :registration[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "confirmation_token" = $1, "confirmation_sent_at" = $2, "name" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["confirmation_token", "QbtNSvo6Dz3upVZZCbZY"], ["confirmation_sent_at", "2023-05-17 11:56:40.757197"], ["name", "João R. Nóbrega"], ["updated_at", "2023-05-17 11:56:40.757112"], ["id", 1]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering layout layouts/mailer.html.inky
+  Rendering devise/mailer/confirmation_instructions.html.inky within layouts/mailer
+  Rendered devise/mailer/confirmation_instructions.html.inky within layouts/mailer (Duration: 5.8ms | Allocations: 2090)
+  Rendered layout layouts/mailer.html.inky (Duration: 17.4ms | Allocations: 7163)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 18.7ms
+Delivered mail 6464c0f8dcad9_1551483072@348af4afe15b.mail (11.1ms)
+Date: Wed, 17 May 2023 11:56:40 +0000
+From: from@example.com
+Reply-To: mcu@example.com
+To: casa@gmail.com
+Message-ID: <6464c0f8dcad9_1551483072@348af4afe15b.mail>
+Subject: =?UTF-8?Q?Instru=C3=A7=C3=B5es_de_confirma=C3=A7=C3=A3o?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_6464c0f8dc4ce_155148294e";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+client-config: default
+redirect-url: http://localhost:3001/confirm
+
+
+----==_mimepart_6464c0f8dc4ce_155148294e
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Perene Goal=0D
+=0D
+Ol=C3=A1,  casa@gmail.com!=0D
+=0D
+Welcome to Perene Goals.=0D
+=0D
+Please confirm you email clicking on the link below=0D
+=0D
+Confirm Account =0D
+( http://localhost:3000/api/auth/confirmation?confirmation_token=3DQbtNSv=
+o6Dz3upVZZCbZY )=0D
+=0D
+=0D
+=E2=9D=A4=EF=B8=8F =F0=9F=A4=96 =E2=9D=A4=EF=B8=8F=
+
+----==_mimepart_6464c0f8dc4ce_155148294e
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.o=
+rg/TR/xhtml1/DTD/xhtml1-strict.dtd">=0D
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns=3D"http://www.w3.org/1=
+999/xhtml" style=3D"min-height: 100%; background-color: #FFF;">=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width" />=0D
+=0D
+    =0D
+    =0D
+  <style>body {=0D
+width: 100% !important; min-width: 100%; -webkit-text-size-adjust: 100%; =
+-ms-text-size-adjust: 100%; margin: 0; padding: 0; -moz-box-sizing: borde=
+r-box; -webkit-box-sizing: border-box; box-sizing: border-box;=0D
+}=0D
+.ExternalClass {=0D
+width: 100%;=0D
+}=0D
+.ExternalClass {=0D
+line-height: 100%;=0D
+}=0D
+#backgroundTable {=0D
+margin: 0; padding: 0; width: 100% !important; line-height: 100% !importa=
+nt;=0D
+}=0D
+img {=0D
+outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; wi=
+dth: auto; max-width: 100%; clear: both; display: block;=0D
+}=0D
+body {=0D
+color: #464855; font-family: "Roboto", "Helvetica", "Arial", "sans-serif"=
+; font-weight: normal; padding: 0; margin: 0; text-align: left; line-heig=
+ht: 24px;=0D
+}=0D
+body {=0D
+font-size: 16px; line-height: 24px;=0D
+}=0D
+a:hover {=0D
+color: #0071aa;=0D
+}=0D
+a:active {=0D
+color: #0071aa;=0D
+}=0D
+a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h1 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h2 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h3 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h4 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h5 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h6 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+table.button:hover table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button:active table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button table tr td a:visited {=0D
+color: #fefefe;=0D
+}=0D
+table.button.tiny:hover table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.tiny:active table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.tiny table tr td a:visited {=0D
+color: #fefefe;=0D
+}=0D
+table.button.small:hover table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.small:active table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.small table tr td a:visited {=0D
+color: #fefefe;=0D
+}=0D
+table.button.large:hover table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.large:active table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.large table tr td a:visited {=0D
+color: #fefefe;=0D
+}=0D
+table.button:hover table td {=0D
+background: #0071aa; color: #fefefe;=0D
+}=0D
+table.button:visited table td {=0D
+background: #0071aa; color: #fefefe;=0D
+}=0D
+table.button:active table td {=0D
+background: #0071aa; color: #fefefe;=0D
+}=0D
+table.button:hover table a {=0D
+border: 0 solid #0071aa;=0D
+}=0D
+table.button:visited table a {=0D
+border: 0 solid #0071aa;=0D
+}=0D
+table.button:active table a {=0D
+border: 0 solid #0071aa;=0D
+}=0D
+table.button.secondary:hover table td {=0D
+background: #919191; color: #fefefe;=0D
+}=0D
+table.button.secondary:hover table a {=0D
+border: 0 solid #919191;=0D
+}=0D
+table.button.secondary:hover table td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.secondary:active table td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.secondary table td a:visited {=0D
+color: #fefefe;=0D
+}=0D
+table.button.success:hover table td {=0D
+background: #23bf5d;=0D
+}=0D
+table.button.success:hover table a {=0D
+border: 0 solid #23bf5d;=0D
+}=0D
+table.button.alert:hover table td {=0D
+background: #e23317;=0D
+}=0D
+table.button.alert:hover table a {=0D
+border: 0 solid #e23317;=0D
+}=0D
+table.button.warning:hover table td {=0D
+background: #cc8b00;=0D
+}=0D
+table.button.warning:hover table a {=0D
+border: 0px solid #cc8b00;=0D
+}=0D
+.thumbnail:hover {=0D
+box-shadow: 0 0 6px 1px rgba(0, 147, 221, 0.5);=0D
+}=0D
+.thumbnail:focus {=0D
+box-shadow: 0 0 6px 1px rgba(0, 147, 221, 0.5);=0D
+}=0D
+body.outlook p {=0D
+display: inline !important;=0D
+}=0D
+@media only screen and (max-width: 596px) {=0D
+  .small-float-center {=0D
+    margin: 0 auto !important; float: none !important; text-align: center=
+ !important;=0D
+  }=0D
+  .small-text-center {=0D
+    text-align: center !important;=0D
+  }=0D
+  .small-text-left {=0D
+    text-align: left !important;=0D
+  }=0D
+  .small-text-right {=0D
+    text-align: right !important;=0D
+  }=0D
+  .hide-for-large {=0D
+    display: block !important; width: auto !important; overflow: visible =
+!important; max-height: none !important; font-size: inherit !important; l=
+ine-height: inherit !important;=0D
+  }=0D
+  table.body table.container .hide-for-large {=0D
+    display: table !important; width: 100% !important;=0D
+  }=0D
+  table.body table.container .row.hide-for-large {=0D
+    display: table !important; width: 100% !important;=0D
+  }=0D
+  table.body table.container .callout-inner.hide-for-large {=0D
+    display: table-cell !important; width: 100% !important;=0D
+  }=0D
+  table.body table.container .show-for-large {=0D
+    display: none !important; width: 0; mso-hide: all; overflow: hidden;=0D=
+
+  }=0D
+  table.body img {=0D
+    width: auto; height: auto;=0D
+  }=0D
+  table.body center {=0D
+    min-width: 0 !important;=0D
+  }=0D
+  table.body .container {=0D
+    width: 95% !important;=0D
+  }=0D
+  table.body .columns {=0D
+    height: auto !important; -moz-box-sizing: border-box; -webkit-box-siz=
+ing: border-box; box-sizing: border-box; padding-left: 16px !important; p=
+adding-right: 16px !important;=0D
+  }=0D
+  table.body .column {=0D
+    height: auto !important; -moz-box-sizing: border-box; -webkit-box-siz=
+ing: border-box; box-sizing: border-box; padding-left: 16px !important; p=
+adding-right: 16px !important;=0D
+  }=0D
+  table.body .columns .column {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.body .columns .columns {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.body .column .column {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.body .column .columns {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.body .collapse .columns {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.body .collapse .column {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  td.small-1 {=0D
+    display: inline-block !important; width: 8.333333% !important;=0D
+  }=0D
+  th.small-1 {=0D
+    display: inline-block !important; width: 8.333333% !important;=0D
+  }=0D
+  td.small-2 {=0D
+    display: inline-block !important; width: 16.666666% !important;=0D
+  }=0D
+  th.small-2 {=0D
+    display: inline-block !important; width: 16.666666% !important;=0D
+  }=0D
+  td.small-3 {=0D
+    display: inline-block !important; width: 25% !important;=0D
+  }=0D
+  th.small-3 {=0D
+    display: inline-block !important; width: 25% !important;=0D
+  }=0D
+  td.small-4 {=0D
+    display: inline-block !important; width: 33.333333% !important;=0D
+  }=0D
+  th.small-4 {=0D
+    display: inline-block !important; width: 33.333333% !important;=0D
+  }=0D
+  td.small-5 {=0D
+    display: inline-block !important; width: 41.666666% !important;=0D
+  }=0D
+  th.small-5 {=0D
+    display: inline-block !important; width: 41.666666% !important;=0D
+  }=0D
+  td.small-6 {=0D
+    display: inline-block !important; width: 50% !important;=0D
+  }=0D
+  th.small-6 {=0D
+    display: inline-block !important; width: 50% !important;=0D
+  }=0D
+  td.small-7 {=0D
+    display: inline-block !important; width: 58.333333% !important;=0D
+  }=0D
+  th.small-7 {=0D
+    display: inline-block !important; width: 58.333333% !important;=0D
+  }=0D
+  td.small-8 {=0D
+    display: inline-block !important; width: 66.666666% !important;=0D
+  }=0D
+  th.small-8 {=0D
+    display: inline-block !important; width: 66.666666% !important;=0D
+  }=0D
+  td.small-9 {=0D
+    display: inline-block !important; width: 75% !important;=0D
+  }=0D
+  th.small-9 {=0D
+    display: inline-block !important; width: 75% !important;=0D
+  }=0D
+  td.small-10 {=0D
+    display: inline-block !important; width: 83.333333% !important;=0D
+  }=0D
+  th.small-10 {=0D
+    display: inline-block !important; width: 83.333333% !important;=0D
+  }=0D
+  td.small-11 {=0D
+    display: inline-block !important; width: 91.666666% !important;=0D
+  }=0D
+  th.small-11 {=0D
+    display: inline-block !important; width: 91.666666% !important;=0D
+  }=0D
+  td.small-12 {=0D
+    display: inline-block !important; width: 100% !important;=0D
+  }=0D
+  th.small-12 {=0D
+    display: inline-block !important; width: 100% !important;=0D
+  }=0D
+  .columns td.small-12 {=0D
+    display: block !important; width: 100% !important;=0D
+  }=0D
+  .column td.small-12 {=0D
+    display: block !important; width: 100% !important;=0D
+  }=0D
+  .columns th.small-12 {=0D
+    display: block !important; width: 100% !important;=0D
+  }=0D
+  .column th.small-12 {=0D
+    display: block !important; width: 100% !important;=0D
+  }=0D
+  table.body td.small-offset-1 {=0D
+    margin-left: 8.333333% !important;=0D
+  }=0D
+  table.body th.small-offset-1 {=0D
+    margin-left: 8.333333% !important;=0D
+  }=0D
+  table.body td.small-offset-2 {=0D
+    margin-left: 16.666666% !important;=0D
+  }=0D
+  table.body th.small-offset-2 {=0D
+    margin-left: 16.666666% !important;=0D
+  }=0D
+  table.body td.small-offset-3 {=0D
+    margin-left: 25% !important;=0D
+  }=0D
+  table.body th.small-offset-3 {=0D
+    margin-left: 25% !important;=0D
+  }=0D
+  table.body td.small-offset-4 {=0D
+    margin-left: 33.333333% !important;=0D
+  }=0D
+  table.body th.small-offset-4 {=0D
+    margin-left: 33.333333% !important;=0D
+  }=0D
+  table.body td.small-offset-5 {=0D
+    margin-left: 41.666666% !important;=0D
+  }=0D
+  table.body th.small-offset-5 {=0D
+    margin-left: 41.666666% !important;=0D
+  }=0D
+  table.body td.small-offset-6 {=0D
+    margin-left: 50% !important;=0D
+  }=0D
+  table.body th.small-offset-6 {=0D
+    margin-left: 50% !important;=0D
+  }=0D
+  table.body td.small-offset-7 {=0D
+    margin-left: 58.333333% !important;=0D
+  }=0D
+  table.body th.small-offset-7 {=0D
+    margin-left: 58.333333% !important;=0D
+  }=0D
+  table.body td.small-offset-8 {=0D
+    margin-left: 66.666666% !important;=0D
+  }=0D
+  table.body th.small-offset-8 {=0D
+    margin-left: 66.666666% !important;=0D
+  }=0D
+  table.body td.small-offset-9 {=0D
+    margin-left: 75% !important;=0D
+  }=0D
+  table.body th.small-offset-9 {=0D
+    margin-left: 75% !important;=0D
+  }=0D
+  table.body td.small-offset-10 {=0D
+    margin-left: 83.333333% !important;=0D
+  }=0D
+  table.body th.small-offset-10 {=0D
+    margin-left: 83.333333% !important;=0D
+  }=0D
+  table.body td.small-offset-11 {=0D
+    margin-left: 91.666666% !important;=0D
+  }=0D
+  table.body th.small-offset-11 {=0D
+    margin-left: 91.666666% !important;=0D
+  }=0D
+  table.body table.columns td.expander {=0D
+    display: none !important;=0D
+  }=0D
+  table.body table.columns th.expander {=0D
+    display: none !important;=0D
+  }=0D
+  table.body .right-text-pad {=0D
+    padding-left: 10px !important;=0D
+  }=0D
+  table.body .text-pad-right {=0D
+    padding-left: 10px !important;=0D
+  }=0D
+  table.body .left-text-pad {=0D
+    padding-right: 10px !important;=0D
+  }=0D
+  table.body .text-pad-left {=0D
+    padding-right: 10px !important;=0D
+  }=0D
+  table.menu {=0D
+    width: 100% !important;=0D
+  }=0D
+  table.menu td {=0D
+    width: auto !important; display: inline-block !important;=0D
+  }=0D
+  table.menu th {=0D
+    width: auto !important; display: inline-block !important;=0D
+  }=0D
+  table.menu.vertical td {=0D
+    display: block !important;=0D
+  }=0D
+  table.menu.vertical th {=0D
+    display: block !important;=0D
+  }=0D
+  table.menu.small-vertical td {=0D
+    display: block !important;=0D
+  }=0D
+  table.menu.small-vertical th {=0D
+    display: block !important;=0D
+  }=0D
+  table.menu[align=3D"center"] {=0D
+    width: auto !important;=0D
+  }=0D
+  table.button.small-expand {=0D
+    width: 100% !important;=0D
+  }=0D
+  table.button.small-expanded {=0D
+    width: 100% !important;=0D
+  }=0D
+  table.button.small-expand table {=0D
+    width: 100%;=0D
+  }=0D
+  table.button.small-expanded table {=0D
+    width: 100%;=0D
+  }=0D
+  table.button.small-expand table a {=0D
+    text-align: center !important; width: 100% !important; padding-left: =
+0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.button.small-expanded table a {=0D
+    text-align: center !important; width: 100% !important; padding-left: =
+0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.button.small-expand center {=0D
+    min-width: 0;=0D
+  }=0D
+  table.button.small-expanded center {=0D
+    min-width: 0;=0D
+  }=0D
+}=0D
+</style></head>=0D
+=0D
+  <body style=3D"width: 100% !important; min-width: 100%; -webkit-text-si=
+ze-adjust: 100%; -ms-text-size-adjust: 100%; -moz-box-sizing: border-box;=
+ -webkit-box-sizing: border-box; box-sizing: border-box; color: #464855; =
+font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;=
+, &quot;sans-serif&quot;; font-weight: normal; text-align: left; line-hei=
+ght: 24px; font-size: 16px; margin: 0; padding: 0;">=0D
+    <table class=3D"body" data-made-with-foundation=3D"" style=3D"border-=
+spacing: 0; border-collapse: collapse; vertical-align: top; text-align: l=
+eft; height: 100%; width: 100%; color: #464855; font-family: &quot;Roboto=
+&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;;=
+ font-weight: normal; line-height: 24px; font-size: 16px; margin: 0; padd=
+ing: 0;" bgcolor=3D"#FFF">=0D
+      <tr style=3D"vertical-align: top; padding: 0;" align=3D"left">=0D
+        <td class=3D"center" align=3D"center" valign=3D"top" style=3D"wor=
+d-wrap: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: a=
+uto; border-collapse: collapse !important; color: #464855; font-family: &=
+quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-s=
+erif&quot;; font-weight: normal; line-height: 24px; font-size: 16px; marg=
+in: 0; padding: 0;">=0D
+          <center style=3D"width: 100%; min-width: 580px;">=0D
+            <table class=3D"spacer float-center" align=3D"center" style=3D=
+"border-spacing: 0; border-collapse: collapse; vertical-align: top; text-=
+align: center; width: 100%; float: none; margin: 0 auto; padding: 0;"><tb=
+ody><tr style=3D"vertical-align: top; padding: 0;" align=3D"left"><td hei=
+ght=3D"5%" style=3D"font-size: 5%px; line-height: 5%px; word-wrap: break-=
+word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-co=
+llapse: collapse !important; mso-line-height-rule: exactly; color: #46485=
+5; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&qu=
+ot;, &quot;sans-serif&quot;; font-weight: normal; margin: 0; padding: 0;"=
+ align=3D"left" valign=3D"top">=C2=A0</td></tr></tbody></table>=0D
+            <table class=3D"container float-center" align=3D"center" styl=
+e=3D"border-spacing: 0; border-collapse: collapse; vertical-align: top; t=
+ext-align: center; width: 580px; float: none; border-radius: 5px; margin:=
+ 0 auto; padding: 0;" bgcolor=3D"#fdfdfd"><tbody><tr style=3D"vertical-al=
+ign: top; padding: 0;" align=3D"left"><td style=3D"word-wrap: break-word;=
+ -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collaps=
+e: collapse !important; color: #464855; font-family: &quot;Roboto&quot;, =
+&quot;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-we=
+ight: normal; line-height: 24px; font-size: 16px; margin: 0; padding: 0;"=
+ align=3D"left" valign=3D"top">=0D
+              <div class=3D"custom-body" style=3D"background-color: #f5f5=
+f5; color: #1c1c1c; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot=
+;, &quot;Arial&quot;, &quot;sans-serif&quot;; border-radius: 5px;">=0D
+                <table class=3D"row" style=3D"border-spacing: 0; border-c=
+ollapse: collapse; vertical-align: top; text-align: left; width: 100%; po=
+sition: relative; display: table; padding: 0;"><tbody><tr style=3D"vertic=
+al-align: top; padding: 0;" align=3D"left">=0D
+                  <th class=3D"header small-12 large-12 columns first las=
+t" style=3D"width: 564px; color: #464855; font-family: &quot;Roboto&quot;=
+, &quot;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-=
+weight: normal; line-height: 24px; font-size: 16px; border-radius: 5px 5p=
+x 0 0; margin: 0 auto; padding: 2% 16px 16px;" align=3D"left" bgcolor=3D"=
+#18121E"><table style=3D"border-spacing: 0; border-collapse: collapse; ve=
+rtical-align: top; text-align: left; width: 100%; padding: 0;"><tbody><tr=
+ style=3D"vertical-align: top; padding: 0;" align=3D"left">=0D
+<th style=3D"color: #464855; font-family: &quot;Roboto&quot;, &quot;Helve=
+tica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-weight: norma=
+l; line-height: 24px; font-size: 16px; margin: 0; padding: 0;" align=3D"l=
+eft">=0D
+                    <center style=3D"width: 100%; min-width: 532px;">=0D
+                      <img class=3D"logo float-center" src=3D"" alt=3D"Pe=
+rene Goal" align=3D"center" style=3D"outline: none; text-decoration: none=
+; -ms-interpolation-mode: bicubic; width: auto; max-width: 150px; clear: =
+both; display: block; text-align: center; margin: 0 auto;" /> =0D
+                    <center align=3D"center" class=3D"float-center" style=
+=3D"width: 100%; min-width: 532px;">=0D
+                  </center>=0D
+</center>=0D
+</th>=0D
+<th class=3D"expander" style=3D"visibility: hidden; width: 0; color: #464=
+855; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&=
+quot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; fo=
+nt-size: 16px; margin: 0; padding: 0;" align=3D"left"></th>=0D
+</tr></tbody></table></th>=0D
+                </tr></tbody></table>=0D
+                <table class=3D"spacer " style=3D"border-spacing: 0; bord=
+er-collapse: collapse; vertical-align: top; text-align: left; width: 100%=
+; padding: 0;"><tbody><tr style=3D"vertical-align: top; padding: 0;" alig=
+n=3D"left"><td height=3D"50" style=3D"font-size: 50px; line-height: 50px;=
+ word-wrap: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphen=
+s: auto; border-collapse: collapse !important; mso-line-height-rule: exac=
+tly; color: #464855; font-family: &quot;Roboto&quot;, &quot;Helvetica&quo=
+t;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-weight: normal; margi=
+n: 0; padding: 0;" align=3D"left" valign=3D"top">=C2=A0</td></tr></tbody>=
+</table>=0D
+<table class=3D"row" style=3D"border-spacing: 0; border-collapse: collaps=
+e; vertical-align: top; text-align: left; width: 100%; position: relative=
+; display: table; padding: 0;"><tbody><tr style=3D"vertical-align: top; p=
+adding: 0;" align=3D"left">=0D
+  <th class=3D"small-12 large-12 columns first last" style=3D"width: 564p=
+x; color: #464855; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;=
+, &quot;Arial&quot;, &quot;sans-serif&quot;; font-weight: normal; line-he=
+ight: 24px; font-size: 16px; margin: 0 auto; padding: 0 16px 16px;" align=
+=3D"left"><table style=3D"border-spacing: 0; border-collapse: collapse; v=
+ertical-align: top; text-align: left; width: 100%; padding: 0;"><tbody><t=
+r style=3D"vertical-align: top; padding: 0;" align=3D"left">=0D
+<th style=3D"color: #464855; font-family: &quot;Roboto&quot;, &quot;Helve=
+tica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-weight: norma=
+l; line-height: 24px; font-size: 16px; margin: 0; padding: 0;" align=3D"l=
+eft">=0D
+    <center style=3D"width: 100%; min-width: 532px;">=0D
+        <p align=3D"center" class=3D"float-center" style=3D"color: #46485=
+5; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&qu=
+ot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; font=
+-size: 16px; margin: 0 0 10px; padding: 0;"> <strong>Ol=C3=A1, </strong> =
+casa@gmail.com!</p>=0D
+        <p align=3D"center" class=3D"float-center" style=3D"color: #46485=
+5; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&qu=
+ot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; font=
+-size: 16px; margin: 0 0 10px; padding: 0;"> Welcome to Perene Goals. </p=
+>=0D
+        <p align=3D"center" class=3D"float-center" style=3D"color: #46485=
+5; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&qu=
+ot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; font=
+-size: 16px; margin: 0 0 10px; padding: 0;">Please confirm you email clic=
+king on the link below</p>=0D
+        <table class=3D"spacer float-center" align=3D"center" style=3D"bo=
+rder-spacing: 0; border-collapse: collapse; vertical-align: top; text-ali=
+gn: center; width: 100%; float: none; margin: 0 auto; padding: 0;"><tbody=
+><tr style=3D"vertical-align: top; padding: 0;" align=3D"left"><td height=
+=3D"5" style=3D"font-size: 5px; line-height: 5px; word-wrap: break-word; =
+-webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse=
+: collapse !important; mso-line-height-rule: exactly; color: #464855; fon=
+t-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &=
+quot;sans-serif&quot;; font-weight: normal; margin: 0; padding: 0;" align=
+=3D"left" valign=3D"top">=C2=A0</td></tr></tbody></table>=0D
+        <p align=3D"center" class=3D"float-center" style=3D"color: #46485=
+5; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&qu=
+ot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; font=
+-size: 16px; margin: 0 0 10px; padding: 0;"><a class=3D"button" href=3D"h=
+ttp://localhost:3000/api/auth/confirmation?confirmation_token=3DQbtNSvo6D=
+z3upVZZCbZY" style=3D"color: white; font-family: &quot;Roboto&quot;, &quo=
+t;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-weight=
+: 700; text-align: left; line-height: 24px; text-decoration: none; cursor=
+: pointer; font-size: 14px; width: 300px; border-radius: 25px; background=
+-color: #AD4A4A; margin: 0; padding: 10px 20px;">Confirm Account</a></p>=0D=
+
+<p align=3D"center" class=3D"float-center" style=3D"color: #464855; font-=
+family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &qu=
+ot;sans-serif&quot;; font-weight: normal; line-height: 24px; font-size: 1=
+6px; margin: 0 0 10px; padding: 0;">=0D
+        </p>=0D
+<table class=3D"spacer float-center" align=3D"center" style=3D"border-spa=
+cing: 0; border-collapse: collapse; vertical-align: top; text-align: cent=
+er; width: 100%; float: none; margin: 0 auto; padding: 0;"><tbody><tr sty=
+le=3D"vertical-align: top; padding: 0;" align=3D"left"><td height=3D"20" =
+style=3D"font-size: 20px; line-height: 20px; word-wrap: break-word; -webk=
+it-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: col=
+lapse !important; mso-line-height-rule: exactly; color: #464855; font-fam=
+ily: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &quot;=
+sans-serif&quot;; font-weight: normal; margin: 0; padding: 0;" align=3D"l=
+eft" valign=3D"top">=C2=A0</td></tr></tbody></table>=0D
+        =0D
+<p align=3D"center" class=3D"float-center" style=3D"color: #464855; font-=
+family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &qu=
+ot;sans-serif&quot;; font-weight: normal; line-height: 24px; font-size: 1=
+6px; margin: 0 0 10px; padding: 0;"> =E2=9D=A4=EF=B8=8F =F0=9F=A4=96 =E2=9D=
+=A4=EF=B8=8F </p>=0D
+    </center>=0D
+  </th>=0D
+<th class=3D"expander" style=3D"visibility: hidden; width: 0; color: #464=
+855; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&=
+quot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; fo=
+nt-size: 16px; margin: 0; padding: 0;" align=3D"left"></th>=0D
+</tr></tbody></table></th>=0D
+</tr></tbody></table>=0D
+<table class=3D"spacer " style=3D"border-spacing: 0; border-collapse: col=
+lapse; vertical-align: top; text-align: left; width: 100%; padding: 0;"><=
+tbody><tr style=3D"vertical-align: top; padding: 0;" align=3D"left"><td h=
+eight=3D"20" style=3D"font-size: 20px; line-height: 20px; word-wrap: brea=
+k-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-=
+collapse: collapse !important; mso-line-height-rule: exactly; color: #464=
+855; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&=
+quot;, &quot;sans-serif&quot;; font-weight: normal; margin: 0; padding: 0=
+;" align=3D"left" valign=3D"top">=C2=A0</td></tr></tbody></table>=0D
+=0D
+              </div>=0D
+            </td></tr></tbody></table>=0D
+          </center>=0D
+        </td>=0D
+      </tr>=0D
+    </table>=0D
+  </body>=0D
+</html>=0D
+
+----==_mimepart_6464c0f8dc4ce_155148294e--
+
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 165ms (Views: 0.6ms | ActiveRecord: 3.0ms | Allocations: 147090)
+
+
+Started PUT "/api/auth" for 172.18.0.1 at 2023-05-17 11:56:51 +0000
+Processing by DeviseTokenAuth::RegistrationsController#update as JSON
+  Parameters: {"name"=>"Fábio R. Nóbrega", "email"=>"casa@gmail.com", "role"=>"admin", "registration"=>{"name"=>"Fábio R. Nóbrega", "email"=>"casa@gmail.com", "role"=>"admin"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "visitante@perenegoals.com"], ["LIMIT", 1]]
+[31mUnpermitted parameters: :format, :registration[0m
+[31mUnpermitted parameters: :format, :registration[0m
+[31mUnpermitted parameters: :format, :registration[0m
+[31mUnpermitted parameters: :format, :registration[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "confirmation_token" = $1, "confirmation_sent_at" = $2, "name" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["confirmation_token", "Fdnyjgp_dxKadQh7ryyx"], ["confirmation_sent_at", "2023-05-17 11:56:51.329340"], ["name", "Fábio R. Nóbrega"], ["updated_at", "2023-05-17 11:56:51.329267"], ["id", 1]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering layout layouts/mailer.html.inky
+  Rendering devise/mailer/confirmation_instructions.html.inky within layouts/mailer
+  Rendered devise/mailer/confirmation_instructions.html.inky within layouts/mailer (Duration: 5.8ms | Allocations: 2085)
+  Rendered layout layouts/mailer.html.inky (Duration: 18.0ms | Allocations: 7132)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 19.8ms
+Delivered mail 6464c1037cbae_1454c833cf@348af4afe15b.mail (19.4ms)
+Date: Wed, 17 May 2023 11:56:51 +0000
+From: from@example.com
+Reply-To: mcu@example.com
+To: casa@gmail.com
+Message-ID: <6464c1037cbae_1454c833cf@348af4afe15b.mail>
+Subject: =?UTF-8?Q?Instru=C3=A7=C3=B5es_de_confirma=C3=A7=C3=A3o?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_6464c1037c269_1454c8323c";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+client-config: default
+redirect-url: http://localhost:3001/confirm
+
+
+----==_mimepart_6464c1037c269_1454c8323c
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Perene Goal=0D
+=0D
+Ol=C3=A1,  casa@gmail.com!=0D
+=0D
+Welcome to Perene Goals.=0D
+=0D
+Please confirm you email clicking on the link below=0D
+=0D
+Confirm Account =0D
+( http://localhost:3000/api/auth/confirmation?confirmation_token=3DFdnyjg=
+p_dxKadQh7ryyx )=0D
+=0D
+=0D
+=E2=9D=A4=EF=B8=8F =F0=9F=A4=96 =E2=9D=A4=EF=B8=8F=
+
+----==_mimepart_6464c1037c269_1454c8323c
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.o=
+rg/TR/xhtml1/DTD/xhtml1-strict.dtd">=0D
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns=3D"http://www.w3.org/1=
+999/xhtml" style=3D"min-height: 100%; background-color: #FFF;">=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width" />=0D
+=0D
+    =0D
+    =0D
+  <style>body {=0D
+width: 100% !important; min-width: 100%; -webkit-text-size-adjust: 100%; =
+-ms-text-size-adjust: 100%; margin: 0; padding: 0; -moz-box-sizing: borde=
+r-box; -webkit-box-sizing: border-box; box-sizing: border-box;=0D
+}=0D
+.ExternalClass {=0D
+width: 100%;=0D
+}=0D
+.ExternalClass {=0D
+line-height: 100%;=0D
+}=0D
+#backgroundTable {=0D
+margin: 0; padding: 0; width: 100% !important; line-height: 100% !importa=
+nt;=0D
+}=0D
+img {=0D
+outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; wi=
+dth: auto; max-width: 100%; clear: both; display: block;=0D
+}=0D
+body {=0D
+color: #464855; font-family: "Roboto", "Helvetica", "Arial", "sans-serif"=
+; font-weight: normal; padding: 0; margin: 0; text-align: left; line-heig=
+ht: 24px;=0D
+}=0D
+body {=0D
+font-size: 16px; line-height: 24px;=0D
+}=0D
+a:hover {=0D
+color: #0071aa;=0D
+}=0D
+a:active {=0D
+color: #0071aa;=0D
+}=0D
+a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h1 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h2 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h3 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h4 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h5 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+h6 a:visited {=0D
+color: #0093DD;=0D
+}=0D
+table.button:hover table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button:active table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button table tr td a:visited {=0D
+color: #fefefe;=0D
+}=0D
+table.button.tiny:hover table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.tiny:active table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.tiny table tr td a:visited {=0D
+color: #fefefe;=0D
+}=0D
+table.button.small:hover table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.small:active table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.small table tr td a:visited {=0D
+color: #fefefe;=0D
+}=0D
+table.button.large:hover table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.large:active table tr td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.large table tr td a:visited {=0D
+color: #fefefe;=0D
+}=0D
+table.button:hover table td {=0D
+background: #0071aa; color: #fefefe;=0D
+}=0D
+table.button:visited table td {=0D
+background: #0071aa; color: #fefefe;=0D
+}=0D
+table.button:active table td {=0D
+background: #0071aa; color: #fefefe;=0D
+}=0D
+table.button:hover table a {=0D
+border: 0 solid #0071aa;=0D
+}=0D
+table.button:visited table a {=0D
+border: 0 solid #0071aa;=0D
+}=0D
+table.button:active table a {=0D
+border: 0 solid #0071aa;=0D
+}=0D
+table.button.secondary:hover table td {=0D
+background: #919191; color: #fefefe;=0D
+}=0D
+table.button.secondary:hover table a {=0D
+border: 0 solid #919191;=0D
+}=0D
+table.button.secondary:hover table td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.secondary:active table td a {=0D
+color: #fefefe;=0D
+}=0D
+table.button.secondary table td a:visited {=0D
+color: #fefefe;=0D
+}=0D
+table.button.success:hover table td {=0D
+background: #23bf5d;=0D
+}=0D
+table.button.success:hover table a {=0D
+border: 0 solid #23bf5d;=0D
+}=0D
+table.button.alert:hover table td {=0D
+background: #e23317;=0D
+}=0D
+table.button.alert:hover table a {=0D
+border: 0 solid #e23317;=0D
+}=0D
+table.button.warning:hover table td {=0D
+background: #cc8b00;=0D
+}=0D
+table.button.warning:hover table a {=0D
+border: 0px solid #cc8b00;=0D
+}=0D
+.thumbnail:hover {=0D
+box-shadow: 0 0 6px 1px rgba(0, 147, 221, 0.5);=0D
+}=0D
+.thumbnail:focus {=0D
+box-shadow: 0 0 6px 1px rgba(0, 147, 221, 0.5);=0D
+}=0D
+body.outlook p {=0D
+display: inline !important;=0D
+}=0D
+@media only screen and (max-width: 596px) {=0D
+  .small-float-center {=0D
+    margin: 0 auto !important; float: none !important; text-align: center=
+ !important;=0D
+  }=0D
+  .small-text-center {=0D
+    text-align: center !important;=0D
+  }=0D
+  .small-text-left {=0D
+    text-align: left !important;=0D
+  }=0D
+  .small-text-right {=0D
+    text-align: right !important;=0D
+  }=0D
+  .hide-for-large {=0D
+    display: block !important; width: auto !important; overflow: visible =
+!important; max-height: none !important; font-size: inherit !important; l=
+ine-height: inherit !important;=0D
+  }=0D
+  table.body table.container .hide-for-large {=0D
+    display: table !important; width: 100% !important;=0D
+  }=0D
+  table.body table.container .row.hide-for-large {=0D
+    display: table !important; width: 100% !important;=0D
+  }=0D
+  table.body table.container .callout-inner.hide-for-large {=0D
+    display: table-cell !important; width: 100% !important;=0D
+  }=0D
+  table.body table.container .show-for-large {=0D
+    display: none !important; width: 0; mso-hide: all; overflow: hidden;=0D=
+
+  }=0D
+  table.body img {=0D
+    width: auto; height: auto;=0D
+  }=0D
+  table.body center {=0D
+    min-width: 0 !important;=0D
+  }=0D
+  table.body .container {=0D
+    width: 95% !important;=0D
+  }=0D
+  table.body .columns {=0D
+    height: auto !important; -moz-box-sizing: border-box; -webkit-box-siz=
+ing: border-box; box-sizing: border-box; padding-left: 16px !important; p=
+adding-right: 16px !important;=0D
+  }=0D
+  table.body .column {=0D
+    height: auto !important; -moz-box-sizing: border-box; -webkit-box-siz=
+ing: border-box; box-sizing: border-box; padding-left: 16px !important; p=
+adding-right: 16px !important;=0D
+  }=0D
+  table.body .columns .column {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.body .columns .columns {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.body .column .column {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.body .column .columns {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.body .collapse .columns {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.body .collapse .column {=0D
+    padding-left: 0 !important; padding-right: 0 !important;=0D
+  }=0D
+  td.small-1 {=0D
+    display: inline-block !important; width: 8.333333% !important;=0D
+  }=0D
+  th.small-1 {=0D
+    display: inline-block !important; width: 8.333333% !important;=0D
+  }=0D
+  td.small-2 {=0D
+    display: inline-block !important; width: 16.666666% !important;=0D
+  }=0D
+  th.small-2 {=0D
+    display: inline-block !important; width: 16.666666% !important;=0D
+  }=0D
+  td.small-3 {=0D
+    display: inline-block !important; width: 25% !important;=0D
+  }=0D
+  th.small-3 {=0D
+    display: inline-block !important; width: 25% !important;=0D
+  }=0D
+  td.small-4 {=0D
+    display: inline-block !important; width: 33.333333% !important;=0D
+  }=0D
+  th.small-4 {=0D
+    display: inline-block !important; width: 33.333333% !important;=0D
+  }=0D
+  td.small-5 {=0D
+    display: inline-block !important; width: 41.666666% !important;=0D
+  }=0D
+  th.small-5 {=0D
+    display: inline-block !important; width: 41.666666% !important;=0D
+  }=0D
+  td.small-6 {=0D
+    display: inline-block !important; width: 50% !important;=0D
+  }=0D
+  th.small-6 {=0D
+    display: inline-block !important; width: 50% !important;=0D
+  }=0D
+  td.small-7 {=0D
+    display: inline-block !important; width: 58.333333% !important;=0D
+  }=0D
+  th.small-7 {=0D
+    display: inline-block !important; width: 58.333333% !important;=0D
+  }=0D
+  td.small-8 {=0D
+    display: inline-block !important; width: 66.666666% !important;=0D
+  }=0D
+  th.small-8 {=0D
+    display: inline-block !important; width: 66.666666% !important;=0D
+  }=0D
+  td.small-9 {=0D
+    display: inline-block !important; width: 75% !important;=0D
+  }=0D
+  th.small-9 {=0D
+    display: inline-block !important; width: 75% !important;=0D
+  }=0D
+  td.small-10 {=0D
+    display: inline-block !important; width: 83.333333% !important;=0D
+  }=0D
+  th.small-10 {=0D
+    display: inline-block !important; width: 83.333333% !important;=0D
+  }=0D
+  td.small-11 {=0D
+    display: inline-block !important; width: 91.666666% !important;=0D
+  }=0D
+  th.small-11 {=0D
+    display: inline-block !important; width: 91.666666% !important;=0D
+  }=0D
+  td.small-12 {=0D
+    display: inline-block !important; width: 100% !important;=0D
+  }=0D
+  th.small-12 {=0D
+    display: inline-block !important; width: 100% !important;=0D
+  }=0D
+  .columns td.small-12 {=0D
+    display: block !important; width: 100% !important;=0D
+  }=0D
+  .column td.small-12 {=0D
+    display: block !important; width: 100% !important;=0D
+  }=0D
+  .columns th.small-12 {=0D
+    display: block !important; width: 100% !important;=0D
+  }=0D
+  .column th.small-12 {=0D
+    display: block !important; width: 100% !important;=0D
+  }=0D
+  table.body td.small-offset-1 {=0D
+    margin-left: 8.333333% !important;=0D
+  }=0D
+  table.body th.small-offset-1 {=0D
+    margin-left: 8.333333% !important;=0D
+  }=0D
+  table.body td.small-offset-2 {=0D
+    margin-left: 16.666666% !important;=0D
+  }=0D
+  table.body th.small-offset-2 {=0D
+    margin-left: 16.666666% !important;=0D
+  }=0D
+  table.body td.small-offset-3 {=0D
+    margin-left: 25% !important;=0D
+  }=0D
+  table.body th.small-offset-3 {=0D
+    margin-left: 25% !important;=0D
+  }=0D
+  table.body td.small-offset-4 {=0D
+    margin-left: 33.333333% !important;=0D
+  }=0D
+  table.body th.small-offset-4 {=0D
+    margin-left: 33.333333% !important;=0D
+  }=0D
+  table.body td.small-offset-5 {=0D
+    margin-left: 41.666666% !important;=0D
+  }=0D
+  table.body th.small-offset-5 {=0D
+    margin-left: 41.666666% !important;=0D
+  }=0D
+  table.body td.small-offset-6 {=0D
+    margin-left: 50% !important;=0D
+  }=0D
+  table.body th.small-offset-6 {=0D
+    margin-left: 50% !important;=0D
+  }=0D
+  table.body td.small-offset-7 {=0D
+    margin-left: 58.333333% !important;=0D
+  }=0D
+  table.body th.small-offset-7 {=0D
+    margin-left: 58.333333% !important;=0D
+  }=0D
+  table.body td.small-offset-8 {=0D
+    margin-left: 66.666666% !important;=0D
+  }=0D
+  table.body th.small-offset-8 {=0D
+    margin-left: 66.666666% !important;=0D
+  }=0D
+  table.body td.small-offset-9 {=0D
+    margin-left: 75% !important;=0D
+  }=0D
+  table.body th.small-offset-9 {=0D
+    margin-left: 75% !important;=0D
+  }=0D
+  table.body td.small-offset-10 {=0D
+    margin-left: 83.333333% !important;=0D
+  }=0D
+  table.body th.small-offset-10 {=0D
+    margin-left: 83.333333% !important;=0D
+  }=0D
+  table.body td.small-offset-11 {=0D
+    margin-left: 91.666666% !important;=0D
+  }=0D
+  table.body th.small-offset-11 {=0D
+    margin-left: 91.666666% !important;=0D
+  }=0D
+  table.body table.columns td.expander {=0D
+    display: none !important;=0D
+  }=0D
+  table.body table.columns th.expander {=0D
+    display: none !important;=0D
+  }=0D
+  table.body .right-text-pad {=0D
+    padding-left: 10px !important;=0D
+  }=0D
+  table.body .text-pad-right {=0D
+    padding-left: 10px !important;=0D
+  }=0D
+  table.body .left-text-pad {=0D
+    padding-right: 10px !important;=0D
+  }=0D
+  table.body .text-pad-left {=0D
+    padding-right: 10px !important;=0D
+  }=0D
+  table.menu {=0D
+    width: 100% !important;=0D
+  }=0D
+  table.menu td {=0D
+    width: auto !important; display: inline-block !important;=0D
+  }=0D
+  table.menu th {=0D
+    width: auto !important; display: inline-block !important;=0D
+  }=0D
+  table.menu.vertical td {=0D
+    display: block !important;=0D
+  }=0D
+  table.menu.vertical th {=0D
+    display: block !important;=0D
+  }=0D
+  table.menu.small-vertical td {=0D
+    display: block !important;=0D
+  }=0D
+  table.menu.small-vertical th {=0D
+    display: block !important;=0D
+  }=0D
+  table.menu[align=3D"center"] {=0D
+    width: auto !important;=0D
+  }=0D
+  table.button.small-expand {=0D
+    width: 100% !important;=0D
+  }=0D
+  table.button.small-expanded {=0D
+    width: 100% !important;=0D
+  }=0D
+  table.button.small-expand table {=0D
+    width: 100%;=0D
+  }=0D
+  table.button.small-expanded table {=0D
+    width: 100%;=0D
+  }=0D
+  table.button.small-expand table a {=0D
+    text-align: center !important; width: 100% !important; padding-left: =
+0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.button.small-expanded table a {=0D
+    text-align: center !important; width: 100% !important; padding-left: =
+0 !important; padding-right: 0 !important;=0D
+  }=0D
+  table.button.small-expand center {=0D
+    min-width: 0;=0D
+  }=0D
+  table.button.small-expanded center {=0D
+    min-width: 0;=0D
+  }=0D
+}=0D
+</style></head>=0D
+=0D
+  <body style=3D"width: 100% !important; min-width: 100%; -webkit-text-si=
+ze-adjust: 100%; -ms-text-size-adjust: 100%; -moz-box-sizing: border-box;=
+ -webkit-box-sizing: border-box; box-sizing: border-box; color: #464855; =
+font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;=
+, &quot;sans-serif&quot;; font-weight: normal; text-align: left; line-hei=
+ght: 24px; font-size: 16px; margin: 0; padding: 0;">=0D
+    <table class=3D"body" data-made-with-foundation=3D"" style=3D"border-=
+spacing: 0; border-collapse: collapse; vertical-align: top; text-align: l=
+eft; height: 100%; width: 100%; color: #464855; font-family: &quot;Roboto=
+&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;;=
+ font-weight: normal; line-height: 24px; font-size: 16px; margin: 0; padd=
+ing: 0;" bgcolor=3D"#FFF">=0D
+      <tr style=3D"vertical-align: top; padding: 0;" align=3D"left">=0D
+        <td class=3D"center" align=3D"center" valign=3D"top" style=3D"wor=
+d-wrap: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: a=
+uto; border-collapse: collapse !important; color: #464855; font-family: &=
+quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-s=
+erif&quot;; font-weight: normal; line-height: 24px; font-size: 16px; marg=
+in: 0; padding: 0;">=0D
+          <center style=3D"width: 100%; min-width: 580px;">=0D
+            <table class=3D"spacer float-center" align=3D"center" style=3D=
+"border-spacing: 0; border-collapse: collapse; vertical-align: top; text-=
+align: center; width: 100%; float: none; margin: 0 auto; padding: 0;"><tb=
+ody><tr style=3D"vertical-align: top; padding: 0;" align=3D"left"><td hei=
+ght=3D"5%" style=3D"font-size: 5%px; line-height: 5%px; word-wrap: break-=
+word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-co=
+llapse: collapse !important; mso-line-height-rule: exactly; color: #46485=
+5; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&qu=
+ot;, &quot;sans-serif&quot;; font-weight: normal; margin: 0; padding: 0;"=
+ align=3D"left" valign=3D"top">=C2=A0</td></tr></tbody></table>=0D
+            <table class=3D"container float-center" align=3D"center" styl=
+e=3D"border-spacing: 0; border-collapse: collapse; vertical-align: top; t=
+ext-align: center; width: 580px; float: none; border-radius: 5px; margin:=
+ 0 auto; padding: 0;" bgcolor=3D"#fdfdfd"><tbody><tr style=3D"vertical-al=
+ign: top; padding: 0;" align=3D"left"><td style=3D"word-wrap: break-word;=
+ -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collaps=
+e: collapse !important; color: #464855; font-family: &quot;Roboto&quot;, =
+&quot;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-we=
+ight: normal; line-height: 24px; font-size: 16px; margin: 0; padding: 0;"=
+ align=3D"left" valign=3D"top">=0D
+              <div class=3D"custom-body" style=3D"background-color: #f5f5=
+f5; color: #1c1c1c; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot=
+;, &quot;Arial&quot;, &quot;sans-serif&quot;; border-radius: 5px;">=0D
+                <table class=3D"row" style=3D"border-spacing: 0; border-c=
+ollapse: collapse; vertical-align: top; text-align: left; width: 100%; po=
+sition: relative; display: table; padding: 0;"><tbody><tr style=3D"vertic=
+al-align: top; padding: 0;" align=3D"left">=0D
+                  <th class=3D"header small-12 large-12 columns first las=
+t" style=3D"width: 564px; color: #464855; font-family: &quot;Roboto&quot;=
+, &quot;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-=
+weight: normal; line-height: 24px; font-size: 16px; border-radius: 5px 5p=
+x 0 0; margin: 0 auto; padding: 2% 16px 16px;" align=3D"left" bgcolor=3D"=
+#18121E"><table style=3D"border-spacing: 0; border-collapse: collapse; ve=
+rtical-align: top; text-align: left; width: 100%; padding: 0;"><tbody><tr=
+ style=3D"vertical-align: top; padding: 0;" align=3D"left">=0D
+<th style=3D"color: #464855; font-family: &quot;Roboto&quot;, &quot;Helve=
+tica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-weight: norma=
+l; line-height: 24px; font-size: 16px; margin: 0; padding: 0;" align=3D"l=
+eft">=0D
+                    <center style=3D"width: 100%; min-width: 532px;">=0D
+                      <img class=3D"logo float-center" src=3D"" alt=3D"Pe=
+rene Goal" align=3D"center" style=3D"outline: none; text-decoration: none=
+; -ms-interpolation-mode: bicubic; width: auto; max-width: 150px; clear: =
+both; display: block; text-align: center; margin: 0 auto;" /> =0D
+                    <center align=3D"center" class=3D"float-center" style=
+=3D"width: 100%; min-width: 532px;">=0D
+                  </center>=0D
+</center>=0D
+</th>=0D
+<th class=3D"expander" style=3D"visibility: hidden; width: 0; color: #464=
+855; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&=
+quot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; fo=
+nt-size: 16px; margin: 0; padding: 0;" align=3D"left"></th>=0D
+</tr></tbody></table></th>=0D
+                </tr></tbody></table>=0D
+                <table class=3D"spacer " style=3D"border-spacing: 0; bord=
+er-collapse: collapse; vertical-align: top; text-align: left; width: 100%=
+; padding: 0;"><tbody><tr style=3D"vertical-align: top; padding: 0;" alig=
+n=3D"left"><td height=3D"50" style=3D"font-size: 50px; line-height: 50px;=
+ word-wrap: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphen=
+s: auto; border-collapse: collapse !important; mso-line-height-rule: exac=
+tly; color: #464855; font-family: &quot;Roboto&quot;, &quot;Helvetica&quo=
+t;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-weight: normal; margi=
+n: 0; padding: 0;" align=3D"left" valign=3D"top">=C2=A0</td></tr></tbody>=
+</table>=0D
+<table class=3D"row" style=3D"border-spacing: 0; border-collapse: collaps=
+e; vertical-align: top; text-align: left; width: 100%; position: relative=
+; display: table; padding: 0;"><tbody><tr style=3D"vertical-align: top; p=
+adding: 0;" align=3D"left">=0D
+  <th class=3D"small-12 large-12 columns first last" style=3D"width: 564p=
+x; color: #464855; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;=
+, &quot;Arial&quot;, &quot;sans-serif&quot;; font-weight: normal; line-he=
+ight: 24px; font-size: 16px; margin: 0 auto; padding: 0 16px 16px;" align=
+=3D"left"><table style=3D"border-spacing: 0; border-collapse: collapse; v=
+ertical-align: top; text-align: left; width: 100%; padding: 0;"><tbody><t=
+r style=3D"vertical-align: top; padding: 0;" align=3D"left">=0D
+<th style=3D"color: #464855; font-family: &quot;Roboto&quot;, &quot;Helve=
+tica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-weight: norma=
+l; line-height: 24px; font-size: 16px; margin: 0; padding: 0;" align=3D"l=
+eft">=0D
+    <center style=3D"width: 100%; min-width: 532px;">=0D
+        <p align=3D"center" class=3D"float-center" style=3D"color: #46485=
+5; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&qu=
+ot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; font=
+-size: 16px; margin: 0 0 10px; padding: 0;"> <strong>Ol=C3=A1, </strong> =
+casa@gmail.com!</p>=0D
+        <p align=3D"center" class=3D"float-center" style=3D"color: #46485=
+5; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&qu=
+ot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; font=
+-size: 16px; margin: 0 0 10px; padding: 0;"> Welcome to Perene Goals. </p=
+>=0D
+        <p align=3D"center" class=3D"float-center" style=3D"color: #46485=
+5; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&qu=
+ot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; font=
+-size: 16px; margin: 0 0 10px; padding: 0;">Please confirm you email clic=
+king on the link below</p>=0D
+        <table class=3D"spacer float-center" align=3D"center" style=3D"bo=
+rder-spacing: 0; border-collapse: collapse; vertical-align: top; text-ali=
+gn: center; width: 100%; float: none; margin: 0 auto; padding: 0;"><tbody=
+><tr style=3D"vertical-align: top; padding: 0;" align=3D"left"><td height=
+=3D"5" style=3D"font-size: 5px; line-height: 5px; word-wrap: break-word; =
+-webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse=
+: collapse !important; mso-line-height-rule: exactly; color: #464855; fon=
+t-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &=
+quot;sans-serif&quot;; font-weight: normal; margin: 0; padding: 0;" align=
+=3D"left" valign=3D"top">=C2=A0</td></tr></tbody></table>=0D
+        <p align=3D"center" class=3D"float-center" style=3D"color: #46485=
+5; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&qu=
+ot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; font=
+-size: 16px; margin: 0 0 10px; padding: 0;"><a class=3D"button" href=3D"h=
+ttp://localhost:3000/api/auth/confirmation?confirmation_token=3DFdnyjgp_d=
+xKadQh7ryyx" style=3D"color: white; font-family: &quot;Roboto&quot;, &quo=
+t;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-weight=
+: 700; text-align: left; line-height: 24px; text-decoration: none; cursor=
+: pointer; font-size: 14px; width: 300px; border-radius: 25px; background=
+-color: #AD4A4A; margin: 0; padding: 10px 20px;">Confirm Account</a></p>=0D=
+
+<p align=3D"center" class=3D"float-center" style=3D"color: #464855; font-=
+family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &qu=
+ot;sans-serif&quot;; font-weight: normal; line-height: 24px; font-size: 1=
+6px; margin: 0 0 10px; padding: 0;">=0D
+        </p>=0D
+<table class=3D"spacer float-center" align=3D"center" style=3D"border-spa=
+cing: 0; border-collapse: collapse; vertical-align: top; text-align: cent=
+er; width: 100%; float: none; margin: 0 auto; padding: 0;"><tbody><tr sty=
+le=3D"vertical-align: top; padding: 0;" align=3D"left"><td height=3D"20" =
+style=3D"font-size: 20px; line-height: 20px; word-wrap: break-word; -webk=
+it-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: col=
+lapse !important; mso-line-height-rule: exactly; color: #464855; font-fam=
+ily: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &quot;=
+sans-serif&quot;; font-weight: normal; margin: 0; padding: 0;" align=3D"l=
+eft" valign=3D"top">=C2=A0</td></tr></tbody></table>=0D
+        =0D
+<p align=3D"center" class=3D"float-center" style=3D"color: #464855; font-=
+family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &qu=
+ot;sans-serif&quot;; font-weight: normal; line-height: 24px; font-size: 1=
+6px; margin: 0 0 10px; padding: 0;"> =E2=9D=A4=EF=B8=8F =F0=9F=A4=96 =E2=9D=
+=A4=EF=B8=8F </p>=0D
+    </center>=0D
+  </th>=0D
+<th class=3D"expander" style=3D"visibility: hidden; width: 0; color: #464=
+855; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&=
+quot;, &quot;sans-serif&quot;; font-weight: normal; line-height: 24px; fo=
+nt-size: 16px; margin: 0; padding: 0;" align=3D"left"></th>=0D
+</tr></tbody></table></th>=0D
+</tr></tbody></table>=0D
+<table class=3D"spacer " style=3D"border-spacing: 0; border-collapse: col=
+lapse; vertical-align: top; text-align: left; width: 100%; padding: 0;"><=
+tbody><tr style=3D"vertical-align: top; padding: 0;" align=3D"left"><td h=
+eight=3D"20" style=3D"font-size: 20px; line-height: 20px; word-wrap: brea=
+k-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-=
+collapse: collapse !important; mso-line-height-rule: exactly; color: #464=
+855; font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&=
+quot;, &quot;sans-serif&quot;; font-weight: normal; margin: 0; padding: 0=
+;" align=3D"left" valign=3D"top">=C2=A0</td></tr></tbody></table>=0D
+=0D
+              </div>=0D
+            </td></tr></tbody></table>=0D
+          </center>=0D
+        </td>=0D
+      </tr>=0D
+    </table>=0D
+  </body>=0D
+</html>=0D
+
+----==_mimepart_6464c1037c269_1454c8323c--
+
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 206ms (Views: 0.4ms | ActiveRecord: 2.5ms | Allocations: 147095)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 12:14:45 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 78ms (Views: 0.6ms | ActiveRecord: 5.9ms | Allocations: 4471)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 12:29:07 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.33ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 19ms (Views: 0.9ms | ActiveRecord: 6.4ms | Allocations: 4308)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 12:29:56 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 0.9ms | Allocations: 2119)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 12:36:31 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 27ms (Views: 0.7ms | ActiveRecord: 6.5ms | Allocations: 4308)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 12:37:14 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.8ms | ActiveRecord: 1.3ms | Allocations: 2119)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 12:38:10 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 0.6ms | ActiveRecord: 0.8ms | Allocations: 2118)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 12:38:58 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.26ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 11ms (Views: 1.7ms | ActiveRecord: 1.7ms | Allocations: 2118)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 12:39:00 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.28ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.7ms | ActiveRecord: 1.0ms | Allocations: 2119)
+
+
+Started POST "/api/auth" for 172.18.0.1 at 2023-05-17 12:39:20 +0000
+Processing by DeviseTokenAuth::RegistrationsController#create as JSON
+  Parameters: {"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"", "registration"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>""}}
+[31mUnpermitted parameters: :format, :registration[0m
+[31mUnpermitted parameters: :format, :registration[0m
+[31mUnpermitted parameters: :format, :registration[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", ""], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.68ms)
+Completed 422 Unprocessable Entity in 61ms (Views: 1.6ms | ActiveRecord: 27.7ms | Allocations: 5025)
+
+
+Started POST "/api/auth" for 172.18.0.1 at 2023-05-17 12:39:22 +0000
+Processing by DeviseTokenAuth::RegistrationsController#create as JSON
+  Parameters: {"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"", "registration"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>""}}
+[31mUnpermitted parameters: :format, :registration[0m
+[31mUnpermitted parameters: :format, :registration[0m
+[31mUnpermitted parameters: :format, :registration[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", ""], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Completed 422 Unprocessable Entity in 19ms (Views: 1.0ms | ActiveRecord: 1.8ms | Allocations: 4771)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 12:39:35 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.21ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.8ms | ActiveRecord: 1.0ms | Allocations: 2118)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 12:42:51 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.29ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 13ms (Views: 1.6ms | ActiveRecord: 1.3ms | Allocations: 2118)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 12:45:58 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.9ms | ActiveRecord: 0.7ms | Allocations: 2118)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 12:49:33 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 0.6ms | Allocations: 2118)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 12:50:08 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 0.6ms | Allocations: 2118)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 12:50:33 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 0.5ms | ActiveRecord: 0.7ms | Allocations: 2118)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 12:51:57 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 0.7ms | ActiveRecord: 0.9ms | Allocations: 2118)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 12:52:12 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 2118)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 12:55:35 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 49ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 2119)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 12:59:59 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 0.8ms | Allocations: 2119)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 13:02:09 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.8ms | Allocations: 2118)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-17 13:06:11 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "fabio345678@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 0.7ms | ActiveRecord: 0.7ms | Allocations: 2118)
+
+

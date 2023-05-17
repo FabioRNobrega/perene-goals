@@ -1,5 +1,5 @@
 <template>
-  <TopNavbar iconNameLeft="user" iconNameRight="learning" />
+  <TopNavbar iconNameLeft="user"  iconNameRight="learning"/>
   <main class="base-container">
     <BaseCard>
       <template v-slot:header>
@@ -10,7 +10,7 @@
       </template>
     </BaseCard>
   </main>
-  <BottomNavbar iconName="plus" />
+  <BottomNavbar iconName="plus" pathName="/create-goals-list" />
 </template>
 
 <script>

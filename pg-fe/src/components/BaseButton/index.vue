@@ -3,14 +3,16 @@
       :class="['base-button', {
         'base-button__dark': dark,
         'base-button__light': light,
+        'base-button__solid': solid,
         'base-button__disabled': disabled,
       }]"
     >
-    <div class="base-button__content">
+    <div  v-if="isIcon"> 
+      <SVGIcon :icon-name="icon" />
+    </div>
+    <div v-else class="base-button__content">
       {{ content }}
-      <SVGIcon
-          :icon-name="icon"
-        />
+      <SVGIcon :icon-name="icon" />
     </div>
     </button>
 </template>
@@ -42,16 +44,26 @@ import SVGIcon from '../SVGIcon/index.vue'
         required: false,
         default: false
       },
+      solid: {
+        type: Boolean,
+        required: false,
+        default: false
+      },
       icon: {
         type: String,
         default: 'plus',
         require: false
+      },
+      isIcon: {
+        type: Boolean,
+        required: false,
+        default: false
       }
     }
   }
 </script>
   
-<style lang="sass">
+<style lang="sass" scoped>
 @import "../../assets/_variables"
 @import "../../assets/_mixins"
 
@@ -61,19 +73,19 @@ import SVGIcon from '../SVGIcon/index.vue'
   font-size: 15px
   text-transform: uppercase
   font-weight: 700
-  font-family:  var(--font-family-title)
   margin: 12px 0
   padding: 12px
+  font-family:  var(--font-family-title)
   transition: all .15s linear
-  width: 100%
   cursor: pointer
 
   &__content 
     @include display-row
     justify-content: space-between
     align-items: center
-  
+    
   &__dark 
+    width: 100%
     background-color: var(--secondary-dark)
     color: var(--primary)
     box-shadow: inset 0px 0px 7px 3px var(--secondary)
@@ -83,12 +95,20 @@ import SVGIcon from '../SVGIcon/index.vue'
   
 
   &__light 
+    width: 100%
     background-color: var(--primary)
     color: var(--secondary)
     box-shadow: inset 0px 0px 7px 3px var(--primary-light)
 
     &:hover 
       background-color: var(--primary-light)
+
+  &__solid
+    width: max-content
+    color: var(--secondary)
+
+    &:hover 
+      color: var(--primary-light)
   
 
   &__disabled 

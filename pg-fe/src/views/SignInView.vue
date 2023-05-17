@@ -54,8 +54,10 @@ export default {
           }
         )
         const { 'access-token': access_token, client, uid } = response.headers
+        const { name, email, first_login} = response.data
 
         localStorage.setItem('user-auth', JSON.stringify({ 'access-token': access_token, 'client': client, 'uid': uid }))
+        localStorage.setItem('user-profile', JSON.stringify({ 'name': name, 'email': email, 'first_login': first_login }))
         this.$router.push('/')
       } catch (error) {
         console.error(error)

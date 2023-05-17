@@ -20,12 +20,12 @@ export default {
         iconName: {
             type: String,
             require: false,
-            default: "plus"
+            default: "home"
         },
         pathName: {
             type: String,
             require: false,
-            default: "/create-goals-list"
+            default: "/"
         }
     }
 

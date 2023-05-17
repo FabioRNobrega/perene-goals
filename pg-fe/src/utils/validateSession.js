@@ -1,5 +1,3 @@
-// auth.js
-
 import { validateSession } from "../api/session";
 
 export async function isAuthenticated() {
