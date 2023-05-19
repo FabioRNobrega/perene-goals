@@ -1,9 +1,9 @@
 <template>
   <div class="top-navbar">
-    <RouterLink  :to="pathNameLeft" class="circle circle__left">
+    <RouterLink  :to="pathNameLeft" class="circle circle__left" >
       <SVGIcon :icon-name="iconNameLeft"/>
     </RouterLink >
-    <RouterLink  :to="pathNameRight" class="circle circle__right">
+    <RouterLink  :to="pathNameRight" class="circle circle__right" @click="handleClick">
       <SVGIcon :icon-name="iconNameRight"/>
     </RouterLink >  
   </div>
@@ -40,6 +40,11 @@ export default {
             require: false,
             default: "/learning"
         },
+    },
+    methods: {
+      handleClick() {
+        localStorage.clear()
+      }
     }
 
 }

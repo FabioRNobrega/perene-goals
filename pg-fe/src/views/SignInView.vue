@@ -7,7 +7,7 @@
       </template>
       <template v-slot:row>
         <BaseInput :value="email" @update:value="email = $event" type="email" name="email" placeholder="email" />
-        <BaseInput :value="password" @update:value="password = $event" type="password" name="password" placeholder="password" />
+        <BaseInput :value="password" @update:value="password = $event" type="password" name="password" placeholder="password" :password-light="true"/>
         <BaseButton @click="handleSignIn" :light="true" icon="next" content="Sign In" />
         <p class="footer">
           Our <BaseLink pathName="/create-account" content="Create Account"/> to start achieving your goals.
@@ -15,7 +15,7 @@
       </template>
     </BaseCard>
   </main>
-  <BottomNavbar iconName="plus" />
+  <BottomNavbar />
 </template>
 
 <script>
@@ -54,7 +54,8 @@ export default {
           }
         )
         const { 'access-token': access_token, client, uid } = response.headers
-        const { name, email, first_login} = response.data
+        console.log(response.data)
+        const { name, email, first_login} = response.data.data
 
         localStorage.setItem('user-auth', JSON.stringify({ 'access-token': access_token, 'client': client, 'uid': uid }))
         localStorage.setItem('user-profile', JSON.stringify({ 'name': name, 'email': email, 'first_login': first_login }))

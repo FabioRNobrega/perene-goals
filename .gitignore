@@ -13,9 +13,7 @@ pickle-email-*.html
 
 # Ignore all logfiles and tempfiles.
 pg-core/log/*
-pg-core/tmp/*
-!/log/.keep
-!/tmp/.keep
+pg-core/tmp/
 
 # TODO Comment out this rule if you are OK with secrets being uploaded to the repo
 pg-core/config/initializers/secret_token.rb
@@ -54,7 +52,6 @@ bower.json
 pg-core/node_modules/
 pg-fe/node_modules/
 
-
 # Ignore precompiled javascript packs
 pg-core/public/packs
 pg-core/public/packs-test
@@ -64,3 +61,4 @@ pg-core/public/assets
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+pg-core/log/development.log

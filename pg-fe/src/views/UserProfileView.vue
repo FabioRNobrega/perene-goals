@@ -1,11 +1,11 @@
  <template>
-    <TopNavbar iconNameLeft="user" iconNameRight="learning" />
+    <TopNavbar iconNameLeft="user" iconNameRight="exit" pathNameRight="/" />
     <main class="base-container">
       <div class="title">
           <h1> Profile</h1>
           <BaseButton icon="edit" :isIcon="true" :solid="true" @click="handleEditName"/>
       </div>
-      <div> 
+      <div style="margin-bottom: 40px"> 
         <div v-if="edit">
           <BaseInput :value="name" @update:value="name = $event" type="text" name="name" placeholder="Name" />
           <BaseButton icon="next" :light="true" content="Save Change" @click="handleUpdateName"/>
@@ -19,12 +19,12 @@
           <h1> Change Password</h1>
       </div>
       <div> 
-        <BaseInput :value="password" @update:value="password = $event" type="password" placeholder="New Password" />
-        <BaseInput :value="confirm_password" @update:value="confirm_password = $event" type="password" placeholder="Confirm New Password" />
+        <BaseInput :value="password" @update:value="password = $event" type="password" placeholder="New Password" :password-dark="true"/>
+        <BaseInput :value="confirm_password" @update:value="confirm_password = $event" type="password" placeholder="Confirm New Password" :password-dark="true" />
         <BaseButton icon="next" :light="true" content="Save Change" @click="handleUpdatePassword"/>
       </div>
     </main>
-    <BottomNavbar />
+    <BottomNavbar/>
   </template>
   
   <script>

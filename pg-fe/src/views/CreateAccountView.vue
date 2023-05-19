@@ -17,7 +17,7 @@
         <div v-else> 
           <BaseInput :value="name" @update:value="name = $event" type="text" name="name" placeholder="Name" />
           <BaseInput :value="email" @update:value="email = $event" type="email" name="email" placeholder="Email" />
-          <BaseInput :value="password" @update:value="password = $event" type="password" name="password" placeholder="Password" />
+          <BaseInput :value="password" @update:value="password = $event" type="password" name="password" placeholder="Password" :password-light="true"/>
           <BaseButton @click="handleCreateAccount" :light="true" icon="next" content="Create Account" />
           <p class="footer">
             Our just <BaseLink pathName="/login" content="Sign In"/> to start achieving your goals.
@@ -26,7 +26,7 @@
       </template>
     </BaseCard>
   </main>
-  <BottomNavbar iconName="plus" />
+  <BottomNavbar />
 </template>
 
 <script>

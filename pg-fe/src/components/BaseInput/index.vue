@@ -10,7 +10,14 @@
       :disabled="disabled"
       @input="inputHandler"
     >
-    <button  v-if="type == 'password'" class="show-password" @click="handlePasswordVisibility">
+    <button  
+      v-if="type == 'password'" 
+      :class="['show-password', {
+        'show-password__dark': passwordDark,
+        'show-password__light': passwordLight
+      }]"
+      @click="handlePasswordVisibility"
+    >
         <SVGIcon icon-name="details"/>
     </button>
   </div>
@@ -46,7 +53,17 @@ export default {
     placeholder: {
       type: String,
       default: ''
-    }
+    },
+    passwordDark: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    passwordLight: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
   },
   data() {
     return {
@@ -77,7 +94,6 @@ export default {
   width: 100%
   border: 3px solid var(--secondary)
   border-radius: 5px
-  box-shadow: 0px 0px 10px var(--secondary)
   padding: 12px 20px
   margin: 8px 0
   display: inline-block
@@ -89,11 +105,19 @@ export default {
   width: 40px
   height: 40px
   background: transparent
-  color: var(--neutral-color-light)
   cursor: pointer
 
-  &:hover
-    color: var(--primary)
-    border-color: var(--primary)
+  &__dark
+    color: var(--secondary)
+    &:hover
+     color: var(--primary-light) 
+  
+  &__light
+    border: 1px solid var(--neutral-color-lighter)
+    color: var(--neutral-color-light)
+
+    &:hover
+      color: var(--primary)
+      border-color: var(--primary)
 
 </style>

@@ -8,22 +8,32 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: () => import('../views/HomeView.vue')
+      component: () => import('../views/HomeView.vue'),
+      meta: { requiresAuth: false } 
+    },
+    {
+      path: '/learning',
+      ame: 'learning',
+      component: () => ('../views/LearningView.vue'),
+      meta: { requiresAuth: false } 
     },
     {
       path: '/create-account',
       name: 'create-account',
       component: () => import('../views/CreateAccountView.vue'),
+      meta: { requiresAuth: false } 
     },
     {
       path: '/login',
       name: 'sign-in',
-      component: () => import('../views/SignInView.vue')
+      component: () => import('../views/SignInView.vue'),
+      meta: { requiresAuth: false } 
     },
     {
       path: '/confirm',
       name: 'confirm-account',
-      component: () => import('../views/ConfirmAccountView.vue')
+      component: () => import('../views/ConfirmAccountView.vue'),
+      meta: { requiresAuth: false } 
     },
     {
       path: '/profile',
@@ -40,10 +50,16 @@ const router = createRouter({
   ]
 })
 
-router.beforeEach((to, from, next) => {
-  if (to.meta.requiresAuth && !isAuthenticated()) {
-    next('/login');
-  } else {
+router.beforeEach(async (to, from, next) => {
+  if (to.meta.requiresAuth) {
+    const authenticated = await isAuthenticated();
+    console.log(authenticated)
+    if (!authenticated) {
+      next('/login')
+    } else {
+      next();
+    }
+  } else  {
     next();
   }
 });
