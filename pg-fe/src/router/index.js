@@ -53,7 +53,6 @@ const router = createRouter({
 router.beforeEach(async (to, from, next) => {
   if (to.meta.requiresAuth) {
     const authenticated = await isAuthenticated();
-    console.log(authenticated)
     if (!authenticated) {
       next('/login')
     } else {

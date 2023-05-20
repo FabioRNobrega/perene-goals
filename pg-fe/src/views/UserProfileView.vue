@@ -19,6 +19,7 @@
           <h1> Change Password</h1>
       </div>
       <div> 
+        <BaseInput :value="current_password" @update:value="current_password = $event" type="password" placeholder="Current Password" :password-dark="true"/>
         <BaseInput :value="password" @update:value="password = $event" type="password" placeholder="New Password" :password-dark="true"/>
         <BaseInput :value="confirm_password" @update:value="confirm_password = $event" type="password" placeholder="Confirm New Password" :password-dark="true" />
         <BaseButton icon="next" :light="true" content="Save Change" @click="handleUpdatePassword"/>
@@ -33,7 +34,7 @@
   import BaseButton from '../components/BaseButton/index.vue'
   import BaseInput from '../components/BaseInput/index.vue'
   
-  import { createAccount, signIn} from '../api/account'
+  import { updateAccount } from '../api/account'
   
   export default {
     name: "UserProfileView",
@@ -48,8 +49,10 @@
         name: "",
         email: "",
         password: "",
+        current_password: "",
         confirm_password: "",
-        edit: false
+        edit: false,
+        userAuth: {}
       }
     },
     created() {
@@ -62,32 +65,42 @@
       },
       async setData () {
         const userProfile = JSON.parse(localStorage.getItem('user-profile'));
+        this.userAuth = JSON.parse(localStorage.getItem('user-auth'));
+
         this.name = userProfile.name
         this.email = userProfile.email
       },
-      async handleCreateAccount() {
+      async handleUpdateName() {
         try {
-           await createAccount(
+           const response = await updateAccount(
             {
-              email: this.email,
-              password: this.password, 
-              password_confirmation: this.password,
               name: this.name
-            }
+            },
+            this.userAuth['access-token'],
+            this.userAuth['client'],
+            this.userAuth['uid']
           )
   
-          const response = await signIn(
+          const { name, email, first_login} = response.data.data
+
+          localStorage.setItem('user-profile', JSON.stringify({ 'name': name, 'email': email, 'first_login': first_login }))
+          this.edit = false
+        } catch (error) {
+          console.error(error)
+        }
+      },
+      async handleUpdatePassword() {
+        try {
+           await updateAccount(
             {
-              email: this.email,
-              password: this.password
-            }
+              password: this.password,
+              current_password: this.current_password,
+              confirm_password: this.confirm_password
+            },
+            this.userAuth['access-token'],
+            this.userAuth['client'],
+            this.userAuth['uid']
           )
-  
-          const { access_token, client, uid } = response.headers;
-  
-          localStorage.setItem('user-auth', JSON.stringify({ 'access-token': access_token, 'client': client, 'uid': uid }));
-  
-          console.log(response)
         } catch (error) {
           console.error(error)
         }

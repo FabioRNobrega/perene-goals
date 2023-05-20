@@ -47,8 +47,6 @@ export default {
         const { access_token, client, uid } = response.headers;
 
         localStorage.setItem('user-auth', JSON.stringify({ 'access-token': access_token, 'client': client, 'uid': uid }));
-
-        console.log(response)
       } catch (error) {
         console.error(error)
       }

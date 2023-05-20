@@ -27,7 +27,7 @@ import SVGIcon from '../SVGIcon/index.vue'
     props: {
       content: {
         type: String,
-        required: true
+        required: false
       },
       disabled: {
         type: Boolean,
