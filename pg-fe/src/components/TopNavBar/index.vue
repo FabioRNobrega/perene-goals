@@ -3,7 +3,7 @@
     <RouterLink  :to="pathNameLeft" class="circle circle__left" >
       <SVGIcon :icon-name="iconNameLeft"/>
     </RouterLink >
-    <RouterLink  :to="pathNameRight" class="circle circle__right" @click="handleClick">
+    <RouterLink  :to="pathNameRight" class="circle circle__right">
       <SVGIcon :icon-name="iconNameRight"/>
     </RouterLink >  
   </div>

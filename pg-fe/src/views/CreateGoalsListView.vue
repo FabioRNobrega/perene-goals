@@ -1,7 +1,20 @@
 <template>
-  <TopNavbar iconNameLeft="user" iconNameRight="learning" />
+  <TopNavbar iconNameLeft="user" iconNameRight="home" pathNameRight="/"/>
   <main class="base-container">
-    <h4> Create Goals List</h4>
+    <h1 class="base-title"> Create Goals List</h1>
+    <BaseInfo >
+      <template v-slot:content>
+        <p>
+          A goals list is an effective tool to help you set 
+          and achieve your goals. For instance, if you want 
+          to read more books, create a list of specific goals, 
+          such as the number of books to read per month or year. 
+          This will help you organize your ideas and keep track 
+          of the books you want to read, making it easier to 
+          accomplish your goal.
+        </p>
+      </template>
+    </BaseInfo>
   </main>
   <BottomNavbar iconName="plus" />
 </template>
@@ -9,6 +22,7 @@
 <script>
 import TopNavbar from '../components/TopNavBar/index.vue'
 import BottomNavbar from '../components/BottomNavBar/index.vue'
+import BaseInfo from '../components/BaseInfo/index.vue'
 
 import { createAccount, signIn} from '../api/account'
 
@@ -17,6 +31,7 @@ export default {
   components: {
     TopNavbar,
     BottomNavbar,
+    BaseInfo,
   },
   data () {
     return {

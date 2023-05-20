@@ -7,10 +7,7 @@
 
 <script>
 export default {
-    name: "BaseCard",
-    props: {
-
-    }
+    name: "BaseCard"
 }
 </script>
 
@@ -25,7 +22,7 @@ export default {
   text-align: left
   overflow: hidden
   padding: 25px
-  border-radius: 10px
+  border-radius: 5px
   margin: auto
   word-wrap: break-word
   white-space: normal

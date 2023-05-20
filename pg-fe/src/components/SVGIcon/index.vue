@@ -1,5 +1,7 @@
   <template>
-    <div :style="styleIcon" class="svg-icon" />
+    <div :style="styleIcon" :class="['svg-icon', {
+        'svg-icon__big': big
+      }]" />
   </template>
   
   <script>  
@@ -9,6 +11,11 @@
       iconName: {
         type: String,
         required: true
+      },
+      big: {
+        type: Boolean,
+        required: false,
+        default: false
       }
     },
     computed: {
@@ -31,6 +38,10 @@
     overflow: hidden
     background-color: currentColor
     display: inline-block
+
+    &__big 
+      width: 40px
+      height: 40px
 
 
   </style>
