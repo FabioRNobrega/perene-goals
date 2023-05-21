@@ -5,6 +5,9 @@
       :name="name"
       :type="showPassword ? 'text' : type"
       class="input-text"
+            :class="['input-text', {
+        'input-text__error': error,
+      }]"
       :placeholder="placeholder"
       :value="value"
       :disabled="disabled"
@@ -20,6 +23,11 @@
     >
         <SVGIcon icon-name="details"/>
     </button>
+  </div>
+  <div class="input-error">
+    <div v-if="error">
+      {{ errorMessage }}
+    </div>
   </div>
 </template>
 
@@ -64,6 +72,16 @@ export default {
       required: false,
       default: false
     },
+    error: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    errorMessage: {
+      type: String,
+      required: false,
+      default: ""
+    },
   },
   data() {
     return {
@@ -88,7 +106,13 @@ export default {
 .input-container
   @include display-row
   align-items: center
-  
+
+.input-error
+  font-family: var(--font-family-base)
+  color: var(--feedback-error) 
+  font-size: 12px
+  text-transform: capitalize
+  margin-top: -6px
 
 .input-text
   width: 100%
@@ -98,6 +122,9 @@ export default {
   margin: 8px 0
   display: inline-block
   box-sizing: border-box
+
+  &__error 
+    border: 3px solid var(--feedback-error)
 
 .show-password
   border: 1px solid var(--neutral-color-lighter)

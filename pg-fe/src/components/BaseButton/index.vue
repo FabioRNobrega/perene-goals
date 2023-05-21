@@ -106,6 +106,7 @@ import SVGIcon from '../SVGIcon/index.vue'
   &__solid
     width: max-content
     color: var(--secondary)
+    background: transparent
 
     &:hover 
       color: var(--primary-light)

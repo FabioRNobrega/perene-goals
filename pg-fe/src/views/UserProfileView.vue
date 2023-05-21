@@ -19,9 +19,32 @@
           <h1> Change Password</h1>
       </div>
       <div> 
-        <BaseInput :value="current_password" @update:value="current_password = $event" type="password" placeholder="Current Password" :password-dark="true"/>
-        <BaseInput :value="password" @update:value="password = $event" type="password" placeholder="New Password" :password-dark="true"/>
-        <BaseInput :value="confirm_password" @update:value="confirm_password = $event" type="password" placeholder="Confirm New Password" :password-dark="true" />
+        <BaseInput 
+          :value="current_password" 
+          @update:value="current_password = $event" 
+          type="password" placeholder="Current Password" 
+          :password-dark="true"
+          :error="currentPasswordError"
+          :error-message="currentPasswordErrorMessage"
+        />
+        <BaseInput 
+          :value="password" 
+          @update:value="password = $event" 
+          type="password"
+          placeholder="New Password"
+          :password-dark="true"
+          :error="passwordError"
+          :error-message="passwordErrorMessage"
+        />
+        <BaseInput 
+          :value="password_confirmation"
+          @update:value="password_confirmation = $event"
+          type="password"
+          placeholder="Confirm New Password"
+          :password-dark="true"
+          :error="passwordConfirmationError"
+          :error-message="passwordConfirmationErrorMessage"
+        />
         <BaseButton icon="next" :light="true" content="Save Change" @click="handleUpdatePassword"/>
       </div>
     </main>
@@ -48,11 +71,17 @@
       return {
         name: "",
         email: "",
-        password: "",
         current_password: "",
-        confirm_password: "",
+        password: "",
+        password_confirmation: "",
         edit: false,
-        userAuth: {}
+        userAuth: {},
+        currentPasswordError: false,
+        currentPasswordErrorMessage: "",
+        passwordError: false,
+        passwordErrorMessage: "",
+        passwordConfirmationError: false,
+        passwordConfirmationErrorMessage: ""
       }
     },
     created() {
@@ -91,18 +120,52 @@
       },
       async handleUpdatePassword() {
         try {
-           await updateAccount(
+          await updateAccount(
             {
               password: this.password,
               current_password: this.current_password,
-              confirm_password: this.confirm_password
+              password_confirmation: this.password_confirmation
             },
             this.userAuth['access-token'],
             this.userAuth['client'],
             this.userAuth['uid']
-          )
+          );
+          this.currentPasswordError = false
+          this.currentPasswordErrorMessage = ""
+          this.passwordConfirmationError = false
+          this.passwordConfirmationErrorMessage = ""
+          this.passwordError =  false
+          this.passwordErrorMessage = ""
+
         } catch (error) {
-          console.error(error)
+          if (error.response && error.response.data && error.response.data.errors) {
+            const {current_password, password, password_confirmation} = error.response.data.errors;
+            if (current_password) {
+              this.currentPasswordError = true
+              this.currentPasswordErrorMessage = current_password[0]
+            } else {
+              this.currentPasswordError = false
+              this.currentPasswordErrorMessage = ""
+            }
+
+            if (password) {
+              this.passwordError =  true
+              this.passwordErrorMessage = password[0]
+            } else {
+              this.passwordError =  false
+              this.passwordErrorMessage = ""
+            }
+
+            if(password_confirmation) {
+              this.passwordConfirmationError = true
+              this.passwordConfirmationErrorMessage = password_confirmation[0]
+            } else {
+              this.passwordConfirmationError = false
+              this.passwordConfirmationErrorMessage = ""
+            }
+          } else {
+            console.error(error);
+          }
         }
       }
     }
