@@ -28,7 +28,6 @@ module PGCore
 
     # Email configuraration Layout
     config.assets.precompile += %w[foundation_mails.css pg_core_style.css]
-    config.i18n.default_locale = :'pt-BR'
 
     # Configuration for the application, engines, and railties goes here.
     #
