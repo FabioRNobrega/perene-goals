@@ -16,8 +16,8 @@ class User < ActiveRecord::Base
 
   has_many :goals_list, dependent: :destroy
 
-  validate :password_fields_present
-  validate :password_fields_match
+  validate :password_fields_present, if: -> { name.blank? }
+  validate :password_fields_match, if: -> { name.blank? }
 
   private
 

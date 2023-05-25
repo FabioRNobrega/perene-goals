@@ -1,6 +1,7 @@
   <template>
     <div :style="styleIcon" :class="['svg-icon', {
-        'svg-icon__big': big
+        'big': big,
+        'small': small
       }]" />
   </template>
   
@@ -13,6 +14,11 @@
         required: true
       },
       big: {
+        type: Boolean,
+        required: false,
+        default: false
+      },
+      small: {
         type: Boolean,
         required: false,
         default: false
@@ -39,9 +45,13 @@
     background-color: currentColor
     display: inline-block
 
-    &__big 
-      width: 40px
-      height: 40px
+  .big 
+    width: 40px
+    height: 40px
+
+  .small 
+    width: 18px
+    height: 18px
 
 
   </style>

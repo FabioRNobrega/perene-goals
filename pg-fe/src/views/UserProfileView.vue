@@ -1,6 +1,8 @@
  <template>
     <TopNavbar iconNameLeft="user" iconNameRight="exit" pathNameRight="/" />
     <main class="base-container">
+      <BaseMessage  icon="success" content="Profile updated with success" :success="true" :visibility="successUpdated" @hide="successUpdated = false"/>
+      <BaseMessage  icon="warning" :content="errorMessage" :error="true" :visibility="failsToUpdate" @hide="failsToUpdate = false"/>
       <div class="title">
           <h1> Profile</h1>
           <BaseButton icon="edit" :isIcon="true" :solid="true" @click="handleEditName"/>
@@ -56,6 +58,7 @@
   import BottomNavbar from '../components/BottomNavBar/index.vue'
   import BaseButton from '../components/BaseButton/index.vue'
   import BaseInput from '../components/BaseInput/index.vue'
+  import BaseMessage from '../components/BaseMessage/index.vue'
   
   import { updateAccount } from '../api/account'
   
@@ -65,10 +68,14 @@
       TopNavbar,
       BottomNavbar,
       BaseButton,
-      BaseInput
+      BaseInput,
+      BaseMessage
     },
     data () {
       return {
+        successUpdated: false,
+        failsToUpdate: false,
+        errorMessage: "",
         name: "",
         email: "",
         current_password: "",
@@ -101,6 +108,8 @@
       },
       async handleUpdateName() {
         try {
+          this.failsToUpdate = false
+          this.successUpdated = false
            const response = await updateAccount(
             {
               name: this.name
@@ -114,12 +123,17 @@
 
           localStorage.setItem('user-profile', JSON.stringify({ 'name': name, 'email': email, 'first_login': first_login }))
           this.edit = false
+          this.successUpdated = true
         } catch (error) {
-          console.error(error)
+          this.errorMessage = error
+          this.failsToUpdate = true
         }
       },
       async handleUpdatePassword() {
         try {
+          this.failsToUpdate = false
+          this.successUpdated = false
+
           await updateAccount(
             {
               password: this.password,
@@ -136,6 +150,7 @@
           this.passwordConfirmationErrorMessage = ""
           this.passwordError =  false
           this.passwordErrorMessage = ""
+          this.successUpdated = true
 
         } catch (error) {
           if (error.response && error.response.data && error.response.data.errors) {
@@ -164,7 +179,8 @@
               this.passwordConfirmationErrorMessage = ""
             }
           } else {
-            console.error(error);
+            this.errorMessage = error
+            this.failsToUpdate = true
           }
         }
       }
