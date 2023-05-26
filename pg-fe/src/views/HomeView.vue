@@ -1,12 +1,20 @@
 <template>
   <TopNavbar iconNameLeft="user"  iconNameRight="learning"/>
   <main class="base-container">
+    <div class="hero">
+      <img class="hero__logo" src="src/assets/logo/perene-goals.png"/>
+      <img class="hero__banner" src="src/assets/banners/banner.png"/>
+    </div>
+
+
+    <h1 class="base-title" style="margin-bottom: 0;"> My Goals List</h1>  
+    <BaseButton @click="handleCreateGoalList" :light="true" icon="plus" content="SET YOUR FIRST GOAL LIST" />
+
     <BaseCard>
       <template v-slot:header>
-        <h3 class="title">HOME</h3>
+        <h3 class="title"> Read More</h3>
       </template>
       <template v-slot:row>
-        <BaseButton @click="handleCreateAccount" :light="true" icon="next" content="Sign Up" />
       </template>
     </BaseCard>
   </main>
@@ -19,8 +27,6 @@ import TopNavbar from '../components/TopNavBar/index.vue'
 import BottomNavbar from '../components/BottomNavBar/index.vue'
 import BaseButton from '../components/BaseButton/index.vue'
 
-import { createAccount, signIn} from '../api/account'
-
 export default {
   name: "HomeView",
   components: {
@@ -29,38 +35,9 @@ export default {
     BottomNavbar,
     BaseButton
   },
-  data () {
-    return {
-      name: "",
-      email: "",
-      password: ""
-    }
-  },
   methods: {
-    async handleCreateAccount() {
-      try {
-         await createAccount(
-          {
-            email: this.email,
-            password: this.password, 
-            password_confirmation: this.password,
-            name: this.name
-          }
-        )
-
-        const response = await signIn(
-          {
-            email: this.email,
-            password: this.password
-          }
-        )
-
-        const { access_token, client, uid } = response.headers;
-
-        localStorage.setItem('user-auth', JSON.stringify({ 'access-token': access_token, 'client': client, 'uid': uid }));
-      } catch (error) {
-        console.error(error)
-      }
+    handleCreateGoalList() {
+      this.$router.push('/create-goals-list')
     }
   }
 }
@@ -70,11 +47,23 @@ export default {
 <style lang="sass">
 @import "../assets/main"
 @import "../assets/_variables"
+@import "../assets/_mixins"
 
-.title
-  font-weight: bold
-  text-align: center
-  font-family: var(--font-family-title)
-  font-size: 35px
-  color: var(--neutral-color-lighter) 
+.hero 
+ @include display-col 
+ justify-content: center
+
+ &__logo
+  width: 112px
+  margin: -50px auto 10px auto
+
+ &__banner
+  border-radius: 5px
+  width: 100%
+  margin: 0px auto 10px auto
+  @include tablets-and-up
+    height: 300px
+    object-fit: cover
+
+
 </style>

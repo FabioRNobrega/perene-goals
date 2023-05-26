@@ -16,7 +16,7 @@
       </template>
     </BaseInfo>
   </main>
-  <BottomNavbar iconName="plus" />
+  <BottomNavbar iconName="next"  :pathName="`/create-goal-step`"/>
 </template>
 
 <script>

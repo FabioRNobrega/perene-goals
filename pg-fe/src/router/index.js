@@ -13,8 +13,8 @@ const router = createRouter({
     },
     {
       path: '/learning',
-      ame: 'learning',
-      component: () => ('../views/LearningView.vue'),
+      name: 'learning',
+      component: () => import('../views/LearningView.vue'),
       meta: { requiresAuth: false } 
     },
     {
@@ -45,6 +45,12 @@ const router = createRouter({
       path: '/create-goals-list',
       name: 'create-goals-list',
       component: () => import ('../views/CreateGoalsListView.vue'),
+      meta: { requiresAuth: true } 
+    },
+    {
+      path: '/create-goal-step',
+      name: 'create-goal-step',
+      component: () => import ('../views/CreateGoalStepView.vue'),
       meta: { requiresAuth: true } 
     }
   ]

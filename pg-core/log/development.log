@@ -29081,3 +29081,243 @@ Processing by DeviseTokenAuth::RegistrationsController#update as JSON
 Completed 200 OK in 27ms (Views: 0.6ms | ActiveRecord: 5.3ms | Allocations: 5310)
 
 
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE DATABASE "pg_core_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE "pg_core_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7300810248253628820)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7300810248253628820)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 11:23:59 +0000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 90ms (Views: 1.0ms | ActiveRecord: 6.1ms | Allocations: 17519)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 11:27:04 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 2133)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 11:29:34 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.7ms | Allocations: 2133)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 11:29:43 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.9ms | Allocations: 2133)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 11:29:49 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 0.9ms | Allocations: 2133)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 11:30:13 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.9ms | Allocations: 2109)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 11:30:28 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 2109)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 11:30:57 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 0.6ms | Allocations: 2109)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 11:31:16 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 2109)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 11:31:17 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.33ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 16ms (Views: 1.5ms | ActiveRecord: 1.8ms | Allocations: 2110)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 11:31:29 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.9ms | ActiveRecord: 1.0ms | Allocations: 2109)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 11:31:32 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 2109)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 11:31:35 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 0.6ms | ActiveRecord: 0.9ms | Allocations: 2109)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 11:33:15 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.9ms | ActiveRecord: 0.8ms | Allocations: 2109)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 11:33:17 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 2109)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 11:33:29 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 0.8ms | Allocations: 2109)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 11:34:28 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 0.6ms | ActiveRecord: 0.7ms | Allocations: 2109)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 11:34:31 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 1.1ms | ActiveRecord: 0.8ms | Allocations: 2109)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 11:34:43 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 2109)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 11:35:11 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 0.6ms | Allocations: 2109)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 11:35:25 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.8ms | ActiveRecord: 0.7ms | Allocations: 2109)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 11:35:27 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 2109)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 11:36:59 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.38ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 1.1ms | ActiveRecord: 0.9ms | Allocations: 2109)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 11:38:32 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 1.4ms | ActiveRecord: 1.1ms | Allocations: 2109)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 11:38:33 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 2109)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 11:40:44 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 0.7ms | ActiveRecord: 0.8ms | Allocations: 2109)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 12:14:21 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 14ms (Views: 0.6ms | ActiveRecord: 4.1ms | Allocations: 4300)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 12:14:37 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.6ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 19ms (Views: 2.4ms | ActiveRecord: 2.4ms | Allocations: 2109)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-05-26 12:14:41 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 0.9ms | Allocations: 2109)
+
+
