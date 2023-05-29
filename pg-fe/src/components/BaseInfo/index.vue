@@ -1,7 +1,9 @@
 <template>
   <div class="info">
-    <SVGIcon icon-name="warning" :big="true"/>
-    <slot name="content" class="content"> </slot>
+    <SVGIcon icon-name="warning" :big="true" />
+    <div class="info__content">
+      <slot name="content" class="content"> </slot>
+    </div>
   </div>
 </template>
 
@@ -34,4 +36,11 @@ export default {
   @include display-col
   align-items: center
   text-indent: 20px
+
+  &__content
+    margin: 15px 0
+    & p a
+      color: var(--primary)
+      font-weight: 700
+
 </style>

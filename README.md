@@ -6,7 +6,7 @@ This project was generated with [Rails](https://guides.rubyonrails.org/v6.1/). O
 We use:
  - Rails: 6.1.4.4
  - Ruby: 2.7.5
- - Vue.JS 2
+ - Vue.JS 3
 
 Table of contents
 =================

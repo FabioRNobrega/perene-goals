@@ -7,7 +7,8 @@ module Api
     class GoalsListController < ApplicationController
       include Paginable
 
-      before_action :authenticate_api_user!
+      before_action :authenticate_api_user!, except: :index_public
+
 
       # rubocop:disable Metrics/AbcSize
       def create # rubocop:disable Metrics/MethodLength
@@ -36,12 +37,24 @@ module Api
         end
       end
 
-      def index
-        @goals_lists = GoalsList.sorted(params[:sort], params[:dir])
-                     .page(current_page)
-                     .per(per_page)
+      def index_public
+        @goals_lists = GoalsList.where(is_public: true)
+
+        @goals_lists = @goals_lists.sorted(params[:sort], params[:dir])
+                                 .page(current_page)
+                                 .per(per_page)
+      
         render json: @goals_lists, meta: meta_attributes(@goals_lists), adapter: :json
       end
+
+      def index_private      
+        @goals_lists = @goals_lists.sorted(params[:sort], params[:dir])
+                                 .page(current_page)
+                                 .per(per_page)
+      
+        render json: @goals_lists, meta: meta_attributes(@goals_lists), adapter: :json
+      end
+
 
       def allowed_params_create # rubocop:disable  Metrics/MethodLength
         params.require(:goals_list).permit(

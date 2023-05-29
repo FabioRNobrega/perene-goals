@@ -15,7 +15,8 @@ Rails.application.routes.draw do
       delete 'users', to: 'user#destroy'
 
       # Goals List 
-      get 'goals-list', to: 'goals_list#index'
+      get 'all-goals-list', to: 'goals_list#index_public'
+      get 'my-goals-list', to: 'goals_list#index_private'
       post 'goals-list', to: 'goals_list#create'
       get 'goals-list/:id', to: 'goals_list#show'
       put 'goals-list/:id', to: 'goals_list#update'

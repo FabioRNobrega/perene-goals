@@ -1,7 +1,11 @@
 <template>
   <div class="card">
-    <slot name="header"> </slot>
-    <slot name="row"> </slot>
+    <div  class="card__title">
+      <slot name="header"> </slot>
+    </div>
+    <div class="card__content">
+      <slot name="row"> </slot>
+    </div>
   </div>
 </template>
 
@@ -11,14 +15,13 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 @import "../../assets/_mixins"
 @import "../../assets/_variables"
 
 .card
   background-color: var(--secondary)
   border-style: hidden
-  height: 380px
   text-align: left
   overflow: hidden
   padding: 25px
@@ -32,6 +35,19 @@ export default {
   cursor: pointer
   position: relative
   @include display-col
-  @include tablets-and-down
-    min-height: 300px
+
+  &__title, h3
+      font-size: 20px
+      font-family: var(--font-family-title)
+      font-weight: 700
+      color: var(--neutral-color-light)
+      margin-bottom: 10px
+  
+  &__content, p
+      font-size: 14px
+      font-family: var(--font-family-base)
+      font-weight: 400
+      color: var(--neutral-color-light)
+
+
 </style>
