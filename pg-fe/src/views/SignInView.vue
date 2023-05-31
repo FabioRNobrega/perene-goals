@@ -36,7 +36,7 @@
       </template>
     </BaseCard>
   </main>
-  <BottomNavbar />
+  <BottomNavbar  @click="handleBottomNavbarClick"/>
 </template>
 
 <script>
@@ -96,6 +96,9 @@ export default {
     },
     toggleForgetPassword() {
       return this.forgotPassword = !this.forgotPassword
+    },
+    handleBottomNavbarClick() {
+      this.$router.push('/')
     }
   }
 }

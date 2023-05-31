@@ -1,18 +1,23 @@
 <template>
   <div class="input-container">
     <input
-      :id="name"
-      :name="name"
+      :id="value"
+      :name="value"
+      :value="value"
       :type="showPassword ? 'text' : type"
       class="input-text"
-            :class="['input-text', {
+      :class="['input-text', {
         'input-text__error': error,
+        'input-text__checkbox': type == 'checkbox'
       }]"
       :placeholder="placeholder"
-      :value="value"
       :disabled="disabled"
+      @change="inputHandler"
       @input="inputHandler"
     >
+    <label v-if="type == 'checkbox'" :for="value == true">
+      {{ label }}
+    </label>
     <button  
       v-if="type == 'password'" 
       :class="['show-password', {
@@ -45,7 +50,7 @@ export default {
       required: false,
       default: "text"
     },
-    name: {
+    label: {
       type: String,
       required: false
     },
@@ -90,7 +95,11 @@ export default {
   },
   methods: {
     inputHandler(event) {
-      this.$emit('update:value', event.target.value)
+      if (this.type === 'checkbox') {
+        this.$emit('update:value', event.target.checked);
+      } else {
+        this.$emit('update:value', event.target.value);
+      }
     },
     handlePasswordVisibility() {
       this.showPassword = !this.showPassword
@@ -107,6 +116,47 @@ export default {
   @include display-row
   align-items: center
 
+  input[type="checkbox"]
+    padding: 0
+    height: initial
+    width: initial
+    margin-bottom: 0
+    display: none
+    cursor: pointer
+
+  label
+    margin: 8px 0
+    position: relative
+    cursor: pointer
+    font-family: var(--font-family-base)
+    color: var(--secondary)
+
+    &:before
+      content: ''
+      -webkit-appearance: none
+      background-color: transparent
+      border: 3px solid var(--secondary)
+      border-radius: 3px
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05)
+      padding: 10px
+      display: inline-block
+      position: relative
+      vertical-align: middle
+      cursor: pointer
+      margin-right: 5px
+
+  input:checked + label:after
+    content: ''
+    display: block
+    position: absolute
+    top: 2px
+    left: 9px
+    width: 6px
+    height: 14px
+    border: solid var(--secondary)
+    border-width: 0 2px 2px 0
+    transform: rotate(45deg)
+
 .input-error
   font-family: var(--font-family-base)
   color: var(--feedback-error) 
@@ -122,6 +172,9 @@ export default {
   margin: 8px 0
   display: inline-block
   box-sizing: border-box
+
+  &__checkbox
+    width: max-content
 
   &__error 
     border: 3px solid var(--feedback-error)

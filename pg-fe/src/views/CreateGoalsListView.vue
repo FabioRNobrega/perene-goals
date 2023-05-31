@@ -1,6 +1,13 @@
 <template>
   <TopNavbar iconNameLeft="user" iconNameRight="home" pathNameRight="/"/>
   <main class="base-container">
+    <BaseMessage  
+      icon="warning" 
+      :content="errorMessage" 
+      :error="true" 
+      :visibility="failsToCreateGoalList" 
+      @hide="failsToCreateGoalList = false"
+    />
     <h1 class="base-title"> Create Goals List</h1>
     <BaseInfo >
       <template v-slot:content>
@@ -15,16 +22,41 @@
         </p>
       </template>
     </BaseInfo>
+
+    <BaseInput 
+      :value="listName" 
+      @update:value="listName = $event" 
+      type="text"
+      placeholder="List Name"
+      :error="listNameError"
+      :error-message="listNameErrorMessage"
+    />
+    <BaseInput 
+      :value="listDescription" 
+      @update:value="listDescription = $event" 
+      type="text"
+      placeholder="List description"
+      :error="listDescriptionError"
+      :error-message="listDescriptionErrorMessage"
+    />
+    <BaseInput 
+      :value="`${isPublic}`" 
+      @update:value="isPublic = $event" 
+      type="checkbox"
+      label="Is Public"
+    />  
   </main>
-  <BottomNavbar iconName="next"  :pathName="`/create-goal-step`"/>
+  <BottomNavbar iconName="next" @click="handleBottomNavbarClick" />
 </template>
 
 <script>
 import TopNavbar from '../components/TopNavBar/index.vue'
 import BottomNavbar from '../components/BottomNavBar/index.vue'
 import BaseInfo from '../components/BaseInfo/index.vue'
+import BaseInput from '../components/BaseInput/index.vue'
+import BaseMessage from '../components/BaseMessage/index.vue'
 
-import { createAccount, signIn} from '../api/account'
+import { createGoalsList } from '../api/goals-list'
 
 export default {
   name: "CreateGoalsListView",
@@ -32,38 +64,49 @@ export default {
     TopNavbar,
     BottomNavbar,
     BaseInfo,
+    BaseInput,
+    BaseMessage
   },
   data () {
     return {
-      name: "",
-      email: "",
-      password: ""
+      listName: "",
+      listDescription: "",
+      isPublic: false,
+      userAuth: {},
+      failsToCreateGoalList: false,
+      errorMessage: "",
+      listDescriptionErrorMessage: "",
+      listDescriptionError: false,
+      listNameErrorMessage: "",
+      listNameError: false
     }
   },
+  created() {
+    this.setData()
+  },
   methods: {
-    async handleCreateAccount() {
+    async setData () {
+      this.userAuth = JSON.parse(localStorage.getItem('user-auth'))
+    },
+    async handleBottomNavbarClick() {
       try {
-         await createAccount(
+        this.failsToCreateGoalList = false
+        this.successUpdated = false
+        const { data } = await createGoalsList(
           {
-            email: this.email,
-            password: this.password, 
-            password_confirmation: this.password,
-            name: this.name
-          }
+            title: this.listName,
+            description: this.listDescription,
+            is_public: this.isPublic
+          },
+          this.userAuth['access-token'],
+          this.userAuth['client'],
+          this.userAuth['uid']
         )
-
-        const response = await signIn(
-          {
-            email: this.email,
-            password: this.password
-          }
-        )
-
-        const { access_token, client, uid } = response.headers;
-
-        localStorage.setItem('user-auth', JSON.stringify({ 'access-token': access_token, 'client': client, 'uid': uid }));
-      } catch (error) {
-        console.error(error)
+        console.log(data)
+        this.$router.push('/create-goal-step')
+      } catch(error) {
+        this.failsToCreateGoalList = true
+        this.errorMessage =  this.errorMessage = `${error}`
       }
     }
   }
@@ -75,10 +118,4 @@ export default {
 @import "../assets/main"
 @import "../assets/_variables"
 
-.title
-  font-weight: bold
-  text-align: center
-  font-family: var(--font-family-title)
-  font-size: 35px
-  color: var(--neutral-color-lighter) 
 </style>

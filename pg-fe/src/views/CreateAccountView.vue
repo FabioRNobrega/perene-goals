@@ -26,7 +26,7 @@
       </template>
     </BaseCard>
   </main>
-  <BottomNavbar />
+  <BottomNavbar @click="handleBottomNavbarClick"/>
 </template>
 
 <script>
@@ -74,6 +74,9 @@ export default {
       } catch (error) {
         console.error(error)
       }
+    },
+    handleBottomNavbarClick() {
+      this.$router.push('/')
     }
   }
 }

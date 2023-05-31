@@ -30,7 +30,7 @@
       </BaseCard>
     </div>
   </main>
-  <BottomNavbar iconName="plus" pathName="/create-goals-list" />
+  <BottomNavbar iconName="plus"  @click="handleBottomNavbarClick" />
 </template>
 
 <script>
@@ -69,6 +69,9 @@ export default {
       }
     },
     handleCreateGoalList() {
+      this.$router.push('/create-goals-list')
+    },
+    handleBottomNavbarClick() {
       this.$router.push('/create-goals-list')
     }
   }

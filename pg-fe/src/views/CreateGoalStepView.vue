@@ -23,48 +23,21 @@
   import BottomNavbar from '../components/BottomNavBar/index.vue'
   import BaseInfo from '../components/BaseInfo/index.vue'
   
-  import { createAccount, signIn} from '../api/account'
-  
   export default {
     name: "CreateGoalStepView",
     components: {
       TopNavbar,
       BottomNavbar,
-      BaseInfo,
+      BaseInfo
     },
     data () {
       return {
-        name: "",
-        email: "",
-        password: ""
+        list_name: "",
+        list_description: "",
+        is_public: false
       }
     },
     methods: {
-      async handleCreateAccount() {
-        try {
-           await createAccount(
-            {
-              email: this.email,
-              password: this.password, 
-              password_confirmation: this.password,
-              name: this.name
-            }
-          )
-  
-          const response = await signIn(
-            {
-              email: this.email,
-              password: this.password
-            }
-          )
-  
-          const { access_token, client, uid } = response.headers;
-  
-          localStorage.setItem('user-auth', JSON.stringify({ 'access-token': access_token, 'client': client, 'uid': uid }));
-        } catch (error) {
-          console.error(error)
-        }
-      }
     }
   }
   

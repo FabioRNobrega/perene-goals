@@ -50,7 +50,7 @@
         <BaseButton icon="next" :light="true" content="Save Change" @click="handleUpdatePassword"/>
       </div>
     </main>
-    <BottomNavbar/>
+    <BottomNavbar @click="handleBottomNavbarClick"/>
   </template>
   
   <script>
@@ -94,7 +94,6 @@
     created() {
         this.setData()
     },
-
     methods: {
       handleEditName() {
         return this.edit = !this.edit
@@ -183,6 +182,9 @@
             this.failsToUpdate = true
           }
         }
+      },
+      handleBottomNavbarClick() {
+        this.$router.push('/')
       }
     }
   }

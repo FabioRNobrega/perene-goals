@@ -1,34 +1,26 @@
 <template>
   <div class="bottom-navbar">
-    <RouterLink  :to="pathName" class="bottom-navbar__button">
+    <div class="bottom-navbar__button">
       <SVGIcon :icon-name="iconName"/>
-    </RouterLink>
+    </div>
   </div>
 </template>
 
 <script>
-import { RouterLink } from 'vue-router';
 import SVGIcon from '../SVGIcon/index.vue' 
 
 export default {
-    name: "BottomNavbar",
-    components: {
-      RouterLink,
-      SVGIcon
-    },
-    props: {
-        iconName: {
-            type: String,
-            require: false,
-            default: "home"
-        },
-        pathName: {
-            type: String,
-            require: false,
-            default: "/"
-        }
+  name: "BottomNavbar",
+  components: {
+    SVGIcon
+  },
+  props: {
+    iconName: {
+      type: String,
+      require: false,
+      default: "home"
     }
-
+  }
 }
 </script>
 
