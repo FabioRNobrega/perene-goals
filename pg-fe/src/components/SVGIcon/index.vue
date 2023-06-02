@@ -1,41 +1,41 @@
-  <template>
-    <div :style="styleIcon" :class="['svg-icon', {
-        'big': big,
-        'small': small
-      }]" />
-  </template>
-  
-  <script>  
-  export default {
-    name: 'SVGIcon',
-    props: {
-      iconName: {
-        type: String,
-        required: true
-      },
-      big: {
-        type: Boolean,
-        required: false,
-        default: false
-      },
-      small: {
-        type: Boolean,
-        required: false,
-        default: false
-      }
+<template>
+  <div :style="styleIcon" :class="['svg-icon', { 'big': big, 'small': small }]" />
+</template>
+
+<script>
+export default {
+  name: 'SVGIcon',
+  props: {
+    iconName: {
+      type: String,
+      required: true
     },
-    computed: {
-      styleIcon() {
-            return {
-                mask: `url(src/icons/svg/${this.iconName}.svg) no-repeat 50% 50%`,
-                '-webkit-mask': `url(src/icons/svg/${this.iconName}.svg) no-repeat 50% 50%`
-            }
-        }
+    big: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    small: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
+  },
+  computed: {
+    styleIcon() {
+      const baseURL = import.meta.env.VITE_PG_FE
+      const svgUrl = `${baseURL}/src/icons/svg/${this.iconName}.svg`;
+
+      return {
+        mask: `url(${svgUrl}) no-repeat 50% 50%`,
+        '-webkit-mask': `url(${svgUrl}) no-repeat 50% 50%`
+      };
     }
   }
-  </script>
-  
-  <style lang="sass" scoped>
+}
+</script>
+
+<style lang="sass" scoped>
   .svg-icon
     width: 25px
     height: 25px
@@ -54,5 +54,4 @@
     height: 18px
 
 
-  </style>
-  
+</style>

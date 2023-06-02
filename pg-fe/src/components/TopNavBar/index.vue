@@ -62,7 +62,8 @@ export default {
   justify-content: space-between
   height: 80px
   margin-bottom: 10px
-
+  z-index: 2
+  
 .circle
   width: 110px
   height: 110px

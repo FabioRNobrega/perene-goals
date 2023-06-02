@@ -16,7 +16,7 @@ module Api
         @goals_list.user_id = current_api_user[:id]
 
         if @goals_list.save
-          render(json: { message: 'Goals List create with success' }, status: 201)
+          render(json: @goals_list, status: 201)
         else
           render(json: @goals_list.errors, status: :unprocessable_entity)
         end

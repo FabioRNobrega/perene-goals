@@ -1,5 +1,5 @@
 <template>
-  <div class="info">
+  <div class="info" role="region">
     <SVGIcon icon-name="warning" :big="true" />
     <div class="info__content">
       <slot name="content" class="content"> </slot>

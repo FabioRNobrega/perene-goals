@@ -22,31 +22,32 @@
         </p>
       </template>
     </BaseInfo>
-
-    <BaseInput 
-      :value="listName" 
-      @update:value="listName = $event" 
-      type="text"
-      placeholder="List Name"
-      :error="listNameError"
-      :error-message="listNameErrorMessage"
-    />
-    <BaseInput 
-      :value="listDescription" 
-      @update:value="listDescription = $event" 
-      type="text"
-      placeholder="List description"
-      :error="listDescriptionError"
-      :error-message="listDescriptionErrorMessage"
-    />
-    <BaseInput 
-      :value="`${isPublic}`" 
-      @update:value="isPublic = $event" 
-      type="checkbox"
-      label="Is Public"
-    />  
+    <form>      
+      <BaseInput 
+        :value="listName" 
+        @update:value="listName = $event" 
+        type="text"
+        placeholder="List Name"
+        :error="listNameError"
+        :error-message="listNameErrorMessage"
+      />
+      <BaseInput 
+        :value="listDescription" 
+        @update:value="listDescription = $event" 
+        type="text"
+        placeholder="List description"
+        :error="listDescriptionError"
+        :error-message="listDescriptionErrorMessage"
+      />
+      <BaseInput 
+        :value="`${isPublic}`" 
+        @update:value="isPublic = $event" 
+        type="checkbox"
+        label="Is Public"
+      />  
+    </form>
   </main>
-  <BottomNavbar iconName="next" @click="handleBottomNavbarClick" />
+  <BottomNavbar iconName="next" @click="handleCreateGoalsList" />
 </template>
 
 <script>
@@ -88,7 +89,7 @@ export default {
     async setData () {
       this.userAuth = JSON.parse(localStorage.getItem('user-auth'))
     },
-    async handleBottomNavbarClick() {
+    async handleCreateGoalsList() {
       try {
         this.failsToCreateGoalList = false
         this.successUpdated = false
@@ -103,7 +104,7 @@ export default {
           this.userAuth['uid']
         )
         console.log(data)
-        this.$router.push('/create-goal-step')
+        this.$router.push(`/create-goal-step/${data.id}`)
       } catch(error) {
         this.failsToCreateGoalList = true
         this.errorMessage =  this.errorMessage = `${error}`

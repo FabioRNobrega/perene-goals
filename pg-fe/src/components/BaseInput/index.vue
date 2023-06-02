@@ -1,10 +1,15 @@
 <template>
   <div class="input-container">
+    <h5 v-if="type == 'number'">
+      {{ label }}
+    </h5>
     <input
       :id="value"
       :name="value"
       :value="value"
       :type="showPassword ? 'text' : type"
+      :min="min"
+      :max="max"
       class="input-text"
       :class="['input-text', {
         'input-text__error': error,
@@ -49,6 +54,16 @@ export default {
       type: String,
       required: false,
       default: "text"
+    },
+    max: {
+      type: String,
+      required: false,
+      default: "0"
+    },
+    min: {
+      type: String,
+      required: false,
+      default: "0"
     },
     label: {
       type: String,
@@ -115,6 +130,14 @@ export default {
 .input-container
   @include display-row
   align-items: center
+
+  h5 
+    white-space: nowrap
+    margin-right: 10px 
+    font-family: var(--font-family-base)
+    color: var(--secondary)
+    font-size: 16px
+    font-weight: normal
 
   input[type="checkbox"]
     padding: 0
