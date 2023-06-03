@@ -1,6 +1,8 @@
 <template>
   <div class="bottom-navbar">
-    <div class="bottom-navbar__button">
+    <div :class="['bottom-navbar__button', {
+      'bottom-navbar__button--disabled': disabled
+    }]">
       <SVGIcon :icon-name="iconName"/>
     </div>
   </div>
@@ -19,6 +21,11 @@ export default {
       type: String,
       require: false,
       default: "home"
+    },
+    disabled: {
+      type: Boolean,
+      require: false,
+      default: false
     }
   }
 }
@@ -64,5 +71,9 @@ export default {
     & .svg-icon
       width: 45px
       height: 45px
+
+    &--disabled
+      color: var(--primary-light)
+      cursor: not-allowed
 
 </style>

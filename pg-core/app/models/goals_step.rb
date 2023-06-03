@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Goals < ActiveRecord::Base
+class GoalsStep < ActiveRecord::Base
   include Sortable
 
   validates_presence_of :title, :description
@@ -11,6 +11,5 @@ class Goals < ActiveRecord::Base
 
   private_class_method :sort_by
 
-  belongs_to :goals_list
-  has_many :goals_step,  class_name: 'GoalsSpet'
+  belongs_to :goals
 end

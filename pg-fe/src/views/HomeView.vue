@@ -6,12 +6,33 @@
       <img class="hero__banner" src="src/assets/banners/banner.png"/>
     </div>
 
-
     <h1 class="base-title title-space" style="margin-bottom: 0;"> My Goals List</h1>  
-    <BaseButton @click="handleCreateGoalList" :light="true" icon="plus" content="SET YOUR FIRST GOAL LIST" />
+    <BaseButton v-if="myGoalsList == []" @click="handleCreateGoalList" :light="true" icon="plus" content="SET YOUR FIRST GOAL LIST" />
+    <div v-for="goal in myGoalsList" :key="goal.title" class="goals-list">
+      <BaseCard >
+        <template v-slot:header>
+          <h3 >{{ goal.title }}</h3>
+        </template>
+        <template v-slot:row>
+          <RouterLink  :to="`/goals-list/${goal.id}`"> 
+          <p class="base-text-light">  {{ goal.description }} </p>
+          <div class="goals-list__like">
+            <div class="goals-list__like--content">
+              <h5>  {{ goal.likes || 10 }}  </h5> <SVGIcon icon-name="like" /> 
+            </div> 
+            <div class="goals-list__like--content">
+              <h5> {{ goal.dislikes || 0 }} </h5>  <SVGIcon icon-name="unlike" /> 
+            </div> 
+          </div> 
+          </RouterLink>
+        </template>
+      </BaseCard>
+    </div>
+    <BaseButton v-if="myGoalsList != []" :light="true" icon="plus" content="set more goals" />
 
-    <h1 class="base-title title-space"> Public Goals List</h1>  
-    <div v-for="goal in goalsList" :key="goal.title" class="goals-list">
+
+    <h1 id="publicLists" class="base-title title-space"> Public Goals List</h1>  
+    <div v-for="goal in publicGoalsList" :key="goal.title" class="goals-list">
       <BaseCard >
         <template v-slot:header>
           <h3 >{{ goal.title }}</h3>
@@ -29,31 +50,37 @@
         </template>
       </BaseCard>
     </div>
+    <BaseButton v-if="end" @click="backToTop('publicLists')" :light="true" icon="next" content="back to the top" />
+    <BaseButton v-else @click="setData" :light="true" icon="next" content="load more goals list" />
   </main>
   <BottomNavbar iconName="plus"  @click="handleBottomNavbarClick" />
 </template>
 
 <script>
-import BaseCard from '../components/BaseCard/index.vue'
 import TopNavbar from '../components/TopNavBar/index.vue'
 import BottomNavbar from '../components/BottomNavBar/index.vue'
 import BaseButton from '../components/BaseButton/index.vue'
+import BaseCard from '../components/BaseCard/index.vue'
 import SVGIcon from '../components/SVGIcon/index.vue'
 
-import { goalsListPublic } from '../api/goals-list'
+import { goalsListPublic, goalsListPrivate } from '../api/goals-list'
 
 export default {
   name: "HomeView",
   components: {
-    BaseCard,
     TopNavbar,
+    BaseCard,
     BottomNavbar,
     BaseButton,
     SVGIcon
   },
   data () {
     return {
-      goalsList: []
+      publicGoalsList: [],
+      myGoalsList: [],
+      page: 1,
+      end: false,
+      userAuth: {},
     }
   },
   created() {
@@ -61,11 +88,37 @@ export default {
   },
   methods: {
     async setData() {
+      this.userAuth = JSON.parse(localStorage.getItem('user-auth'))
       try {
-        const { data } = await goalsListPublic()
-        this.goalsList = data
+        const { data } = await goalsListPublic(this.page)
+        this.getMyGoalsLists()
+        if(data.meta) {
+          this.end = true
+          return
+        } else {
+          this.publicGoalsList = this.publicGoalsList.concat(data)
+          this.page = this.page + 1
+        }
       } catch(error) {
         console.error(error)
+      }
+    },
+    async getMyGoalsLists() {
+      try {
+        const { data } = await goalsListPrivate(
+          this.userAuth['access-token'],
+          this.userAuth['client'],
+          this.userAuth['uid']
+        )
+        this.myGoalsList = data
+      } catch(error) {
+        console.error(error)
+      }
+    },
+    backToTop(id) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
       }
     },
     handleCreateGoalList() {

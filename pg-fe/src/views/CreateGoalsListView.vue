@@ -47,7 +47,7 @@
       />  
     </form>
   </main>
-  <BottomNavbar iconName="next" @click="handleCreateGoalsList" />
+  <BottomNavbar iconName="next" @click="handleCreateGoalsList" :disabled="!nextStep"/>
 </template>
 
 <script>
@@ -85,29 +85,40 @@ export default {
   created() {
     this.setData()
   },
+  computed: {
+    nextStep() {  
+      return this.listName != "" && this.listDescription != ""
+    }
+  },
   methods: {
     async setData () {
       this.userAuth = JSON.parse(localStorage.getItem('user-auth'))
     },
     async handleCreateGoalsList() {
-      try {
-        this.failsToCreateGoalList = false
-        this.successUpdated = false
-        const { data } = await createGoalsList(
-          {
-            title: this.listName,
-            description: this.listDescription,
-            is_public: this.isPublic
-          },
-          this.userAuth['access-token'],
-          this.userAuth['client'],
-          this.userAuth['uid']
-        )
-        console.log(data)
-        this.$router.push(`/create-goal-step/${data.id}`)
-      } catch(error) {
-        this.failsToCreateGoalList = true
-        this.errorMessage =  this.errorMessage = `${error}`
+      if(this.nextStep) {
+        try {
+          this.failsToCreateGoalList = false
+          this.successUpdated = false
+          const { data } = await createGoalsList(
+            {
+              title: this.listName,
+              description: this.listDescription,
+              is_public: this.isPublic
+            },
+            this.userAuth['access-token'],
+            this.userAuth['client'],
+            this.userAuth['uid']
+          )
+          this.$router.push(`/create-goal-step/${data.id}`)
+        } catch(error) {
+          this.failsToCreateGoalList = true
+          this.errorMessage =  this.errorMessage = `${error}`
+        }
+      } else {
+        this.listDescriptionErrorMessage = "Can't be blank",
+        this.listDescriptionError = true,
+        this.listNameErrorMessage = "Can't be blank",
+        this.listNameError = true
       }
     }
   }

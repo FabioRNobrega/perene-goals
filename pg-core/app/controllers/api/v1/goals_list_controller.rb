@@ -38,21 +38,22 @@ module Api
       end
 
       def index_public
-        @goals_lists = GoalsList.where(is_public: true)
+        @goals_list = GoalsList.where(is_public: true)
 
-        @goals_lists = @goals_lists.sorted(params[:sort], params[:dir])
+        @goals_list = @goals_list.sorted(params[:sort], params[:dir])
                                  .page(current_page)
                                  .per(per_page)
       
-        render json: @goals_lists, meta: meta_attributes(@goals_lists), adapter: :json
+        render json: @goals_list, meta: meta_attributes(@goals_list), adapter: :json
       end
 
-      def index_private      
-        @goals_lists = @goals_lists.sorted(params[:sort], params[:dir])
+      def index_private   
+        @goals_list = GoalsList.where(user_id: current_api_user[:id]) 
+        @goals_list = @goals_list.sorted(params[:sort], params[:dir])
                                  .page(current_page)
                                  .per(per_page)
       
-        render json: @goals_lists, meta: meta_attributes(@goals_lists), adapter: :json
+        render json: @goals_list, meta: meta_attributes(@goals_list), adapter: :json
       end
 
 

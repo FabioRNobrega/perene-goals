@@ -101,7 +101,7 @@
     },
     created() {
     this.setData()
-  },
+    },
     methods: {
       async setData () {
       this.userAuth = JSON.parse(localStorage.getItem('user-auth'))
