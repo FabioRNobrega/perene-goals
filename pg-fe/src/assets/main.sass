@@ -59,3 +59,12 @@ body
   margin-bottom: 100px
   @include tablets-and-down
     width: 90%
+
+.base-list-display
+  @include display-col
+
+  @include tablets-and-up
+    display: grid
+    grid-template-columns: 50% 50%
+    grid-auto-rows: 1fr
+    margin-top: 20px

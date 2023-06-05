@@ -26,15 +26,16 @@ export default {
   overflow: hidden
   padding: 25px
   border-radius: 5px
-  margin: auto
+  margin: 10px 0
   word-wrap: break-word
   white-space: normal
   word-break: normal
   text-overflow: ellipsis
   box-shadow: 0px 0px 10px var(--secondary)
-  cursor: pointer
-  position: relative
   @include display-col
+  @include tablets-and-up
+   margin: 10px 
+   justify-content: space-around
 
   &__title, h3
       font-size: 20px

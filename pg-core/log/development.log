@@ -36786,3 +36786,586 @@ Processing by Api::V1::GoalsListController#show as JSON
 Completed 200 OK in 11ms (Views: 1.6ms | ActiveRecord: 1.1ms | Allocations: 3900)
 
 
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE DATABASE "pg_core_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE DATABASE "pg_core_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7300810248253628820)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7300810248253628820)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/all-goals-list?page=1&per_page=10&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 11:43:56 +0000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::GoalsListController#index_public as JSON
+  Parameters: {"page"=>"1", "per_page"=>"10", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."is_public" = $1[0m  [["is_public", true]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.6ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."is_public" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["is_public", true], ["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:47:in `index_public'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (0.96ms)
+Completed 200 OK in 28ms (Views: 8.3ms | ActiveRecord: 5.3ms | Allocations: 11010)
+
+
+Started GET "/api/my-goals-list?page=1&per_page=5&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 11:43:56 +0000
+Processing by Api::V1::GoalsListController#index_private as JSON
+  Parameters: {"page"=>"1", "per_page"=>"5", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."user_id" = $1[0m  [["user_id", 30]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.5ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."user_id" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["user_id", 30], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:56:in `index_private'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (0.54ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 94ms (Views: 2.5ms | ActiveRecord: 7.1ms | Allocations: 14849)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-06-05 11:44:00 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.33ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 19ms (Views: 3.8ms | ActiveRecord: 1.6ms | Allocations: 2735)
+
+
+Started GET "/api/goals-list/11" for 172.18.0.1 at 2023-06-05 11:44:00 +0000
+Processing by Api::V1::GoalsListController#show as JSON
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsList Load (0.3ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+  [1m[36mGoals Load (1.1ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."goals_list_id" = $1[0m  [["goals_list_id", 11]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with GoalsList (1.15ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 31ms (Views: 2.1ms | ActiveRecord: 5.7ms | Allocations: 10233)
+
+
+Started GET "/api/all-goals-list?page=1&per_page=10&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 11:44:06 +0000
+Processing by Api::V1::GoalsListController#index_public as JSON
+  Parameters: {"page"=>"1", "per_page"=>"10", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."is_public" = $1[0m  [["is_public", true]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.6ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."is_public" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["is_public", true], ["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:47:in `index_public'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (1.59ms)
+Completed 200 OK in 10ms (Views: 5.3ms | ActiveRecord: 1.1ms | Allocations: 2160)
+
+
+Started GET "/api/my-goals-list?page=1&per_page=5&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 11:44:06 +0000
+Processing by Api::V1::GoalsListController#index_private as JSON
+  Parameters: {"page"=>"1", "per_page"=>"5", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."user_id" = $1[0m  [["user_id", 30]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.5ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."user_id" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["user_id", 30], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:56:in `index_private'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (0.74ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 2.7ms | ActiveRecord: 1.6ms | Allocations: 3679)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-06-05 11:44:11 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.33ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 17ms (Views: 1.5ms | ActiveRecord: 2.1ms | Allocations: 2153)
+
+
+Started GET "/api/goals-list/10" for 172.18.0.1 at 2023-06-05 11:44:11 +0000
+Processing by Api::V1::GoalsListController#show as JSON
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsList Load (0.5ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+  [1m[36mGoals Load (0.5ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."goals_list_id" = $1[0m  [["goals_list_id", 10]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with GoalsList (0.29ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 11ms (Views: 0.7ms | ActiveRecord: 1.8ms | Allocations: 3319)
+
+
+Started GET "/api/goals-list/10" for 172.18.0.1 at 2023-06-05 11:49:43 +0000
+Processing by Api::V1::GoalsListController#show as JSON
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsList Load (0.6ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+  [1m[36mGoals Load (0.6ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."goals_list_id" = $1[0m  [["goals_list_id", 10]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with GoalsList (0.35ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 27ms (Views: 0.9ms | ActiveRecord: 8.9ms | Allocations: 5544)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-06-05 11:49:46 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.28ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 1.0ms | ActiveRecord: 1.0ms | Allocations: 2129)
+
+
+Started GET "/api/all-goals-list?page=1&per_page=10&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 11:53:19 +0000
+Processing by Api::V1::GoalsListController#index_public as JSON
+  Parameters: {"page"=>"1", "per_page"=>"10", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."is_public" = $1[0m  [["is_public", true]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (1.1ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."is_public" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["is_public", true], ["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:47:in `index_public'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (1.55ms)
+Completed 200 OK in 9ms (Views: 4.6ms | ActiveRecord: 1.6ms | Allocations: 2138)
+
+
+Started GET "/api/my-goals-list?page=1&per_page=5&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 11:53:19 +0000
+Processing by Api::V1::GoalsListController#index_private as JSON
+  Parameters: {"page"=>"1", "per_page"=>"5", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."user_id" = $1[0m  [["user_id", 30]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.4ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."user_id" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["user_id", 30], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:56:in `index_private'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (0.63ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 11ms (Views: 2.6ms | ActiveRecord: 2.0ms | Allocations: 3679)
+
+
+Started GET "/api/all-goals-list?page=1&per_page=10&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 11:55:24 +0000
+Processing by Api::V1::GoalsListController#index_public as JSON
+  Parameters: {"page"=>"1", "per_page"=>"10", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."is_public" = $1[0m  [["is_public", true]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.6ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."is_public" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["is_public", true], ["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:47:in `index_public'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (1.28ms)
+Completed 200 OK in 9ms (Views: 4.3ms | ActiveRecord: 1.2ms | Allocations: 2137)
+
+
+Started GET "/api/my-goals-list?page=1&per_page=5&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 11:55:24 +0000
+Processing by Api::V1::GoalsListController#index_private as JSON
+  Parameters: {"page"=>"1", "per_page"=>"5", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."user_id" = $1[0m  [["user_id", 30]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.6ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."user_id" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["user_id", 30], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:56:in `index_private'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (0.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 3.8ms | ActiveRecord: 1.9ms | Allocations: 3679)
+
+
+Started GET "/api/all-goals-list?page=1&per_page=10&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 11:55:27 +0000
+Processing by Api::V1::GoalsListController#index_public as JSON
+  Parameters: {"page"=>"1", "per_page"=>"10", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."is_public" = $1[0m  [["is_public", true]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.6ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."is_public" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["is_public", true], ["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:47:in `index_public'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (1.39ms)
+Completed 200 OK in 9ms (Views: 4.1ms | ActiveRecord: 1.0ms | Allocations: 2137)
+
+
+Started GET "/api/my-goals-list?page=1&per_page=5&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 11:55:27 +0000
+Processing by Api::V1::GoalsListController#index_private as JSON
+  Parameters: {"page"=>"1", "per_page"=>"5", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."user_id" = $1[0m  [["user_id", 30]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.7ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."user_id" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["user_id", 30], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:56:in `index_private'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (1.62ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 17ms (Views: 5.8ms | ActiveRecord: 2.3ms | Allocations: 3679)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-06-05 11:56:00 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 1.2ms | Allocations: 2129)
+
+
+Started GET "/api/goals-list/11" for 172.18.0.1 at 2023-06-05 11:56:00 +0000
+Processing by Api::V1::GoalsListController#show as JSON
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsList Load (0.3ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+  [1m[36mGoals Load (0.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."goals_list_id" = $1[0m  [["goals_list_id", 11]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with GoalsList (0.91ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 1.3ms | ActiveRecord: 0.9ms | Allocations: 3900)
+
+
+Started GET "/api/all-goals-list?page=1&per_page=10&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 11:56:07 +0000
+Processing by Api::V1::GoalsListController#index_public as JSON
+  Parameters: {"page"=>"1", "per_page"=>"10", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."is_public" = $1[0m  [["is_public", true]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.6ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."is_public" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["is_public", true], ["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:47:in `index_public'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (0.89ms)
+Completed 200 OK in 8ms (Views: 3.9ms | ActiveRecord: 1.1ms | Allocations: 2137)
+
+
+Started GET "/api/my-goals-list?page=1&per_page=5&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 11:56:07 +0000
+Processing by Api::V1::GoalsListController#index_private as JSON
+  Parameters: {"page"=>"1", "per_page"=>"5", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."user_id" = $1[0m  [["user_id", 30]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.5ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."user_id" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["user_id", 30], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:56:in `index_private'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (0.88ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 13ms (Views: 3.4ms | ActiveRecord: 1.5ms | Allocations: 3679)
+
+
+Started GET "/api/all-goals-list?page=2&per_page=10&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 11:56:28 +0000
+Processing by Api::V1::GoalsListController#index_public as JSON
+  Parameters: {"page"=>"2", "per_page"=>"10", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."is_public" = $1[0m  [["is_public", true]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.6ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."is_public" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["is_public", true], ["LIMIT", 10], ["OFFSET", 10]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:47:in `index_public'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (1.09ms)
+Completed 200 OK in 18ms (Views: 14.4ms | ActiveRecord: 0.9ms | Allocations: 3557)
+
+
+Started GET "/api/my-goals-list?page=1&per_page=5&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 11:56:28 +0000
+Processing by Api::V1::GoalsListController#index_private as JSON
+  Parameters: {"page"=>"1", "per_page"=>"5", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."user_id" = $1[0m  [["user_id", 30]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.4ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."user_id" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["user_id", 30], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:56:in `index_private'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (0.53ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 2.2ms | ActiveRecord: 1.1ms | Allocations: 3683)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-06-05 12:07:40 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 18ms (Views: 0.5ms | ActiveRecord: 6.0ms | Allocations: 4324)
+
+
+Started GET "/api/goals-list/11" for 172.18.0.1 at 2023-06-05 12:07:40 +0000
+Processing by Api::V1::GoalsListController#show as JSON
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsList Load (0.3ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+  [1m[36mGoals Load (0.5ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."goals_list_id" = $1[0m  [["goals_list_id", 11]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with GoalsList (1.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 2.0ms | ActiveRecord: 1.8ms | Allocations: 3906)
+
+
+Started GET "/api/all-goals-list?page=1&per_page=10&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 12:07:48 +0000
+Processing by Api::V1::GoalsListController#index_public as JSON
+  Parameters: {"page"=>"1", "per_page"=>"10", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."is_public" = $1[0m  [["is_public", true]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.7ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."is_public" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["is_public", true], ["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:47:in `index_public'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (1.24ms)
+Completed 200 OK in 8ms (Views: 3.8ms | ActiveRecord: 1.3ms | Allocations: 2137)
+
+
+Started GET "/api/my-goals-list?page=1&per_page=5&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 12:07:48 +0000
+Processing by Api::V1::GoalsListController#index_private as JSON
+  Parameters: {"page"=>"1", "per_page"=>"5", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."user_id" = $1[0m  [["user_id", 30]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.5ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."user_id" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["user_id", 30], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:56:in `index_private'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (0.69ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 11ms (Views: 3.1ms | ActiveRecord: 1.8ms | Allocations: 3679)
+
+
+Started GET "/api/all-goals-list?page=1&per_page=10&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 12:11:43 +0000
+Processing by Api::V1::GoalsListController#index_public as JSON
+  Parameters: {"page"=>"1", "per_page"=>"10", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."is_public" = $1[0m  [["is_public", true]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.8ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."is_public" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["is_public", true], ["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:47:in `index_public'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (1.29ms)
+Completed 200 OK in 10ms (Views: 5.4ms | ActiveRecord: 1.3ms | Allocations: 2137)
+
+
+Started GET "/api/my-goals-list?page=1&per_page=5&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 12:11:43 +0000
+Processing by Api::V1::GoalsListController#index_private as JSON
+  Parameters: {"page"=>"1", "per_page"=>"5", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."user_id" = $1[0m  [["user_id", 30]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.6ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."user_id" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["user_id", 30], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:56:in `index_private'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (1.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 14ms (Views: 4.4ms | ActiveRecord: 1.9ms | Allocations: 3679)
+
+
+Started GET "/api/all-goals-list?page=1&per_page=10&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 12:45:42 +0000
+Processing by Api::V1::GoalsListController#index_public as JSON
+  Parameters: {"page"=>"1", "per_page"=>"10", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."is_public" = $1[0m  [["is_public", true]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.9ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."is_public" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["is_public", true], ["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:47:in `index_public'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (1.1ms)
+Completed 200 OK in 24ms (Views: 4.5ms | ActiveRecord: 10.5ms | Allocations: 4220)
+
+
+Started GET "/api/my-goals-list?page=1&per_page=5&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 12:45:42 +0000
+Processing by Api::V1::GoalsListController#index_private as JSON
+  Parameters: {"page"=>"1", "per_page"=>"5", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."user_id" = $1[0m  [["user_id", 30]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.4ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."user_id" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["user_id", 30], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:56:in `index_private'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (0.61ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 11ms (Views: 2.3ms | ActiveRecord: 2.2ms | Allocations: 3792)
+
+
+Started GET "/api/all-goals-list?page=1&per_page=10&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 12:51:03 +0000
+Processing by Api::V1::GoalsListController#index_public as JSON
+  Parameters: {"page"=>"1", "per_page"=>"10", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."is_public" = $1[0m  [["is_public", true]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.5ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."is_public" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["is_public", true], ["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:47:in `index_public'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (1.44ms)
+Completed 200 OK in 9ms (Views: 4.9ms | ActiveRecord: 1.0ms | Allocations: 2137)
+
+
+Started GET "/api/my-goals-list?page=1&per_page=5&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 12:51:03 +0000
+Processing by Api::V1::GoalsListController#index_private as JSON
+  Parameters: {"page"=>"1", "per_page"=>"5", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."user_id" = $1[0m  [["user_id", 30]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.5ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."user_id" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["user_id", 30], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:56:in `index_private'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (1.1ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 14ms (Views: 4.1ms | ActiveRecord: 2.2ms | Allocations: 3679)
+
+
+Started GET "/api/all-goals-list?page=1&per_page=10&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 12:57:20 +0000
+Processing by Api::V1::GoalsListController#index_public as JSON
+  Parameters: {"page"=>"1", "per_page"=>"10", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."is_public" = $1[0m  [["is_public", true]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (1.1ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."is_public" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["is_public", true], ["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:47:in `index_public'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (1.84ms)
+Completed 200 OK in 25ms (Views: 7.3ms | ActiveRecord: 9.1ms | Allocations: 4221)
+
+
+Started GET "/api/my-goals-list?page=1&per_page=5&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 12:57:20 +0000
+Processing by Api::V1::GoalsListController#index_private as JSON
+  Parameters: {"page"=>"1", "per_page"=>"5", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."user_id" = $1[0m  [["user_id", 30]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.6ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."user_id" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["user_id", 30], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:56:in `index_private'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (0.73ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 14ms (Views: 3.7ms | ActiveRecord: 3.1ms | Allocations: 3791)
+
+
+Started GET "/api/all-goals-list?page=1&per_page=10&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 12:57:55 +0000
+Processing by Api::V1::GoalsListController#index_public as JSON
+  Parameters: {"page"=>"1", "per_page"=>"10", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."is_public" = $1[0m  [["is_public", true]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (1.1ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."is_public" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["is_public", true], ["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:47:in `index_public'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (13.89ms)
+Completed 200 OK in 23ms (Views: 17.9ms | ActiveRecord: 1.5ms | Allocations: 2137)
+
+
+Started GET "/api/my-goals-list?page=1&per_page=5&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 12:57:56 +0000
+Processing by Api::V1::GoalsListController#index_private as JSON
+  Parameters: {"page"=>"1", "per_page"=>"5", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."user_id" = $1[0m  [["user_id", 30]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.4ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."user_id" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["user_id", 30], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:56:in `index_private'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (1.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 13ms (Views: 3.8ms | ActiveRecord: 1.9ms | Allocations: 3682)
+
+
+Started GET "/api/all-goals-list?page=1&per_page=10&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 13:00:24 +0000
+Processing by Api::V1::GoalsListController#index_public as JSON
+  Parameters: {"page"=>"1", "per_page"=>"10", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."is_public" = $1[0m  [["is_public", true]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.5ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."is_public" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["is_public", true], ["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:47:in `index_public'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (1.47ms)
+Completed 200 OK in 8ms (Views: 4.1ms | ActiveRecord: 1.0ms | Allocations: 2138)
+
+
+Started GET "/api/my-goals-list?page=1&per_page=5&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 13:00:24 +0000
+Processing by Api::V1::GoalsListController#index_private as JSON
+  Parameters: {"page"=>"1", "per_page"=>"5", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."user_id" = $1[0m  [["user_id", 30]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.3ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."user_id" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["user_id", 30], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:56:in `index_private'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (0.81ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 2.7ms | ActiveRecord: 1.6ms | Allocations: 3679)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-06-05 13:04:50 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 0.8ms | Allocations: 2129)
+
+
+Started GET "/api/goals-list/11" for 172.18.0.1 at 2023-06-05 13:04:50 +0000
+Processing by Api::V1::GoalsListController#show as JSON
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsList Load (0.4ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+  [1m[36mGoals Load (0.9ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."goals_list_id" = $1[0m  [["goals_list_id", 11]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with GoalsList (1.56ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 14ms (Views: 2.2ms | ActiveRecord: 2.0ms | Allocations: 3906)
+
+
+Started GET "/api/goals-list/11" for 172.18.0.1 at 2023-06-05 13:07:43 +0000
+Processing by Api::V1::GoalsListController#show as JSON
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsList Load (0.4ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+  [1m[36mGoals Load (0.4ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."goals_list_id" = $1[0m  [["goals_list_id", 11]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with GoalsList (1.0ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 13ms (Views: 1.5ms | ActiveRecord: 1.8ms | Allocations: 3902)
+
+
+Started GET "/api/all-goals-list?page=1&per_page=10&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 13:07:57 +0000
+Processing by Api::V1::GoalsListController#index_public as JSON
+  Parameters: {"page"=>"1", "per_page"=>"10", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."is_public" = $1[0m  [["is_public", true]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.6ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."is_public" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["is_public", true], ["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:47:in `index_public'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (1.64ms)
+Completed 200 OK in 9ms (Views: 5.2ms | ActiveRecord: 1.1ms | Allocations: 2137)
+
+
+Started GET "/api/my-goals-list?page=1&per_page=5&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 13:07:57 +0000
+Processing by Api::V1::GoalsListController#index_private as JSON
+  Parameters: {"page"=>"1", "per_page"=>"5", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."user_id" = $1[0m  [["user_id", 30]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.4ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."user_id" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["user_id", 30], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:56:in `index_private'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (0.82ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 13ms (Views: 3.3ms | ActiveRecord: 1.8ms | Allocations: 3679)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-06-05 13:08:26 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 2129)
+
+
+Started GET "/api/goals-list/11" for 172.18.0.1 at 2023-06-05 13:08:26 +0000
+Processing by Api::V1::GoalsListController#show as JSON
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsList Load (0.4ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+  [1m[36mGoals Load (0.5ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."goals_list_id" = $1[0m  [["goals_list_id", 11]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with GoalsList (1.33ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 14ms (Views: 2.1ms | ActiveRecord: 1.8ms | Allocations: 3903)
+
+
+Started GET "/api/all-goals-list?page=1&per_page=10&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 13:09:23 +0000
+Processing by Api::V1::GoalsListController#index_public as JSON
+  Parameters: {"page"=>"1", "per_page"=>"10", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."is_public" = $1[0m  [["is_public", true]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.4ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."is_public" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["is_public", true], ["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:47:in `index_public'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (1.49ms)
+Completed 200 OK in 7ms (Views: 3.8ms | ActiveRecord: 0.8ms | Allocations: 2137)
+
+
+Started GET "/api/my-goals-list?page=1&per_page=5&sort=created_at&dir=desc" for 172.18.0.1 at 2023-06-05 13:09:23 +0000
+Processing by Api::V1::GoalsListController#index_private as JSON
+  Parameters: {"page"=>"1", "per_page"=>"5", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."user_id" = $1[0m  [["user_id", 30]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.4ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."user_id" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["user_id", 30], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:56:in `index_private'
+No serializer found for resource: #<GoalsList id: 11, title: "Visit Five New Countries", description: "Set a goal to explore and experience the cultures ...", is_public: true, user_id: 30, created_at: "2023-06-02 11:59:00.763499000 +0000", updated_at: "2023-06-02 11:59:00.763499000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (0.95ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 11ms (Views: 3.3ms | ActiveRecord: 1.5ms | Allocations: 3679)
+
+

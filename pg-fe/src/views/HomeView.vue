@@ -8,23 +8,14 @@
 
     <h1 class="base-title title-space" style="margin-bottom: 0;"> My Goals List</h1>  
     <BaseButton v-if="myGoalsList == []" @click="handleCreateGoalList" :light="true" icon="plus" content="SET YOUR FIRST GOAL LIST" />
-    <div v-for="goal in myGoalsList" :key="goal.title" class="goals-list">
-      <BaseCard >
+    <div class="base-list-display"> 
+      <BaseCard v-for="goal in myGoalsList" :key="goal.title" >
         <template v-slot:header>
           <h3 >{{ goal.title }}</h3>
         </template>
         <template v-slot:row>
-          <RouterLink  :to="`/goals-list/${goal.id}`"> 
           <p class="base-text-light">  {{ goal.description }} </p>
-          <div class="goals-list__like">
-            <div class="goals-list__like--content">
-              <h5>  {{ goal.likes || 10 }}  </h5> <SVGIcon icon-name="like" /> 
-            </div> 
-            <div class="goals-list__like--content">
-              <h5> {{ goal.dislikes || 0 }} </h5>  <SVGIcon icon-name="unlike" /> 
-            </div> 
-          </div> 
-          </RouterLink>
+          <BaseButton :light="true" icon="details" content="See goals list" @click="handleSeeGoalsList(goal.id)"/>
         </template>
       </BaseCard>
     </div>
@@ -126,6 +117,10 @@ export default {
     },
     handleBottomNavbarClick() {
       this.$router.push('/create-goals-list')
+    },
+    handleSeeGoalsList(id) {
+      this.$router.push(`/goals-list/${id}`)
+
     }
   }
 }

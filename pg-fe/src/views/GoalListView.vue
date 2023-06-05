@@ -4,8 +4,8 @@
     <h1 class="base-title">  {{ goalList.title }} </h1>
     <p class="base-text">  {{ goalList.description }} </p>
 
-    <div v-for="goal in goalList.goals " :key="goal.title" class="goals-list">
-      <BaseCard >
+    <div  class="base-list-display">
+      <BaseCard v-for="goal in goalList.goals " :key="goal.title" >
         <template v-slot:header>
           <div class="goal-header">
             <h3 >{{ goal.title }}</h3>
@@ -22,7 +22,11 @@
           <BaseButton :light="true" icon="finish" content="achieve goal" />
         </template>
       </BaseCard>
-    </div>
+    </div> 
+
+
+    <BaseButton :light="true" icon="plus" content="Add Another goal on this list"  @click="handleCreateGoal(goalList.id)"/>
+
   </main>
 </template>
 
@@ -73,6 +77,9 @@ export default {
     },
     handleBottomNavbarClick() {
       this.$router.push("/")
+    },
+    handleCreateGoal(id) {
+      this.$router.push(`/create-goal/${id}`)
     }
   }
 }
@@ -97,7 +104,5 @@ export default {
     color: var(--primary)
     width: 30%
     @include tablets-and-up
-      width: 10%
-.goals-list
-  margin: 20px 0
+      width: 20%
 </style>
