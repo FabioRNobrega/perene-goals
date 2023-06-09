@@ -4,6 +4,7 @@
         'base-button__dark': dark,
         'base-button__light': light,
         'base-button__solid': solid,
+        'base-button__solid--light': solidLight,
         'base-button__disabled': disabled,
       }]"
     >
@@ -45,6 +46,11 @@ import SVGIcon from '../SVGIcon/index.vue'
         default: false
       },
       solid: {
+        type: Boolean,
+        required: false,
+        default: false
+      },
+      solidLight: {
         type: Boolean,
         required: false,
         default: false
@@ -107,6 +113,17 @@ import SVGIcon from '../SVGIcon/index.vue'
     width: max-content
     color: var(--secondary)
     background: transparent
+    margin: 0
+    padding: 0
+
+    &--light
+      color: var(--primary)
+      background: transparent
+      margin: 0
+      padding: 0
+
+      &:hover 
+        color: var(--primary-light)
 
     &:hover 
       color: var(--primary-light)

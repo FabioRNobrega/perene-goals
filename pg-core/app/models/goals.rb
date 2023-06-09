@@ -12,5 +12,5 @@ class Goals < ActiveRecord::Base
   private_class_method :sort_by
 
   belongs_to :goals_list
-  has_many :goals_step,  class_name: 'GoalsSpet'
+  has_many :goals_step,  class_name: 'GoalsStep'
 end

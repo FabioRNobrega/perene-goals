@@ -12,8 +12,22 @@ import request from '../utils/request'
       }
     })
   }
+
+  export function fetchGoalsWithSteps (goals_id, access_token, client, uid ) {
+    return request({
+      url: `/goals/${goals_id}/steps`,
+      method: 'get',
+      headers: {
+          'access-token': access_token,
+          'uid': uid,
+          'client': client
+      }
+    })
+  }
+  
   
   
 export default {
-    createGoal
+    createGoal,
+    fetchGoalsWithSteps
   }

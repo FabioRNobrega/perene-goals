@@ -23,10 +23,10 @@ Rails.application.routes.draw do
 
       # Goals
       post 'goals-list/:goals_list_id/goals', to: 'goals#create'
+      get 'goals/:goals_id/steps', to: 'goals#show'
 
       # Goals Steps
       post 'goals/:goals_id/steps', to: 'goals_step#create'
-      get 'goals/:goals_id/steps', to: 'goals_step#index'
     end
   end
 end

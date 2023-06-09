@@ -20,11 +20,11 @@ module Api
           render(json: @goal.errors, status: :unprocessable_entity)
         end
       end
+      
       # rubocop:enable Metrics/AbcSize
-
       def show
-        @goal = Goals.find(params[:id])
-        render json: @goal
+        @goal = Goals.includes(:goals_step).find(params[:goals_id])
+        render json: @goal, include: [:goals_step]
       end
 
       def update

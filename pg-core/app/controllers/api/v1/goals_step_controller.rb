@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require 'goals_list'
+require 'goals'
 
 module Api
   module V1
