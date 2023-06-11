@@ -18,7 +18,7 @@
         </template>
         <template v-slot:row>
           <p>  {{ steps.description }} </p>
-          <BaseProgressBar />
+          <BaseProgressBar :process="steps" />
           <BaseButton :light="true" icon="finish" content="achieve goal" />
         </template>
       </BaseCard>

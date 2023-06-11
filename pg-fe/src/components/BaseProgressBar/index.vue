@@ -6,20 +6,68 @@
 </template>
 
 <script>
+import { progressBuilder } from '../../utils/calculateProgress'
 
 export default {
     name: "BaseProgressBar",
     props: {
-        processSize: {
-          type: Array,
+        process: {
+          type: Object,
           required: false,
-          default: () => [{ default: "10%"}]
-        },
-        bottomText: {
-            type: String,
-            required: false,
-            default: "Almost there..."
+          default: () => ({   
+            time_to_reach_in_days: 30,
+            time_to_reach_in_hours: 0,
+            time_to_reach_in_minutes: 0,
+            created_at: "2023-06-03T13:53:17.326Z"
+          })
         }
+    },
+    data() {
+      return {
+        processSize: ["10"],
+        bottomText: "Almost there..."
+      }
+    },
+    created() {
+      this.setProgress()
+    },
+    methods: {
+      async setProgress() {
+        const percentage = await progressBuilder(
+          this.process.time_to_reach_in_days, 
+          this.process.time_to_reach_in_hours,
+          this.process.time_to_reach_in_minutes,
+          this.process.created_at
+        )
+        this.processSize = this.breakIntoTens(percentage.progress)
+        this.bottomText = this.buildBottomText(percentage.totalTimeToReachInMinutes, percentage.minutesPassed)
+        console.log(percentage)
+      },
+     breakIntoTens(number) {
+        const result = [];
+        const iterations = Math.ceil(number / 10);
+
+        for (let i = 0; i < iterations; i++) {
+          result.push("10%");
+        }
+
+        return result;
+      },
+      buildBottomText(totalTimeToReachInMinutes, minutesPassed) {
+        if (totalTimeToReachInMinutes < 60) {
+          return `${minutesPassed} complete minutes out of ${totalTimeToReachInMinutes} minutes`;
+        } else if (totalTimeToReachInMinutes < 1440) {
+          const totalHours = Math.floor(totalTimeToReachInMinutes / 60);
+          const hoursPassed = Math.floor(minutesPassed / 60);
+          const hoursText = totalHours === 1 ? 'hour' : 'hours';
+          return `${hoursPassed} complete ${hoursText} out of ${totalHours} ${hoursText}`;
+        } else {
+          const totalDays = Math.floor(totalTimeToReachInMinutes / 1440);
+          const daysPassed = Math.floor(minutesPassed / 1440);
+          const daysText = totalDays === 1 ? 'day' : 'days';
+          return `${daysPassed} complete ${daysText} out of ${totalDays} ${daysText}`;
+        }
+      }
     }
 
 }
