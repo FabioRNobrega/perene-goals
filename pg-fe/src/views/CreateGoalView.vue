@@ -111,7 +111,7 @@
       try {
         this.failsToCreateGoalList = false
         this.successUpdated = false
-        const { data } = await createGoal(
+        await createGoal(
           this.routeId,
           {
             title: this.goalTitle,
@@ -124,7 +124,6 @@
           this.userAuth['client'],
           this.userAuth['uid']
         )
-        console.log(data)
         this.$router.push(`/`)
       } catch(error) {
         this.failsToCreateGoalList = true

@@ -3,6 +3,7 @@
   <main class="base-container">
     <h1 class="base-title">  {{ goal.title }} </h1>
     <p class="base-text">  {{ goal.description }} </p>
+    <BaseButton :light="true" icon="plus" content="Add Another step on this goal"  @click="handleCreateGoal(goal.id)"/>
 
     <div  class="base-list-display">
       <BaseCard v-for="steps in goal.goals_step" :key="steps.id" >
@@ -18,15 +19,12 @@
         </template>
         <template v-slot:row>
           <p>  {{ steps.description }} </p>
-          <BaseProgressBar :process="steps" />
+          <BaseProgressBar v-if="steps.started" :process="steps" />
+          <BaseButton  v-else :light="true" icon="start" content="Start goal"  @click="handleStartGoalStep(steps.id)"/>
           <BaseButton :light="true" icon="finish" content="achieve goal" />
         </template>
       </BaseCard>
     </div> 
-
-
-    <BaseButton :light="true" icon="plus" content="Add Another step on this goal"  @click="handleCreateGoal(goal.id)"/>
-
   </main>
 </template>
 
@@ -37,7 +35,8 @@ import BaseCard from '../components/BaseCard/index.vue'
 import SVGIcon from '../components/SVGIcon/index.vue'
 import BaseProgressBar from '../components/BaseProgressBar/index.vue'
 
-import { fetchGoalsWithSteps } from '../api/goals';
+import { fetchGoalsWithSteps } from '../api/goals'
+import { updateGoalStep } from '../api/goals-steps'
 
 export default {
   name: "GoalStepListView",
@@ -72,6 +71,24 @@ export default {
         )
 
         this.goal = data
+      } catch(error) {
+        console.error(error)
+      }
+    },
+    async handleStartGoalStep(step_id) {
+      const timeNow = new Date()
+      try {
+       await updateGoalStep(
+          step_id,
+          {
+            started: true,
+            start_at: timeNow
+          },
+          this.userAuth['access-token'],
+          this.userAuth['client'],
+          this.userAuth['uid']
+        )
+        this.setData()
       } catch(error) {
         console.error(error)
       }

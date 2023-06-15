@@ -30,7 +30,7 @@ module Api
       def update
         @goal = Goals.find(params[:id])
         if @goal.update(allowed_params_update)
-          render(json: { message: 'goal updated with success' }, status: 201)
+          render(json: { message: 'Goal updated with success' }, status: 200)
         else
           render json: @goal.errors, status: :unprocessable_entity
         end
@@ -58,6 +58,8 @@ module Api
         params.require(:goal).permit(
           :title,
           :description,
+          :started,
+          :start_at,
           :minimal_time_to_achieve,
           :time_to_reach_in_days,
           :time_to_reach_in_hours,

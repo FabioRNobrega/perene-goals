@@ -24,9 +24,11 @@ Rails.application.routes.draw do
       # Goals
       post 'goals-list/:goals_list_id/goals', to: 'goals#create'
       get 'goals/:goals_id/steps', to: 'goals#show'
+      patch 'goals/:id', to: 'goals#update'
 
       # Goals Steps
       post 'goals/:goals_id/steps', to: 'goals_step#create'
+      patch 'goals-step/:id', to: 'goals_step#update'
     end
   end
 end

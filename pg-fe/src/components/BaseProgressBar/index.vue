@@ -18,7 +18,7 @@ export default {
             time_to_reach_in_days: 30,
             time_to_reach_in_hours: 0,
             time_to_reach_in_minutes: 0,
-            created_at: "2023-06-03T13:53:17.326Z"
+            started_at: "2023-06-03T13:53:17.326Z"
           })
         }
     },
@@ -37,11 +37,10 @@ export default {
           this.process.time_to_reach_in_days, 
           this.process.time_to_reach_in_hours,
           this.process.time_to_reach_in_minutes,
-          this.process.created_at
+          this.process.start_at
         )
         this.processSize = this.breakIntoTens(percentage.progress)
         this.bottomText = this.buildBottomText(percentage.totalTimeToReachInMinutes, percentage.minutesPassed)
-        console.log(percentage)
       },
      breakIntoTens(number) {
         const result = [];
