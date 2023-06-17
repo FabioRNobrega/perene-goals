@@ -21,10 +21,12 @@
           <p>  {{ goal.description }} </p>
           <BaseProgressBar v-if="goal.started" :process="goal" />
           <BaseButton  v-else :light="true" icon="start" content="Start goal" @click="handleStartGoal(goal.id)"/>
-          <BaseButton :light="true" icon="finish" content="achieve goal" />
+          <BaseButton :light="true" icon="finish" content="achieve goal" @click="handleAchieveGoal()"/>
         </template>
       </BaseCard>
     </div> 
+
+    <ConfettiEffect :confetti="showConfetti"/>
   </main>
 </template>
 
@@ -34,6 +36,7 @@ import BaseButton from '../components/BaseButton/index.vue'
 import BaseCard from '../components/BaseCard/index.vue'
 import SVGIcon from '../components/SVGIcon/index.vue'
 import BaseProgressBar from '../components/BaseProgressBar/index.vue'
+import ConfettiEffect from '../components/ConfettiEffect/index.vue'
 
 import { fetchGoalsList } from '../api/goals-list'
 import { updateGoal } from '../api/goals'
@@ -45,13 +48,15 @@ export default {
     BaseCard,
     BaseButton,
     SVGIcon,
-    BaseProgressBar
+    BaseProgressBar,
+    ConfettiEffect
   },
   data () {
     return {
       routeId: "",
       userAuth: {},
-      goalList: {}
+      goalList: {},
+      showConfetti: false,
     }
   },
   created() {
@@ -100,6 +105,10 @@ export default {
     },
     handleGoalDetails(id) {
       this.$router.push(`/goals/${id}/steps`)
+    },
+    handleAchieveGoal() {
+    console.log("ENTROU")
+      this.showConfetti = !this.showConfetti
     }
   }
 }
