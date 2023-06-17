@@ -37,7 +37,7 @@ import BaseCard from '../components/BaseCard/index.vue'
 import SVGIcon from '../components/SVGIcon/index.vue'
 import BaseProgressBar from '../components/BaseProgressBar/index.vue'
 import ConfettiEffect from '../components/ConfettiEffect/index.vue'
-
+import soundMP3 from '../assets/sounds/sound.mp3'
 import { fetchGoalsList } from '../api/goals-list'
 import { updateGoal } from '../api/goals'
 
@@ -107,9 +107,15 @@ export default {
       this.$router.push(`/goals/${id}/steps`)
     },
     handleAchieveGoal() {
-    console.log("ENTROU")
-      this.showConfetti = !this.showConfetti
+      const som = new Audio(soundMP3);
+      som.play();
+      this.showConfetti = true 
+
+      setTimeout(() => {
+        this.showConfetti = false
+      }, 1000); // 
     }
+    
   }
 }
 
