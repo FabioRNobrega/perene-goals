@@ -112,6 +112,7 @@ export default {
 .goal-header
   @include display-row
   justify-content: space-between
+  align-items: center
 
   & h3
     width: 70%

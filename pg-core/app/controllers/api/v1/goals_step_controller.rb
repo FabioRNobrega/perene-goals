@@ -60,6 +60,8 @@ module Api
           :description,
           :started,
           :start_at,
+          :completed,
+          :completed_at,
           :minimal_time_to_achieve,
           :time_to_reach_in_days,
           :time_to_reach_in_hours,

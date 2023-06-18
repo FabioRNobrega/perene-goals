@@ -30,7 +30,7 @@
         } else {
           this.confetti_style = [];
         }
-      },
+      }
     },
     methods: {
       generateConfetti() {

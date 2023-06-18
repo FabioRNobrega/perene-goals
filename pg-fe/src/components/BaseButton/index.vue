@@ -6,6 +6,7 @@
         'base-button__solid': solid,
         'base-button__solid--light': solidLight,
         'base-button__disabled': disabled,
+        'base-button__small': small
       }]"
     >
     <div  v-if="isIcon"> 
@@ -13,7 +14,7 @@
     </div>
     <div v-else class="base-button__content">
       {{ content }}
-      <SVGIcon :icon-name="icon" />
+      <SVGIcon :icon-name="icon"  :small="small"/>
     </div>
     </button>
 </template>
@@ -46,6 +47,11 @@ import SVGIcon from '../SVGIcon/index.vue'
         default: false
       },
       solid: {
+        type: Boolean,
+        required: false,
+        default: false
+      },
+      small: {
         type: Boolean,
         required: false,
         default: false
@@ -84,6 +90,11 @@ import SVGIcon from '../SVGIcon/index.vue'
   font-family:  var(--font-family-title)
   transition: all .15s linear
   cursor: pointer
+
+  &__small
+    margin: 0px 5px 0px 5px
+    font-size: 11px
+    padding: 10px
 
   &__content 
     @include display-row

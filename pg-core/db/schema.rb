@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_15_193510) do
+ActiveRecord::Schema.define(version: 2023_06_18_160252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2023_06_15_193510) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "started", default: false
     t.datetime "start_at"
+    t.boolean "completed", default: false
+    t.datetime "completed_at"
     t.index ["goals_list_id"], name: "index_goals_on_goals_list_id"
   end
 
@@ -52,6 +54,8 @@ ActiveRecord::Schema.define(version: 2023_06_15_193510) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "started", default: false
     t.datetime "start_at"
+    t.boolean "completed", default: false
+    t.datetime "completed_at"
     t.index ["goals_id"], name: "index_goals_steps_on_goals_id"
   end
 

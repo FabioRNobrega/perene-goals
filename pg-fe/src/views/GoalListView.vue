@@ -21,13 +21,22 @@
           <p>  {{ goal.description }} </p>
           <BaseProgressBar v-if="goal.started" :process="goal" />
           <BaseButton  v-else :light="true" icon="start" content="Start goal" @click="handleStartGoal(goal.id)"/>
-          <BaseButton :light="true" icon="finish" content="achieve goal" @click="handleAchieveGoal()"/>
+          <BaseButton v-if="!goal.completed" :light="true" icon="finish" content="achieve goal" @click="handleAchieveGoalModal(goal.id)"/>
         </template>
       </BaseCard>
     </div> 
 
     <ConfettiEffect :confetti="showConfetti"/>
   </main>
+  <BaseModal 
+    :showModal="showModal"
+    content="When you confirm this action, all the goal steps linked to this goal will be marked as complete. Are you positive about this decision? We're incredibly excited to witness your determination and celebrate your achievements!"
+  >
+    <template v-slot:footer>
+      <BaseButton :light="true" :small="true" icon="close" content="cancel" @click="this.showModal = !this.showModal"/>
+      <BaseButton :light="true" :small="true" icon="finish" content="confirm" @click="handleAchieveGoal()"/>
+    </template>
+  </BaseModal>
 </template>
 
 <script>
@@ -37,7 +46,10 @@ import BaseCard from '../components/BaseCard/index.vue'
 import SVGIcon from '../components/SVGIcon/index.vue'
 import BaseProgressBar from '../components/BaseProgressBar/index.vue'
 import ConfettiEffect from '../components/ConfettiEffect/index.vue'
+import BaseModal from '../components/BaseModal/index.vue'
+
 import soundMP3 from '../assets/sounds/sound.mp3'
+
 import { fetchGoalsList } from '../api/goals-list'
 import { updateGoal } from '../api/goals'
 
@@ -49,7 +61,8 @@ export default {
     BaseButton,
     SVGIcon,
     BaseProgressBar,
-    ConfettiEffect
+    ConfettiEffect,
+    BaseModal
   },
   data () {
     return {
@@ -57,6 +70,8 @@ export default {
       userAuth: {},
       goalList: {},
       showConfetti: false,
+      showModal: false,
+      goal_id: ""
     }
   },
   created() {
@@ -106,14 +121,34 @@ export default {
     handleGoalDetails(id) {
       this.$router.push(`/goals/${id}/steps`)
     },
-    handleAchieveGoal() {
-      const som = new Audio(soundMP3);
-      som.play();
-      this.showConfetti = true 
-
-      setTimeout(() => {
-        this.showConfetti = false
-      }, 1000); // 
+    handleAchieveGoalModal(goal_id) {
+      this.showModal = !this.showModal
+      this.goal_id = goal_id
+    },
+    async handleAchieveGoal() {
+      const timeNow = new Date()
+      try {
+       await updateGoal(
+          this.goal_id,
+          {
+            completed: true,
+            completed_at: timeNow
+          },
+          this.userAuth['access-token'],
+          this.userAuth['client'],
+          this.userAuth['uid']
+        )
+        this.showModal = false
+        const som = new Audio(soundMP3);
+        som.play();
+        this.showConfetti = true 
+        setTimeout(() => {
+          this.showConfetti = false
+        }, 1000); 
+        this.setData()
+      } catch(error) {
+        console.error(error)
+      }
     }
     
   }
@@ -129,6 +164,7 @@ export default {
 .goal-header
   @include display-row
   justify-content: space-between
+  align-items: center
 
   & h3
     width: 70%
