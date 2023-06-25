@@ -74,6 +74,7 @@ export default {
 
     &--disabled
       color: var(--primary-light)
+      pointer-events: none
       cursor: not-allowed
 
 </style>

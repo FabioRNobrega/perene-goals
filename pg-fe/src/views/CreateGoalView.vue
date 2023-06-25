@@ -1,7 +1,7 @@
 <template>
     <TopNavbar iconNameLeft="user" iconNameRight="home" pathNameRight="/"/>
     <main class="base-container">
-      <h1 class="base-title"> Create Goal Step</h1>
+      <h1 class="base-title"> Create Goal</h1>
       <BaseInfo >
         <template v-slot:content>
           <p>
@@ -14,7 +14,16 @@
           </p>
         </template>
       </BaseInfo>
-      <form> 
+
+      <BaseMessage  
+        icon="warning" 
+        :content="errorMessage" 
+        :error="true" 
+        :visibility="failsToCreateGoal" 
+        @hide="failsToCreateGoal = false"
+      />
+      
+      <div> 
         <BaseInput 
           :value="goalTitle" 
           @update:value="goalTitle = $event" 
@@ -38,8 +47,6 @@
           min="0"
           max="365"
           label="Time to Achieve in days"
-          :error="goalDescriptionError"
-          :error-message="goalDescriptionErrorMessage"
         />
         <BaseInput 
           :value="goalTimeToReachInHours" 
@@ -48,8 +55,6 @@
           min="0"
           max="24"
           label="Time to Achieve in hours"
-          :error="goalDescriptionError"
-          :error-message="goalDescriptionErrorMessage"
         />
         <BaseInput 
           :value="goalTimeToReachInMinutes" 
@@ -58,16 +63,14 @@
           min="0"
           max="60"
           label="Time to Achieve in minutes"
-          :error="goalDescriptionError"
-          :error-message="goalDescriptionErrorMessage"
         />
-        <BaseButton :light="true" icon="next" content="Add one step for achieve your goal" />
-        <BaseButton :light="true" icon="plus" content="Add Another goal on this list" />
-        <BaseButton :dark="true" icon="save" content="Save Goal" />
-      </form> 
+        <BaseButton :light="true" icon="next" content="Add one step for achieve your goal" @click="handleCreateStepOnThisGoal"/>
+        <BaseButton :light="true" icon="plus" content="Add Another goal on this list" @click="handleCreateAnotherGoal"/>
+        <BaseButton :dark="true" icon="save" content="Save Goal" :disabled="!nextStep" @click="handleCreateGoal"/>
+      </div> 
         
     </main>
-    <BottomNavbar iconName="save" @click="handleCreateGoal"/>
+    <BottomNavbar iconName="save" @click="handleCreateGoal" :disabled="!nextStep"/>
   </template>
   
   <script>
@@ -76,6 +79,7 @@
   import BaseInfo from '../components/BaseInfo/index.vue'
   import BaseInput from '../components/BaseInput/index.vue'
   import BaseButton from '../components/BaseButton/index.vue'
+  import BaseMessage from '../components/BaseMessage/index.vue'
   
   import { createGoal } from '../api/goals'
 
@@ -86,31 +90,64 @@
       BottomNavbar,
       BaseInfo,
       BaseInput,
-      BaseButton
+      BaseButton,
+      BaseMessage
     },
     data () {
       return {
         goalTitle: "",
         goalDescription: "",
-        goalTimeToReachInDays: 0,
-        goalTimeToReachInHours: 0,
-        goalTimeToReachInMinutes: 0,
+        goalTimeToReachInDays: "0",
+        goalTimeToReachInHours: "0",
+        goalTimeToReachInMinutes: "0",
         userAuth: {},
-        routeId: ""
+        routeId: "",
+        failsToCreateGoal: false,
+        errorMessage: "",
+        goalTitleError: false,
+        goalTitleErrorMessage: "",
+        goalDescriptionError: false,
+        goalDescriptionErrorMessage: ""
       }
     },
     created() {
-    this.setData()
+      this.setData()
+    },
+    computed: {
+      nextStep() {  
+        return this.goalTitle != "" && this.goalDescription != ""
+      }
     },
     methods: {
       async setData () {
       this.userAuth = JSON.parse(localStorage.getItem('user-auth'))
       this.routeId = this.$route.params.id;
     },
-      async handleCreateGoal() {
+    async handleCreateStepOnThisGoal() {
       try {
-        this.failsToCreateGoalList = false
-        this.successUpdated = false
+        this.failsToCreateGoal = false
+        const { data } = await createGoal(
+          this.routeId,
+          {
+            title: this.goalTitle,
+            description: this.goalDescription,
+            time_to_reach_in_days: this.goalTimeToReachInDays,
+            time_to_reach_in_hours: this.goalTimeToReachInHours,
+            time_to_reach_in_minutes: this.goalTimeToReachInMinutes
+          },
+          this.userAuth['access-token'],
+          this.userAuth['client'],
+          this.userAuth['uid']
+        )
+        this.$router.push(`/create-goal-step/${data.id}`)
+      } catch(error) {
+        this.failsToCreateGoal = true
+        this.errorMessage =  this.errorMessage = `${error}`
+      }
+    },
+    async handleCreateGoal() {
+      try {
+        this.failsToCreateGoal = false
         await createGoal(
           this.routeId,
           {
@@ -126,10 +163,40 @@
         )
         this.$router.push(`/`)
       } catch(error) {
-        this.failsToCreateGoalList = true
+        console.log(error)
+        this.failsToCreateGoal = true
         this.errorMessage =  this.errorMessage = `${error}`
       }
-    }
+    },
+     async handleCreateAnotherGoal() {
+      try {
+        this.failsToCreateGoal = false
+        this.successUpdated = false
+        await createGoal(
+          this.routeId,
+          {
+            title: this.goalTitle,
+            description: this.goalDescription,
+            time_to_reach_in_days: this.goalTimeToReachInDays,
+            time_to_reach_in_hours: this.goalTimeToReachInHours,
+            time_to_reach_in_minutes: this.goalTimeToReachInMinutes
+          },
+          this.userAuth['access-token'],
+          this.userAuth['client'],
+          this.userAuth['uid']
+        )
+
+        this.goalTitle = ""
+        this.goalDescription = ""
+        this.goalTimeToReachInDays = 0
+        this.goalTimeToReachInHours = 0 
+        this.goalTimeToReachInMinutes = 0 
+        
+      } catch(error) {
+        this.failsToCreateGoal = true
+        this.errorMessage =  this.errorMessage = `${error}`
+      }
+     }
     }
   }
   

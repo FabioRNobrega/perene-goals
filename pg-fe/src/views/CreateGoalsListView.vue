@@ -22,7 +22,7 @@
         </p>
       </template>
     </BaseInfo>
-    <form>      
+    <div>      
       <BaseInput 
         :value="listName" 
         @update:value="listName = $event" 
@@ -45,7 +45,7 @@
         type="checkbox"
         label="Is Public"
       />  
-    </form>
+    </div>
   </main>
   <BottomNavbar iconName="next" @click="handleCreateGoalsList" :disabled="!nextStep"/>
 </template>
@@ -109,7 +109,7 @@ export default {
             this.userAuth['client'],
             this.userAuth['uid']
           )
-          this.$router.push(`/create-goal-step/${data.id}`)
+          this.$router.push(`/create-goal/${data.id}`)
         } catch(error) {
           this.failsToCreateGoalList = true
           this.errorMessage =  this.errorMessage = `${error}`

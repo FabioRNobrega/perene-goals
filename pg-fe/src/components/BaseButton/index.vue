@@ -142,11 +142,11 @@ import SVGIcon from '../SVGIcon/index.vue'
 
   &__disabled 
     width: 100%
-    text-align: center
-    background-color: var(--neutral-color-dark)
-    color: var(--neutral-color-lighter)
+    background-color: var(--primary)
+    color: var(--primary-light)
+    box-shadow: inset 0px 0px 7px 3px var(--primary-light)
     pointer-events: none
-    cursor: default
+    cursor: not-allowed
 
     &:focus 
       outline-color: transparent

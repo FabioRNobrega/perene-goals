@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require 'goals_list'
+require 'goals_step'
 
 module Api
   module V1
@@ -29,12 +30,37 @@ module Api
 
       def update
         @goal = Goals.find(params[:id])
-        if @goal.update(allowed_params_update)
+        
+        if params[:completed]
+          @goals_steps = GoalsStep.where(goals_id: @goal.id)
+          if @goal.started 
+            @goal.update(allowed_params_update)
+          else 
+            updated_params = allowed_params_update.merge(started: true, start_at: Time.now)
+            @goal.update(updated_params)
+          end
+      
+          for @step in @goals_steps
+            if @step.started 
+              @step.update(completed: true, completed_at: Time.now)
+            else
+              @step.update(
+                completed: true, 
+                completed_at: Time.now,
+                started: true,
+                start_at: Time.now
+              )
+            end
+          end
+      
+          render(json: { message: 'Goal and Goals Steps updated with success' }, status: 200)
+        elsif @goal.update(allowed_params_update)
           render(json: { message: 'Goal updated with success' }, status: 200)
         else
-          render json: @goal.errors, status: :unprocessable_entity
+          render(json: @goal.errors, status: :unprocessable_entity)
         end
       end
+      
 
       def index
         @goals = Goals.sorted(params[:sort], params[:dir])

@@ -24,8 +24,7 @@ import request from '../utils/request'
           'client': client
       }
     })
-  }
-  
+  }  
   
 export default {
     createGoalStep,

@@ -64,6 +64,12 @@ const router = createRouter({
       name: 'goals-steps',
       component: () => import ('../views/GoalStepListView.vue'),
       meta: { requiresAuth: true } 
+    },
+    {
+      path: '/create-goal-step/:id',
+      name: 'create-goals-steps',
+      component: () => import ('../views/CreateGoalStepView.vue'),
+      meta: { requiresAuth: true } 
     }
   ]
 })

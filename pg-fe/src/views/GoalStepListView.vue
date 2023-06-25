@@ -3,7 +3,7 @@
   <main class="base-container">
     <h1 class="base-title">  {{ goal.title }} </h1>
     <p class="base-text">  {{ goal.description }} </p>
-    <BaseButton :light="true" icon="plus" content="Add Another step on this goal"  @click="handleCreateGoal(goal.id)"/>
+    <BaseButton :light="true" icon="plus" content="Add Another step on this goal"  @click="handleCreateGoalStep(goal.id)"/>
 
     <div  class="base-list-display">
       <BaseCard v-for="steps in goal.goals_step" :key="steps.id" >
@@ -20,8 +20,8 @@
         <template v-slot:row>
           <p>  {{ steps.description }} </p>
           <BaseProgressBar v-if="steps.started" :process="steps" />
-          <BaseButton  v-else :light="true" icon="start" content="Start goal"  @click="handleStartGoalStep(steps.id)"/>
-          <BaseButton :light="true" icon="finish" content="achieve goal" />
+          <BaseButton  v-else :light="true" icon="start" content="Start goal step"  @click="handleStartGoalStep(steps.id)"/>
+          <BaseButton :light="true" icon="finish" content="achieve goal step" />
         </template>
       </BaseCard>
     </div> 
@@ -96,8 +96,8 @@ export default {
     handleBottomNavbarClick() {
       this.$router.push("/")
     },
-    handleCreateGoal(id) {
-      this.$router.push(`/create-goal/${id}`)
+    handleCreateGoalStep(goal_id) {
+      this.$router.push(`/create-goal-step/${goal_id}`)
     }
   }
 }
