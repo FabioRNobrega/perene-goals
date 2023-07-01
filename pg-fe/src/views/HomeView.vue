@@ -3,7 +3,7 @@
   <main class="base-container">
     <div class="hero">
       <img class="hero__logo" src="src/assets/logo/perene-goals.png"/>
-      <img class="hero__banner" src="src/assets/banners/banner.png"/>
+      <BaseHero />
     </div>
 
     <h1 class="base-title title-space" style="margin-bottom: 0;"> My Goals List</h1>  
@@ -53,6 +53,7 @@ import BottomNavbar from '../components/BottomNavBar/index.vue'
 import BaseButton from '../components/BaseButton/index.vue'
 import BaseCard from '../components/BaseCard/index.vue'
 import SVGIcon from '../components/SVGIcon/index.vue'
+import BaseHero from '../components/BaseHero/index.vue'
 
 import { goalsListPublic, goalsListPrivate } from '../api/goals-list'
 
@@ -61,6 +62,7 @@ export default {
   components: {
     TopNavbar,
     BaseCard,
+    BaseHero,
     BottomNavbar,
     BaseButton,
     SVGIcon
