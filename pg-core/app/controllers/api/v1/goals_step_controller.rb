@@ -11,10 +11,10 @@ module Api
       # rubocop:disable Metrics/AbcSize
       def create # rubocop:disable Metrics/MethodLength
         @goals = Goals.find(params[:goals_id])
-        @goal =  GoalsStep.new(allowed_params_create)
-        @goal.goals_id = @goals[:id]
+        @goal_step =  GoalsStep.new(allowed_params_create)
+        @goal_step.goals_id = @goals[:id]
 
-        if @goal.save
+        if @goal_step.save
           render(json: { message: 'Goals create with success' }, status: 201)
         else
           render(json: @goal.errors, status: :unprocessable_entity)
@@ -23,24 +23,33 @@ module Api
       # rubocop:enable Metrics/AbcSize
 
       def show
-        @goal = GoalsStep.find(params[:id])
-        render json: @goal
+        @goal_step = GoalsStep.find(params[:id])
+        render json: @goal_step
       end
 
       def update
-        @goal = GoalsStep.find(params[:id])
-        if @goal.update(allowed_params_update)
+        @goal_step = GoalsStep.find(params[:id])
+        if @goal_step.update(allowed_params_update)
           render(json: { message: 'Goal Step updated with success' }, status: 200)
         else
-          render json: @goal.errors, status: :unprocessable_entity
+          render json: @goal_step.errors, status: :unprocessable_entity
         end
       end
 
       def index
-        @goals = GoalsStep.sorted(params[:sort], params[:dir])
+        @goals_steps = GoalsStep.sorted(params[:sort], params[:dir])
                      .page(current_page)
                      .per(per_page)
-        render json: @goals, meta: meta_attributes(@goals), adapter: :json
+        render json: @goals_steps, meta: meta_attributes(@goals_steps), adapter: :json
+      end
+
+      def delete
+        @goal_step = GoalsStep.find(params[:id])
+        if @goal_step.destroy
+          render(json: { message: 'Goal step deleted successfully' }, status: 200)
+        else
+          render(json: { error: 'Failed to delete goal' }, status: :unprocessable_entity)
+        end
       end
 
       def allowed_params_create # rubocop:disable  Metrics/MethodLength

@@ -57,6 +57,16 @@ module Api
       end
 
 
+      def delete
+        @goal_list = GoalsList.find(params[:id])
+        if @goal_list.destroy
+          render(json: { message: 'Goal list deleted successfully' }, status: 200)
+        else
+          render(json: { error: 'Failed to delete goal' }, status: :unprocessable_entity)
+        end
+      end
+
+
       def allowed_params_create # rubocop:disable  Metrics/MethodLength
         params.require(:goals_list).permit(
           :title,

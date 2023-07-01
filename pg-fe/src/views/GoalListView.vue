@@ -4,6 +4,7 @@
     <h1 class="base-title">  {{ goalList.title }} </h1>
     <p class="base-text">  {{ goalList.description }} </p>
     <BaseButton :light="true" icon="plus" content="Add Another goal on this list"  @click="handleCreateGoal(goalList.id)"/>
+    <BaseButton :dark="true" icon="remove" content="Delete the entire list"  @click="handleDeleteGoalListModal()"/>
 
     <div  class="base-list-display">
       <BaseCard v-for="goal in goalList.goals " :key="goal.title" >
@@ -12,6 +13,7 @@
             <h3 >{{ goal.title }}</h3>
             <div class="goal-header__actions">
               <BaseButton :solidLight="true" :isIcon="true" icon="details" @click="handleGoalDetails(goal.id)"/>
+              <BaseButton :solidLight="true" :isIcon="true" icon="remove" @click="handleDeleteGoalModal(goal.id)"/>
               <SVGIcon icon-name="edit" /> 
             </div> 
           </div> 
@@ -37,6 +39,26 @@
       <BaseButton :light="true" :small="true" icon="finish" content="confirm" @click="handleAchieveGoal()"/>
     </template>
   </BaseModal>
+
+  <BaseModal 
+    :showModal="showDeleteListModal"
+    content="When you proceed with this action, all the goals associated with this goal list, along with their steps, will be deleted. Are you completely certain about this choice? We encourage you to delete them and make way for new exciting goals in your journey. Keep up the great work!"
+  >
+    <template v-slot:footer>
+      <BaseButton :light="true" :small="true" icon="close" content="cancel" @click="handleDeleteGoalListModal()"/>
+      <BaseButton :light="true" :small="true" icon="remove" content="confirm" @click="handleDeleteGoalList()"/>
+    </template>
+  </BaseModal>
+
+  <BaseModal 
+    :showModal="showDeleteGoalModal"
+    content="By deleting this goal, you'll also eliminate all its associated steps. Are you certain about this decision? Embrace the change and create space for fresh ambitions. Keep pushing towards your dreams!"
+  >
+    <template v-slot:footer>
+      <BaseButton :light="true" :small="true" icon="close" content="cancel" @click="this.showDeleteGoalModal = !this.showDeleteGoalModal"/>
+      <BaseButton :light="true" :small="true" icon="remove" content="confirm" @click="handleDeleteGoal()"/>
+    </template>
+  </BaseModal>
 </template>
 
 <script>
@@ -50,8 +72,8 @@ import BaseModal from '../components/BaseModal/index.vue'
 
 import soundMP3 from '../assets/sounds/sound.mp3'
 
-import { fetchGoalsList } from '../api/goals-list'
-import { updateGoal } from '../api/goals'
+import { fetchGoalsList, deleteGoalsList } from '../api/goals-list'
+import { updateGoal, deleteGoal } from '../api/goals'
 
 export default {
   name: "GoalListView",
@@ -71,6 +93,8 @@ export default {
       goalList: {},
       showConfetti: false,
       showModal: false,
+      showDeleteListModal: false,
+      showDeleteGoalModal: false,
       goal_id: ""
     }
   },
@@ -125,6 +149,13 @@ export default {
       this.showModal = !this.showModal
       this.goal_id = goal_id
     },
+    handleDeleteGoalModal(goal_id) {
+      this.showDeleteGoalModal = !this.showDeleteGoalModal
+      this.goal_id = goal_id
+    },
+    handleDeleteGoalListModal() {
+      this.showDeleteListModal = !this.showDeleteListModal
+    },
     async handleAchieveGoal() {
       const timeNow = new Date()
       try {
@@ -149,8 +180,35 @@ export default {
       } catch(error) {
         console.error(error)
       }
+    },
+    async handleDeleteGoal() {
+      try {
+        await deleteGoal(
+          this.goal_id,
+          this.userAuth['access-token'],
+          this.userAuth['client'],
+          this.userAuth['uid']
+        )
+      this.setData()
+      this.showDeleteGoalModal = false
+      } catch(error) {
+        console.error(error)
+      }
+    },
+    async handleDeleteGoalList() {
+      try {
+        await deleteGoalsList(
+          this.routeId,
+          this.userAuth['access-token'],
+          this.userAuth['client'],
+          this.userAuth['uid']
+        )
+        this.showDeleteListModal = false
+        this.$router.push("/")
+      } catch(error) {
+        console.error(error)
+      }
     }
-    
   }
 }
 
@@ -167,13 +225,15 @@ export default {
   align-items: center
 
   & h3
-    width: 70%
+    width: 60%
+    @include tablets-and-up
+      width: 70%
 
   &__actions 
     @include display-row
     justify-content: space-around
     color: var(--primary)
-    width: 30%
+    width: 40%
     @include tablets-and-up
-      width: 20%
+      width: 30%
 </style>

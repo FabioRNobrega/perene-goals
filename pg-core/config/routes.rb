@@ -20,15 +20,18 @@ Rails.application.routes.draw do
       post 'goals-list', to: 'goals_list#create'
       get 'goals-list/:id', to: 'goals_list#show'
       put 'goals-list/:id', to: 'goals_list#update'
+      delete 'goals-list/:id', to: 'goals_list#delete'
 
       # Goals
       post 'goals-list/:goals_list_id/goals', to: 'goals#create'
       get 'goals/:goals_id/steps', to: 'goals#show'
       patch 'goals/:id', to: 'goals#update'
+      delete 'goals/:id', to: 'goals#delete'
 
       # Goals Steps
       post 'goals/:goals_id/steps', to: 'goals_step#create'
       patch 'goals-step/:id', to: 'goals_step#update'
+      delete 'goals-step/:id', to: 'goals_step#delete'
     end
   end
 end

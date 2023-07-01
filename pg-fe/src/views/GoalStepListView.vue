@@ -11,8 +11,8 @@
           <div class="goal-header">
             <h3 >{{ steps.title }}</h3>
             <div class="goal-header__actions">
-              <SVGIcon icon-name="details" /> 
               <SVGIcon icon-name="edit" /> 
+              <BaseButton :solidLight="true" :isIcon="true" icon="remove" @click="handleDeleteGoalStepModal(steps.id)"/>
             </div> 
           </div> 
 
@@ -20,29 +20,42 @@
         <template v-slot:row>
           <p>  {{ steps.description }} </p>
           <BaseProgressBar v-if="steps.started" :process="steps" />
-          <BaseButton  v-else :light="true" icon="start" content="Start goal step"  @click="handleStartGoalStep(steps.id)"/>
+          <BaseButton  v-else :light="true" icon="start" content="Start goal step"  @click="handleDeleteGoalStepModal(steps.id)"/>
           <BaseButton :light="true" icon="finish" content="achieve goal step" />
         </template>
       </BaseCard>
     </div> 
   </main>
+
+  <BaseModal 
+    :showModal="showDeleteStepModal"
+    content="Deleting this step means it will be gone forever. Are you ready to take this action? Embrace the opportunity to remove this step and make way for new ones. Keep advancing towards your goals!"
+  >
+    <template v-slot:footer>
+      <BaseButton :light="true" :small="true" icon="close" content="cancel" @click="this.showDeleteStepModal = !this.showDeleteStepModal"/>
+      <BaseButton :light="true" :small="true" icon="remove" content="confirm" @click="handleDeleteGoalStep()"/>
+    </template>
+  </BaseModal>
+
 </template>
 
 <script>
 import TopNavbar from '../components/TopNavBar/index.vue'
 import BaseButton from '../components/BaseButton/index.vue'
 import BaseCard from '../components/BaseCard/index.vue'
+import BaseModal from '../components/BaseModal/index.vue'
 import SVGIcon from '../components/SVGIcon/index.vue'
 import BaseProgressBar from '../components/BaseProgressBar/index.vue'
 
 import { fetchGoalsWithSteps } from '../api/goals'
-import { updateGoalStep } from '../api/goals-steps'
+import { deleteGoalsSteps, updateGoalStep } from '../api/goals-steps'
 
 export default {
   name: "GoalStepListView",
   components: {
     TopNavbar,
     BaseCard,
+    BaseModal,
     BaseButton,
     SVGIcon,
     BaseProgressBar
@@ -51,6 +64,8 @@ export default {
     return {
       routeId: "",
       userAuth: {},
+      showDeleteStepModal: false,
+      step_id: "",
       goal: {}
     }
   },
@@ -92,6 +107,24 @@ export default {
       } catch(error) {
         console.error(error)
       }
+    },
+    async handleDeleteGoalStep() {
+      try {
+        await deleteGoalsSteps(
+          this.step_id,
+          this.userAuth['access-token'],
+          this.userAuth['client'],
+          this.userAuth['uid']
+        )
+      this.showDeleteStepModal = false
+      this.setData()
+      } catch(error) {
+        console.error(error)
+      }
+    },
+    handleDeleteGoalStepModal(step_id) {
+      this.step_id = step_id
+      this.showDeleteStepModal = !this.showDeleteStepModal
     },
     handleBottomNavbarClick() {
       this.$router.push("/")

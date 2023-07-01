@@ -43,10 +43,24 @@ export function createGoalsList (data, access_token, client, uid ) {
     }
   })
 }
+
+
+export function deleteGoalsList (id, access_token, client, uid ) {
+  return request({
+    url: `/goals-list/${id}`,
+    method: 'delete',
+    headers: {
+        'access-token': access_token,
+        'uid': uid,
+        'client': client
+    }
+  })
+}
   
   
 export default {
     createGoalsList,
     goalsListPublic,
-    goalsListPrivate
+    goalsListPrivate,
+    deleteGoalsList
   }

@@ -130,7 +130,7 @@
             this.userAuth['client'],
             this.userAuth['uid']
           )
-          this.$router.push(`/`)
+          this.$router.push(`/goals/${this.routeId}/steps`)
         } catch(error) {
           this.failsToCreateGoalList = true
           this.errorMessage =  this.errorMessage = `${error}`

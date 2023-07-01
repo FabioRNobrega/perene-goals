@@ -26,7 +26,21 @@ import request from '../utils/request'
     })
   }  
   
+
+  export function deleteGoalsSteps (id, access_token, client, uid ) {
+    return request({
+      url: `/goals-step/${id}`,
+      method: 'delete',
+      headers: {
+          'access-token': access_token,
+          'uid': uid,
+          'client': client
+      }
+    })
+  }
+
 export default {
     createGoalStep,
-    updateGoalStep
+    updateGoalStep,
+    deleteGoalsSteps
 }

@@ -109,7 +109,7 @@ import SVGIcon from '../SVGIcon/index.vue'
 
     &:hover 
       background-color: var(--secondary)
-  
+
 
   &__light 
     width: 100%
