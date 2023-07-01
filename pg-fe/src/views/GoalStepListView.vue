@@ -20,13 +20,24 @@
         <template v-slot:row>
           <p>  {{ steps.description }} </p>
           <BaseProgressBar v-if="steps.started" :process="steps" />
-          <BaseButton  v-else :light="true" icon="start" content="Start goal step"  @click="handleDeleteGoalStepModal(steps.id)"/>
-          <BaseButton :light="true" icon="finish" content="achieve goal step" />
+          <BaseButton  v-else :light="true" icon="start" content="Start goal step"  @click="handleStartGoalStep(steps.id)"/>
+          <BaseButton v-if="!steps.completed" :light="true" icon="finish" content="achieve goal step" @click="handleAchieveGoalStepModal(steps.id)"/>
         </template>
       </BaseCard>
     </div> 
+
+    <ConfettiEffect :confetti="showConfetti"/>
   </main>
 
+  <BaseModal 
+    :showModal="showAchieveGoalStepModal"
+    content="When you confirm this action, this step will be marked as completed. Are you positive about this decision? We're incredibly excited to witness your determination and celebrate your achievements!"
+  >
+    <template v-slot:footer>
+      <BaseButton :light="true" :small="true" icon="close" content="cancel" @click="this.showAchieveGoalStepModal = !this.showAchieveGoalStepModal"/>
+      <BaseButton :light="true" :small="true" icon="finish" content="confirm" @click="handleAchieveGoalStep()"/>
+    </template>
+  </BaseModal>
   <BaseModal 
     :showModal="showDeleteStepModal"
     content="Deleting this step means it will be gone forever. Are you ready to take this action? Embrace the opportunity to remove this step and make way for new ones. Keep advancing towards your goals!"
@@ -36,7 +47,6 @@
       <BaseButton :light="true" :small="true" icon="remove" content="confirm" @click="handleDeleteGoalStep()"/>
     </template>
   </BaseModal>
-
 </template>
 
 <script>
@@ -46,6 +56,9 @@ import BaseCard from '../components/BaseCard/index.vue'
 import BaseModal from '../components/BaseModal/index.vue'
 import SVGIcon from '../components/SVGIcon/index.vue'
 import BaseProgressBar from '../components/BaseProgressBar/index.vue'
+import ConfettiEffect from '../components/ConfettiEffect/index.vue'
+
+import soundMP3 from '../assets/sounds/sound.mp3'
 
 import { fetchGoalsWithSteps } from '../api/goals'
 import { deleteGoalsSteps, updateGoalStep } from '../api/goals-steps'
@@ -58,15 +71,18 @@ export default {
     BaseModal,
     BaseButton,
     SVGIcon,
-    BaseProgressBar
+    BaseProgressBar,
+    ConfettiEffect
   },
   data () {
     return {
       routeId: "",
       userAuth: {},
       showDeleteStepModal: false,
+      showAchieveGoalStepModal: false,
       step_id: "",
-      goal: {}
+      goal: {},
+      showConfetti: false
     }
   },
   created() {
@@ -91,6 +107,7 @@ export default {
       }
     },
     async handleStartGoalStep(step_id) {
+      console.log(step_id)
       const timeNow = new Date()
       try {
        await updateGoalStep(
@@ -122,9 +139,38 @@ export default {
         console.error(error)
       }
     },
+    async handleAchieveGoalStep() {
+      const timeNow = new Date()
+      try {
+       await updateGoalStep(
+          this.step_id,
+          {
+            completed: true,
+            completed_at: timeNow
+          },
+          this.userAuth['access-token'],
+          this.userAuth['client'],
+          this.userAuth['uid']
+        )
+        this.showAchieveGoalStepModal = false
+        const som = new Audio(soundMP3);
+        som.play();
+        this.showConfetti = true 
+        setTimeout(() => {
+          this.showConfetti = false
+        }, 1000); 
+        this.setData()
+      } catch(error) {
+        console.error(error)
+      }
+    },
     handleDeleteGoalStepModal(step_id) {
       this.step_id = step_id
       this.showDeleteStepModal = !this.showDeleteStepModal
+    },
+    handleAchieveGoalStepModal(step_id) {
+      this.showAchieveGoalStepModal = !this.showAchieveGoalStepModal
+      this.step_id = step_id
     },
     handleBottomNavbarClick() {
       this.$router.push("/")

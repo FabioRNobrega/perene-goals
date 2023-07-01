@@ -53450,3 +53450,1488 @@ No serializer found for resource: #<GoalsList id: 20, title: "Trabalho Final PUC
 Completed 200 OK in 11ms (Views: 3.6ms | ActiveRecord: 1.8ms | Allocations: 3679)
 
 
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:32:33 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.3ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 47ms (Views: 1.4ms | ActiveRecord: 17.0ms | Allocations: 4381)
+
+
+Started GET "/api/goals-list/20" for 172.18.0.1 at 2023-07-01 17:32:33 +0000
+Processing by Api::V1::GoalsListController#show as JSON
+  Parameters: {"id"=>"20"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsList Load (0.6ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+  [1m[36mGoals Load (0.6ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."goals_list_id" = $1[0m  [["goals_list_id", 20]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with GoalsList (1.52ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 16ms (Views: 2.1ms | ActiveRecord: 2.4ms | Allocations: 3908)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:32:40 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.34ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 15ms (Views: 1.5ms | ActiveRecord: 1.9ms | Allocations: 2129)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:32:40 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.5ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.6ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (4.99ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 20ms (Views: 5.6ms | ActiveRecord: 2.1ms | Allocations: 5779)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:33:56 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.7ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.5ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (5.41ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 20ms (Views: 6.4ms | ActiveRecord: 2.3ms | Allocations: 5773)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:34:06 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 0.9ms | Allocations: 2129)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:34:06 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.6ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.5ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (3.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 17ms (Views: 4.3ms | ActiveRecord: 1.9ms | Allocations: 5773)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:34:52 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 0.6ms | ActiveRecord: 0.8ms | Allocations: 2129)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:34:52 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.5ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.4ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (3.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 17ms (Views: 4.5ms | ActiveRecord: 1.7ms | Allocations: 5773)
+
+
+Started PATCH "/api/goals-step/48" for 172.18.0.1 at 2023-07-01 17:35:03 +0000
+Processing by Api::V1::GoalsStepController#update as JSON
+  Parameters: {"completed"=>true, "completed_at"=>"2023-07-01T17:35:03.341Z", "id"=>"48", "goals_step"=>{"completed"=>true, "completed_at"=>"2023-07-01T17:35:03.341Z"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsStep Load (0.6ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:31:in `update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/goals_step_controller.rb:32:in `update'
+  [1m[36mGoals Load (0.5ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:32:in `update'
+  [1m[36mGoalsStep Update (0.5ms)[0m  [1m[33mUPDATE "goals_steps" SET "updated_at" = $1, "completed" = $2, "completed_at" = $3 WHERE "goals_steps"."id" = $4[0m  [["updated_at", "2023-07-01 17:35:03.377026"], ["completed", true], ["completed_at", "2023-07-01 17:35:03.341000"], ["id", 48]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:32:in `update'
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/goals_step_controller.rb:32:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 23ms (Views: 0.5ms | ActiveRecord: 7.1ms | Allocations: 5061)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:35:03 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.3ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (2.76ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 11ms (Views: 3.2ms | ActiveRecord: 1.0ms | Allocations: 5787)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:35:28 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.5ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (5.24ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 18ms (Views: 6.0ms | ActiveRecord: 1.6ms | Allocations: 5787)
+
+
+Started DELETE "/api/goals-step/48" for 172.18.0.1 at 2023-07-01 17:35:42 +0000
+Processing by Api::V1::GoalsStepController#delete as JSON
+  Parameters: {"id"=>"48"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsStep Load (0.8ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:47:in `delete'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/goals_step_controller.rb:48:in `delete'
+  [1m[36mGoalsStep Destroy (0.7ms)[0m  [1m[31mDELETE FROM "goals_steps" WHERE "goals_steps"."id" = $1[0m  [["id", 48]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:48:in `delete'
+  [1m[36mTRANSACTION (21.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/goals_step_controller.rb:48:in `delete'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.27ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 47ms (Views: 1.6ms | ActiveRecord: 24.4ms | Allocations: 3648)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:35:42 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.3ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (3.06ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 3.5ms | ActiveRecord: 1.3ms | Allocations: 5633)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:36:02 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 2129)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:36:02 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.4ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (2.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 14ms (Views: 3.3ms | ActiveRecord: 1.4ms | Allocations: 5633)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:36:43 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.4ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (4.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 15ms (Views: 5.4ms | ActiveRecord: 1.2ms | Allocations: 5633)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:38:04 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.4ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.4ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (5.53ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 19ms (Views: 6.6ms | ActiveRecord: 1.6ms | Allocations: 5633)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:38:10 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 2129)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:38:10 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.4ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.3ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (3.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 14ms (Views: 3.7ms | ActiveRecord: 1.3ms | Allocations: 5633)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:38:11 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 0.6ms | ActiveRecord: 0.7ms | Allocations: 2129)
+
+
+Started GET "/api/goals-list/20" for 172.18.0.1 at 2023-07-01 17:38:12 +0000
+Processing by Api::V1::GoalsListController#show as JSON
+  Parameters: {"id"=>"20"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsList Load (0.3ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+  [1m[36mGoals Load (0.6ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."goals_list_id" = $1[0m  [["goals_list_id", 20]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with GoalsList (1.43ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 1.9ms | ActiveRecord: 1.5ms | Allocations: 3902)
+
+
+Started GET "/api/all-goals-list?page=1&per_page=10&sort=created_at&dir=desc" for 172.18.0.1 at 2023-07-01 17:38:15 +0000
+Processing by Api::V1::GoalsListController#index_public as JSON
+  Parameters: {"page"=>"1", "per_page"=>"10", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."is_public" = $1[0m  [["is_public", true]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.9ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."is_public" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["is_public", true], ["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:47:in `index_public'
+No serializer found for resource: #<GoalsList id: 12, title: " Pay off Debt", description: "Create a plan to pay off your debts, starting with...", is_public: true, user_id: 30, created_at: "2023-06-25 14:58:17.231133000 +0000", updated_at: "2023-06-25 14:58:17.231133000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (1.6ms)
+Completed 200 OK in 9ms (Views: 4.8ms | ActiveRecord: 1.6ms | Allocations: 2236)
+
+
+Started GET "/api/my-goals-list?page=1&per_page=5&sort=created_at&dir=desc" for 172.18.0.1 at 2023-07-01 17:38:15 +0000
+Processing by Api::V1::GoalsListController#index_private as JSON
+  Parameters: {"page"=>"1", "per_page"=>"5", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."user_id" = $1[0m  [["user_id", 30]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.4ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."user_id" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["user_id", 30], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:56:in `index_private'
+No serializer found for resource: #<GoalsList id: 20, title: "Trabalho Final PUC", description: "Essa é a lista para meu trabalho final da Pos grad...", is_public: false, user_id: 30, created_at: "2023-07-01 14:34:23.021024000 +0000", updated_at: "2023-07-01 14:34:23.021024000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (0.93ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 3.2ms | ActiveRecord: 1.6ms | Allocations: 3679)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:38:18 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.42ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 15ms (Views: 1.8ms | ActiveRecord: 1.3ms | Allocations: 2129)
+
+
+Started GET "/api/goals-list/12" for 172.18.0.1 at 2023-07-01 17:38:18 +0000
+Processing by Api::V1::GoalsListController#show as JSON
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsList Load (0.3ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+  [1m[36mGoals Load (0.5ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."goals_list_id" = $1[0m  [["goals_list_id", 12]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with GoalsList (0.61ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 1.4ms | ActiveRecord: 1.5ms | Allocations: 3323)
+
+
+Started GET "/api/all-goals-list?page=1&per_page=10&sort=created_at&dir=desc" for 172.18.0.1 at 2023-07-01 17:38:20 +0000
+Processing by Api::V1::GoalsListController#index_public as JSON
+  Parameters: {"page"=>"1", "per_page"=>"10", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."is_public" = $1[0m  [["is_public", true]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.6ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."is_public" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["is_public", true], ["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:47:in `index_public'
+No serializer found for resource: #<GoalsList id: 12, title: " Pay off Debt", description: "Create a plan to pay off your debts, starting with...", is_public: true, user_id: 30, created_at: "2023-06-25 14:58:17.231133000 +0000", updated_at: "2023-06-25 14:58:17.231133000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (1.86ms)
+Completed 200 OK in 10ms (Views: 5.6ms | ActiveRecord: 1.1ms | Allocations: 2236)
+
+
+Started GET "/api/my-goals-list?page=1&per_page=5&sort=created_at&dir=desc" for 172.18.0.1 at 2023-07-01 17:38:20 +0000
+Processing by Api::V1::GoalsListController#index_private as JSON
+  Parameters: {"page"=>"1", "per_page"=>"5", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."user_id" = $1[0m  [["user_id", 30]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.5ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."user_id" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["user_id", 30], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:56:in `index_private'
+No serializer found for resource: #<GoalsList id: 20, title: "Trabalho Final PUC", description: "Essa é a lista para meu trabalho final da Pos grad...", is_public: false, user_id: 30, created_at: "2023-07-01 14:34:23.021024000 +0000", updated_at: "2023-07-01 14:34:23.021024000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (1.06ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 19ms (Views: 4.1ms | ActiveRecord: 1.7ms | Allocations: 3680)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:38:23 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.25ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 9ms (Views: 0.9ms | ActiveRecord: 1.0ms | Allocations: 2130)
+
+
+Started GET "/api/goals-list/9" for 172.18.0.1 at 2023-07-01 17:38:23 +0000
+Processing by Api::V1::GoalsListController#show as JSON
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsList Load (0.3ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+  [1m[36mGoals Load (0.4ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."goals_list_id" = $1[0m  [["goals_list_id", 9]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with GoalsList (0.47ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 11ms (Views: 1.1ms | ActiveRecord: 1.3ms | Allocations: 3323)
+
+
+Started GET "/api/all-goals-list?page=1&per_page=10&sort=created_at&dir=desc" for 172.18.0.1 at 2023-07-01 17:38:25 +0000
+Processing by Api::V1::GoalsListController#index_public as JSON
+  Parameters: {"page"=>"1", "per_page"=>"10", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."is_public" = $1[0m  [["is_public", true]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.5ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."is_public" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["is_public", true], ["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:47:in `index_public'
+No serializer found for resource: #<GoalsList id: 12, title: " Pay off Debt", description: "Create a plan to pay off your debts, starting with...", is_public: true, user_id: 30, created_at: "2023-06-25 14:58:17.231133000 +0000", updated_at: "2023-06-25 14:58:17.231133000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (1.53ms)
+Completed 200 OK in 8ms (Views: 4.4ms | ActiveRecord: 0.9ms | Allocations: 2236)
+
+
+Started GET "/api/my-goals-list?page=1&per_page=5&sort=created_at&dir=desc" for 172.18.0.1 at 2023-07-01 17:38:25 +0000
+Processing by Api::V1::GoalsListController#index_private as JSON
+  Parameters: {"page"=>"1", "per_page"=>"5", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."user_id" = $1[0m  [["user_id", 30]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.5ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."user_id" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["user_id", 30], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:56:in `index_private'
+No serializer found for resource: #<GoalsList id: 20, title: "Trabalho Final PUC", description: "Essa é a lista para meu trabalho final da Pos grad...", is_public: false, user_id: 30, created_at: "2023-07-01 14:34:23.021024000 +0000", updated_at: "2023-07-01 14:34:23.021024000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (0.71ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 3.3ms | ActiveRecord: 1.6ms | Allocations: 3679)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:38:27 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.58ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 18ms (Views: 1.9ms | ActiveRecord: 1.6ms | Allocations: 2129)
+
+
+Started GET "/api/goals-list/11" for 172.18.0.1 at 2023-07-01 17:38:27 +0000
+Processing by Api::V1::GoalsListController#show as JSON
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsList Load (0.4ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+  [1m[36mGoals Load (0.4ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."goals_list_id" = $1[0m  [["goals_list_id", 11]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with GoalsList (1.83ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 2.3ms | ActiveRecord: 1.4ms | Allocations: 4098)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:38:35 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.35ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 17ms (Views: 1.7ms | ActiveRecord: 1.7ms | Allocations: 2129)
+
+
+Started GET "/api/goals/10/steps" for 172.18.0.1 at 2023-07-01 17:38:35 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"10"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.3ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 10]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (1.76ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 13ms (Views: 2.5ms | ActiveRecord: 1.6ms | Allocations: 4077)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:38:49 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.28ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 17ms (Views: 1.3ms | ActiveRecord: 1.6ms | Allocations: 2129)
+
+
+Started GET "/api/goals-list/11" for 172.18.0.1 at 2023-07-01 17:38:49 +0000
+Processing by Api::V1::GoalsListController#show as JSON
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsList Load (0.8ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+  [1m[36mGoals Load (0.6ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."goals_list_id" = $1[0m  [["goals_list_id", 11]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with GoalsList (3.03ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 23ms (Views: 4.1ms | ActiveRecord: 2.8ms | Allocations: 4098)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:38:52 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.48ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 15ms (Views: 2.3ms | ActiveRecord: 1.5ms | Allocations: 2129)
+
+
+Started GET "/api/goals/13/steps" for 172.18.0.1 at 2023-07-01 17:38:52 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"13"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.4ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 13]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (0.94ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 2.1ms | ActiveRecord: 1.4ms | Allocations: 3373)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:38:53 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 0.8ms | Allocations: 2129)
+
+
+Started POST "/api/goals/13/steps" for 172.18.0.1 at 2023-07-01 17:39:02 +0000
+Processing by Api::V1::GoalsStepController#create as JSON
+  Parameters: {"title"=>"some name ", "description"=>"some name", "time_to_reach_in_days"=>0, "time_to_reach_in_hours"=>0, "time_to_reach_in_minutes"=>0, "goals_id"=>"13", "goals_step"=>{"title"=>"some name ", "description"=>"some name", "time_to_reach_in_days"=>0, "time_to_reach_in_hours"=>0, "time_to_reach_in_minutes"=>0}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.6ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/goals_step_controller.rb:17:in `create'
+  [1m[36mGoals Load (0.4ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:17:in `create'
+  [1m[36mGoalsStep Create (1.0ms)[0m  [1m[32mINSERT INTO "goals_steps" ("title", "description", "time_to_reach_in_days", "time_to_reach_in_hours", "time_to_reach_in_minutes", "goals_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["title", "some name "], ["description", "some name"], ["time_to_reach_in_days", 0], ["time_to_reach_in_hours", 0], ["time_to_reach_in_minutes", 0], ["goals_id", 13], ["created_at", "2023-07-01 17:39:02.862914"], ["updated_at", "2023-07-01 17:39:02.862914"]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/goals_step_controller.rb:17:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 201 Created in 29ms (Views: 0.6ms | ActiveRecord: 8.2ms | Allocations: 4974)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:39:02 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 2129)
+
+
+Started GET "/api/goals/13/steps" for 172.18.0.1 at 2023-07-01 17:39:02 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"13"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.3ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 13]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (0.48ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 0.9ms | ActiveRecord: 1.3ms | Allocations: 3512)
+
+
+Started PATCH "/api/goals-step/49" for 172.18.0.1 at 2023-07-01 17:39:06 +0000
+Processing by Api::V1::GoalsStepController#update as JSON
+  Parameters: {"started"=>true, "start_at"=>"2023-07-01T17:39:06.086Z", "id"=>"49", "goals_step"=>{"started"=>true, "start_at"=>"2023-07-01T17:39:06.086Z"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsStep Load (0.5ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."id" = $1 LIMIT $2[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:31:in `update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/goals_step_controller.rb:32:in `update'
+  [1m[36mGoals Load (0.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:32:in `update'
+  [1m[36mGoalsStep Update (0.3ms)[0m  [1m[33mUPDATE "goals_steps" SET "updated_at" = $1, "started" = $2, "start_at" = $3 WHERE "goals_steps"."id" = $4[0m  [["updated_at", "2023-07-01 17:39:06.115900"], ["started", true], ["start_at", "2023-07-01 17:39:06.086000"], ["id", 49]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:32:in `update'
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/goals_step_controller.rb:32:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 18ms (Views: 0.4ms | ActiveRecord: 6.3ms | Allocations: 5052)
+
+
+Started GET "/api/goals/13/steps" for 172.18.0.1 at 2023-07-01 17:39:06 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"13"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.2ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 13]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (0.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.9ms | ActiveRecord: 0.9ms | Allocations: 3526)
+
+
+Started PATCH "/api/goals-step/49" for 172.18.0.1 at 2023-07-01 17:39:11 +0000
+Processing by Api::V1::GoalsStepController#update as JSON
+  Parameters: {"completed"=>true, "completed_at"=>"2023-07-01T17:39:11.248Z", "id"=>"49", "goals_step"=>{"completed"=>true, "completed_at"=>"2023-07-01T17:39:11.248Z"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsStep Load (0.9ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."id" = $1 LIMIT $2[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:31:in `update'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/goals_step_controller.rb:32:in `update'
+  [1m[36mGoals Load (0.6ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:32:in `update'
+  [1m[36mGoalsStep Update (0.7ms)[0m  [1m[33mUPDATE "goals_steps" SET "updated_at" = $1, "completed" = $2, "completed_at" = $3 WHERE "goals_steps"."id" = $4[0m  [["updated_at", "2023-07-01 17:39:11.282761"], ["completed", true], ["completed_at", "2023-07-01 17:39:11.248000"], ["id", 49]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:32:in `update'
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/goals_step_controller.rb:32:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 32ms (Views: 0.6ms | ActiveRecord: 8.5ms | Allocations: 5058)
+
+
+Started GET "/api/goals/13/steps" for 172.18.0.1 at 2023-07-01 17:39:11 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"13"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.2ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 13]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (0.63ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 9ms (Views: 1.1ms | ActiveRecord: 1.1ms | Allocations: 3540)
+
+
+Started DELETE "/api/goals-step/49" for 172.18.0.1 at 2023-07-01 17:39:19 +0000
+Processing by Api::V1::GoalsStepController#delete as JSON
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsStep Load (1.0ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."id" = $1 LIMIT $2[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:47:in `delete'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/goals_step_controller.rb:48:in `delete'
+  [1m[36mGoalsStep Destroy (1.3ms)[0m  [1m[31mDELETE FROM "goals_steps" WHERE "goals_steps"."id" = $1[0m  [["id", 49]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:48:in `delete'
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/goals_step_controller.rb:48:in `delete'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 34ms (Views: 1.0ms | ActiveRecord: 9.3ms | Allocations: 3649)
+
+
+Started GET "/api/goals/13/steps" for 172.18.0.1 at 2023-07-01 17:39:19 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"13"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.3ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 13]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (0.44ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.9ms | ActiveRecord: 1.0ms | Allocations: 3373)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:39:22 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.86ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 17ms (Views: 2.8ms | ActiveRecord: 1.7ms | Allocations: 2129)
+
+
+Started GET "/api/goals-list/11" for 172.18.0.1 at 2023-07-01 17:39:22 +0000
+Processing by Api::V1::GoalsListController#show as JSON
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsList Load (0.3ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+  [1m[36mGoals Load (0.5ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."goals_list_id" = $1[0m  [["goals_list_id", 11]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with GoalsList (2.39ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 15ms (Views: 3.6ms | ActiveRecord: 1.4ms | Allocations: 4098)
+
+
+Started GET "/api/all-goals-list?page=1&per_page=10&sort=created_at&dir=desc" for 172.18.0.1 at 2023-07-01 17:39:25 +0000
+Processing by Api::V1::GoalsListController#index_public as JSON
+  Parameters: {"page"=>"1", "per_page"=>"10", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."is_public" = $1[0m  [["is_public", true]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.8ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."is_public" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["is_public", true], ["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:47:in `index_public'
+No serializer found for resource: #<GoalsList id: 12, title: " Pay off Debt", description: "Create a plan to pay off your debts, starting with...", is_public: true, user_id: 30, created_at: "2023-06-25 14:58:17.231133000 +0000", updated_at: "2023-06-25 14:58:17.231133000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (1.78ms)
+Completed 200 OK in 10ms (Views: 5.4ms | ActiveRecord: 1.3ms | Allocations: 2236)
+
+
+Started GET "/api/my-goals-list?page=1&per_page=5&sort=created_at&dir=desc" for 172.18.0.1 at 2023-07-01 17:39:25 +0000
+Processing by Api::V1::GoalsListController#index_private as JSON
+  Parameters: {"page"=>"1", "per_page"=>"5", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."user_id" = $1[0m  [["user_id", 30]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.5ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."user_id" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["user_id", 30], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:56:in `index_private'
+No serializer found for resource: #<GoalsList id: 20, title: "Trabalho Final PUC", description: "Essa é a lista para meu trabalho final da Pos grad...", is_public: false, user_id: 30, created_at: "2023-07-01 14:34:23.021024000 +0000", updated_at: "2023-07-01 14:34:23.021024000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (0.73ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 2.8ms | ActiveRecord: 1.4ms | Allocations: 3679)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:39:38 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.27ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 1.3ms | ActiveRecord: 1.1ms | Allocations: 2129)
+
+
+Started GET "/api/goals-list/20" for 172.18.0.1 at 2023-07-01 17:39:38 +0000
+Processing by Api::V1::GoalsListController#show as JSON
+  Parameters: {"id"=>"20"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsList Load (0.3ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+  [1m[36mGoals Load (0.4ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."goals_list_id" = $1[0m  [["goals_list_id", 20]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with GoalsList (1.35ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 15ms (Views: 2.2ms | ActiveRecord: 1.6ms | Allocations: 3902)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:39:50 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.44ms)
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 17ms (Views: 1.6ms | ActiveRecord: 1.9ms | Allocations: 2129)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:39:50 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.3ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (2.89ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 13ms (Views: 3.6ms | ActiveRecord: 1.1ms | Allocations: 5633)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:39:52 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.29ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 15ms (Views: 1.3ms | ActiveRecord: 1.4ms | Allocations: 2129)
+
+
+Started POST "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:40:26 +0000
+Processing by Api::V1::GoalsStepController#create as JSON
+  Parameters: {"title"=>"Banner dinâmico", "description"=>"Adicionar banner dinâmico com diferentes citações e seus autores ", "time_to_reach_in_days"=>0, "time_to_reach_in_hours"=>"", "time_to_reach_in_minutes"=>"30", "goals_id"=>"30", "goals_step"=>{"title"=>"Banner dinâmico", "description"=>"Adicionar banner dinâmico com diferentes citações e seus autores ", "time_to_reach_in_days"=>0, "time_to_reach_in_hours"=>"", "time_to_reach_in_minutes"=>"30"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.8ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/goals_step_controller.rb:17:in `create'
+  [1m[36mGoals Load (0.6ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:17:in `create'
+  [1m[36mGoalsStep Create (0.7ms)[0m  [1m[32mINSERT INTO "goals_steps" ("title", "description", "time_to_reach_in_days", "time_to_reach_in_minutes", "goals_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Banner dinâmico"], ["description", "Adicionar banner dinâmico com diferentes citações e seus autores "], ["time_to_reach_in_days", 0], ["time_to_reach_in_minutes", 30], ["goals_id", 30], ["created_at", "2023-07-01 17:40:26.515913"], ["updated_at", "2023-07-01 17:40:26.515913"]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/goals_step_controller.rb:17:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 201 Created in 33ms (Views: 0.8ms | ActiveRecord: 5.7ms | Allocations: 4970)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:40:26 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 2129)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:40:26 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.4ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (4.54ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 16ms (Views: 5.2ms | ActiveRecord: 1.2ms | Allocations: 5773)
+
+
+Started PATCH "/api/goals-step/50" for 172.18.0.1 at 2023-07-01 17:40:31 +0000
+Processing by Api::V1::GoalsStepController#update as JSON
+  Parameters: {"completed"=>true, "completed_at"=>"2023-07-01T17:40:31.789Z", "id"=>"50", "goals_step"=>{"completed"=>true, "completed_at"=>"2023-07-01T17:40:31.789Z"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsStep Load (0.8ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:31:in `update'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/goals_step_controller.rb:32:in `update'
+  [1m[36mGoals Load (0.6ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:32:in `update'
+  [1m[36mGoalsStep Update (0.7ms)[0m  [1m[33mUPDATE "goals_steps" SET "updated_at" = $1, "completed" = $2, "completed_at" = $3 WHERE "goals_steps"."id" = $4[0m  [["updated_at", "2023-07-01 17:40:31.834348"], ["completed", true], ["completed_at", "2023-07-01 17:40:31.789000"], ["id", 50]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:32:in `update'
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/goals_step_controller.rb:32:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 33ms (Views: 0.8ms | ActiveRecord: 8.4ms | Allocations: 5054)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:40:31 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.3ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (3.02ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 13ms (Views: 3.5ms | ActiveRecord: 1.0ms | Allocations: 5787)
+
+
+Started PATCH "/api/goals-step/50" for 172.18.0.1 at 2023-07-01 17:44:39 +0000
+Processing by Api::V1::GoalsStepController#update as JSON
+  Parameters: {"started"=>true, "start_at"=>"2023-07-01T17:44:39.789Z", "id"=>"50", "goals_step"=>{"started"=>true, "start_at"=>"2023-07-01T17:44:39.789Z"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsStep Load (0.2ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:31:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 91ms (Views: 0.7ms | ActiveRecord: 7.2ms | Allocations: 18067)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:44:39 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.4ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (2.63ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 24ms (Views: 3.3ms | ActiveRecord: 3.3ms | Allocations: 11897)
+
+
+Started PATCH "/api/goals-step/50" for 172.18.0.1 at 2023-07-01 17:44:41 +0000
+Processing by Api::V1::GoalsStepController#update as JSON
+  Parameters: {"started"=>true, "start_at"=>"2023-07-01T17:44:41.945Z", "id"=>"50", "goals_step"=>{"started"=>true, "start_at"=>"2023-07-01T17:44:41.945Z"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsStep Load (0.8ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:31:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 18ms (Views: 1.0ms | ActiveRecord: 2.5ms | Allocations: 2365)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:44:41 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.3ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (3.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 3.6ms | ActiveRecord: 1.1ms | Allocations: 5787)
+
+
+Started PATCH "/api/goals-step/50" for 172.18.0.1 at 2023-07-01 17:44:55 +0000
+Processing by Api::V1::GoalsStepController#update as JSON
+  Parameters: {"started"=>true, "start_at"=>"2023-07-01T17:44:55.280Z", "id"=>"50", "goals_step"=>{"started"=>true, "start_at"=>"2023-07-01T17:44:55.280Z"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsStep Load (0.3ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:31:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 0.8ms | Allocations: 2365)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:44:55 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.3ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (4.74ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 15ms (Views: 5.4ms | ActiveRecord: 1.2ms | Allocations: 5787)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:45:49 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.4ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.4ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (5.67ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 18ms (Views: 6.4ms | ActiveRecord: 1.6ms | Allocations: 5787)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:45:51 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.7ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.5ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (15.49ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 29ms (Views: 16.2ms | ActiveRecord: 1.8ms | Allocations: 5788)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:45:54 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 1.0ms | ActiveRecord: 0.6ms | Allocations: 2406)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:45:54 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.5ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (4.99ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 19ms (Views: 5.8ms | ActiveRecord: 1.6ms | Allocations: 5787)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:46:58 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.3ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (4.47ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 15ms (Views: 4.9ms | ActiveRecord: 1.4ms | Allocations: 5787)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:47:02 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 1.0ms | ActiveRecord: 0.7ms | Allocations: 2129)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:47:02 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.4ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.2ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (3.38ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 3.9ms | ActiveRecord: 1.1ms | Allocations: 5787)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:47:08 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.4ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (3.67ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 13ms (Views: 4.4ms | ActiveRecord: 1.2ms | Allocations: 5787)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:47:31 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.3ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (5.12ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 14ms (Views: 5.8ms | ActiveRecord: 1.2ms | Allocations: 5787)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:47:36 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 0.7ms | ActiveRecord: 0.6ms | Allocations: 2129)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:47:37 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.3ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (4.72ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 15ms (Views: 5.4ms | ActiveRecord: 1.2ms | Allocations: 5787)
+
+
+Started PATCH "/api/goals-step/50" for 172.18.0.1 at 2023-07-01 17:47:39 +0000
+Processing by Api::V1::GoalsStepController#update as JSON
+  Parameters: {"started"=>true, "start_at"=>"2023-07-01T17:47:39.677Z", "id"=>"50", "goals_step"=>{"started"=>true, "start_at"=>"2023-07-01T17:47:39.677Z"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsStep Load (0.5ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:31:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.7ms | ActiveRecord: 1.1ms | Allocations: 2365)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:47:39 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.4ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (3.05ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 3.6ms | ActiveRecord: 1.1ms | Allocations: 5787)
+
+
+Started PATCH "/api/goals-step/50" for 172.18.0.1 at 2023-07-01 17:47:40 +0000
+Processing by Api::V1::GoalsStepController#update as JSON
+  Parameters: {"started"=>true, "start_at"=>"2023-07-01T17:47:40.647Z", "id"=>"50", "goals_step"=>{"started"=>true, "start_at"=>"2023-07-01T17:47:40.647Z"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsStep Load (0.4ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:31:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 0.6ms | ActiveRecord: 1.3ms | Allocations: 2365)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:47:40 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.3ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (4.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 4.5ms | ActiveRecord: 0.8ms | Allocations: 5787)
+
+
+Started PATCH "/api/goals-step/50" for 172.18.0.1 at 2023-07-01 17:47:41 +0000
+Processing by Api::V1::GoalsStepController#update as JSON
+  Parameters: {"started"=>true, "start_at"=>"2023-07-01T17:47:41.344Z", "id"=>"50", "goals_step"=>{"started"=>true, "start_at"=>"2023-07-01T17:47:41.344Z"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsStep Load (0.4ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:31:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 9ms (Views: 0.6ms | ActiveRecord: 1.1ms | Allocations: 2365)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:47:41 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.4ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (3.89ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 13ms (Views: 4.4ms | ActiveRecord: 1.0ms | Allocations: 5787)
+
+
+Started PATCH "/api/goals-step/50" for 172.18.0.1 at 2023-07-01 17:47:49 +0000
+Processing by Api::V1::GoalsStepController#update as JSON
+  Parameters: {"started"=>true, "start_at"=>"2023-07-01T17:47:49.343Z", "id"=>"50", "goals_step"=>{"started"=>true, "start_at"=>"2023-07-01T17:47:49.343Z"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsStep Load (0.2ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:31:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 0.8ms | Allocations: 2365)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:47:49 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.2ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (2.91ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 11ms (Views: 3.3ms | ActiveRecord: 0.9ms | Allocations: 5787)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:48:31 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.7ms | ActiveRecord: 0.7ms | Allocations: 2129)
+
+
+Started GET "/api/goals-list/20" for 172.18.0.1 at 2023-07-01 17:48:31 +0000
+Processing by Api::V1::GoalsListController#show as JSON
+  Parameters: {"id"=>"20"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsList Load (0.3ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+  [1m[36mGoals Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."goals_list_id" = $1[0m  [["goals_list_id", 20]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with GoalsList (1.41ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 25ms (Views: 2.1ms | ActiveRecord: 4.8ms | Allocations: 7096)
+
+
+Started GET "/api/all-goals-list?page=1&per_page=10&sort=created_at&dir=desc" for 172.18.0.1 at 2023-07-01 17:48:36 +0000
+Processing by Api::V1::GoalsListController#index_public as JSON
+  Parameters: {"page"=>"1", "per_page"=>"10", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."is_public" = $1[0m  [["is_public", true]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.8ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."is_public" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["is_public", true], ["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:47:in `index_public'
+No serializer found for resource: #<GoalsList id: 12, title: " Pay off Debt", description: "Create a plan to pay off your debts, starting with...", is_public: true, user_id: 30, created_at: "2023-06-25 14:58:17.231133000 +0000", updated_at: "2023-06-25 14:58:17.231133000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (1.97ms)
+Completed 200 OK in 10ms (Views: 5.7ms | ActiveRecord: 1.2ms | Allocations: 2339)
+
+
+Started GET "/api/my-goals-list?page=1&per_page=5&sort=created_at&dir=desc" for 172.18.0.1 at 2023-07-01 17:48:36 +0000
+Processing by Api::V1::GoalsListController#index_private as JSON
+  Parameters: {"page"=>"1", "per_page"=>"5", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."user_id" = $1[0m  [["user_id", 30]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.5ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."user_id" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["user_id", 30], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:56:in `index_private'
+No serializer found for resource: #<GoalsList id: 20, title: "Trabalho Final PUC", description: "Essa é a lista para meu trabalho final da Pos grad...", is_public: false, user_id: 30, created_at: "2023-07-01 14:34:23.021024000 +0000", updated_at: "2023-07-01 14:34:23.021024000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (1.02ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 16ms (Views: 4.2ms | ActiveRecord: 2.0ms | Allocations: 3683)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:48:39 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.24ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.9ms | ActiveRecord: 0.8ms | Allocations: 2129)
+
+
+Started GET "/api/goals-list/11" for 172.18.0.1 at 2023-07-01 17:48:39 +0000
+Processing by Api::V1::GoalsListController#show as JSON
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsList Load (0.3ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+  [1m[36mGoals Load (0.5ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."goals_list_id" = $1[0m  [["goals_list_id", 11]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with GoalsList (1.98ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 14ms (Views: 2.7ms | ActiveRecord: 1.6ms | Allocations: 4098)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:48:41 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.33ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 19ms (Views: 1.6ms | ActiveRecord: 1.7ms | Allocations: 2129)
+
+
+Started GET "/api/goals/13/steps" for 172.18.0.1 at 2023-07-01 17:48:41 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"13"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.5ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 13]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (0.56ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 1.3ms | ActiveRecord: 1.4ms | Allocations: 3373)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:48:42 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.35ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 16ms (Views: 1.3ms | ActiveRecord: 1.7ms | Allocations: 2129)
+
+
+Started POST "/api/goals/13/steps" for 172.18.0.1 at 2023-07-01 17:48:51 +0000
+Processing by Api::V1::GoalsStepController#create as JSON
+  Parameters: {"title"=>"step", "description"=>"casa", "time_to_reach_in_days"=>0, "time_to_reach_in_hours"=>"30", "time_to_reach_in_minutes"=>0, "goals_id"=>"13", "goals_step"=>{"title"=>"step", "description"=>"casa", "time_to_reach_in_days"=>0, "time_to_reach_in_hours"=>"30", "time_to_reach_in_minutes"=>0}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (1.1ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/goals_step_controller.rb:17:in `create'
+  [1m[36mGoals Load (0.6ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:17:in `create'
+  [1m[36mGoalsStep Create (0.7ms)[0m  [1m[32mINSERT INTO "goals_steps" ("title", "description", "time_to_reach_in_days", "time_to_reach_in_hours", "time_to_reach_in_minutes", "goals_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["title", "step"], ["description", "casa"], ["time_to_reach_in_days", 0], ["time_to_reach_in_hours", 30], ["time_to_reach_in_minutes", 0], ["goals_id", 13], ["created_at", "2023-07-01 17:48:51.320683"], ["updated_at", "2023-07-01 17:48:51.320683"]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/goals_step_controller.rb:17:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 201 Created in 36ms (Views: 0.7ms | ActiveRecord: 8.9ms | Allocations: 5296)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:48:51 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 2129)
+
+
+Started GET "/api/goals/13/steps" for 172.18.0.1 at 2023-07-01 17:48:51 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"13"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.5ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.3ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 13]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (0.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 13ms (Views: 1.4ms | ActiveRecord: 1.4ms | Allocations: 3512)
+
+
+Started PATCH "/api/goals-step/51" for 172.18.0.1 at 2023-07-01 17:48:54 +0000
+Processing by Api::V1::GoalsStepController#update as JSON
+  Parameters: {"completed"=>true, "completed_at"=>"2023-07-01T17:48:54.384Z", "id"=>"51", "goals_step"=>{"completed"=>true, "completed_at"=>"2023-07-01T17:48:54.384Z"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsStep Load (0.4ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:31:in `update'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/goals_step_controller.rb:38:in `update'
+  [1m[36mGoals Load (0.6ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:38:in `update'
+  [1m[36mGoalsStep Update (1.1ms)[0m  [1m[33mUPDATE "goals_steps" SET "updated_at" = $1, "started" = $2, "start_at" = $3, "completed" = $4, "completed_at" = $5 WHERE "goals_steps"."id" = $6[0m  [["updated_at", "2023-07-01 17:48:54.430468"], ["started", true], ["start_at", "2023-07-01 17:48:54.422298"], ["completed", true], ["completed_at", "2023-07-01 17:48:54.384000"], ["id", 51]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/goals_step_controller.rb:38:in `update'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 204 No Content in 32ms (ActiveRecord: 8.2ms | Allocations: 4986)
+
+
+Started GET "/api/goals/13/steps" for 172.18.0.1 at 2023-07-01 17:48:54 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"13"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.3ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 13]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (0.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 11ms (Views: 1.3ms | ActiveRecord: 1.1ms | Allocations: 3540)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:48:58 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.8ms | Allocations: 2129)
+
+
+Started GET "/api/goals-list/11" for 172.18.0.1 at 2023-07-01 17:48:58 +0000
+Processing by Api::V1::GoalsListController#show as JSON
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsList Load (0.3ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+  [1m[36mGoals Load (0.4ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."goals_list_id" = $1[0m  [["goals_list_id", 11]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with GoalsList (1.74ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 14ms (Views: 2.4ms | ActiveRecord: 1.4ms | Allocations: 4098)
+
+
+Started GET "/api/all-goals-list?page=1&per_page=10&sort=created_at&dir=desc" for 172.18.0.1 at 2023-07-01 17:49:01 +0000
+Processing by Api::V1::GoalsListController#index_public as JSON
+  Parameters: {"page"=>"1", "per_page"=>"10", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."is_public" = $1[0m  [["is_public", true]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.5ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."is_public" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["is_public", true], ["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:47:in `index_public'
+No serializer found for resource: #<GoalsList id: 12, title: " Pay off Debt", description: "Create a plan to pay off your debts, starting with...", is_public: true, user_id: 30, created_at: "2023-06-25 14:58:17.231133000 +0000", updated_at: "2023-06-25 14:58:17.231133000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (1.56ms)
+Completed 200 OK in 8ms (Views: 4.3ms | ActiveRecord: 1.0ms | Allocations: 2236)
+
+
+Started GET "/api/my-goals-list?page=1&per_page=5&sort=created_at&dir=desc" for 172.18.0.1 at 2023-07-01 17:49:01 +0000
+Processing by Api::V1::GoalsListController#index_private as JSON
+  Parameters: {"page"=>"1", "per_page"=>"5", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."user_id" = $1[0m  [["user_id", 30]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.7ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."user_id" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["user_id", 30], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:56:in `index_private'
+No serializer found for resource: #<GoalsList id: 20, title: "Trabalho Final PUC", description: "Essa é a lista para meu trabalho final da Pos grad...", is_public: false, user_id: 30, created_at: "2023-07-01 14:34:23.021024000 +0000", updated_at: "2023-07-01 14:34:23.021024000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (1.29ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 14ms (Views: 4.5ms | ActiveRecord: 2.0ms | Allocations: 3679)
+
+
+Started PATCH "/api/goals-step/50" for 172.18.0.1 at 2023-07-01 17:49:42 +0000
+Processing by Api::V1::GoalsStepController#update as JSON
+  Parameters: {"started"=>true, "start_at"=>"2023-06-03T19:38:47.587Z", "id"=>"50", "goals_step"=>{"started"=>true, "start_at"=>"2023-06-03T19:38:47.587Z"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsStep Load (0.3ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:31:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 64ms (Views: 0.4ms | ActiveRecord: 0.9ms | Allocations: 2388)
+
+
+Started PATCH "/api/goals-step/50" for 172.18.0.1 at 2023-07-01 17:49:51 +0000
+Processing by Api::V1::GoalsStepController#update as JSON
+  Parameters: {"started"=>true, "start_at"=>"2023-06-03T19:38:47.587Z", "completed"=>false, "id"=>"50", "goals_step"=>{"started"=>true, "start_at"=>"2023-06-03T19:38:47.587Z", "completed"=>false}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsStep Load (0.2ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:31:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.8ms | Allocations: 2363)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:49:58 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 0.7ms | ActiveRecord: 1.1ms | Allocations: 2129)
+
+
+Started GET "/api/goals-list/20" for 172.18.0.1 at 2023-07-01 17:49:58 +0000
+Processing by Api::V1::GoalsListController#show as JSON
+  Parameters: {"id"=>"20"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsList Load (0.4ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+  [1m[36mGoals Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."goals_list_id" = $1[0m  [["goals_list_id", 20]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with GoalsList (1.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 1.5ms | ActiveRecord: 1.3ms | Allocations: 3902)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:50:03 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.37ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 17ms (Views: 1.7ms | ActiveRecord: 1.9ms | Allocations: 2129)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:50:03 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.3ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (5.07ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 17ms (Views: 5.9ms | ActiveRecord: 1.3ms | Allocations: 5787)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:50:06 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 0.4ms | Allocations: 2129)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:50:06 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.4ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (4.61ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 16ms (Views: 5.4ms | ActiveRecord: 1.3ms | Allocations: 5787)
+
+
+Started PATCH "/api/goals-step/50" for 172.18.0.1 at 2023-07-01 17:51:04 +0000
+Processing by Api::V1::GoalsStepController#update as JSON
+  Parameters: {"started"=>true, "start_at"=>"2023-07-01T17:51:04.828Z", "id"=>"50", "goals_step"=>{"started"=>true, "start_at"=>"2023-07-01T17:51:04.828Z"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsStep Load (0.2ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:31:in `update'
+Completed 500 Internal Server Error in 96ms (ActiveRecord: 5.5ms | Allocations: 17425)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/api/v1/goals_step_controller.rb:40:in `update'
+Started PATCH "/api/goals-step/50" for 172.18.0.1 at 2023-07-01 17:51:08 +0000
+Processing by Api::V1::GoalsStepController#update as JSON
+  Parameters: {"started"=>true, "start_at"=>"2023-06-03T19:38:47.587Z", "id"=>"50", "goals_step"=>{"started"=>true, "start_at"=>"2023-06-03T19:38:47.587Z"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsStep Load (0.3ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:31:in `update'
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 0.5ms | Allocations: 1962)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/api/v1/goals_step_controller.rb:40:in `update'
+Started PATCH "/api/goals-step/50" for 172.18.0.1 at 2023-07-01 17:51:18 +0000
+Processing by Api::V1::GoalsStepController#update as JSON
+  Parameters: {"started"=>true, "start_at"=>"2023-06-03T19:38:47.587Z", "id"=>"50", "goals_step"=>{"started"=>true, "start_at"=>"2023-06-03T19:38:47.587Z"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsStep Load (0.4ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:31:in `update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/goals_step_controller.rb:40:in `update'
+  [1m[36mGoals Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:40:in `update'
+  [1m[36mGoalsStep Update (0.4ms)[0m  [1m[33mUPDATE "goals_steps" SET "updated_at" = $1, "started" = $2, "start_at" = $3 WHERE "goals_steps"."id" = $4[0m  [["updated_at", "2023-07-01 17:51:18.732130"], ["started", true], ["start_at", "2023-06-03 19:38:47.587000"], ["id", 50]]
+  ↳ app/controllers/api/v1/goals_step_controller.rb:40:in `update'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/goals_step_controller.rb:40:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 113ms (Views: 0.6ms | ActiveRecord: 10.7ms | Allocations: 26816)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:51:21 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 64ms (Views: 0.8ms | ActiveRecord: 0.4ms | Allocations: 2422)
+
+
+Started GET "/api/goals/30/steps" for 172.18.0.1 at 2023-07-01 17:51:21 +0000
+Processing by Api::V1::GoalsController#show as JSON
+  Parameters: {"goals_id"=>"30"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoals Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+  [1m[36mGoalsStep Load (0.2ms)[0m  [1m[34mSELECT "goals_steps".* FROM "goals_steps" WHERE "goals_steps"."goals_id" = $1[0m  [["goals_id", 30]]
+  ↳ app/controllers/api/v1/goals_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Goals (2.82ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 3.5ms | ActiveRecord: 1.0ms | Allocations: 6033)
+
+
+Started GET "/api/auth/validate_token" for 172.18.0.1 at 2023-07-01 17:51:33 +0000
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 0.7ms | ActiveRecord: 0.7ms | Allocations: 2129)
+
+
+Started GET "/api/goals-list/20" for 172.18.0.1 at 2023-07-01 17:51:34 +0000
+Processing by Api::V1::GoalsListController#show as JSON
+  Parameters: {"id"=>"20"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[36mGoalsList Load (0.3ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+  [1m[36mGoals Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."goals_list_id" = $1[0m  [["goals_list_id", 20]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:27:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with GoalsList (1.04ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 24ms (Views: 1.8ms | ActiveRecord: 4.8ms | Allocations: 7077)
+
+
+Started GET "/api/all-goals-list?page=1&per_page=10&sort=created_at&dir=desc" for 172.18.0.1 at 2023-07-01 17:51:41 +0000
+Processing by Api::V1::GoalsListController#index_public as JSON
+  Parameters: {"page"=>"1", "per_page"=>"10", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."is_public" = $1[0m  [["is_public", true]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.8ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."is_public" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["is_public", true], ["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:47:in `index_public'
+No serializer found for resource: #<GoalsList id: 12, title: " Pay off Debt", description: "Create a plan to pay off your debts, starting with...", is_public: true, user_id: 30, created_at: "2023-06-25 14:58:17.231133000 +0000", updated_at: "2023-06-25 14:58:17.231133000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (1.84ms)
+Completed 200 OK in 11ms (Views: 5.1ms | ActiveRecord: 1.5ms | Allocations: 2339)
+
+
+Started GET "/api/my-goals-list?page=1&per_page=5&sort=created_at&dir=desc" for 172.18.0.1 at 2023-07-01 17:51:41 +0000
+Processing by Api::V1::GoalsListController#index_private as JSON
+  Parameters: {"page"=>"1", "per_page"=>"5", "sort"=>"created_at", "dir"=>"desc"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "farno@perene.com"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "goals_lists" WHERE "goals_lists"."user_id" = $1[0m  [["user_id", 30]]
+  ↳ app/controllers/concerns/paginable.rb:17:in `meta_attributes'
+  [1m[36mGoalsList Load (0.6ms)[0m  [1m[34mSELECT "goals_lists".* FROM "goals_lists" WHERE "goals_lists"."user_id" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["user_id", 30], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/goals_list_controller.rb:56:in `index_private'
+No serializer found for resource: #<GoalsList id: 20, title: "Trabalho Final PUC", description: "Essa é a lista para meu trabalho final da Pos grad...", is_public: false, user_id: 30, created_at: "2023-07-01 14:34:23.021024000 +0000", updated_at: "2023-07-01 14:34:23.021024000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with GoalsList::ActiveRecord_Relation (0.74ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 11ms (Views: 3.2ms | ActiveRecord: 1.4ms | Allocations: 3683)
+
+

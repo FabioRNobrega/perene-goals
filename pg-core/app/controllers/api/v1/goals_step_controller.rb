@@ -29,7 +29,15 @@ module Api
 
       def update
         @goal_step = GoalsStep.find(params[:id])
-        if @goal_step.update(allowed_params_update)
+        
+        if params[:completed]
+          if @goal_step.started 
+            @goal.update(allowed_params_update)
+          else 
+            updated_params = allowed_params_update.merge(started: true, start_at: Time.now)
+            @goal_step.update(updated_params)
+          end
+          elsif @goal_step.update(allowed_params_update)
           render(json: { message: 'Goal Step updated with success' }, status: 200)
         else
           render json: @goal_step.errors, status: :unprocessable_entity
