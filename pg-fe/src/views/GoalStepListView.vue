@@ -1,9 +1,19 @@
 <template>
-  <TopNavbar iconNameLeft="back" iconNameRight="remove" :pathNameLeft="`/goals-list/${goal.goals_list_id}`" />
+  <TopNavbar >
+    <template v-slot:iconLeft>
+      <SVGIcon icon-name="back"  @click="this.$router.push(`/goals-list/${this.routeId}`)"/>
+    </template>
+    <template v-slot:iconRight>
+      <SVGIcon icon-name="remove" @click="handleDeleteGoalModal(this.routeId)"/>
+    </template>
+  </TopNavbar>
+
   <main class="base-container">
     <h1 class="base-title">  {{ goal.title }} </h1>
     <p class="base-text">  {{ goal.description }} </p>
     <BaseButton :light="true" icon="plus" content="Add Another step on this goal"  @click="handleCreateGoalStep(goal.id)"/>
+    <BaseButton :dark="true" icon="remove" content="Delete the entire goal"  @click="handleDeleteGoalModal(this.routeId)"/>
+
 
     <div  class="base-list-display">
       <BaseCard v-for="steps in goal.goals_step" :key="steps.id" >
@@ -38,6 +48,7 @@
       <BaseButton :light="true" :small="true" icon="finish" content="confirm" @click="handleAchieveGoalStep()"/>
     </template>
   </BaseModal>
+
   <BaseModal 
     :showModal="showDeleteStepModal"
     content="Deleting this step means it will be gone forever. Are you ready to take this action? Embrace the opportunity to remove this step and make way for new ones. Keep advancing towards your goals!"
@@ -47,6 +58,17 @@
       <BaseButton :light="true" :small="true" icon="remove" content="confirm" @click="handleDeleteGoalStep()"/>
     </template>
   </BaseModal>
+
+  <BaseModal 
+    :showModal="showDeleteGoalModal"
+    content="By deleting this goal, you'll also eliminate all its associated steps. Are you certain about this decision? Embrace the change and create space for fresh ambitions. Keep pushing towards your dreams!"
+  >
+    <template v-slot:footer>
+      <BaseButton :light="true" :small="true" icon="close" content="cancel" @click="this.showDeleteGoalModal = !this.showDeleteGoalModal"/>
+      <BaseButton :light="true" :small="true" icon="remove" content="confirm" @click="handleDeleteGoal()"/>
+    </template>
+  </BaseModal>
+
 </template>
 
 <script>
@@ -60,7 +82,7 @@ import ConfettiEffect from '../components/ConfettiEffect/index.vue'
 
 import soundMP3 from '../assets/sounds/sound.mp3'
 
-import { fetchGoalsWithSteps } from '../api/goals'
+import { fetchGoalsWithSteps, deleteGoal } from '../api/goals'
 import { deleteGoalsSteps, updateGoalStep } from '../api/goals-steps'
 
 export default {
@@ -80,6 +102,7 @@ export default {
       userAuth: {},
       showDeleteStepModal: false,
       showAchieveGoalStepModal: false,
+      showDeleteGoalModal: false,
       step_id: "",
       goal: {},
       showConfetti: false
@@ -164,6 +187,20 @@ export default {
         console.error(error)
       }
     },
+    async handleDeleteGoal() {
+      try {
+        await deleteGoal(
+          this.goal_id,
+          this.userAuth['access-token'],
+          this.userAuth['client'],
+          this.userAuth['uid']
+        )
+        this.showDeleteGoalModal = false
+        this.$router.go(-1);
+      } catch(error) {
+        console.error(error)
+      }
+    },
     handleDeleteGoalStepModal(step_id) {
       this.step_id = step_id
       this.showDeleteStepModal = !this.showDeleteStepModal
@@ -177,7 +214,11 @@ export default {
     },
     handleCreateGoalStep(goal_id) {
       this.$router.push(`/create-goal-step/${goal_id}`)
-    }
+    },
+    handleDeleteGoalModal(goal_id) {
+      this.showDeleteGoalModal = !this.showDeleteGoalModal
+      this.goal_id = goal_id
+    },
   }
 }
 

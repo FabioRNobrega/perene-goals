@@ -1,5 +1,14 @@
 <template>
-  <TopNavbar iconNameLeft="home" iconNameRight="remove" pathNameLeft="/"/>
+  <TopNavbar >
+    <template v-slot:iconLeft>
+      <SVGIcon icon-name="home"  @click="this.$router.push('/')"/>
+    </template>
+    <template v-slot:iconRight>
+      <SVGIcon icon-name="remove" @click="handleDeleteGoalListModal()"/>
+    </template>
+  </TopNavbar>
+
+
   <main class="base-container">
     <h1 class="base-title">  {{ goalList.title }} </h1>
     <p class="base-text">  {{ goalList.description }} </p>

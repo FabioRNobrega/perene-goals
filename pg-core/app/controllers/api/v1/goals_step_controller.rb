@@ -29,10 +29,9 @@ module Api
 
       def update
         @goal_step = GoalsStep.find(params[:id])
-        
         if params[:completed]
           if @goal_step.started 
-            @goal.update(allowed_params_update)
+            @goal_step.update(allowed_params_update)
           else 
             updated_params = allowed_params_update.merge(started: true, start_at: Time.now)
             @goal_step.update(updated_params)

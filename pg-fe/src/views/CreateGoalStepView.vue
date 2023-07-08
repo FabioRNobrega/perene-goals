@@ -1,5 +1,13 @@
 <template>
-    <TopNavbar iconNameLeft="user" iconNameRight="home" pathNameRight="/"/>
+    <TopNavbar >
+      <template v-slot:iconLeft>
+        <SVGIcon icon-name="user"  @click="this.$router.push('/profile')"/>
+      </template>
+      <template v-slot:iconRight>
+        <SVGIcon icon-name="home" @click="this.$router.push('/')"/>
+      </template>
+    </TopNavbar>
+
     <main class="base-container">
       <h1 class="base-title"> Create Goal Step</h1>
       <BaseInfo >
@@ -77,6 +85,8 @@
   import BaseInfo from '../components/BaseInfo/index.vue'
   import BaseInput from '../components/BaseInput/index.vue'
   import BaseButton from '../components/BaseButton/index.vue'
+  import SVGIcon from '../components/SVGIcon/index.vue'
+
   
   import { createGoalStep } from '../api/goals-steps'
 
@@ -87,7 +97,8 @@
       BottomNavbar,
       BaseInfo,
       BaseInput,
-      BaseButton
+      BaseButton,
+      SVGIcon
     },
     data () {
       return {

@@ -1,52 +1,17 @@
 <template>
   <div class="top-navbar">
-    <RouterLink  :to="pathNameLeft" class="circle circle__left" >
-      <SVGIcon :icon-name="iconNameLeft"/>
-    </RouterLink >
-    <RouterLink  :to="pathNameRight" class="circle circle__right">
-      <SVGIcon :icon-name="iconNameRight"/>
-    </RouterLink >  
+    <div class="circle circle__left">
+      <slot name="iconLeft"/>
+    </div >
+    <div class="circle circle__right">
+      <slot name="iconRight"/>
+    </div>  
   </div>
 </template>
 
 <script>
-import { RouterLink } from 'vue-router';
-import SVGIcon from '../SVGIcon/index.vue' 
-
 export default {
-    name: "TopNavbar",
-    components: {
-      RouterLink,
-      SVGIcon
-    },
-    props: {
-        iconNameLeft: {
-            type: String,
-            require: false,
-            default: "user"
-        },
-        pathNameLeft: {
-            type: String,
-            require: false,
-            default: "/profile"
-        },
-        iconNameRight: {
-            type: String,
-            require: false,
-            default: "learning"
-        },
-        pathNameRight: {
-            type: String,
-            require: false,
-            default: "/learning"
-        },
-    },
-    methods: {
-      handleClick() {
-        localStorage.clear()
-      }
-    }
-
+  name: "TopNavbar"
 }
 </script>
 

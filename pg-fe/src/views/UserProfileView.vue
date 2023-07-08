@@ -1,5 +1,13 @@
  <template>
-    <TopNavbar iconNameLeft="user" iconNameRight="exit" pathNameRight="/" />
+    <TopNavbar >
+      <template v-slot:iconLeft>
+        <SVGIcon icon-name="home"  @click="this.$router.push('/')"/>
+      </template>
+      <template v-slot:iconRight>
+        <SVGIcon icon-name="exit" @click="handleLogout"/>
+      </template>
+    </TopNavbar>
+
     <main class="base-container">
       <BaseMessage  icon="success" content="Profile updated with success" :success="true" :visibility="successUpdated" @hide="successUpdated = false"/>
       <BaseMessage  icon="warning" :content="errorMessage" :error="true" :visibility="failsToUpdate" @hide="failsToUpdate = false"/>
@@ -59,7 +67,9 @@
   import BaseButton from '../components/BaseButton/index.vue'
   import BaseInput from '../components/BaseInput/index.vue'
   import BaseMessage from '../components/BaseMessage/index.vue'
+  import SVGIcon from '../components/SVGIcon/index.vue'
   
+
   import { updateAccount } from '../api/account'
   
   export default {
@@ -69,7 +79,8 @@
       BottomNavbar,
       BaseButton,
       BaseInput,
-      BaseMessage
+      BaseMessage,
+      SVGIcon
     },
     data () {
       return {
@@ -184,6 +195,10 @@
         }
       },
       handleBottomNavbarClick() {
+        this.$router.push('/')
+      },
+      handleLogout() {
+        localStorage.clear()
         this.$router.push('/')
       }
     }

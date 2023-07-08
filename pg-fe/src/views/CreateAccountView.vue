@@ -1,5 +1,12 @@
 <template>
-  <TopNavbar iconNameLeft="user" iconNameRight="learning" />
+    <TopNavbar >
+    <template v-slot:iconLeft>
+      <SVGIcon icon-name="user"  @click="this.$router.push('/profile')"/>
+    </template>
+    <template v-slot:iconRight>
+      <SVGIcon icon-name="learning" @click="this.$router.push('/learning')"/>
+    </template>
+  </TopNavbar>
   <main class="base-container">
     <BaseCard>
       <template v-slot:header>
@@ -36,12 +43,15 @@ import BottomNavbar from '../components/BottomNavBar/index.vue'
 import BaseInput from '../components/BaseInput/index.vue'
 import BaseButton from '../components/BaseButton/index.vue'
 import BaseLink from '../components/BaseLink/index.vue'
+import SVGIcon from '../components/SVGIcon/index.vue'
+
 
 import { createAccount } from '../api/account'
 
 export default {
   name: "CreateAccountView",
   components: {
+    SVGIcon,
     BaseCard,
     TopNavbar,
     BottomNavbar,

@@ -1,5 +1,13 @@
 <template>
-  <TopNavbar iconNameLeft="user"  iconNameRight="learning"/>
+  <TopNavbar >
+    <template v-slot:iconLeft>
+      <SVGIcon icon-name="user"  @click="this.$router.push('/profile')"/>
+    </template>
+    <template v-slot:iconRight>
+      <SVGIcon icon-name="learning" @click="this.$router.push('/learning')"/>
+    </template>
+  </TopNavbar>
+  
   <main class="base-container">
     <div class="hero">
       <img class="hero__logo" src="src/assets/logo/perene-goals.png"/>

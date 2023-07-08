@@ -1,5 +1,13 @@
 <template>
-  <TopNavbar iconNameLeft="user" iconNameRight="home" pathNameRight="/"/>
+  <TopNavbar >
+    <template v-slot:iconLeft>
+      <SVGIcon icon-name="user"  @click="this.$router.push('/profile')"/>
+    </template>
+    <template v-slot:iconRight>
+      <SVGIcon icon-name="home" @click="this.$router.push('/')"/>
+    </template>
+  </TopNavbar>
+
   <main class="base-container">
     <BaseMessage  
       icon="warning" 
@@ -56,12 +64,14 @@ import BottomNavbar from '../components/BottomNavBar/index.vue'
 import BaseInfo from '../components/BaseInfo/index.vue'
 import BaseInput from '../components/BaseInput/index.vue'
 import BaseMessage from '../components/BaseMessage/index.vue'
+import SVGIcon from '../components/SVGIcon/index.vue'
 
 import { createGoalsList } from '../api/goals-list'
 
 export default {
   name: "CreateGoalsListView",
   components: {
+    SVGIcon,
     TopNavbar,
     BottomNavbar,
     BaseInfo,
