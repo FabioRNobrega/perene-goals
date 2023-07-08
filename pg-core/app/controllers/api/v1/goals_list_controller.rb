@@ -25,8 +25,13 @@ module Api
 
       def show
         @goals_list = GoalsList.includes(:goals).find(params[:id])
-        render json: @goals_list, include: [:goals]
+        @ordered_goals = @goals_list.goals.order(start_at: :asc)
+        goal_list_with_ordered_goals = @goals_list.as_json(include: :goals)
+        goal_list_with_ordered_goals["goals"] = @ordered_goals
+      
+        render json: goal_list_with_ordered_goals
       end
+      
 
       def update
         @goals_list = GoalsList.find(params[:id])

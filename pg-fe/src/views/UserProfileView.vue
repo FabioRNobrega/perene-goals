@@ -217,7 +217,6 @@
     font-size: 20px
     color: var(--secondary) 
     @include display-row
-    align-items: center
     justify-content: space-between
   
   .content

@@ -1,7 +1,7 @@
 <template>
   <TopNavbar >
     <template v-slot:iconLeft>
-      <SVGIcon icon-name="back"  @click="this.$router.push(`/goals-list/${this.routeId}`)"/>
+      <SVGIcon icon-name="back"  @click="this.$router.go(-1)"/>
     </template>
     <template v-slot:iconRight>
       <SVGIcon icon-name="remove" @click="handleDeleteGoalModal(this.routeId)"/>
