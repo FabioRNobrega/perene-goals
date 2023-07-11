@@ -25,7 +25,7 @@ module Api
 
       def show
         @goals_list = GoalsList.includes(:goals).find(params[:id])
-        @ordered_goals = @goals_list.goals.order(start_at: :asc)
+        @ordered_goals = @goals_list.goals.order(Arel.sql("start_at DESC NULLS LAST"))
         goal_list_with_ordered_goals = @goals_list.as_json(include: :goals)
         goal_list_with_ordered_goals["goals"] = @ordered_goals
       

@@ -1,30 +1,27 @@
 <template>
   <div class="input-container">
-    <h5 v-if="type == 'number'">
-      {{ label }}
-    </h5>
+    <h5 v-if="type == 'number' || type == 'date'"> {{ label }} </h5>
     <input
-      :id="value"
+      :id="id || value"
       :name="value"
       :value="value"
       :type="showPassword ? 'text' : type"
       :min="min"
       :max="max"
+      :checked="checked"
       class="input-text"
       :class="['input-text', {
         'input-text__error': error,
-        'input-text__checkbox': type == 'checkbox'
+        'input-text__checkbox': type === 'checkbox',
+        'checkbox-input': type === 'checkbox'
       }]"
       :placeholder="placeholder"
       :disabled="disabled"
-      @change="inputHandler"
       @input="inputHandler"
-    >
-    <label v-if="type == 'checkbox'" :for="value == true">
-      {{ label }}
-    </label>
+    />
+    <label v-if="type === 'checkbox'" :for="id || value" class="checkbox-label"> {{ label }} </label>
     <button  
-      v-if="type == 'password'" 
+      v-if="type === 'password'" 
       :class="['show-password', {
         'show-password__dark': passwordDark,
         'show-password__light': passwordLight
@@ -33,14 +30,13 @@
     >
         <SVGIcon icon-name="details"/>
     </button>
-  </div>
+   </div>
   <div class="input-error">
     <div v-if="error">
       {{ errorMessage }}
     </div>
   </div>
 </template>
-
 <script>
 import SVGIcon from '../SVGIcon/index.vue' 
 
@@ -54,6 +50,16 @@ export default {
       type: String,
       required: false,
       default: "text"
+    },
+    id: {
+      type: String,
+      required: false,
+      default: null
+    },
+    checked: {
+      type: Boolean,
+      required: false,
+      default: false
     },
     max: {
       type: String,
@@ -111,7 +117,7 @@ export default {
   methods: {
     inputHandler(event) {
       if (this.type === 'checkbox') {
-        this.$emit('update:value', event.target.checked);
+        this.$emit('update:value', event.target.value !== 'true');
       } else {
         this.$emit('update:value', event.target.value);
       }
@@ -123,7 +129,7 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 @import "../../assets/_variables"
 @import "../../assets/_mixins"
 
@@ -139,7 +145,7 @@ export default {
     font-size: 16px
     font-weight: normal
 
-  input[type="checkbox"]
+  .checkbox-input
     padding: 0
     height: initial
     width: initial
@@ -147,7 +153,7 @@ export default {
     display: none
     cursor: pointer
 
-  label
+  .checkbox-label
     margin: 8px 0
     position: relative
     cursor: pointer
@@ -168,17 +174,29 @@ export default {
       cursor: pointer
       margin-right: 5px
 
-  input:checked + label:after
-    content: ''
-    display: block
-    position: absolute
-    top: 2px
-    left: 9px
-    width: 6px
-    height: 14px
-    border: solid var(--secondary)
-    border-width: 0 2px 2px 0
-    transform: rotate(45deg)
+#checkbox-1:checked + .checkbox-label:after
+  content: ''
+  display: block
+  position: absolute
+  top: 2px
+  left: 9px
+  width: 6px
+  height: 14px
+  border: solid var(--secondary)
+  border-width: 0 2px 2px 0
+  transform: rotate(45deg)
+
+#checkbox-2:checked + .checkbox-label:after
+  content: ''
+  display: block
+  position: absolute
+  top: 2px
+  left: 9px
+  width: 6px
+  height: 14px
+  border: solid var(--secondary)
+  border-width: 0 2px 2px 0
+  transform: rotate(45deg)
 
 .input-error
   font-family: var(--font-family-base)

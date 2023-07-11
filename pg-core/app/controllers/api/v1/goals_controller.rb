@@ -25,7 +25,7 @@ module Api
       # rubocop:enable Metrics/AbcSize
       def show
         @goal = Goals.includes(:goals_step).find(params[:goals_id])
-        @ordered_steps = @goal.goals_step.order(start_at: :asc)
+        @ordered_steps = @goal.goals_step.order(Arel.sql("start_at DESC NULLS LAST"))
         goal_with_ordered_steps = @goal.as_json(include: :goals_step)
         goal_with_ordered_steps["goals_step"] = @ordered_steps
         render json: goal_with_ordered_steps

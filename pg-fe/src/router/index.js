@@ -54,6 +54,12 @@ const router = createRouter({
       meta: { requiresAuth: true } 
     },
     {
+      path: '/update-goal/:id',
+      name: 'update-goal',
+      component: () => import ('../views/UpdateGoalView.vue'),
+      meta: { requiresAuth: true } 
+    },
+    {
       path: '/goals-list/:id',
       name: 'goals-list',
       component: () => import ('../views/GoalListView.vue'),
