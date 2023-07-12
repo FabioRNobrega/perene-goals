@@ -21,7 +21,7 @@
           <div class="goal-header">
             <h3 >{{ steps.title }}</h3>
             <div class="goal-header__actions">
-              <SVGIcon icon-name="edit" /> 
+              <BaseButton :solidLight="true" :isIcon="true" icon="edit" @click="handleEditGoalStep(steps.id)"/>
               <BaseButton :solidLight="true" :isIcon="true" icon="remove" @click="handleDeleteGoalStepModal(steps.id)"/>
             </div> 
           </div> 
@@ -219,6 +219,9 @@ export default {
       this.showDeleteGoalModal = !this.showDeleteGoalModal
       this.goal_id = goal_id
     },
+    handleEditGoalStep(goal_step_id) {
+      this.$router.push(`/update-goal-step/${goal_step_id}`)
+    }
   }
 }
 

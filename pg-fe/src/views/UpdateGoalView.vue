@@ -191,8 +191,6 @@
           this.userAuth['uid']
         )
 
-        console.log(data)
-
         this.goalTitle = data.title
         this.goalDescription =  data.description
         this.goalTimeToReachInDays = `${data.time_to_reach_in_days}` || "0"

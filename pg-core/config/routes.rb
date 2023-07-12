@@ -32,6 +32,8 @@ Rails.application.routes.draw do
       post 'goals/:goals_id/steps', to: 'goals_step#create'
       patch 'goals-step/:id', to: 'goals_step#update'
       delete 'goals-step/:id', to: 'goals_step#delete'
+      get 'goals-step/:id', to: 'goals_step#show'
+
     end
   end
 end
