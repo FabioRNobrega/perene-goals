@@ -90,9 +90,13 @@ export default {
   methods: {
     async setData() {
       this.userAuth = JSON.parse(localStorage.getItem('user-auth'))
+
+      if(this.userAuth != null) {
+        this.getMyGoalsLists()
+      }
+
       try {
         const { data } = await goalsListPublic(this.page)
-        this.getMyGoalsLists()
         if(data.meta) {
           this.end = true
           return

@@ -16,6 +16,18 @@ export function signIn (data) {
   })
 }
 
+export function signOut ( access_token, client, uid ) {
+  return request({
+    url: `/auth/sign_out`,
+    method: 'delete',
+    headers: {
+        'access-token': access_token,
+        'uid': uid,
+        'client': client
+    }
+  })
+}
+
 export function updateAccount (data, access_token, client, uid) {
 
   return request({
@@ -43,5 +55,6 @@ export default {
     signIn,
     createAccount,
     updateAccount,
-    forgetPassword
+    forgetPassword,
+    signOut
   }

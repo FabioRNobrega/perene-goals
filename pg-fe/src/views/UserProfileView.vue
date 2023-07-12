@@ -70,7 +70,7 @@
   import SVGIcon from '../components/SVGIcon/index.vue'
   
 
-  import { updateAccount } from '../api/account'
+  import { updateAccount, signOut } from '../api/account'
   
   export default {
     name: "UserProfileView",
@@ -197,9 +197,18 @@
       handleBottomNavbarClick() {
         this.$router.push('/')
       },
-      handleLogout() {
-        localStorage.clear()
-        this.$router.push('/')
+      async handleLogout() {
+        try {
+          await signOut(
+            this.userAuth['access-token'],
+            this.userAuth['client'],
+            this.userAuth['uid']
+          )
+          localStorage.clear()
+          this.$router.push('/')
+        } catch (error) {
+          console.error(error)
+        }
       }
     }
   }

@@ -12,7 +12,6 @@ export function validateSession ( access_token, client, uid ) {
   })
 }
 
-
 export default {
     validateSession
   }
