@@ -50,6 +50,7 @@
       <BaseInput 
         :value="`${isPublic}`" 
         :checked="isPublic"
+        id="checkbox-1"
         @update:value="isPublic = $event" 
         type="checkbox"
         label="Is Public"
