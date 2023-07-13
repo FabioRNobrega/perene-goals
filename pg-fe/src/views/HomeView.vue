@@ -17,13 +17,19 @@
     <h1 class="base-title title-space" style="margin-bottom: 0;"> My Goals List</h1>  
     <BaseButton v-if="myGoalsList == []" @click="handleCreateGoalList" :light="true" icon="plus" content="SET YOUR FIRST GOAL LIST" />
     <div class="base-list-display"> 
-      <BaseCard v-for="goal in myGoalsList" :key="goal.title" >
+      <BaseCard v-for="goalList in myGoalsList" :key="goalList.title" >
         <template v-slot:header>
-          <h3 >{{ goal.title }}</h3>
+          <div class="goals-list__header"> 
+            <h3 >{{ goalList.title }}</h3>
+            <div class="goals-list__header--actions">
+              <BaseButton :solidLight="true" :isIcon="true" icon="edit" @click="handleEditGoalList(goalList.id)"/>
+              <BaseButton :solidLight="true" :isIcon="true" icon="remove" @click="handleDeleteGoalListModal(goalList.id)"/>
+            </div> 
+          </div>
         </template>
         <template v-slot:row>
-          <p class="base-text-light">  {{ goal.description }} </p>
-          <BaseButton :light="true" icon="details" content="See goals list" @click="handleSeeGoalsList(goal.id)"/>
+          <p class="base-text-light">  {{ goalList.description }} </p>
+          <BaseButton :light="true" icon="details" content="See goals list" @click="handleSeeGoalsList(goalList.id)"/>
         </template>
       </BaseCard>
     </div>
@@ -134,7 +140,9 @@ export default {
     },
     handleSeeGoalsList(id) {
       this.$router.push(`/goals-list/${id}`)
-
+    },
+    handleEditGoalList(goal_list_id) {
+      this.$router.push(`/update-goals-list/${goal_list_id}`)
     }
   }
 }
@@ -164,6 +172,22 @@ export default {
 
 .goals-list
   margin: 20px 0
+
+  &__header
+    @include display-row
+    justify-content: space-between
+    align-items: center
+
+    & h3
+      width: 70%
+
+    &--actions 
+      @include display-row
+      justify-content: space-around
+      color: var(--primary)
+      width: 30%
+      @include tablets-and-up
+        width: 20%
 
   &__like 
     @include display-row

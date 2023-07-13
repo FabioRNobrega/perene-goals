@@ -44,7 +44,13 @@ const router = createRouter({
     {
       path: '/create-goals-list',
       name: 'create-goals-list',
-      component: () => import ('../views/CreateGoalsListView.vue'),
+      component: () => import ('../views/CreateGoalListView.vue'),
+      meta: { requiresAuth: true } 
+    },
+    {
+      path: '/update-goals-list/:id',
+      name: 'update-goals-list/:id',
+      component: () => import ('../views/UpdateGoalListView.vue'),
       meta: { requiresAuth: true } 
     },
     {
