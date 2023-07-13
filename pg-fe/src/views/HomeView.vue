@@ -33,8 +33,6 @@
         </template>
       </BaseCard>
     </div>
-    <BaseButton v-if="myGoalsList != []" :light="true" icon="plus" content="set more goals" />
-
 
     <h1 id="publicLists" class="base-title title-space"> Public Goals List</h1>  
     <div v-for="goal in publicGoalsList" :key="goal.title" class="goals-list">
@@ -58,6 +56,17 @@
     <BaseButton v-if="end" @click="backToTop('publicLists')" :light="true" icon="next" content="back to the top" />
     <BaseButton v-else @click="setData" :light="true" icon="next" content="load more goals list" />
   </main>
+
+  <BaseModal 
+    :showModal="showDeleteGoalListModal"
+    content="By deleting this goal list, you'll also eliminate all its associated goals and their respective steps. Are you certain about this decision? Remember, every step forward is a step closer to your ultimate success!"
+  >
+    <template v-slot:footer>
+      <BaseButton :light="true" :small="true" icon="close" content="cancel" @click="this.showDeleteGoalListModal = !this.showDeleteGoalListModal"/>
+      <BaseButton :light="true" :small="true" icon="remove" content="confirm" @click="handleDeleteGoalList()"/>
+    </template>
+  </BaseModal>
+
   <BottomNavbar iconName="plus"  @click="handleBottomNavbarClick" />
 </template>
 
@@ -68,8 +77,10 @@ import BaseButton from '../components/BaseButton/index.vue'
 import BaseCard from '../components/BaseCard/index.vue'
 import SVGIcon from '../components/SVGIcon/index.vue'
 import BaseHero from '../components/BaseHero/index.vue'
+import BaseModal from '../components/BaseModal/index.vue'
 
-import { goalsListPublic, goalsListPrivate } from '../api/goals-list'
+
+import { goalsListPublic, goalsListPrivate, deleteGoalsList } from '../api/goals-list'
 
 export default {
   name: "HomeView",
@@ -79,7 +90,8 @@ export default {
     BaseHero,
     BottomNavbar,
     BaseButton,
-    SVGIcon
+    SVGIcon,
+    BaseModal 
   },
   data () {
     return {
@@ -88,6 +100,8 @@ export default {
       page: 1,
       end: false,
       userAuth: {},
+      goal_list_id: "",
+      showDeleteGoalListModal: false
     }
   },
   created() {
@@ -126,11 +140,29 @@ export default {
         console.error(error)
       }
     },
+    async handleDeleteGoalList() {
+      try {
+        await deleteGoalsList(
+          this.goal_list_id,
+          this.userAuth['access-token'],
+          this.userAuth['client'],
+          this.userAuth['uid']
+        )
+        this.setData()
+        this.showDeleteGoalListModal = false
+      } catch(error) {
+        console.error(error)
+      }
+    },
     backToTop(id) {
       const element = document.getElementById(id);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
+    },
+    handleDeleteGoalListModal(goal_list_id) {
+      this.goal_list_id = goal_list_id
+      this.showDeleteGoalListModal = !this.showDeleteGoalListModal
     },
     handleCreateGoalList() {
       this.$router.push('/create-goals-list')
