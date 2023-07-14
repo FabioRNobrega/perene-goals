@@ -34,6 +34,14 @@ Rails.application.routes.draw do
       delete 'goals-step/:id', to: 'goals_step#delete'
       get 'goals-step/:id', to: 'goals_step#show'
 
+      # Learning
+
+      post 'learning', to: 'learning#create'
+      patch 'learning/:id', to: 'learning#update'
+      get 'learning/:id', to: 'learning#show'
+      get 'learning', to: 'learning#index'
+      delete 'learning/:id', to: 'learning#delete'
+
     end
   end
 end

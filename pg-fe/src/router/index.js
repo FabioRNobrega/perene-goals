@@ -18,6 +18,12 @@ const router = createRouter({
       meta: { requiresAuth: false } 
     },
     {
+      path: '/learning/post/:id',
+      name: 'learning-post',
+      component: () => import('../views/LearningPostView.vue'),
+      meta: { requiresAuth: false } 
+    },
+    {
       path: '/create-account',
       name: 'create-account',
       component: () => import('../views/CreateAccountView.vue'),
