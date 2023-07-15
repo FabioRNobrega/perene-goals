@@ -230,7 +230,7 @@
   
   .content
     margin: 10px 0
-    font-size: 14px
+    font-size: 16px
     font-family: var(--font-family-base)
     & strong
       font-size: 18px

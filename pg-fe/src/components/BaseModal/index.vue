@@ -77,7 +77,7 @@
         margin: 0 5px 5px 5px
     
     &__content, p
-        font-size: 14px
+        font-size: 16px
         font-family: var(--font-family-base)
         font-weight: 400
         color: var(--neutral-color-light)

@@ -42,5 +42,8 @@ export default {
     & p a
       color: var(--primary)
       font-weight: 700
+    & p 
+      text-indent: 20px
+      
 
 </style>

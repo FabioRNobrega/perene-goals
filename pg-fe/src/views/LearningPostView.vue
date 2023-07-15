@@ -82,10 +82,14 @@ export default {
       color: var(--secondary)
 
       p 
-        margin: 20px 30px 20px 5px 
+        margin: 20px 0
+        text-indent: 20px
+        text-align: justify
         line-height: 1.5em
-        font-size: 14px 
+        font-size: 16px 
         font-weight: lighter
+        @include tablets-and-up 
+          margin: 20px 30px 20px 5px 
 
       h3
         font-family: var(--font-family-title)
