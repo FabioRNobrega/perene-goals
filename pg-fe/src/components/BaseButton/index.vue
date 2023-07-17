@@ -21,6 +21,7 @@
   
 <script>
 import SVGIcon from '../SVGIcon/index.vue'
+
   export default {
     name: "BaseButton",
     components: {

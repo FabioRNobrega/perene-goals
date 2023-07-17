@@ -32,7 +32,33 @@
 
     <BaseTab buttonRight="Learning how to use Perene Goals" buttonLeft="Know more about Personal Goals">
       <template v-slot:contentRight>
-        <h3> TUTORIAL</h3>
+        <div class="tutorial"> 
+          <CardSteps 
+            icon="list"
+            title="Create a Goal list"
+            description="Creating a goal list is incredibly easy with Perene Goals. It allows you to organize your aspirations, dreams, and ambitions in one place. By having a clear and well-defined list, you gain focus and direction in pursuing your goals. Remember, every great achievement starts with a simple list. Start now and watch your dreams take shape!"
+          />
+          <CardSteps 
+            icon="plus"
+            title="Create a Goal" 
+            description="Setting a goal is the second step towards turning your dreams into reality. With Perene Goals, you can effortlessly create goals that align with your aspirations. Whether it's a personal, professional, or health-related goal, Perene Goals provides a user-friendly platform to articulate your objectives. Take that first step towards greatness and let Perene Goals be your guide."
+          />
+          <CardSteps 
+            icon="steps"
+            title="Break your Goals into Steps"
+            description="One of the keys to achieving success is breaking your goals into manageable steps. Perene Goals empowers you to break down your goals into smaller, actionable steps. This approach not only makes your goals more attainable but also allows you to track your progress and celebrate milestones along the way. Embrace the power of breaking goals into steps and witness the incredible transformation it brings to your journey."
+          />
+        </div>
+
+        <CardSteps 
+            icon="finish"
+            title="Achieve Wonders" 
+            description="It's time to embark on a journey of endless possibilities. With Perene Goals as your companion, you can achieve wonders beyond your imagination. Believe in yourself, set ambitious goals, and let Perene Goals guide you towards extraordinary accomplishments. Don't wait for tomorrow—start today and witness the incredible transformation that occurs when you turn your dreams into goals. The future holds wonders for those who take action now."
+          >
+            <template v-slot:callToAction >
+              <BaseButton id="call-to-action" :light="true" content="Create a list of goals now" icon="plus" :small="true" @click="handleCreateList()" />
+            </template>
+          </CardSteps>
       </template>
 
       <template v-slot:contentLeft>
@@ -73,7 +99,6 @@
             </template>
         </BaseCard>
       </template>
-
     </BaseTab>
   </main>
 </template>
@@ -84,6 +109,7 @@ import SVGIcon from '../components/SVGIcon/index.vue'
 import BaseButton from '../components/BaseButton/index.vue'
 import BaseCard from '../components/BaseCard/index.vue'
 import BaseTab from '../components/BaseTab/index.vue'
+import CardSteps from '../components/CardSteps/index.vue'
 
 import { fetchLearningAllPost } from '../api/learning'
 
@@ -94,7 +120,8 @@ export default {
     SVGIcon,
     BaseCard,
     BaseButton,
-    BaseTab
+    BaseTab,
+    CardSteps
   },
   data() {
     return {
@@ -115,8 +142,10 @@ export default {
     },
     handleSeeLearningPost(post_id) {
       this.$router.push(`/learning/post/${post_id}`)
+    },
+    handleCreateList() {
+      this.$router.push('/create-goals-list')
     }
-
   }
 }
 
@@ -169,4 +198,11 @@ export default {
       font-weight: lighter
       margin: 10px 0
 
+.tutorial
+  @include display-col
+  @include tablets-and-up 
+    @include display-row
+
+#call-to-action 
+  margin: 0
 </style>
