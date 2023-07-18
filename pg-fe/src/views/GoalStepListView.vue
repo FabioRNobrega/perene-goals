@@ -11,6 +11,10 @@
   <main class="base-container">
     <h1 class="base-title">  {{ goal.title }} </h1>
     <p class="base-text">  {{ goal.description }} </p>
+
+    <BarChart :progress="goalProgress"/>
+
+
     <BaseButton :light="true" icon="plus" content="Add Another step on this goal"  @click="handleCreateGoalStep(goal.id)"/>
     <BaseButton :dark="true" icon="remove" content="Delete the entire goal"  @click="handleDeleteGoalModal(this.routeId)"/>
 
@@ -79,11 +83,14 @@ import BaseModal from '../components/BaseModal/index.vue'
 import SVGIcon from '../components/SVGIcon/index.vue'
 import BaseProgressBar from '../components/BaseProgressBar/index.vue'
 import ConfettiEffect from '../components/ConfettiEffect/index.vue'
+import BarChart from '../components/BarChart/index.vue'
 
 import soundMP3 from '../assets/sounds/sound.mp3'
 
 import { fetchGoalsWithSteps, deleteGoal } from '../api/goals'
 import { deleteGoalsSteps, updateGoalStep } from '../api/goals-steps'
+import { fetchGoalsMetrics } from   '../api/metrics'
+
 
 export default {
   name: "GoalStepListView",
@@ -94,7 +101,8 @@ export default {
     BaseButton,
     SVGIcon,
     BaseProgressBar,
-    ConfettiEffect
+    ConfettiEffect,
+    BarChart
   },
   data () {
     return {
@@ -105,7 +113,8 @@ export default {
       showDeleteGoalModal: false,
       step_id: "",
       goal: {},
-      showConfetti: false
+      showConfetti: false,
+      goalProgress: {}
     }
   },
   created() {
@@ -124,9 +133,23 @@ export default {
           this.userAuth['uid']
         )
 
+        this.fetchMetrics(this.routeId)
         this.goal = data
       } catch(error) {
         console.error(error)
+      }
+    },
+    async fetchMetrics(goal_id) {
+      try {
+        const { data } = await fetchGoalsMetrics(
+            goal_id,
+            this.userAuth['access-token'],
+            this.userAuth['client'],
+            this.userAuth['uid']
+          )
+          this.goalProgress =  data
+      } catch (error) {
+        console.log(error)
       }
     },
     async handleStartGoalStep(step_id) {

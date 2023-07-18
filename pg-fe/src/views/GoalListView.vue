@@ -12,6 +12,9 @@
   <main class="base-container">
     <h1 class="base-title">  {{ goalList.title }} </h1>
     <p class="base-text">  {{ goalList.description }} </p>
+    
+    <BarChart :progress="listProgress"/>
+
     <BaseButton :light="true" icon="plus" content="Add Another goal on this list"  @click="handleCreateGoal(goalList.id)"/>
     <BaseButton :dark="true" icon="remove" content="Delete the entire list"  @click="handleDeleteGoalListModal()"/>
 
@@ -78,11 +81,13 @@ import SVGIcon from '../components/SVGIcon/index.vue'
 import BaseProgressBar from '../components/BaseProgressBar/index.vue'
 import ConfettiEffect from '../components/ConfettiEffect/index.vue'
 import BaseModal from '../components/BaseModal/index.vue'
+import BarChart from '../components/BarChart/index.vue'
 
 import soundMP3 from '../assets/sounds/sound.mp3'
 
 import { fetchGoalsList, deleteGoalsList } from '../api/goals-list'
 import { updateGoal, deleteGoal } from '../api/goals'
+import { fetchGoalsListMetrics } from   '../api/metrics'
 
 export default {
   name: "GoalListView",
@@ -93,7 +98,8 @@ export default {
     SVGIcon,
     BaseProgressBar,
     ConfettiEffect,
-    BaseModal
+    BaseModal,
+    BarChart
   },
   data () {
     return {
@@ -104,7 +110,8 @@ export default {
       showModal: false,
       showDeleteListModal: false,
       showDeleteGoalModal: false,
-      goal_id: ""
+      goal_id: "",
+      listProgress: {}
     }
   },
   created() {
@@ -121,10 +128,23 @@ export default {
           this.userAuth['client'],
           this.userAuth['uid']
         )
-
+        this.fetchMetrics(this.routeId)
         this.goalList = data
       } catch(error) {
         console.error(error)
+      }
+    },
+    async fetchMetrics(goal_list_id) {
+      try {
+        const { data } = await fetchGoalsListMetrics(
+            goal_list_id,
+            this.userAuth['access-token'],
+            this.userAuth['client'],
+            this.userAuth['uid']
+          )
+          this.listProgress =  data
+      } catch (error) {
+        console.log(error)
       }
     },
     async handleStartGoal(goal_id) {
