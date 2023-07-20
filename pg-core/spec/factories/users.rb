@@ -20,13 +20,5 @@ FactoryBot.define do
     factory :user_editor do
       role { 'editor' }
     end
-
-    factory :user_cataloger do
-      role { 'cataloger' }
-    end
-
-    factory :user_curator do
-      role { 'curator' }
-    end
   end
 end

@@ -19,6 +19,13 @@ class User < ActiveRecord::Base
   validate :password_fields_present, if: -> { name.blank? }
   validate :password_fields_match, if: -> { name.blank? }
 
+  
+  def self.sort_by
+    %w[name]
+  end
+  
+  private_class_method :sort_by
+  
   private
 
   def password_fields_present

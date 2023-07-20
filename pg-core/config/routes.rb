@@ -42,10 +42,8 @@ Rails.application.routes.draw do
       delete 'learning/:id', to: 'learning#delete'
 
       # Metrics 
-
       get 'metrics/goal/:id', to: 'metrics#goal_metrics'
       get 'metrics/goal-list/:id', to: 'metrics#goal_list_metrics'
-
 
     end
   end
