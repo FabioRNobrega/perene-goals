@@ -24,17 +24,22 @@ module Api
       
       # rubocop:enable Metrics/AbcSize
       def show
-        @goal = Goals.includes(:goals_step).find(params[:goals_id])
-        @ordered_steps = @goal.goals_step.order(Arel.sql("start_at DESC NULLS LAST"))
-        goal_with_ordered_steps = @goal.as_json(include: :goals_step)
-        goal_with_ordered_steps["goals_step"] = @ordered_steps
-        render json: goal_with_ordered_steps
+        @goal = Goals.includes(:goals_step).find_by(id: params[:goals_id])
+      
+        if @goal
+          @ordered_steps = @goal.goals_step.order(Arel.sql("start_at DESC NULLS LAST"))
+          goal_with_ordered_steps = @goal.as_json(include: :goals_step)
+          goal_with_ordered_steps["goals_step"] = @ordered_steps
+          render json: goal_with_ordered_steps
+        else
+          render(json: { error: 'Goal not found' }, status: :not_found)
+        end
       end
+      
       
 
       def update
-        @goal = Goals.find(params[:id])
-        
+        @goal = Goals.find_by(id: params[:id])
         if params[:completed]
           @goals_steps = GoalsStep.where(goals_id: @goal.id)
           if @goal.started 
@@ -65,20 +70,13 @@ module Api
         end
       end
       
-
-      def index
-        @goals = Goals.sorted(params[:sort], params[:dir])
-                     .page(current_page)
-                     .per(per_page)
-        render json: @goals, meta: meta_attributes(@goals), adapter: :json
-      end
-
       def delete
-        @goal = Goals.find(params[:id])
-        if @goal.destroy
+        @goal = Goals.find_by(id: params[:id])
+        if @goal
+          @goal.destroy()
           render(json: { message: 'Goal deleted successfully' }, status: 200)
         else
-          render(json: { error: 'Failed to delete goal' }, status: :unprocessable_entity)
+          render(json: { error: 'Goal not found' }, status: :not_found)
         end
       end
 
