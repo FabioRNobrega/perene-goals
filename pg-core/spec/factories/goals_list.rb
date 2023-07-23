@@ -6,5 +6,10 @@ FactoryBot.define do
     description { Faker::Lorem.paragraph(sentence_count: 5) }
     is_public { false }
     user
+    
+    factory :invalid_goals_list do
+      title { nil }
+    end
   end
+
 end

@@ -24,17 +24,20 @@ module Api
       # rubocop:enable Metrics/AbcSize
 
       def show
-        @goals_list = GoalsList.includes(:goals).find(params[:id])
+        @goals_list = GoalsList.includes(:goals).find_by(id: params[:id])
+        if  @goals_list
         @ordered_goals = @goals_list.goals.order(Arel.sql("start_at DESC NULLS LAST"))
         goal_list_with_ordered_goals = @goals_list.as_json(include: :goals)
         goal_list_with_ordered_goals["goals"] = @ordered_goals
-      
         render json: goal_list_with_ordered_goals
+        else 
+          render(json: { error: 'Goal List not found' }, status: :not_found)
+        end
       end
       
 
       def update
-        @goals_list = GoalsList.find(params[:id])
+        @goals_list = GoalsList.find_by(id: params[:id])
         if @goals_list.update(allowed_params_update)
           render(json: { message: 'goals_list updated with success' }, status: 201)
         else
@@ -63,11 +66,12 @@ module Api
 
 
       def delete
-        @goal_list = GoalsList.find(params[:id])
-        if @goal_list.destroy
+        @goal_list = GoalsList.find_by(id: params[:id])
+        if @goal_list
+          @goal_list.destroy()
           render(json: { message: 'Goal list deleted successfully' }, status: 200)
         else
-          render(json: { error: 'Failed to delete goal' }, status: :unprocessable_entity)
+          render(json: { error: 'Goal list not found' }, status: :not_found)        
         end
       end
 

@@ -60,7 +60,7 @@ export function deleteGoalsList (id, access_token, client, uid ) {
 export function updateGoalsList (id, data, access_token, client, uid ) {
   return request({
     url: `/goals-list/${id}`,
-    method: 'put',
+    method: 'patch',
     data: data,
     headers: {
         'access-token': access_token,

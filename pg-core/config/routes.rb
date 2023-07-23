@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       get 'my-goals-list', to: 'goals_list#index_private'
       post 'goals-list', to: 'goals_list#create'
       get 'goals-list/:id', to: 'goals_list#show'
-      put 'goals-list/:id', to: 'goals_list#update'
+      patch 'goals-list/:id', to: 'goals_list#update'
       delete 'goals-list/:id', to: 'goals_list#delete'
 
       # Goals

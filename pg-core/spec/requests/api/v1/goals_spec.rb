@@ -162,12 +162,11 @@ RSpec.describe '/goals', type: :request do
   describe 'DELETE /delete' do
     context 'with valid parameters' do
       it 'delete a goal' do
-        goal = Goals.find_by(id: goals.id)
-
+        expect do
         delete "/api/goals/#{goals.id}",
               headers: valid_headers,
               as: :json
-
+        end.to change(Goals, :count).by(0)
       end
 
       it 'renders a JSON response with success' do
