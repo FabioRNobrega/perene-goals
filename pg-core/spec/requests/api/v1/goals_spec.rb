@@ -140,10 +140,10 @@ RSpec.describe '/goals', type: :request do
     context 'with invalid parameters' do
       it 'renders a JSON response with success ignoring invalid parameters' do
         patch "/api/goals/#{goals.id}",
-            params: {casa: "SOME PARAM"},
+            params: invalid_attributes,
             headers: valid_headers,
             as: :json
-        expect(response).to have_http_status(:success)
+        expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to eq('application/json; charset=utf-8')
       end
     end

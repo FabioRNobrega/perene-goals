@@ -17,18 +17,21 @@ module Api
         if @goal_step.save
           render(json: { message: 'Goals create with success' }, status: 201)
         else
-          render(json: @goal.errors, status: :unprocessable_entity)
+          render(json: @goal_step.errors, status: :unprocessable_entity)
         end
       end
       # rubocop:enable Metrics/AbcSize
 
       def show
-        @goal_step = GoalsStep.find(params[:id])
+        if @goal_step = GoalsStep.find(params[:id])
         render json: @goal_step
+        else
+          render(json: { error: 'Goal step not found' }, status: :not_found)
+        end
       end
 
       def update
-        @goal_step = GoalsStep.find(params[:id])
+        @goal_step = GoalsStep.find_by(id: params[:id])
         if params[:completed]
           if @goal_step.started 
             @goal_step.update(allowed_params_update)
@@ -51,11 +54,12 @@ module Api
       end
 
       def delete
-        @goal_step = GoalsStep.find(params[:id])
-        if @goal_step.destroy
+        @goal_step = GoalsStep.find_by(id: params[:id])
+        if @goal_step
+          @goal_step.destroy
           render(json: { message: 'Goal step deleted successfully' }, status: 200)
         else
-          render(json: { error: 'Failed to delete goal' }, status: :unprocessable_entity)
+          render(json: { error: 'Goal step not found' }, status: :not_found)
         end
       end
 

@@ -19,6 +19,10 @@ FactoryBot.define do
         completed { true }
         completed_at { Time.now }
       end
+
+      factory :invalid_goals_step do
+        title { nil }
+      end
     end
   end
   
