@@ -1,7 +1,7 @@
 <template>
     <div class="confirm">
-     <p>  
-       Thanks to confirm you account. Please <RouterLink  to="/login"> login </RouterLink> and start to achieve your goals today.
+     <p class="confirm__text">  
+       Thanks to confirm you account. Please <RouterLink  to="/login" class="confirm__link"> login </RouterLink> and start to achieve your goals today.
      </p> 
     </div>
 </template>
@@ -18,7 +18,6 @@ export default {
 </script>
 
 <style lang="sass">
-@import "../assets/main"
 @import "../assets/_variables"
 
 .confirm 
@@ -26,12 +25,12 @@ export default {
   margin: auto
   font-family: var(--font-family-base)
 
-  & p
-    color: var(--neutral-color-dark)
+  &__text
+    color: var(--secondary-dark)
     padding: 20px
     margin-top: 45vh
 
-  & a 
+  &__link 
     font-family: var(--font-family-title)
     font-weight: bold
     color: var(--primary)

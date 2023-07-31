@@ -23,6 +23,23 @@ module Api
       end
       # rubocop:enable Metrics/AbcSize
 
+      def clone
+        original_list = GoalsList.find(params[:id])
+        new_user_id = current_api_user[:id]
+    
+        if original_list.user_id == new_user_id
+          render json: { error: 'Cannot clone your own goals list.' }, status: :unprocessable_entity
+        else
+          new_list = original_list.clone_for_user(new_user_id)
+    
+          if new_list.persisted?
+            render json: { message: 'Goals list cloned successfully.', new_list: new_list }, status: :created
+          else
+            render json: { error: 'Failed to clone goals list.' }, status: :unprocessable_entity
+          end
+        end
+      end 
+
       def show
         @goals_list = GoalsList.includes(:goals).find_by(id: params[:id])
         if  @goals_list

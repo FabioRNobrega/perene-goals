@@ -44,6 +44,19 @@ export function createGoalsList (data, access_token, client, uid ) {
   })
 }
 
+export function cloneGoalsList (list_id, access_token, client, uid ) {
+  return request({
+    url: `/goals-list/${list_id}/clone`,
+    method: 'post',
+    headers: {
+        'access-token': access_token,
+        'uid': uid,
+        'client': client
+    }
+  })
+}
+
+
 
 export function deleteGoalsList (id, access_token, client, uid ) {
   return request({
