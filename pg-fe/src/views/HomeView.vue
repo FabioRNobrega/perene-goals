@@ -35,19 +35,23 @@
     </div>
 
     <h1 id="publicLists" class="base-title title-space"> Public Goals List</h1>  
-    <div v-for="goal in publicGoalsList" :key="goal.title" class="goals-list">
+    <BaseMessage  icon="warning" :content="failsToCloneMessage" :error="true" :visibility="failsToClone" @hide="failsToClone = false"/>
+    <div v-for="goalList in publicGoalsList" :key="goalList.title" class="goals-list">
       <BaseCard >
         <template v-slot:header>
-          <h3 >{{ goal.title }}</h3>
+          <div class="goals-list__header">
+            <h3 >{{ goalList.title }}</h3>
+            <BaseButton :solidLight="true" :isIcon="true" icon="copy" @click="handleClonePublicList(goalList.id)"/>
+          </div>
         </template>
         <template v-slot:row>
-          <p>  {{ goal.description }} </p>
+          <p>  {{ goalList.description }} </p>
           <div class="goals-list__like">
             <div class="goals-list__like--content">
-              <h5>  {{ goal.likes || 10 }}  </h5> <SVGIcon icon-name="like" /> 
+              <h5>  {{ goalList.likes || 10 }}  </h5> <SVGIcon icon-name="like" /> 
             </div> 
             <div class="goals-list__like--content">
-              <h5> {{ goal.dislikes || 0 }} </h5>  <SVGIcon icon-name="unlike" /> 
+              <h5> {{ goalList.dislikes || 0 }} </h5>  <SVGIcon icon-name="unlike" /> 
             </div> 
           </div> 
         </template>
@@ -67,8 +71,19 @@
     </template>
   </BaseModal>
 
+  <BaseModal 
+  :showModal="showClonePublicListModal"
+  content="By cloning this public goals list, you'll create a new copy with all its associated goals and their respective steps. The new copy will belong to you and you can modify it freely. Cloning a public goals list allows you to use it as a starting point for your own journey towards success!"
+  >
+  <template v-slot:footer>
+    <BaseButton :light="true" :small="true" icon="close" content="cancel" @click="this.showClonePublicListModal = !this.showClonePublicListModal"/>
+    <BaseButton :light="true" :small="true" icon="remove" content="confirm" @click="clonePublicList()"/>
+  </template>
+  </BaseModal>
+
   <BottomNavbar iconName="plus"  @click="handleBottomNavbarClick" />
 </template>
+
 
 <script>
 import TopNavbar from '../components/TopNavBar/index.vue'
@@ -78,9 +93,11 @@ import BaseCard from '../components/BaseCard/index.vue'
 import SVGIcon from '../components/SVGIcon/index.vue'
 import BaseHero from '../components/BaseHero/index.vue'
 import BaseModal from '../components/BaseModal/index.vue'
+import BaseMessage from '../components/BaseMessage/index.vue'
 
 
-import { goalsListPublic, goalsListPrivate, deleteGoalsList } from '../api/goals-list'
+
+import { goalsListPublic, goalsListPrivate, deleteGoalsList, cloneGoalsList } from '../api/goals-list'
 
 export default {
   name: "HomeView",
@@ -91,7 +108,8 @@ export default {
     BottomNavbar,
     BaseButton,
     SVGIcon,
-    BaseModal 
+    BaseModal,
+    BaseMessage
   },
   data () {
     return {
@@ -101,7 +119,11 @@ export default {
       end: false,
       userAuth: {},
       goal_list_id: "",
-      showDeleteGoalListModal: false
+      public_list_id: "",
+      showDeleteGoalListModal: false,
+      showClonePublicListModal: false,
+      failsToClone: false,
+      failsToCloneMessage: ""
     }
   },
   created() {
@@ -175,6 +197,26 @@ export default {
     },
     handleEditGoalList(goal_list_id) {
       this.$router.push(`/update-goals-list/${goal_list_id}`)
+    },
+    handleClonePublicList(public_list_id) {
+      this.public_list_id = public_list_id
+      this.showClonePublicListModal = true
+    },
+    async clonePublicList() {
+      try {
+       const { data } = await cloneGoalsList(
+          this.public_list_id,
+          this.userAuth['access-token'],
+          this.userAuth['client'],
+          this.userAuth['uid']
+        )
+        this.showClonePublicListModal = false
+        this.$router.push(`/goals-list/${data.new_list.id}?success=true`)
+      } catch (error) {
+        this.failsToCloneMessage = error.response.data.error
+        this.failsToClone =  true
+        this.showClonePublicListModal = false
+      }
     }
   }
 }

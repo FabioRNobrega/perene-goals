@@ -28,7 +28,7 @@ module Api
         new_user_id = current_api_user[:id]
     
         if original_list.user_id == new_user_id
-          render json: { error: 'Cannot clone your own goals list.' }, status: :unprocessable_entity
+          render json: { error: "Oops! Cloning your own goals list isn't allowed. Check out other inspiring public lists to get started." }, status: :unprocessable_entity
         else
           new_list = original_list.clone_for_user(new_user_id)
     

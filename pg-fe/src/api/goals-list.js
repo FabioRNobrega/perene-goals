@@ -90,5 +90,6 @@ export default {
     goalsListPublic,
     goalsListPrivate,
     deleteGoalsList,
-    updateGoalsList
+    updateGoalsList,
+    cloneGoalsList
   }

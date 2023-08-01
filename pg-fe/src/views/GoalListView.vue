@@ -10,9 +10,17 @@
 
 
   <main class="base-container">
+    <BaseMessage  
+      icon="success" 
+      content="Congratulations! Your new goals list is ready. Customize it to match your dreams, and let the journey to success begin!" 
+      :success="true" 
+      :visibility="successCloned" 
+      @hide="successCloned = false"
+    />
+    
     <h1 class="base-title">  {{ goalList.title }} </h1>
     <p class="base-text">  {{ goalList.description }} </p>
-    
+
     <BarChart :progress="listProgress"/>
 
     <BaseButton :light="true" icon="plus" content="Add Another goal on this list"  @click="handleCreateGoal(goalList.id)"/>
@@ -82,6 +90,8 @@ import BaseProgressBar from '../components/BaseProgressBar/index.vue'
 import ConfettiEffect from '../components/ConfettiEffect/index.vue'
 import BaseModal from '../components/BaseModal/index.vue'
 import BarChart from '../components/BarChart/index.vue'
+import BaseMessage from '../components/BaseMessage/index.vue'
+
 
 import soundMP3 from '../assets/sounds/sound.mp3'
 
@@ -99,7 +109,8 @@ export default {
     BaseProgressBar,
     ConfettiEffect,
     BaseModal,
-    BarChart
+    BarChart,
+    BaseMessage
   },
   data () {
     return {
@@ -111,7 +122,8 @@ export default {
       showDeleteListModal: false,
       showDeleteGoalModal: false,
       goal_id: "",
-      listProgress: {}
+      listProgress: {},
+      successCloned: false
     }
   },
   created() {
@@ -120,6 +132,7 @@ export default {
   methods: {
     async setData() {
       this.routeId = this.$route.params.id;
+      this.successCloned = this.$route.query.success
       this.userAuth = JSON.parse(localStorage.getItem('user-auth'))
       try {
         const { data } = await fetchGoalsList(
