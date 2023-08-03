@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_14_115342) do
+ActiveRecord::Schema.define(version: 2023_08_03_123722) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,17 @@ ActiveRecord::Schema.define(version: 2023_07_14_115342) do
     t.boolean "completed", default: false
     t.datetime "completed_at"
     t.index ["goals_list_id"], name: "index_goals_on_goals_list_id"
+  end
+
+  create_table "goals_list_votes", force: :cascade do |t|
+    t.bigint "goals_list_id", null: false
+    t.integer "votes_up"
+    t.integer "votes_down"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["goals_list_id"], name: "index_goals_list_votes_on_goals_list_id"
+    t.index ["user_id"], name: "index_goals_list_votes_on_user_id"
   end
 
   create_table "goals_lists", force: :cascade do |t|
@@ -99,4 +110,6 @@ ActiveRecord::Schema.define(version: 2023_07_14_115342) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "goals_list_votes", "goals_lists"
+  add_foreign_key "goals_list_votes", "users"
 end

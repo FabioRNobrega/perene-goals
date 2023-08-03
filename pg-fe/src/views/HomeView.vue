@@ -48,10 +48,23 @@
           <p>  {{ goalList.description }} </p>
           <div class="goals-list__like">
             <div class="goals-list__like--content">
-              <h5>  {{ goalList.likes || 10 }}  </h5> <SVGIcon icon-name="like" /> 
+              <h5>  {{ goalList.votes_up }}  </h5>             
+              <BaseButton
+               :solidLight="true" 
+               :isIcon="true" 
+               icon="like" 
+               @click="handleVotesUpPublicList(goalList.id)"
+              />
+
             </div> 
             <div class="goals-list__like--content">
-              <h5> {{ goalList.dislikes || 0 }} </h5>  <SVGIcon icon-name="unlike" /> 
+              <h5> {{ goalList.votes_down }} </h5>  
+              <BaseButton
+               :solidLight="true" 
+               :isIcon="true" 
+               icon="unlike" 
+               @click="handleVotesDownPublicList(goalList.id)"
+              />
             </div> 
           </div> 
         </template>
@@ -97,7 +110,7 @@ import BaseMessage from '../components/BaseMessage/index.vue'
 
 
 
-import { goalsListPublic, goalsListPrivate, deleteGoalsList, cloneGoalsList } from '../api/goals-list'
+import { goalsListPublic, goalsListPrivate, deleteGoalsList, cloneGoalsList, voteOnPublicList } from '../api/goals-list'
 
 export default {
   name: "HomeView",
@@ -217,6 +230,42 @@ export default {
         this.failsToClone =  true
         this.showClonePublicListModal = false
       }
+    },
+    async handleVotesUpPublicList(public_list_id) {
+      try {
+        await voteOnPublicList(
+          public_list_id,
+          {
+            votes_up: 1
+          },
+          this.userAuth['access-token'],
+          this.userAuth['client'],
+          this.userAuth['uid']
+        )
+        this.publicGoalsList = []
+        this.page = 1
+        this.setData() 
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    async handleVotesDownPublicList(public_list_id) {
+      try {
+        await voteOnPublicList(
+          public_list_id,
+          {
+            votes_down: 1
+          },
+          this.userAuth['access-token'],
+          this.userAuth['client'],
+          this.userAuth['uid']
+        )
+        this.publicGoalsList = []
+        this.page = 1
+        this.setData() 
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 }
@@ -282,9 +331,6 @@ export default {
       
       & .svg-icon
         color: var(--primary)
-
-
-
 
 
 </style>

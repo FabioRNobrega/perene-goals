@@ -30,8 +30,15 @@ class GoalsList < ActiveRecord::Base
     new_goal_list
   end
 
+  def votes_count
+    votes_up = goals_list_votes.sum(:votes_up)
+    votes_down = goals_list_votes.sum(:votes_down)
+    { votes_up: votes_up, votes_down: votes_down }
+  end
+
   private_class_method :sort_by
 
   belongs_to :user
   has_many :goals,  class_name: 'Goals', dependent: :destroy
+  has_many :goals_list_votes, dependent: :destroy
 end

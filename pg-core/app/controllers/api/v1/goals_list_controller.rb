@@ -64,12 +64,13 @@ module Api
 
       def index_public
         @goals_list = GoalsList.where(is_public: true)
-
         @goals_list = @goals_list.sorted(params[:sort], params[:dir])
-                                 .page(current_page)
-                                 .per(per_page)
-      
-        render json: @goals_list, meta: meta_attributes(@goals_list), adapter: :json
+
+        # Adicione a linha abaixo para incluir as informações de votos no JSON
+        @goals_list_with_votes = @goals_list.map { |list| list.attributes.merge(list.votes_count) }
+        @goals_list_with_votes = Kaminari.paginate_array(@goals_list_with_votes).page(params[:page]).per(params[:per_page])
+
+        render json: @goals_list_with_votes, meta: meta_attributes(@goals_list_with_votes), adapter: :json, root: "goals_lists"
       end
 
       def index_private   

@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       patch 'goals-list/:id', to: 'goals_list#update'
       delete 'goals-list/:id', to: 'goals_list#delete'
       post 'goals-list/:id/clone', to: 'goals_list#clone'
+      patch 'goals-list/:id/vote', to: 'goals_list_votes#update'
 
       # Goals
       post 'goals-list/:goals_list_id/goals', to: 'goals#create'

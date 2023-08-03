@@ -82,6 +82,20 @@ export function updateGoalsList (id, data, access_token, client, uid ) {
     }
   })
 }
+
+export function voteOnPublicList (id, data, access_token, client, uid ) {
+  return request({
+    url: `/goals-list/${id}/vote`,
+    method: 'patch',
+    data: data,
+    headers: {
+        'access-token': access_token,
+        'uid': uid,
+        'client': client
+    }
+  })
+}
+  
   
   
   
@@ -91,5 +105,6 @@ export default {
     goalsListPrivate,
     deleteGoalsList,
     updateGoalsList,
-    cloneGoalsList
+    cloneGoalsList,
+    voteOnPublicList
   }
