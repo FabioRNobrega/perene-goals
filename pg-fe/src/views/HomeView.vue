@@ -233,7 +233,7 @@ export default {
     },
     async handleVotesUpPublicList(public_list_id) {
       try {
-        await voteOnPublicList(
+       const {data} = await voteOnPublicList(
           public_list_id,
           {
             votes_up: 1
@@ -242,16 +242,15 @@ export default {
           this.userAuth['client'],
           this.userAuth['uid']
         )
-        this.publicGoalsList = []
-        this.page = 1
-        this.setData() 
+
+      this.handleLikes(public_list_id, data)
       } catch (error) {
         console.log(error)
       }
     },
     async handleVotesDownPublicList(public_list_id) {
       try {
-        await voteOnPublicList(
+        const {data} = await voteOnPublicList(
           public_list_id,
           {
             votes_down: 1
@@ -260,12 +259,16 @@ export default {
           this.userAuth['client'],
           this.userAuth['uid']
         )
-        this.publicGoalsList = []
-        this.page = 1
-        this.setData() 
+
+        this.handleLikes(public_list_id, data)
+   
       } catch (error) {
         console.log(error)
       }
+    },
+    handleLikes(public_list_id, data) {
+      this.publicGoalsList = this.publicGoalsList.map(goalList => 
+        goalList.id === public_list_id ? { ...goalList, votes_down: data.votes_down, votes_up: data.votes_up } : goalList);
     }
   }
 }

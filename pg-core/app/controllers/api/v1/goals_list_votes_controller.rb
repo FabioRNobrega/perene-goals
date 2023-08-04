@@ -9,11 +9,12 @@ module Api
 
         if vote
           vote.update(votes_up: params[:votes_up], votes_down: params[:votes_down])
-          render json: { message: 'Vote updated successfully.' }
         else
           @goals_list.goals_list_votes.create(user_id: current_api_user.id, votes_up: params[:votes_up], votes_down: params[:votes_down])
-          render json: { message: 'Vote created successfully.' }
         end
+
+        @all_voted_counted = @goals_list.votes_count
+        render json: @all_voted_counted, status: :ok
       end
     end
   end
