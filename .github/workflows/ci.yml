@@ -18,7 +18,8 @@ jobs:
           ruby-version: 2.7.5
 
       - name: Install dependencies
-        run: bundle config set --local path './pg-core/' && bundle install
+        run: bundle config --local path './pg-core/'
+        run: bundle install
 
       - name: Build Docker image
         run: docker build -t pg-core .
@@ -42,4 +43,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Deploy to production
-        run: ssh -t <span class="math-inline">\{\{ secrets\.REMOTE\_USER \}\}@</span>{{ secrets.REMOTE_HOST }} "docker run -d -p 3000:3000 -p 5432:5432 pg-core"
+        run: ssh -t ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "docker run -d -p 3000:3000 -p 5432:5432 pg-core"
