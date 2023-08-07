@@ -6,7 +6,7 @@ RUN mkdir /home/app \
     && chown $(id -un):$(id -gn) /home/app
 WORKDIR /home/app
 
-COPY --from=ruby:2.7.5-alpine /usr/local/bundle/gems/ ./
+COPY Gemfile ./pg-core/Gemfile.lock ./
 RUN gem install bundler --no-document
 RUN bundle install --no-binstubs --jobs $(nproc) --retry 3
 
