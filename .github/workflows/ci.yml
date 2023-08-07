@@ -18,7 +18,7 @@ jobs:
           ruby-version: 2.7.5
 
       - name: Install dependencies
-        run: bundle install
+        run: bundle install --path ./pg-core/
 
       - name: Build Docker image
         run: docker build -t pg-core .
