@@ -32,9 +32,8 @@ jobs:
 
       - name: Set up SSH
         uses: easingthemes/ssh-deploy@v4.1.8
-        with:
+        env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          sshPrivateKey: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: "-rlgoDzvc -i --delete"
           SOURCE: "./page-core"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
