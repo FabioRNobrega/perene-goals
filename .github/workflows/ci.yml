@@ -21,10 +21,10 @@ jobs:
         run: bundle config set --local path ./pg-core
 
       - name: Build Docker image
-        run: docker build -t pg-core .
+        run: docker build --file pg-core/Dockerfile .
 
       - name: Push Docker image to registry
-        run: docker push pg-core
+        run: docker push --tag pg-core:latest
 
   deploy:
     runs-on: ubuntu-latest
