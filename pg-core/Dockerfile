@@ -7,7 +7,7 @@ RUN mkdir /home/app \
 WORKDIR /home/app
 
 RUN gem install bundler --no-document
-RUN --chdir /home/app bundle install --no-binstubs --jobs $(nproc) --retry 3
+RUN bundle install --no-binstubs --jobs $(nproc) --retry 3
 
 COPY . ./
 
