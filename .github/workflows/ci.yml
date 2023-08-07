@@ -33,10 +33,9 @@ jobs:
       - name: Set up SSH
         uses: easingthemes/ssh-deploy@main
         with:
-          host: ${{ secrets.REMOTE_HOST }}
-          port: ${{ secrets.REMOTE_PORT }}
-          user: ${{ secrets.REMOTE_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          sshPrivateKey: ${{ secrets.SSH_PRIVATE_KEY }}
+          remoteHost: ${{ secrets.REMOTE_HOST }}
+          remoteUser: ${{ secrets.REMOTE_USER }}
 
       - name: Deploy to production
         run: |
