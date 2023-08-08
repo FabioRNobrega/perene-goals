@@ -25,6 +25,9 @@ gem 'puma', '~> 5.0'
 gem 'active_model_serializers', '~> 0.10.10'
 gem 'devise_token_auth', '~> 1.2'
 
+# Auto Deploy
+gem "capistrano", "~> 3.17", require: false
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
