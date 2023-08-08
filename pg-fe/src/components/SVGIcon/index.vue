@@ -23,8 +23,7 @@ export default {
   },
   computed: {
     styleIcon() {
-      const baseURL = import.meta.env.VITE_PG_FE
-      const svgUrl = `${baseURL}/src/icons/svg/${this.iconName}.svg`;
+      const svgUrl = `../../../public/icons/svg/${this.iconName}.svg`;
 
       return {
         mask: `url(${svgUrl}) no-repeat 50% 50%`,

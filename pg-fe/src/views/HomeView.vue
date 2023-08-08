@@ -10,6 +10,7 @@
   
   <main class="base-container">
     <div class="hero">
+       <img class="hero__logo" src="../../../public/logo/perene-goals.png"/>
       <BaseHero />
     </div>
 
