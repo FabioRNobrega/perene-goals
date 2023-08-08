@@ -23,7 +23,7 @@ export default {
   },
   computed: {
     styleIcon() {
-      const svgUrl = `../../../public/icons/svg/${this.iconName}.svg`;
+      const svgUrl = `http://goals.perene.tech/public/icons/svg/${this.iconName}.svg`;
 
       return {
         mask: `url(${svgUrl}) no-repeat 50% 50%`,
