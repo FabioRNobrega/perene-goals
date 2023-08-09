@@ -1,33 +1,52 @@
-name: CI Tests
+name: Ruby
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-  test:
-    name: Run Tests
+  tests:
+    name: Tests
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:11
+        env:
+          POSTGRES_DB: rails_github_actions_test
+          POSTGRES_USER: rails_github_actions
+          POSTGRES_PASSWORD: postgres
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
-      - name: Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set Up Ruby
+      - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7.5
+          bundler-cache: true
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: |
-          gem install bundler
+          sudo apt-get update && sudo apt-get -yqq install libpq-dev build-essential libcurl4-openssl-dev
           bundle install --jobs 4 --retry 3
 
-      - name: Set Up Database
-        run: |
-          bundle exec rails db:create
-          bundle exec rails db:migrate
-
       - name: Run Tests
-        run: bundle exec rspec
+        env:
+          RAILS_ENV: test
+          PGHOST: localhost
+          POSTGRES_DB: rails_github_actions_test
+          POSTGRES_USER: rails_github_actions
+          POSTGRES_PASSWORD: postgres
+        run: |
+          cp config/database.ci.yml config/database.yml
+          bundle exec rails db:schema:load
+          bundle exec rspec --format progress
