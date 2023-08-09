@@ -23,7 +23,8 @@ export default {
   },
   computed: {
     styleIcon() {
-      const svgUrl = `http://goals.perene.tech/public/icons/svg/${this.iconName}.svg`;
+      const baseURL = import.meta.env.VITE_PG_FE
+      const svgUrl = `${baseURL}/${this.iconName}.svg`;
 
       return {
         mask: `url(${svgUrl}) no-repeat 50% 50%`,
