@@ -82,8 +82,9 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
   
-
-
-  # Devise
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # Devise local
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  
+  # Devise production
+  config.action_mailer.default_url_options = { host: '89.116.214.173' }
 end
