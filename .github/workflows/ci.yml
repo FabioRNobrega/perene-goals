@@ -1,4 +1,4 @@
-name: CI/CD
+name: CI Tests
 
 on:
   push:
@@ -6,41 +6,28 @@ on:
       - main
 
 jobs:
-  build:
+  test:
+    name: Run Tests
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Code
+        uses: actions/checkout@v2
 
-      - name: Set up Ruby
+      - name: Set Up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7.5
 
-      - name: Install dependencies
-        run: bundle config set --local path ./pg-core
-
-      - name: Build Docker image
-        run: docker build --file pg-core/Dockerfile .
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Set up SSH
-        uses: easingthemes/ssh-deploy@v4.1.8
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-rlgoDzvc -i --delete"
-          SOURCE: "./page-core"
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: ${{ secrets.REMOTE_TARGET }}
-
-      - name: Deploy to production
+      - name: Install Dependencies
         run: |
-          ssh-deploy "docker run -d -p 3000:3000 -p 5432:5432 pg-core"
-          echo "Deployed to production!"
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+
+      - name: Set Up Database
+        run: |
+          bundle exec rails db:create
+          bundle exec rails db:migrate
+
+      - name: Run Tests
+        run: bundle exec rspec
