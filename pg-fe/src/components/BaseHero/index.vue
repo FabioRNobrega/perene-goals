@@ -1,6 +1,6 @@
 <template>
     <div class="banner">
-    <img class="banner__image" src="../../../public/banners/banner.png">
+    <img class="banner__image" src="/banners/banner.png">
     <div class="banner__overlay">
         <div class="banner__overlay--text">
         <h2 class="banner__overlay--text-quote">

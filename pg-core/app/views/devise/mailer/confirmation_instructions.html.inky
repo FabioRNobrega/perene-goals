@@ -8,7 +8,7 @@
         <spacer size="5"></spacer>
         <p><%= link_to 'Confirm Account', confirmation_url(@resource, confirmation_token: @token), class: "button" %><p>
         <spacer size="20"></spacer>
-        <p> ❤️ 🤖 ❤️ </p>
+        <p> ❤️ 🏆 ❤️ </p>
     </center>
   </columns>
 </row>
