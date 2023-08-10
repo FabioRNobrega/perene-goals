@@ -15,8 +15,8 @@
     </div>
 
     <h1 class="base-title title-space" style="margin-bottom: 0;"> My Goals List</h1>  
-    <BaseButton v-if="myGoalsList == []" @click="handleCreateGoalList" :light="true" icon="plus" content="SET YOUR FIRST GOAL LIST" />
-    <div class="base-list-display"> 
+    <BaseButton v-if="firstLogin" @click="handleCreateGoalList" :light="true" icon="plus" content="SET YOUR FIRST GOAL LIST" />
+    <div v-else class="base-list-display"> 
       <BaseCard v-for="goalList in myGoalsList" :key="goalList.title" >
         <template v-slot:header>
           <div class="goals-list__header"> 
@@ -136,7 +136,8 @@ export default {
       showDeleteGoalListModal: false,
       showClonePublicListModal: false,
       failsToClone: false,
-      failsToCloneMessage: ""
+      failsToCloneMessage: "",
+      firstLogin: false
     }
   },
   created() {
@@ -149,6 +150,8 @@ export default {
       if(this.userAuth != null) {
         this.getMyGoalsLists()
       }
+
+      this.firstLogin = true
 
       try {
         const { data } = await goalsListPublic(this.page)
@@ -171,6 +174,14 @@ export default {
           this.userAuth['uid']
         )
         this.myGoalsList = data
+        if(data.goals_lists) {
+          this.firstLogin = true
+        } else if (data.length === 0){
+          this.firstLogin = true
+        } else {
+          this.firstLogin = false
+        }
+
       } catch(error) {
         console.error(error)
       }

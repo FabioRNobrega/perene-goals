@@ -50,11 +50,25 @@ export function forgetPassword (data) {
   })
 }
 
+export function resetPassword (data, access_token, client, uid) {
+  return request({
+    url: `/auth/password`,
+    method: 'put',
+    data: data,
+    headers: {
+      'access-token': access_token,
+      'uid': uid,
+      'client': client
+  }
+  })
+}
+
 
 export default {
     signIn,
     createAccount,
     updateAccount,
     forgetPassword,
-    signOut
+    signOut,
+    resetPassword
   }

@@ -87,7 +87,7 @@ export default {
         text-align: justify
         line-height: 1.5em
         font-size: 16px 
-        font-weight: lighter
+        font-weight: normal
         @include tablets-and-up 
           margin: 20px 30px 20px 5px 
 

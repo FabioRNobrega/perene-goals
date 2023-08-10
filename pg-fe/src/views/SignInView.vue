@@ -9,6 +9,7 @@
   </TopNavbar>
 
   <main class="base-container">
+    <BaseMessage  icon="warning" :content="errorMessage" :error="true" :visibility="failsToResetPassword" @hide="failsToResetPassword = false"/>
     <BaseCard>
       <template v-slot:header>
         <h3 class="title"> Sign In</h3>
@@ -55,6 +56,8 @@ import BaseInput from '../components/BaseInput/index.vue'
 import BaseButton from '../components/BaseButton/index.vue'
 import BaseLink from '../components/BaseLink/index.vue'
 import SVGIcon from '../components/SVGIcon/index.vue'
+import BaseMessage from '../components/BaseMessage/index.vue'
+
 
 import { signIn, forgetPassword } from '../api/account'
 
@@ -67,18 +70,22 @@ export default {
     BaseInput,
     BaseButton,
     BaseLink,
-    SVGIcon
+    SVGIcon,
+    BaseMessage
   },
   data () {
     return {
       email: "",
       password: "",
       forgotPassword: false,
-      successSendForgetPassword: false
+      successSendForgetPassword: false,
+      failsToSignIn: false,
+      errorMessage: ""
     }
   },
   methods: {
     async handleSignIn() {
+      this.failsToSignIn = false
       try {
         const response = await signIn(
           {
@@ -93,15 +100,18 @@ export default {
         localStorage.setItem('user-profile', JSON.stringify({ 'name': name, 'email': email, 'first_login': first_login }))
         this.$router.push('/')
       } catch (error) {
-        console.error(error)
+        this.errorMessage = error
+        this.failsToResetPassword = true
       }
     },
     async handleForgotPassword() {
+      this.failsToSignIn = false
       try {
         forgetPassword({ email: this.email})
         this.successSendForgetPassword = true
       } catch(error) {
-        console.error(error)
+        this.errorMessage = error
+        this.failsToResetPassword = true
       }
     },
     toggleForgetPassword() {

@@ -157,7 +157,7 @@ export default {
       padding: 15px
 
       &-quote 
-        font-weight: lighter
+        font-weight: normal
         font-size: 28px
         font-family: var(--font-family-base)
         

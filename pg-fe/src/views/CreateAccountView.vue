@@ -8,16 +8,17 @@
     </template>
   </TopNavbar>
   <main class="base-container">
+    <BaseMessage  icon="warning" :content="errorMessage" :error="true" :visibility="failsToCreateAccount" @hide="failsToCreateAccount = false"/>
     <BaseCard>
       <template v-slot:header>
         <h3 class="title"> Create Account </h3>
       </template>
       <template v-slot:row>
-        <div v-if="success"> 
-          <p class="footer">
-            Thanks for the subscription, access your email <strong> {{ email }} </strong> and confirm account.
+        <div v-if="success" style="text-align: center;"> 
+          <p >
+            Thanks for the subscription, access your email <strong class="link"> {{ email }} </strong> and confirm account.
           </p>
-          <p class="footer">
+          <p>
             To start achieving your goals today.
           </p>
         </div>
@@ -26,7 +27,7 @@
           <BaseInput :value="email" @update:value="email = $event" type="email" name="email" placeholder="Email" />
           <BaseInput :value="password" @update:value="password = $event" type="password" name="password" placeholder="Password" :password-light="true"/>
           <BaseButton @click="handleCreateAccount" :light="true" icon="next" content="Create Account" />
-          <p class="footer">
+          <p style="text-align: center;">
             Our just <BaseLink pathName="/login" content="Sign In"/> to start achieving your goals.
           </p> 
         </div>
@@ -44,6 +45,7 @@ import BaseInput from '../components/BaseInput/index.vue'
 import BaseButton from '../components/BaseButton/index.vue'
 import BaseLink from '../components/BaseLink/index.vue'
 import SVGIcon from '../components/SVGIcon/index.vue'
+import BaseMessage from '../components/BaseMessage/index.vue'
 
 
 import { createAccount } from '../api/account'
@@ -57,14 +59,17 @@ export default {
     BottomNavbar,
     BaseInput,
     BaseButton,
-    BaseLink
+    BaseLink,
+    BaseMessage,
   },
   data () {
     return {
       success: false,
       name: "",
       email: "",
-      password: ""
+      password: "",
+      failsToSignIn: false,
+      errorMessage: ""
     }
   },
   methods: {
@@ -79,10 +84,18 @@ export default {
           }
         )
         if (data.status == 'success') {
+          this.failsToCreateAccount = false
           return this.success = true
         }
       } catch (error) {
-        console.error(error)
+        console.log(error.response.data)
+        if (error.response && error.response.data && error.response.data.errors) {
+          this.errorMessage = error.response.data.errors.full_messages[0]
+          this.failsToCreateAccount = true
+        } else {
+          this.errorMessage = error
+          this.failsToCreateAccount = true
+        }
       }
     },
     handleBottomNavbarClick() {
@@ -104,8 +117,8 @@ export default {
   font-size: 35px
   color: var(--neutral-color-lighter) 
 
-.footer
-  color: var(--neutral-color-light)
-  font-family: var(--font-family-base)
-  text-align: center
+.link 
+  font-family: var(--font-family-title)
+  font-weight: bold
+  color: var(--primary)
 </style>
