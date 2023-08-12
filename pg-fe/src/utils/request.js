@@ -1,8 +1,8 @@
 import axios from 'axios'
 
 const service = axios.create({
-  baseURL: import.meta.env.VITE_PG_CORE ,
-  timeout: 5000
+  baseURL: import.meta.env.VITE_PG_CORE,
+  timeout: 50000
 })
 
 service.interceptors.request.use(
