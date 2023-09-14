@@ -1,6 +1,6 @@
 class CreateGoalsListVotes < ActiveRecord::Migration[6.1]
   def change
-    unless table_exists?
+    unless table_exists?(:goals_list_votes)
       create_table :goals_list_votes do |t|
         t.references :goals_list, null: false, foreign_key: true
         t.integer :votes_up
